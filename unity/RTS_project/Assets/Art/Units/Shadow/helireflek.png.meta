@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: b24f3d4af6cb57449aa7bd17d4e558f0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2678209338086802566
+    second: helireflek_0
+  - first:
+      213: -678206374956357032
+    second: helireflek_1
+  - first:
+      213: -8583654101323428937
+    second: helireflek_2
+  - first:
+      213: -947240101165699037
+    second: helireflek_3
+  - first:
+      213: 2939464071960007780
+    second: helireflek_4
+  - first:
+      213: 1556791909296288903
+    second: helireflek_5
+  - first:
+      213: -2862975392040661492
+    second: helireflek_6
+  - first:
+      213: 2765694448405386190
+    second: helireflek_7
+  - first:
+      213: -5056882560241342045
+    second: helireflek_8
+  - first:
+      213: -906109196214392206
+    second: helireflek_9
+  - first:
+      213: 1256759459716075886
+    second: helireflek_10
+  - first:
+      213: -2526185689446562257
+    second: helireflek_11
+  - first:
+      213: -420013727343258520
+    second: helireflek_12
+  - first:
+      213: 7769903284776828087
+    second: helireflek_13
+  - first:
+      213: 3364684295668241931
+    second: helireflek_14
+  - first:
+      213: -6135428372637418970
+    second: helireflek_15
+  - first:
+      213: 4467616205387876443
+    second: helireflek_16
+  - first:
+      213: 6620936057201390976
+    second: helireflek_17
+  - first:
+      213: -3789561639810116119
+    second: helireflek_18
+  - first:
+      213: -397582523594174172
+    second: helireflek_19
+  - first:
+      213: -4154238519752121068
+    second: helireflek_20
+  - first:
+      213: -6832024014037612866
+    second: helireflek_21
+  - first:
+      213: 6548806070634069661
+    second: helireflek_22
+  - first:
+      213: 7667246151790092016
+    second: helireflek_23
+  - first:
+      213: 8547035810638585987
+    second: helireflek_24
+  - first:
+      213: 7895996571074868091
+    second: helireflek_25
+  - first:
+      213: 8048152476905240497
+    second: helireflek_26
+  - first:
+      213: -8079614914319446604
+    second: helireflek_27
+  - first:
+      213: 2523184954764663436
+    second: helireflek_28
+  - first:
+      213: 3979991569584815110
+    second: helireflek_29
+  - first:
+      213: -6372638533296465454
+    second: helireflek_30
+  - first:
+      213: 6099813521184040123
+    second: helireflek_31
+  - first:
+      213: 5724011578926648309
+    second: helireflek_32
+  - first:
+      213: -6380867566637042528
+    second: helireflek_33
+  - first:
+      213: 4210686664522759159
+    second: helireflek_34
+  - first:
+      213: 5424630548923346255
+    second: helireflek_35
+  - first:
+      213: 401892689135242112
+    second: helireflek_36
+  - first:
+      213: 2060554829344635503
+    second: helireflek_37
+  - first:
+      213: 2300295415363936067
+    second: helireflek_38
+  - first:
+      213: 2619938398685557777
+    second: helireflek_39
+  - first:
+      213: -1783767218685060186
+    second: helireflek_40
+  - first:
+      213: -4855585217193312706
+    second: helireflek_41
+  - first:
+      213: 1906951691616140755
+    second: helireflek_42
+  - first:
+      213: 7355040323240907925
+    second: helireflek_43
+  - first:
+      213: 5669489342311453519
+    second: helireflek_44
+  - first:
+      213: 4550171094033156507
+    second: helireflek_45
+  - first:
+      213: 1856193440175368221
+    second: helireflek_46
+  - first:
+      213: -5230751809739581991
+    second: helireflek_47
+  - first:
+      213: 8301195661087494957
+    second: helireflek_48
+  - first:
+      213: 8156809281607274665
+    second: helireflek_49
+  - first:
+      213: 457891058454535422
+    second: helireflek_50
+  - first:
+      213: 8821751329440477872
+    second: helireflek_51
+  - first:
+      213: -2940298275486651805
+    second: helireflek_52
+  - first:
+      213: -3259055861528273727
+    second: helireflek_53
+  - first:
+      213: -4250053342632604225
+    second: helireflek_54
+  - first:
+      213: -2329603064450921960
+    second: helireflek_55
+  - first:
+      213: 2471113226765075652
+    second: helireflek_56
+  - first:
+      213: 5562066310863424894
+    second: helireflek_57
+  - first:
+      213: 9019406714200734098
+    second: helireflek_58
+  - first:
+      213: -8224920442004359553
+    second: helireflek_59
+  - first:
+      213: 1459462657069029625
+    second: helireflek_60
+  - first:
+      213: 3028486819737571777
+    second: helireflek_61
+  - first:
+      213: 7178174475750272232
+    second: helireflek_62
+  - first:
+      213: 566828083898907280
+    second: helireflek_63
+  - first:
+      213: 3738998993817461551
+    second: helireflek_64
+  - first:
+      213: 9052250105618435746
+    second: helireflek_65
+  - first:
+      213: -4048788677246323716
+    second: helireflek_66
+  - first:
+      213: -4166937552660500245
+    second: helireflek_67
+  - first:
+      213: -4239949767310776766
+    second: helireflek_68
+  - first:
+      213: 1634746886181190468
+    second: helireflek_69
+  - first:
+      213: 8909731157436003317
+    second: helireflek_70
+  - first:
+      213: 3961284949308005827
+    second: helireflek_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: helireflek_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7bb339fbc615dad0800000000000000
+      internalID: -2678209338086802566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a225035e68696f0800000000000000
+      internalID: -678206374956357032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_2
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bbcacfa21cb0e880800000000000000
+      internalID: -8583654101323428937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_3
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320730d852abad2f0800000000000000
+      internalID: -947240101165699037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_4
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464133fdff21bc820800000000000000
+      internalID: 2939464071960007780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_5
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 784bec64ef5da9510800000000000000
+      internalID: 1556791909296288903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_6
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e4bb4bc0ba448d0800000000000000
+      internalID: -2862975392040661492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_7
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 2
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec319729278b16620800000000000000
+      internalID: 2765694448405386190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_8
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 2
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a962fd9a1852d9b0800000000000000
+      internalID: -5056882560241342045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_9
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 2
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27a2def9c7adc63f0800000000000000
+      internalID: -906109196214392206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_10
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 3
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e611d7ce118e07110800000000000000
+      internalID: 1256759459716075886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_11
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 3
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26ccdfef7f21fcd0800000000000000
+      internalID: -2526185689446562257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_12
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 4
+        width: 37
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864dae48dbfcb2af0800000000000000
+      internalID: -420013727343258520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_13
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 5
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bc734ceedd34db60800000000000000
+      internalID: 7769903284776828087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_14
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 5
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0614a04a82c1be20800000000000000
+      internalID: 3364684295668241931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_15
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 6
+        width: 40
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62af718e6649adaa0800000000000000
+      internalID: -6135428372637418970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_16
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 7
+        width: 41
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b584ce2b449200e30800000000000000
+      internalID: 4467616205387876443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_17
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 7
+        width: 41
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 085701ac34a42eb50800000000000000
+      internalID: 6620936057201390976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_18
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 8
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5dbac34c5c86bc0800000000000000
+      internalID: -3789561639810116119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_19
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 8
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42114402dc08b7af0800000000000000
+      internalID: -397582523594174172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_20
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 9
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4152eed831e2956c0800000000000000
+      internalID: -4154238519752121068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_21
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 9
+        width: 40
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb6895a5b56cf21a0800000000000000
+      internalID: -6832024014037612866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_22
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 8
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9eb0179c6802ea50800000000000000
+      internalID: 6548806070634069661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_23
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 8
+        width: 38
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fedde290c7876a60800000000000000
+      internalID: 7667246151790092016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_24
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 9
+        width: 37
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 380e7af19cb2d9670800000000000000
+      internalID: 8547035810638585987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_25
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 9
+        width: 35
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73be9eeb07349d60800000000000000
+      internalID: 7895996571074868091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_26
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 9
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b7fd1c6908c0bf60800000000000000
+      internalID: 8048152476905240497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_27
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 9
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd8a060b017fdf80800000000000000
+      internalID: -8079614914319446604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_28
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 9
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a9b531957240320800000000000000
+      internalID: 2523184954764663436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_29
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 9
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60cf622ee35cb3730800000000000000
+      internalID: 3979991569584815110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_30
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 9
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d9d5e48407df87a0800000000000000
+      internalID: -6372638533296465454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_31
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 9
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4ac4e4414e6a450800000000000000
+      internalID: 6099813521184040123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_32
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 9
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fb45243436cf6f40800000000000000
+      internalID: 5724011578926648309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_33
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 9
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a4b9c361ca9277a0800000000000000
+      internalID: -6380867566637042528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_34
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 9
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fb7a53563d5f6a30800000000000000
+      internalID: 4210686664522759159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_35
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 9
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4dee4a4eb8284b40800000000000000
+      internalID: 5424630548923346255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_36
+      rect:
+        serializedVersion: 2
+        x: 1963
+        y: 9
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b8bbd754fc39500800000000000000
+      internalID: 401892689135242112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_37
+      rect:
+        serializedVersion: 2
+        x: 2017
+        y: 9
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6a7d4333bf889c10800000000000000
+      internalID: 2060554829344635503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_38
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 9
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34f1a372e7a4cef10800000000000000
+      internalID: 2300295415363936067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_39
+      rect:
+        serializedVersion: 2
+        x: 2126
+        y: 9
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114fe03b714eb5420800000000000000
+      internalID: 2619938398685557777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_40
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 9
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab5a485a29ce37e0800000000000000
+      internalID: -1783767218685060186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_41
+      rect:
+        serializedVersion: 2
+        x: 2234
+        y: 9
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3efd8098fe7d9cb0800000000000000
+      internalID: -4855585217193312706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_42
+      rect:
+        serializedVersion: 2
+        x: 2287
+        y: 8
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dd3c96c57ad67a10800000000000000
+      internalID: 1906951691616140755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_43
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 9
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 594d27f843a521660800000000000000
+      internalID: 7355040323240907925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_44
+      rect:
+        serializedVersion: 2
+        x: 2394
+        y: 9
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f435652c4821eae40800000000000000
+      internalID: 5669489342311453519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_45
+      rect:
+        serializedVersion: 2
+        x: 2447
+        y: 8
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b99c81f8084752f30800000000000000
+      internalID: 4550171094033156507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_46
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 9
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d18201c691682c910800000000000000
+      internalID: 1856193440175368221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_47
+      rect:
+        serializedVersion: 2
+        x: 2554
+        y: 9
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d59d3851f2a867b0800000000000000
+      internalID: -5230751809739581991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_48
+      rect:
+        serializedVersion: 2
+        x: 2607
+        y: 8
+        width: 37
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d23522ed875c33370800000000000000
+      internalID: 8301195661087494957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_49
+      rect:
+        serializedVersion: 2
+        x: 2661
+        y: 8
+        width: 38
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a09fc233dec23170800000000000000
+      internalID: 8156809281607274665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_50
+      rect:
+        serializedVersion: 2
+        x: 2714
+        y: 8
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc920ddd71ca5600800000000000000
+      internalID: 457891058454535422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_51
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 8
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b2312038182d6a70800000000000000
+      internalID: 8821751329440477872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_52
+      rect:
+        serializedVersion: 2
+        x: 2822
+        y: 8
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36aacebfb46f137d0800000000000000
+      internalID: -2940298275486651805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_53
+      rect:
+        serializedVersion: 2
+        x: 2876
+        y: 8
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ccd37e06f185c2d0800000000000000
+      internalID: -3259055861528273727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_54
+      rect:
+        serializedVersion: 2
+        x: 2930
+        y: 8
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd0ceba007c405c0800000000000000
+      internalID: -4250053342632604225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_55
+      rect:
+        serializedVersion: 2
+        x: 2984
+        y: 7
+        width: 41
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81acdbb0b569bafd0800000000000000
+      internalID: -2329603064450921960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_56
+      rect:
+        serializedVersion: 2
+        x: 3038
+        y: 7
+        width: 41
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c40a1123682b4220800000000000000
+      internalID: 2471113226765075652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_57
+      rect:
+        serializedVersion: 2
+        x: 3092
+        y: 6
+        width: 40
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d8e2437dd603d40800000000000000
+      internalID: 5562066310863424894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_58
+      rect:
+        serializedVersion: 2
+        x: 3146
+        y: 6
+        width: 40
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29935b4ae9e5b2d70800000000000000
+      internalID: 9019406714200734098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_59
+      rect:
+        serializedVersion: 2
+        x: 3201
+        y: 5
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f763b7c7f663bdd80800000000000000
+      internalID: -8224920442004359553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_60
+      rect:
+        serializedVersion: 2
+        x: 3255
+        y: 4
+        width: 37
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f81c85dd8d014410800000000000000
+      internalID: 1459462657069029625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_61
+      rect:
+        serializedVersion: 2
+        x: 3310
+        y: 4
+        width: 35
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1196987b8570a20800000000000000
+      internalID: 3028486819737571777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_62
+      rect:
+        serializedVersion: 2
+        x: 3364
+        y: 3
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eceed277affd9360800000000000000
+      internalID: 7178174475750272232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_63
+      rect:
+        serializedVersion: 2
+        x: 3419
+        y: 3
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a728d9327cdd700800000000000000
+      internalID: 566828083898907280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_64
+      rect:
+        serializedVersion: 2
+        x: 3473
+        y: 2
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f23680a56c793e330800000000000000
+      internalID: 3738998993817461551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_65
+      rect:
+        serializedVersion: 2
+        x: 3528
+        y: 2
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae016b928d00ad70800000000000000
+      internalID: 9052250105618435746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_66
+      rect:
+        serializedVersion: 2
+        x: 3583
+        y: 1
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf3fb124620dfc7c0800000000000000
+      internalID: -4048788677246323716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_67
+      rect:
+        serializedVersion: 2
+        x: 3638
+        y: 1
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be07f6c8f501c26c0800000000000000
+      internalID: -4166937552660500245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_68
+      rect:
+        serializedVersion: 2
+        x: 3692
+        y: 0
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 246e0fd962ca825c0800000000000000
+      internalID: -4239949767310776766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_69
+      rect:
+        serializedVersion: 2
+        x: 3746
+        y: 0
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b7188b1a9cfa610800000000000000
+      internalID: 1634746886181190468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_70
+      rect:
+        serializedVersion: 2
+        x: 3799
+        y: 0
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3f33b2849b5ab70800000000000000
+      internalID: 8909731157436003317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helireflek_71
+      rect:
+        serializedVersion: 2
+        x: 3853
+        y: 0
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cdda917caf49f630800000000000000
+      internalID: 3961284949308005827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      helireflek_0: -2678209338086802566
+      helireflek_1: -678206374956357032
+      helireflek_10: 1256759459716075886
+      helireflek_11: -2526185689446562257
+      helireflek_12: -420013727343258520
+      helireflek_13: 7769903284776828087
+      helireflek_14: 3364684295668241931
+      helireflek_15: -6135428372637418970
+      helireflek_16: 4467616205387876443
+      helireflek_17: 6620936057201390976
+      helireflek_18: -3789561639810116119
+      helireflek_19: -397582523594174172
+      helireflek_2: -8583654101323428937
+      helireflek_20: -4154238519752121068
+      helireflek_21: -6832024014037612866
+      helireflek_22: 6548806070634069661
+      helireflek_23: 7667246151790092016
+      helireflek_24: 8547035810638585987
+      helireflek_25: 7895996571074868091
+      helireflek_26: 8048152476905240497
+      helireflek_27: -8079614914319446604
+      helireflek_28: 2523184954764663436
+      helireflek_29: 3979991569584815110
+      helireflek_3: -947240101165699037
+      helireflek_30: -6372638533296465454
+      helireflek_31: 6099813521184040123
+      helireflek_32: 5724011578926648309
+      helireflek_33: -6380867566637042528
+      helireflek_34: 4210686664522759159
+      helireflek_35: 5424630548923346255
+      helireflek_36: 401892689135242112
+      helireflek_37: 2060554829344635503
+      helireflek_38: 2300295415363936067
+      helireflek_39: 2619938398685557777
+      helireflek_4: 2939464071960007780
+      helireflek_40: -1783767218685060186
+      helireflek_41: -4855585217193312706
+      helireflek_42: 1906951691616140755
+      helireflek_43: 7355040323240907925
+      helireflek_44: 5669489342311453519
+      helireflek_45: 4550171094033156507
+      helireflek_46: 1856193440175368221
+      helireflek_47: -5230751809739581991
+      helireflek_48: 8301195661087494957
+      helireflek_49: 8156809281607274665
+      helireflek_5: 1556791909296288903
+      helireflek_50: 457891058454535422
+      helireflek_51: 8821751329440477872
+      helireflek_52: -2940298275486651805
+      helireflek_53: -3259055861528273727
+      helireflek_54: -4250053342632604225
+      helireflek_55: -2329603064450921960
+      helireflek_56: 2471113226765075652
+      helireflek_57: 5562066310863424894
+      helireflek_58: 9019406714200734098
+      helireflek_59: -8224920442004359553
+      helireflek_6: -2862975392040661492
+      helireflek_60: 1459462657069029625
+      helireflek_61: 3028486819737571777
+      helireflek_62: 7178174475750272232
+      helireflek_63: 566828083898907280
+      helireflek_64: 3738998993817461551
+      helireflek_65: 9052250105618435746
+      helireflek_66: -4048788677246323716
+      helireflek_67: -4166937552660500245
+      helireflek_68: -4239949767310776766
+      helireflek_69: 1634746886181190468
+      helireflek_7: 2765694448405386190
+      helireflek_70: 8909731157436003317
+      helireflek_71: 3961284949308005827
+      helireflek_8: -5056882560241342045
+      helireflek_9: -906109196214392206
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

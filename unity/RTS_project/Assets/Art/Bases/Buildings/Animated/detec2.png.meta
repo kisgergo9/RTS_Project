@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: c94dbd413f2793c4ab5ed20903d5d708
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7354360089280849159
+    second: detec2_0
+  - first:
+      213: 8453232877397245391
+    second: detec2_1
+  - first:
+      213: 7190501619046233634
+    second: detec2_2
+  - first:
+      213: -1362166310817066941
+    second: detec2_3
+  - first:
+      213: 212838294204952637
+    second: detec2_4
+  - first:
+      213: 1696725970499676500
+    second: detec2_5
+  - first:
+      213: -5485948724372115610
+    second: detec2_6
+  - first:
+      213: -776812344357722914
+    second: detec2_7
+  - first:
+      213: 2016668113245356304
+    second: detec2_8
+  - first:
+      213: 1746100041873491444
+    second: detec2_9
+  - first:
+      213: -7502796403559085861
+    second: detec2_10
+  - first:
+      213: -1886586539850408959
+    second: detec2_11
+  - first:
+      213: 1686496479963858240
+    second: detec2_12
+  - first:
+      213: 4398203044125243410
+    second: detec2_13
+  - first:
+      213: 8577472829886533228
+    second: detec2_14
+  - first:
+      213: -9168691203995770638
+    second: detec2_15
+  - first:
+      213: -211015705345917667
+    second: detec2_16
+  - first:
+      213: 7481751341515477826
+    second: detec2_17
+  - first:
+      213: 531240813401670233
+    second: detec2_18
+  - first:
+      213: 9193119529304112049
+    second: detec2_19
+  - first:
+      213: 7718989830857038256
+    second: detec2_20
+  - first:
+      213: -5073382915518290294
+    second: detec2_21
+  - first:
+      213: -9020154730730419809
+    second: detec2_22
+  - first:
+      213: 2770985682749275839
+    second: detec2_23
+  - first:
+      213: 2623210238503793098
+    second: detec2_24
+  - first:
+      213: -4474818336595794097
+    second: detec2_25
+  - first:
+      213: 869925184070896643
+    second: detec2_26
+  - first:
+      213: -7661907287000145759
+    second: detec2_27
+  - first:
+      213: -1822654552577410225
+    second: detec2_28
+  - first:
+      213: -5145343364741450567
+    second: detec2_29
+  - first:
+      213: -5168845233932780165
+    second: detec2_30
+  - first:
+      213: -3599686962518830922
+    second: detec2_31
+  - first:
+      213: 5702299831433177417
+    second: detec2_32
+  - first:
+      213: 6104506494348640149
+    second: detec2_33
+  - first:
+      213: 1210026052999947389
+    second: detec2_34
+  - first:
+      213: 2354580209081168791
+    second: detec2_35
+  - first:
+      213: 287587290970048259
+    second: detec2_36
+  - first:
+      213: 4909609390532205647
+    second: detec2_37
+  - first:
+      213: -1830066334802985815
+    second: detec2_38
+  - first:
+      213: -518629856619850609
+    second: detec2_39
+  - first:
+      213: -7969743051265648085
+    second: detec2_40
+  - first:
+      213: -496553766591833159
+    second: detec2_41
+  - first:
+      213: -5568625211494042323
+    second: detec2_42
+  - first:
+      213: 7439921009089671262
+    second: detec2_43
+  - first:
+      213: -8296711735821312864
+    second: detec2_44
+  - first:
+      213: -1099288815980585098
+    second: detec2_45
+  - first:
+      213: -615835090800348241
+    second: detec2_46
+  - first:
+      213: -1703889794553551481
+    second: detec2_47
+  - first:
+      213: 3790160412671146286
+    second: detec2_48
+  - first:
+      213: -4127108775143805801
+    second: detec2_49
+  - first:
+      213: -577073836568415941
+    second: detec2_50
+  - first:
+      213: -1986704335321313397
+    second: detec2_51
+  - first:
+      213: -28426568279472408
+    second: detec2_52
+  - first:
+      213: -188482820719455563
+    second: detec2_53
+  - first:
+      213: -3216997579504650819
+    second: detec2_54
+  - first:
+      213: -2603007355663505459
+    second: detec2_55
+  - first:
+      213: -5728625191587690132
+    second: detec2_56
+  - first:
+      213: 7906657718188557058
+    second: detec2_57
+  - first:
+      213: 7720767968324440334
+    second: detec2_58
+  - first:
+      213: 606187230551167014
+    second: detec2_59
+  - first:
+      213: 2862521949843769239
+    second: detec2_60
+  - first:
+      213: 6437097323894249222
+    second: detec2_61
+  - first:
+      213: 417155905934638001
+    second: detec2_62
+  - first:
+      213: 6819263254766055437
+    second: detec2_63
+  - first:
+      213: 4254155629193581887
+    second: detec2_64
+  - first:
+      213: -173715035871499225
+    second: detec2_65
+  - first:
+      213: -7886512259883418113
+    second: detec2_66
+  - first:
+      213: 2017305990269814324
+    second: detec2_67
+  - first:
+      213: 5291738173589958667
+    second: detec2_68
+  - first:
+      213: -3404311239053750006
+    second: detec2_69
+  - first:
+      213: 4499236045247539434
+    second: detec2_70
+  - first:
+      213: 6625913358426628156
+    second: detec2_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: detec2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70525ef398fef0660800000000000000
+      internalID: 7354360089280849159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd7aecc38aef4570800000000000000
+      internalID: 8453232877397245391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_2
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 0
+        width: 43
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2263f18202bc9c360800000000000000
+      internalID: 7190501619046233634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_3
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3409eb615fc981de0800000000000000
+      internalID: -1362166310817066941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_4
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30bfa80d4724f200800000000000000
+      internalID: 212838294204952637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_5
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45920d0d74bfb8710800000000000000
+      internalID: 1696725970499676500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_6
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 0
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66feac373befdd3b0800000000000000
+      internalID: -5485948724372115610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_7
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 0
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed46b6dd9453835f0800000000000000
+      internalID: -776812344357722914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_8
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 0
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011c8d7d6f4acfb10800000000000000
+      internalID: 2016668113245356304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_9
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 0
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f50a22acb46b3810800000000000000
+      internalID: 1746100041873491444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_10
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 0
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd848c72c66b0e790800000000000000
+      internalID: -7502796403559085861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_11
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 0
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10cde2e998f71d5e0800000000000000
+      internalID: -1886586539850408959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_12
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 0
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0454133fc93a76710800000000000000
+      internalID: 1686496479963858240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_13
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 0
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 218702fad5e890d30800000000000000
+      internalID: 4398203044125243410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_14
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6e83f7e71e490770800000000000000
+      internalID: 8577472829886533228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_15
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 0
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f065928de342c080800000000000000
+      internalID: -9168691203995770638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_16
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 0
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1df3d08552521df0800000000000000
+      internalID: -211015705345917667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_17
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 0
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24315d0843584d760800000000000000
+      internalID: 7481751341515477826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_18
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 0
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9520ff484b85f5700800000000000000
+      internalID: 531240813401670233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_19
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 0
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbb0e13185849f70800000000000000
+      internalID: 9193119529304112049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_20
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 0
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9161daa5c5f1b60800000000000000
+      internalID: 7718989830857038256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_21
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 0
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a862ff64e19b799b0800000000000000
+      internalID: -5073382915518290294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_22
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 0
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9901cf2019f1d280800000000000000
+      internalID: -9020154730730419809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_23
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 0
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbeb6f11cc4847620800000000000000
+      internalID: 2770985682749275839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_24
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 0
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac1bf2540d3876420800000000000000
+      internalID: 2623210238503793098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_25
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 0
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f47adc47e6046e1c0800000000000000
+      internalID: -4474818336595794097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_26
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 0
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c46b98858921c00800000000000000
+      internalID: 869925184070896643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_27
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 0
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a02160caef6ba590800000000000000
+      internalID: -7661907287000145759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_28
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 0
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4bff5d5751a4b6e0800000000000000
+      internalID: -1822654552577410225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_29
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 0
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b43c2198711898b0800000000000000
+      internalID: -5145343364741450567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_30
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 0
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d377c35a29448b0800000000000000
+      internalID: -5168845233932780165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_31
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 0
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b0d57097c75b0ec0800000000000000
+      internalID: -3599686962518830922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_32
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 0
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949285f0c73a22f40800000000000000
+      internalID: 5702299831433177417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_33
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 0
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f37b4405097b450800000000000000
+      internalID: 6104506494348640149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_34
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 0
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d74a702c840eac010800000000000000
+      internalID: 1210026052999947389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_35
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 0
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 793b27d99362da020800000000000000
+      internalID: 2354580209081168791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_36
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 0
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 307cf201e17bdf300800000000000000
+      internalID: 287587290970048259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_37
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 0
+        width: 43
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c189c7abf622440800000000000000
+      internalID: 4909609390532205647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_38
+      rect:
+        serializedVersion: 2
+        x: 1751
+        y: 0
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9acbaa65d5c4a96e0800000000000000
+      internalID: -1830066334802985815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_39
+      rect:
+        serializedVersion: 2
+        x: 1798
+        y: 0
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f84134aa4e47dc8f0800000000000000
+      internalID: -518629856619850609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_40
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 0
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a5c2e9be8c56190800000000000000
+      internalID: -7969743051265648085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_41
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 0
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bb596aeaf2eb19f0800000000000000
+      internalID: -496553766591833159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_42
+      rect:
+        serializedVersion: 2
+        x: 1938
+        y: 0
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d25fc9dbfd448b2b0800000000000000
+      internalID: -5568625211494042323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_43
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 0
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5071c74db8ef3760800000000000000
+      internalID: 7439921009089671262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_44
+      rect:
+        serializedVersion: 2
+        x: 2032
+        y: 0
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac5e8652a82cdc80800000000000000
+      internalID: -8296711735821312864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_45
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 0
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67fdae965aa8eb0f0800000000000000
+      internalID: -1099288815980585098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_46
+      rect:
+        serializedVersion: 2
+        x: 2126
+        y: 0
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3ff9c6f3d1477f0800000000000000
+      internalID: -615835090800348241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_47
+      rect:
+        serializedVersion: 2
+        x: 2173
+        y: 0
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785e83b62419a58e0800000000000000
+      internalID: -1703889794553551481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_48
+      rect:
+        serializedVersion: 2
+        x: 2221
+        y: 0
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29f20f60da599430800000000000000
+      internalID: 3790160412671146286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_49
+      rect:
+        serializedVersion: 2
+        x: 2267
+        y: 0
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ce7247f6099b6c0800000000000000
+      internalID: -4127108775143805801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_50
+      rect:
+        serializedVersion: 2
+        x: 2313
+        y: 0
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b31fa223762ddf7f0800000000000000
+      internalID: -577073836568415941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_51
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 0
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8fc17bdeeecd64e0800000000000000
+      internalID: -1986704335321313397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_52
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 0
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e6c48fcf220b9ff0800000000000000
+      internalID: -28426568279472408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_53
+      rect:
+        serializedVersion: 2
+        x: 2451
+        y: 0
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b2d0c88fdf526df0800000000000000
+      internalID: -188482820719455563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_54
+      rect:
+        serializedVersion: 2
+        x: 2497
+        y: 0
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db5755eeebdea53d0800000000000000
+      internalID: -3216997579504650819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_55
+      rect:
+        serializedVersion: 2
+        x: 2543
+        y: 0
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc7a2f1f99240ebd0800000000000000
+      internalID: -2603007355663505459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_56
+      rect:
+        serializedVersion: 2
+        x: 2588
+        y: 0
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c69cf046db5df70b0800000000000000
+      internalID: -5728625191587690132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_57
+      rect:
+        serializedVersion: 2
+        x: 2632
+        y: 0
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 203ca3dad471abd60800000000000000
+      internalID: 7906657718188557058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_58
+      rect:
+        serializedVersion: 2
+        x: 2677
+        y: 0
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0151319f8da52b60800000000000000
+      internalID: 7720767968324440334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_59
+      rect:
+        serializedVersion: 2
+        x: 2721
+        y: 0
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6205160131c996800800000000000000
+      internalID: 606187230551167014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_60
+      rect:
+        serializedVersion: 2
+        x: 2766
+        y: 0
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 797423e0c88b9b720800000000000000
+      internalID: 2862521949843769239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_61
+      rect:
+        serializedVersion: 2
+        x: 2810
+        y: 0
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 607955f29e9255950800000000000000
+      internalID: 6437097323894249222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_62
+      rect:
+        serializedVersion: 2
+        x: 2855
+        y: 0
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbb03516190ac500800000000000000
+      internalID: 417155905934638001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_63
+      rect:
+        serializedVersion: 2
+        x: 2900
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d00743adcc3e2ae50800000000000000
+      internalID: 6819263254766055437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_64
+      rect:
+        serializedVersion: 2
+        x: 2945
+        y: 0
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35df49510cc90b30800000000000000
+      internalID: 4254155629193581887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_65
+      rect:
+        serializedVersion: 2
+        x: 2990
+        y: 0
+        width: 43
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c2cb26817d69df0800000000000000
+      internalID: -173715035871499225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_66
+      rect:
+        serializedVersion: 2
+        x: 3036
+        y: 0
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffdb2e852ea7d8290800000000000000
+      internalID: -7886512259883418113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_67
+      rect:
+        serializedVersion: 2
+        x: 3081
+        y: 0
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436cc492c19eefb10800000000000000
+      internalID: 2017305990269814324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_68
+      rect:
+        serializedVersion: 2
+        x: 3127
+        y: 0
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b00343105d7007940800000000000000
+      internalID: 5291738173589958667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_69
+      rect:
+        serializedVersion: 2
+        x: 3173
+        y: 0
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01d45307f471c0d0800000000000000
+      internalID: -3404311239053750006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_70
+      rect:
+        serializedVersion: 2
+        x: 3219
+        y: 0
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae8ec9d585f707e30800000000000000
+      internalID: 4499236045247539434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: detec2_71
+      rect:
+        serializedVersion: 2
+        x: 3265
+        y: 0
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30e8890819f3fb50800000000000000
+      internalID: 6625913358426628156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      detec2_0: 7354360089280849159
+      detec2_1: 8453232877397245391
+      detec2_10: -7502796403559085861
+      detec2_11: -1886586539850408959
+      detec2_12: 1686496479963858240
+      detec2_13: 4398203044125243410
+      detec2_14: 8577472829886533228
+      detec2_15: -9168691203995770638
+      detec2_16: -211015705345917667
+      detec2_17: 7481751341515477826
+      detec2_18: 531240813401670233
+      detec2_19: 9193119529304112049
+      detec2_2: 7190501619046233634
+      detec2_20: 7718989830857038256
+      detec2_21: -5073382915518290294
+      detec2_22: -9020154730730419809
+      detec2_23: 2770985682749275839
+      detec2_24: 2623210238503793098
+      detec2_25: -4474818336595794097
+      detec2_26: 869925184070896643
+      detec2_27: -7661907287000145759
+      detec2_28: -1822654552577410225
+      detec2_29: -5145343364741450567
+      detec2_3: -1362166310817066941
+      detec2_30: -5168845233932780165
+      detec2_31: -3599686962518830922
+      detec2_32: 5702299831433177417
+      detec2_33: 6104506494348640149
+      detec2_34: 1210026052999947389
+      detec2_35: 2354580209081168791
+      detec2_36: 287587290970048259
+      detec2_37: 4909609390532205647
+      detec2_38: -1830066334802985815
+      detec2_39: -518629856619850609
+      detec2_4: 212838294204952637
+      detec2_40: -7969743051265648085
+      detec2_41: -496553766591833159
+      detec2_42: -5568625211494042323
+      detec2_43: 7439921009089671262
+      detec2_44: -8296711735821312864
+      detec2_45: -1099288815980585098
+      detec2_46: -615835090800348241
+      detec2_47: -1703889794553551481
+      detec2_48: 3790160412671146286
+      detec2_49: -4127108775143805801
+      detec2_5: 1696725970499676500
+      detec2_50: -577073836568415941
+      detec2_51: -1986704335321313397
+      detec2_52: -28426568279472408
+      detec2_53: -188482820719455563
+      detec2_54: -3216997579504650819
+      detec2_55: -2603007355663505459
+      detec2_56: -5728625191587690132
+      detec2_57: 7906657718188557058
+      detec2_58: 7720767968324440334
+      detec2_59: 606187230551167014
+      detec2_6: -5485948724372115610
+      detec2_60: 2862521949843769239
+      detec2_61: 6437097323894249222
+      detec2_62: 417155905934638001
+      detec2_63: 6819263254766055437
+      detec2_64: 4254155629193581887
+      detec2_65: -173715035871499225
+      detec2_66: -7886512259883418113
+      detec2_67: 2017305990269814324
+      detec2_68: 5291738173589958667
+      detec2_69: -3404311239053750006
+      detec2_7: -776812344357722914
+      detec2_70: 4499236045247539434
+      detec2_71: 6625913358426628156
+      detec2_8: 2016668113245356304
+      detec2_9: 1746100041873491444
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

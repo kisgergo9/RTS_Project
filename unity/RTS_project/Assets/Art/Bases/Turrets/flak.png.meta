@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: 14422215205083647a23d51991ee85d4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3255897101563602938
+    second: flak_0
+  - first:
+      213: 1546440428325006664
+    second: flak_1
+  - first:
+      213: 3214927133571242991
+    second: flak_2
+  - first:
+      213: 4860959396763513039
+    second: flak_3
+  - first:
+      213: -605516454583523951
+    second: flak_4
+  - first:
+      213: -4684501901170320028
+    second: flak_5
+  - first:
+      213: -10753222212762762
+    second: flak_6
+  - first:
+      213: 1536514961877930976
+    second: flak_7
+  - first:
+      213: 5989004529429640618
+    second: flak_8
+  - first:
+      213: -1131924392660735009
+    second: flak_9
+  - first:
+      213: -7297633430522882179
+    second: flak_10
+  - first:
+      213: 4114333712243637046
+    second: flak_11
+  - first:
+      213: 6850603543991022500
+    second: flak_12
+  - first:
+      213: 3962691603546903057
+    second: flak_13
+  - first:
+      213: 8762002683146559704
+    second: flak_14
+  - first:
+      213: -2465541704925816465
+    second: flak_15
+  - first:
+      213: -6887552006167790737
+    second: flak_16
+  - first:
+      213: 9146111373343684318
+    second: flak_17
+  - first:
+      213: 9120703032472247695
+    second: flak_18
+  - first:
+      213: 1713228038134495249
+    second: flak_19
+  - first:
+      213: 5066556048802721105
+    second: flak_20
+  - first:
+      213: 9112128536205556788
+    second: flak_21
+  - first:
+      213: 7845865650094837019
+    second: flak_22
+  - first:
+      213: 6988317621032570270
+    second: flak_23
+  - first:
+      213: -6773137179466280104
+    second: flak_24
+  - first:
+      213: 890223139960073693
+    second: flak_25
+  - first:
+      213: 211840974427306438
+    second: flak_26
+  - first:
+      213: 6632089385038579640
+    second: flak_27
+  - first:
+      213: -3250462421835919244
+    second: flak_28
+  - first:
+      213: 8680937462048677703
+    second: flak_29
+  - first:
+      213: -4662201814926384749
+    second: flak_30
+  - first:
+      213: 2732239565212602609
+    second: flak_31
+  - first:
+      213: 1512020625326025054
+    second: flak_32
+  - first:
+      213: 6972241591056158662
+    second: flak_33
+  - first:
+      213: -3962292262639549036
+    second: flak_34
+  - first:
+      213: -7656138453588154794
+    second: flak_35
+  - first:
+      213: 2546862313677145504
+    second: flak_36
+  - first:
+      213: 3707746139754620142
+    second: flak_37
+  - first:
+      213: 4733607182333810365
+    second: flak_38
+  - first:
+      213: -7041347745840980659
+    second: flak_39
+  - first:
+      213: 436182008148405
+    second: flak_40
+  - first:
+      213: 6287347339898156491
+    second: flak_41
+  - first:
+      213: 7575241316103580396
+    second: flak_42
+  - first:
+      213: -7559053028302196825
+    second: flak_43
+  - first:
+      213: -7883948366808281131
+    second: flak_44
+  - first:
+      213: 4622050268270824763
+    second: flak_45
+  - first:
+      213: -1127910276859128588
+    second: flak_46
+  - first:
+      213: -9143124759404663738
+    second: flak_47
+  - first:
+      213: -1311962195795092301
+    second: flak_48
+  - first:
+      213: 6622277941843812828
+    second: flak_49
+  - first:
+      213: 8855080954560933220
+    second: flak_50
+  - first:
+      213: -1084592868670127056
+    second: flak_51
+  - first:
+      213: 7757985738128007760
+    second: flak_52
+  - first:
+      213: 951087146020340363
+    second: flak_53
+  - first:
+      213: -3977705826809220307
+    second: flak_54
+  - first:
+      213: 7070787540708211392
+    second: flak_55
+  - first:
+      213: 2823908354886384792
+    second: flak_56
+  - first:
+      213: -4785222369798455189
+    second: flak_57
+  - first:
+      213: -4946485573424536179
+    second: flak_58
+  - first:
+      213: -1437164109249238257
+    second: flak_59
+  - first:
+      213: 1112127480803094652
+    second: flak_60
+  - first:
+      213: -3216335557139926547
+    second: flak_61
+  - first:
+      213: 6741866793772915201
+    second: flak_62
+  - first:
+      213: -2468894107033856711
+    second: flak_63
+  - first:
+      213: 8380167641649556393
+    second: flak_64
+  - first:
+      213: 4387111803974913065
+    second: flak_65
+  - first:
+      213: 6134030107787661499
+    second: flak_66
+  - first:
+      213: 3238754791323181287
+    second: flak_67
+  - first:
+      213: -6953287644502177668
+    second: flak_68
+  - first:
+      213: -7528624950094049060
+    second: flak_69
+  - first:
+      213: 3951932605894328946
+    second: flak_70
+  - first:
+      213: -4874830167845861479
+    second: flak_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flak_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608d31c26dab0d2d0800000000000000
+      internalID: -3255897101563602938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 3
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84d6d9c406f067510800000000000000
+      internalID: 1546440428325006664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 3
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feb574fc137bd9c20800000000000000
+      internalID: 3214927133571242991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_3
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 3
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0bfaf11d8957340800000000000000
+      internalID: 4860959396763513039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_4
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 3
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19525e22ef5c897f0800000000000000
+      internalID: -605516454583523951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_5
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 3
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46dd917275e4dfeb0800000000000000
+      internalID: -4684501901170320028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_6
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 3
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67341d9500cc9dff0800000000000000
+      internalID: -10753222212762762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_7
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 3
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e39ece873cc25510800000000000000
+      internalID: 1536514961877930976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_8
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 3
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa5fbde63e73d1350800000000000000
+      internalID: 5989004529429640618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_9
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 3
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb6bd613c89a40f0800000000000000
+      internalID: -1131924392660735009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_10
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 3
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d771ba83f0999ba90800000000000000
+      internalID: -7297633430522882179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_11
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 3
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63b32bd66bc091930800000000000000
+      internalID: 4114333712243637046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_12
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 4
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a3fd9090ab321f50800000000000000
+      internalID: 6850603543991022500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_13
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 3
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11216d7a40f4ef630800000000000000
+      internalID: 3962691603546903057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_14
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 3
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d068f96403e89970800000000000000
+      internalID: 8762002683146559704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_15
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 3
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f695cf2e1e2a8cdd0800000000000000
+      internalID: -2465541704925816465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_16
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 2
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6bf65431ff7a60a0800000000000000
+      internalID: -6887552006167790737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_17
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 2
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed67f4cf5d38dee70800000000000000
+      internalID: 9146111373343684318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_18
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 1
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d1650a51f339e70800000000000000
+      internalID: 9120703032472247695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_19
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 118fe38d2db96c710800000000000000
+      internalID: 1713228038134495249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_20
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d2e73f1e5005640800000000000000
+      internalID: 5066556048802721105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_21
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 0
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c7b3420a8c47e70800000000000000
+      internalID: 9112128536205556788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_22
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 0
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d87555d3d12ec60800000000000000
+      internalID: 7845865650094837019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_23
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 0
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9dcf33c9dd7bf060800000000000000
+      internalID: 6988317621032570270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_24
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 0
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 853dbe2fe9bf002a0800000000000000
+      internalID: -6773137179466280104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_25
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 0
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd272caa35ba5c00800000000000000
+      internalID: 890223139960073693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_26
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 0
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c9bc9d6e3c90f200800000000000000
+      internalID: 211840974427306438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_27
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 0
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b70dd9482ae90c50800000000000000
+      internalID: 6632089385038579640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_28
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 0
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 470d6b626a904e2d0800000000000000
+      internalID: -3250462421835919244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_29
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 0
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74fdacec0a2e87870800000000000000
+      internalID: 8680937462048677703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_30
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 0
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 391a12696288c4fb0800000000000000
+      internalID: -4662201814926384749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_31
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 0
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0d3c5986ddae520800000000000000
+      internalID: 2732239565212602609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_32
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 0
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e592f996fb6cbf410800000000000000
+      internalID: 1512020625326025054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_33
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 0
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cf4b1b59c062c060800000000000000
+      internalID: 6972241591056158662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_34
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 0
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49547152e2c1309c0800000000000000
+      internalID: -3962292262639549036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_35
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 0
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6566ba2f3aeefb590800000000000000
+      internalID: -7656138453588154794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_36
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 0
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a54e8ac7c5485320800000000000000
+      internalID: 2546862313677145504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_37
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 0
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee46669387f847330800000000000000
+      internalID: 3707746139754620142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_38
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db69e3117a621b140800000000000000
+      internalID: 4733607182333810365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_39
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 0
+        width: 37
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d9625288b184e90800000000000000
+      internalID: -7041347745840980659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_40
+      rect:
+        serializedVersion: 2
+        x: 1724
+        y: 0
+        width: 38
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b137a984bc810000800000000000000
+      internalID: 436182008148405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_41
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc570260815214750800000000000000
+      internalID: 6287347339898156491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_42
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea673677d9a02960800000000000000
+      internalID: 7575241316103580396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_43
+      rect:
+        serializedVersion: 2
+        x: 1851
+        y: 0
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7afe4b10259d81790800000000000000
+      internalID: -7559053028302196825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_44
+      rect:
+        serializedVersion: 2
+        x: 1893
+        y: 0
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df0fd83bb6969290800000000000000
+      internalID: -7883948366808281131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_45
+      rect:
+        serializedVersion: 2
+        x: 1936
+        y: 0
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d0846fa32d42040800000000000000
+      internalID: 4622050268270824763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_46
+      rect:
+        serializedVersion: 2
+        x: 1978
+        y: 0
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f49c41449bd850f0800000000000000
+      internalID: -1127910276859128588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_47
+      rect:
+        serializedVersion: 2
+        x: 2021
+        y: 0
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c2b9249781d1180800000000000000
+      internalID: -9143124759404663738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_48
+      rect:
+        serializedVersion: 2
+        x: 2063
+        y: 0
+        width: 43
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc54e08559facde0800000000000000
+      internalID: -1311962195795092301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_49
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 0
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd16187a3be07eb50800000000000000
+      internalID: 6622277941843812828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_50
+      rect:
+        serializedVersion: 2
+        x: 2149
+        y: 0
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d6ee1463193ea70800000000000000
+      internalID: 8855080954560933220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_51
+      rect:
+        serializedVersion: 2
+        x: 2192
+        y: 1
+        width: 43
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034cef84880c2f0f0800000000000000
+      internalID: -1084592868670127056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_52
+      rect:
+        serializedVersion: 2
+        x: 2235
+        y: 1
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052aaaddce6e9ab60800000000000000
+      internalID: 7757985738128007760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_53
+      rect:
+        serializedVersion: 2
+        x: 2279
+        y: 1
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b828bf068b0f23d00800000000000000
+      internalID: 951087146020340363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_54
+      rect:
+        serializedVersion: 2
+        x: 2322
+        y: 2
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d23f80410a95cc8c0800000000000000
+      internalID: -3977705826809220307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_55
+      rect:
+        serializedVersion: 2
+        x: 2365
+        y: 2
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cabb2e3ecb702260800000000000000
+      internalID: 7070787540708211392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_56
+      rect:
+        serializedVersion: 2
+        x: 2407
+        y: 2
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89cb243efa9803720800000000000000
+      internalID: 2823908354886384792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_57
+      rect:
+        serializedVersion: 2
+        x: 2450
+        y: 3
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6009ec9b99779db0800000000000000
+      internalID: -4785222369798455189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_58
+      rect:
+        serializedVersion: 2
+        x: 2493
+        y: 3
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d85af6d149d8a5bb0800000000000000
+      internalID: -4946485573424536179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_59
+      rect:
+        serializedVersion: 2
+        x: 2536
+        y: 3
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0b22486bda2e0ce0800000000000000
+      internalID: -1437164109249238257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_60
+      rect:
+        serializedVersion: 2
+        x: 2579
+        y: 4
+        width: 43
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70f73e2d021f6f00800000000000000
+      internalID: 1112127480803094652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_61
+      rect:
+        serializedVersion: 2
+        x: 2623
+        y: 4
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de177360ad74d53d0800000000000000
+      internalID: -3216335557139926547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_62
+      rect:
+        serializedVersion: 2
+        x: 2666
+        y: 3
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a16d5012cef8d50800000000000000
+      internalID: 6741866793772915201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_63
+      rect:
+        serializedVersion: 2
+        x: 2710
+        y: 3
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9351132f3e9bcbdd0800000000000000
+      internalID: -2468894107033856711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_64
+      rect:
+        serializedVersion: 2
+        x: 2753
+        y: 3
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9abaebee1165c4470800000000000000
+      internalID: 8380167641649556393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_65
+      rect:
+        serializedVersion: 2
+        x: 2797
+        y: 3
+        width: 40
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92c09d911f622ec30800000000000000
+      internalID: 4387111803974913065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_66
+      rect:
+        serializedVersion: 2
+        x: 2841
+        y: 3
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb01c3032e3702550800000000000000
+      internalID: 6134030107787661499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_67
+      rect:
+        serializedVersion: 2
+        x: 2885
+        y: 3
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e0a963b25e52fc20800000000000000
+      internalID: 3238754791323181287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_68
+      rect:
+        serializedVersion: 2
+        x: 2928
+        y: 3
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78c5583ab5f08f90800000000000000
+      internalID: -6953287644502177668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_69
+      rect:
+        serializedVersion: 2
+        x: 2972
+        y: 3
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd0508a0f73f48790800000000000000
+      internalID: -7528624950094049060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_70
+      rect:
+        serializedVersion: 2
+        x: 3016
+        y: 3
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2728d9e44c518d630800000000000000
+      internalID: 3951932605894328946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flak_71
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 3
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99780315acf195cb0800000000000000
+      internalID: -4874830167845861479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      flak_0: -3255897101563602938
+      flak_1: 1546440428325006664
+      flak_10: -7297633430522882179
+      flak_11: 4114333712243637046
+      flak_12: 6850603543991022500
+      flak_13: 3962691603546903057
+      flak_14: 8762002683146559704
+      flak_15: -2465541704925816465
+      flak_16: -6887552006167790737
+      flak_17: 9146111373343684318
+      flak_18: 9120703032472247695
+      flak_19: 1713228038134495249
+      flak_2: 3214927133571242991
+      flak_20: 5066556048802721105
+      flak_21: 9112128536205556788
+      flak_22: 7845865650094837019
+      flak_23: 6988317621032570270
+      flak_24: -6773137179466280104
+      flak_25: 890223139960073693
+      flak_26: 211840974427306438
+      flak_27: 6632089385038579640
+      flak_28: -3250462421835919244
+      flak_29: 8680937462048677703
+      flak_3: 4860959396763513039
+      flak_30: -4662201814926384749
+      flak_31: 2732239565212602609
+      flak_32: 1512020625326025054
+      flak_33: 6972241591056158662
+      flak_34: -3962292262639549036
+      flak_35: -7656138453588154794
+      flak_36: 2546862313677145504
+      flak_37: 3707746139754620142
+      flak_38: 4733607182333810365
+      flak_39: -7041347745840980659
+      flak_4: -605516454583523951
+      flak_40: 436182008148405
+      flak_41: 6287347339898156491
+      flak_42: 7575241316103580396
+      flak_43: -7559053028302196825
+      flak_44: -7883948366808281131
+      flak_45: 4622050268270824763
+      flak_46: -1127910276859128588
+      flak_47: -9143124759404663738
+      flak_48: -1311962195795092301
+      flak_49: 6622277941843812828
+      flak_5: -4684501901170320028
+      flak_50: 8855080954560933220
+      flak_51: -1084592868670127056
+      flak_52: 7757985738128007760
+      flak_53: 951087146020340363
+      flak_54: -3977705826809220307
+      flak_55: 7070787540708211392
+      flak_56: 2823908354886384792
+      flak_57: -4785222369798455189
+      flak_58: -4946485573424536179
+      flak_59: -1437164109249238257
+      flak_6: -10753222212762762
+      flak_60: 1112127480803094652
+      flak_61: -3216335557139926547
+      flak_62: 6741866793772915201
+      flak_63: -2468894107033856711
+      flak_64: 8380167641649556393
+      flak_65: 4387111803974913065
+      flak_66: 6134030107787661499
+      flak_67: 3238754791323181287
+      flak_68: -6953287644502177668
+      flak_69: -7528624950094049060
+      flak_7: 1536514961877930976
+      flak_70: 3951932605894328946
+      flak_71: -4874830167845861479
+      flak_8: 5989004529429640618
+      flak_9: -1131924392660735009
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: 7cee39bd930b93242bd43e0f8249e87d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1028827733411740933
+    second: fliegerreflek_0
+  - first:
+      213: 1972777391539157133
+    second: fliegerreflek_1
+  - first:
+      213: 5055641537928009959
+    second: fliegerreflek_2
+  - first:
+      213: 6615972846491252856
+    second: fliegerreflek_3
+  - first:
+      213: -4956565865759415684
+    second: fliegerreflek_4
+  - first:
+      213: -3649231784288562586
+    second: fliegerreflek_5
+  - first:
+      213: 6361385655832812356
+    second: fliegerreflek_6
+  - first:
+      213: -540216280119382090
+    second: fliegerreflek_7
+  - first:
+      213: -5098984601067380122
+    second: fliegerreflek_8
+  - first:
+      213: -817199968320795925
+    second: fliegerreflek_9
+  - first:
+      213: 2184707157640345855
+    second: fliegerreflek_10
+  - first:
+      213: 5266932135567540063
+    second: fliegerreflek_11
+  - first:
+      213: -5919034387159363091
+    second: fliegerreflek_12
+  - first:
+      213: 5578702607186844755
+    second: fliegerreflek_13
+  - first:
+      213: 7450976702417559904
+    second: fliegerreflek_14
+  - first:
+      213: -8083676578354009980
+    second: fliegerreflek_15
+  - first:
+      213: -6600372979889496629
+    second: fliegerreflek_16
+  - first:
+      213: -3491912071993593766
+    second: fliegerreflek_17
+  - first:
+      213: 4151643882374516049
+    second: fliegerreflek_18
+  - first:
+      213: 4661475609114538262
+    second: fliegerreflek_19
+  - first:
+      213: 2910683653396328562
+    second: fliegerreflek_20
+  - first:
+      213: -6508703411778196481
+    second: fliegerreflek_21
+  - first:
+      213: -7366100433558819190
+    second: fliegerreflek_22
+  - first:
+      213: 586648940703343466
+    second: fliegerreflek_23
+  - first:
+      213: 6212902714644617280
+    second: fliegerreflek_24
+  - first:
+      213: -435440699185277593
+    second: fliegerreflek_25
+  - first:
+      213: 6354648488499678857
+    second: fliegerreflek_26
+  - first:
+      213: -5324392035350892802
+    second: fliegerreflek_27
+  - first:
+      213: -1107895103523942722
+    second: fliegerreflek_28
+  - first:
+      213: -514611877686114460
+    second: fliegerreflek_29
+  - first:
+      213: 1716681084626106694
+    second: fliegerreflek_30
+  - first:
+      213: -7061292116961409406
+    second: fliegerreflek_31
+  - first:
+      213: 5495429508629827427
+    second: fliegerreflek_32
+  - first:
+      213: -5785180407006908100
+    second: fliegerreflek_33
+  - first:
+      213: -3877918809074773224
+    second: fliegerreflek_34
+  - first:
+      213: 8302866068459722642
+    second: fliegerreflek_35
+  - first:
+      213: -5274632829309103559
+    second: fliegerreflek_36
+  - first:
+      213: -3987484210606736443
+    second: fliegerreflek_37
+  - first:
+      213: -6017083313163169145
+    second: fliegerreflek_38
+  - first:
+      213: 7067322017513802495
+    second: fliegerreflek_39
+  - first:
+      213: 5268740661264927769
+    second: fliegerreflek_40
+  - first:
+      213: 3360716175222754498
+    second: fliegerreflek_41
+  - first:
+      213: 3581173023574084789
+    second: fliegerreflek_42
+  - first:
+      213: 4174861597964184154
+    second: fliegerreflek_43
+  - first:
+      213: 8732056030388629565
+    second: fliegerreflek_44
+  - first:
+      213: 3910996092013220339
+    second: fliegerreflek_45
+  - first:
+      213: 3256896349379631640
+    second: fliegerreflek_46
+  - first:
+      213: 9159432946683759283
+    second: fliegerreflek_47
+  - first:
+      213: 3223949001869779063
+    second: fliegerreflek_48
+  - first:
+      213: -7649181588745419183
+    second: fliegerreflek_49
+  - first:
+      213: -8753981296454891520
+    second: fliegerreflek_50
+  - first:
+      213: -7270749712059474371
+    second: fliegerreflek_51
+  - first:
+      213: 121232151162983433
+    second: fliegerreflek_52
+  - first:
+      213: -7181862440854606785
+    second: fliegerreflek_53
+  - first:
+      213: -4817095246598082194
+    second: fliegerreflek_54
+  - first:
+      213: -3032891713805382889
+    second: fliegerreflek_55
+  - first:
+      213: -7801603766485804198
+    second: fliegerreflek_56
+  - first:
+      213: -771886958779584634
+    second: fliegerreflek_57
+  - first:
+      213: 5030058242488495002
+    second: fliegerreflek_58
+  - first:
+      213: -1370416350254121515
+    second: fliegerreflek_59
+  - first:
+      213: -585322160807961733
+    second: fliegerreflek_60
+  - first:
+      213: 1622223184973636602
+    second: fliegerreflek_61
+  - first:
+      213: 1648197611008375127
+    second: fliegerreflek_62
+  - first:
+      213: 7422173658378819391
+    second: fliegerreflek_63
+  - first:
+      213: 1600711601235591178
+    second: fliegerreflek_64
+  - first:
+      213: 8595146047845354064
+    second: fliegerreflek_65
+  - first:
+      213: 1734265986105409819
+    second: fliegerreflek_66
+  - first:
+      213: -5794657754481376936
+    second: fliegerreflek_67
+  - first:
+      213: 5414819038117080859
+    second: fliegerreflek_68
+  - first:
+      213: -6892281045392553713
+    second: fliegerreflek_69
+  - first:
+      213: -6328757043940431966
+    second: fliegerreflek_70
+  - first:
+      213: 5388651587301177227
+    second: fliegerreflek_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fliegerreflek_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 37
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf24cee90aed8b1f0800000000000000
+      internalID: -1028827733411740933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d88fc9bd596b06b10800000000000000
+      internalID: 1972777391539157133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e898eb513f392640800000000000000
+      internalID: 5055641537928009959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_3
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 0
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878bdbe3048a0db50800000000000000
+      internalID: 6615972846491252856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_4
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 0
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7265992b9db63bb0800000000000000
+      internalID: -4956565865759415684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_5
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6625a62d6035b5dc0800000000000000
+      internalID: -3649231784288562586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_6
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 0
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b1e27cc8e284850800000000000000
+      internalID: 6361385655832812356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_7
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 0
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bfe999c724c088f0800000000000000
+      internalID: -540216280119382090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_8
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 0
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662213a5584cc39b0800000000000000
+      internalID: -5098984601067380122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_9
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 0
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea47c165f8b8a4f0800000000000000
+      internalID: -817199968320795925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_10
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff8f765b593a15e10800000000000000
+      internalID: 2184707157640345855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_11
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 0
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5fb7943fd6e71940800000000000000
+      internalID: 5266932135567540063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_12
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 0
+        width: 38
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de15b04d59d5bdda0800000000000000
+      internalID: -5919034387159363091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_13
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 0
+        width: 39
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35cdae8c6788b6d40800000000000000
+      internalID: 5578702607186844755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_14
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 0
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0616f4975df276760800000000000000
+      internalID: 7450976702417559904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_15
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 0
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 488601c2bf201df80800000000000000
+      internalID: -8083676578354009980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_16
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 0
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd999cbeb3c664a0800000000000000
+      internalID: -6600372979889496629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_17
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 0
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a507ce1b87c3a8fc0800000000000000
+      internalID: -3491912071993593766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_18
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 0
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d4bda5d1a9d9930800000000000000
+      internalID: 4151643882374516049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_19
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 1
+        width: 41
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6117b627e53e0b040800000000000000
+      internalID: 4661475609114538262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_20
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 1
+        width: 41
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 270793e7c53d46820800000000000000
+      internalID: 2910683653396328562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_21
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1
+        width: 40
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb66984bb07ca5a0800000000000000
+      internalID: -6508703411778196481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_22
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 1
+        width: 40
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8e20e5deaa56c990800000000000000
+      internalID: -7366100433558819190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_23
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 2
+        width: 39
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a636b767a12342800800000000000000
+      internalID: 586648940703343466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_24
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 3
+        width: 38
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 048d3720a1aa83650800000000000000
+      internalID: 6212902714644617280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_25
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 3
+        width: 37
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765505cbdf005f9f0800000000000000
+      internalID: -435440699185277593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_26
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 3
+        width: 36
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98e0f75c12f303850800000000000000
+      internalID: 6354648488499678857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_27
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 3
+        width: 34
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efeadf757a5fb16b0800000000000000
+      internalID: -5324392035350892802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_28
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 3
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe8f02f547ff90f0800000000000000
+      internalID: -1107895103523942722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_29
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 3
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4678259493bbbd8f0800000000000000
+      internalID: -514611877686114460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_30
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 3
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64975c1e950e2d710800000000000000
+      internalID: 1716681084626106694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_31
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 3
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 286cf316b30410e90800000000000000
+      internalID: -7061292116961409406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_32
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 3
+        width: 34
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36f8416a500b34c40800000000000000
+      internalID: 5495429508629827427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_33
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 2
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31bdce2219e6bfa0800000000000000
+      internalID: -5785180407006908100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_34
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 2
+        width: 36
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 813da45a36dde2ac0800000000000000
+      internalID: -3877918809074773224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_35
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 2
+        width: 36
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2979f24e2b4b93370800000000000000
+      internalID: 8302866068459722642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_36
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 2
+        width: 36
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932da60536dbcc6b0800000000000000
+      internalID: -5274632829309103559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_37
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 3
+        width: 36
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb7e4fac3c99a8c0800000000000000
+      internalID: -3987484210606736443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_38
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 2
+        width: 36
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7829af64b960f7ca0800000000000000
+      internalID: -6017083313163169145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_39
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 3
+        width: 35
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffa053f3eeb241260800000000000000
+      internalID: 7067322017513802495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_40
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 3
+        width: 34
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c4a5867b35e1940800000000000000
+      internalID: 5268740661264927769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_41
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 3
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cccf073e89a3ae20800000000000000
+      internalID: 3360716175222754498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_42
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 3
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bc485d14e1e2b130800000000000000
+      internalID: 3581173023574084789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_43
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 3
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5a2315018610f930800000000000000
+      internalID: 4174861597964184154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_44
+      rect:
+        serializedVersion: 2
+        x: 1721
+        y: 4
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d303f1af1be7e2970800000000000000
+      internalID: 8732056030388629565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_45
+      rect:
+        serializedVersion: 2
+        x: 1758
+        y: 4
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f1936e6936a64630800000000000000
+      internalID: 3910996092013220339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_46
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 3
+        width: 36
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a1a0759f1d23d20800000000000000
+      internalID: 3256896349379631640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_47
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 3
+        width: 37
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba481b7cb7dc1f70800000000000000
+      internalID: 9159432946683759283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_48
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 2
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7706c663984cdbc20800000000000000
+      internalID: 3223949001869779063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_49
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 2
+        width: 39
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1560f544fd5a8d590800000000000000
+      internalID: -7649181588745419183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_50
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 2
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0088466346c938680800000000000000
+      internalID: -8753981296454891520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_51
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 1
+        width: 40
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3edbe1b8ab191b90800000000000000
+      internalID: -7270749712059474371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_52
+      rect:
+        serializedVersion: 2
+        x: 2027
+        y: 1
+        width: 41
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9041d69cff3bea100800000000000000
+      internalID: 121232151162983433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_53
+      rect:
+        serializedVersion: 2
+        x: 2066
+        y: 0
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3c24234926e45c90800000000000000
+      internalID: -7181862440854606785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_54
+      rect:
+        serializedVersion: 2
+        x: 2105
+        y: 0
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e617c41356d362db0800000000000000
+      internalID: -4817095246598082194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_55
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 0
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b87642e0109e5d0800000000000000
+      internalID: -3032891713805382889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_56
+      rect:
+        serializedVersion: 2
+        x: 2183
+        y: 0
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5b934485b22bb390800000000000000
+      internalID: -7801603766485804198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_57
+      rect:
+        serializedVersion: 2
+        x: 2222
+        y: 0
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68faf2f86e4b945f0800000000000000
+      internalID: -771886958779584634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_58
+      rect:
+        serializedVersion: 2
+        x: 2261
+        y: 0
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9b6d07325b5ec540800000000000000
+      internalID: 5030058242488495002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_59
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 0
+        width: 39
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dd37b8179d4bfce0800000000000000
+      internalID: -1370416350254121515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_60
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 0
+        width: 38
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7b90ed889480e7f0800000000000000
+      internalID: -585322160807961733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_61
+      rect:
+        serializedVersion: 2
+        x: 2380
+        y: 0
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af3a1ce446b438610800000000000000
+      internalID: 1622223184973636602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_62
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 0
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7593dc3aef29fd610800000000000000
+      internalID: 1648197611008375127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_63
+      rect:
+        serializedVersion: 2
+        x: 2460
+        y: 0
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f375ee03e9bd00760800000000000000
+      internalID: 7422173658378819391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_64
+      rect:
+        serializedVersion: 2
+        x: 2501
+        y: 0
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a008e7b68bed63610800000000000000
+      internalID: 1600711601235591178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_65
+      rect:
+        serializedVersion: 2
+        x: 2541
+        y: 0
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05acc6e9ac7184770800000000000000
+      internalID: 8595146047845354064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_66
+      rect:
+        serializedVersion: 2
+        x: 2579
+        y: 0
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b110bdfc9b9511810800000000000000
+      internalID: 1734265986105409819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_67
+      rect:
+        serializedVersion: 2
+        x: 2618
+        y: 0
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 851cc25497d359fa0800000000000000
+      internalID: -5794657754481376936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_68
+      rect:
+        serializedVersion: 2
+        x: 2656
+        y: 0
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1fadf9e93d452b40800000000000000
+      internalID: 5414819038117080859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_69
+      rect:
+        serializedVersion: 2
+        x: 2694
+        y: 0
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f090835f7e2b950a0800000000000000
+      internalID: -6892281045392553713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_70
+      rect:
+        serializedVersion: 2
+        x: 2732
+        y: 0
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a7ed2eeffcbb28a0800000000000000
+      internalID: -6328757043940431966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fliegerreflek_71
+      rect:
+        serializedVersion: 2
+        x: 2771
+        y: 0
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b877e6f711658ca40800000000000000
+      internalID: 5388651587301177227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fliegerreflek_0: -1028827733411740933
+      fliegerreflek_1: 1972777391539157133
+      fliegerreflek_10: 2184707157640345855
+      fliegerreflek_11: 5266932135567540063
+      fliegerreflek_12: -5919034387159363091
+      fliegerreflek_13: 5578702607186844755
+      fliegerreflek_14: 7450976702417559904
+      fliegerreflek_15: -8083676578354009980
+      fliegerreflek_16: -6600372979889496629
+      fliegerreflek_17: -3491912071993593766
+      fliegerreflek_18: 4151643882374516049
+      fliegerreflek_19: 4661475609114538262
+      fliegerreflek_2: 5055641537928009959
+      fliegerreflek_20: 2910683653396328562
+      fliegerreflek_21: -6508703411778196481
+      fliegerreflek_22: -7366100433558819190
+      fliegerreflek_23: 586648940703343466
+      fliegerreflek_24: 6212902714644617280
+      fliegerreflek_25: -435440699185277593
+      fliegerreflek_26: 6354648488499678857
+      fliegerreflek_27: -5324392035350892802
+      fliegerreflek_28: -1107895103523942722
+      fliegerreflek_29: -514611877686114460
+      fliegerreflek_3: 6615972846491252856
+      fliegerreflek_30: 1716681084626106694
+      fliegerreflek_31: -7061292116961409406
+      fliegerreflek_32: 5495429508629827427
+      fliegerreflek_33: -5785180407006908100
+      fliegerreflek_34: -3877918809074773224
+      fliegerreflek_35: 8302866068459722642
+      fliegerreflek_36: -5274632829309103559
+      fliegerreflek_37: -3987484210606736443
+      fliegerreflek_38: -6017083313163169145
+      fliegerreflek_39: 7067322017513802495
+      fliegerreflek_4: -4956565865759415684
+      fliegerreflek_40: 5268740661264927769
+      fliegerreflek_41: 3360716175222754498
+      fliegerreflek_42: 3581173023574084789
+      fliegerreflek_43: 4174861597964184154
+      fliegerreflek_44: 8732056030388629565
+      fliegerreflek_45: 3910996092013220339
+      fliegerreflek_46: 3256896349379631640
+      fliegerreflek_47: 9159432946683759283
+      fliegerreflek_48: 3223949001869779063
+      fliegerreflek_49: -7649181588745419183
+      fliegerreflek_5: -3649231784288562586
+      fliegerreflek_50: -8753981296454891520
+      fliegerreflek_51: -7270749712059474371
+      fliegerreflek_52: 121232151162983433
+      fliegerreflek_53: -7181862440854606785
+      fliegerreflek_54: -4817095246598082194
+      fliegerreflek_55: -3032891713805382889
+      fliegerreflek_56: -7801603766485804198
+      fliegerreflek_57: -771886958779584634
+      fliegerreflek_58: 5030058242488495002
+      fliegerreflek_59: -1370416350254121515
+      fliegerreflek_6: 6361385655832812356
+      fliegerreflek_60: -585322160807961733
+      fliegerreflek_61: 1622223184973636602
+      fliegerreflek_62: 1648197611008375127
+      fliegerreflek_63: 7422173658378819391
+      fliegerreflek_64: 1600711601235591178
+      fliegerreflek_65: 8595146047845354064
+      fliegerreflek_66: 1734265986105409819
+      fliegerreflek_67: -5794657754481376936
+      fliegerreflek_68: 5414819038117080859
+      fliegerreflek_69: -6892281045392553713
+      fliegerreflek_7: -540216280119382090
+      fliegerreflek_70: -6328757043940431966
+      fliegerreflek_71: 5388651587301177227
+      fliegerreflek_8: -5098984601067380122
+      fliegerreflek_9: -817199968320795925
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

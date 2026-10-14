@@ -1,0 +1,1430 @@
+fileFormatVersion: 2
+guid: d4dadde11257cf0469a1ad48757e89ac
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5216524314931764588
+    second: oelpump_0
+  - first:
+      213: 4449387152706074616
+    second: oelpump_1
+  - first:
+      213: -8492678124690572941
+    second: oelpump_2
+  - first:
+      213: -3831802002344487167
+    second: oelpump_3
+  - first:
+      213: -1107604890292406258
+    second: oelpump_4
+  - first:
+      213: 8391093810396232099
+    second: oelpump_5
+  - first:
+      213: 8117787010879504535
+    second: oelpump_6
+  - first:
+      213: 7509811495993454928
+    second: oelpump_7
+  - first:
+      213: 5442856907509160825
+    second: oelpump_8
+  - first:
+      213: -6188631718101780971
+    second: oelpump_9
+  - first:
+      213: 4421592367746806243
+    second: oelpump_10
+  - first:
+      213: 5168111534142174282
+    second: oelpump_11
+  - first:
+      213: 4453720213775564005
+    second: oelpump_12
+  - first:
+      213: 5659881311492303037
+    second: oelpump_13
+  - first:
+      213: 4974845109571919345
+    second: oelpump_14
+  - first:
+      213: 7056802320535926919
+    second: oelpump_15
+  - first:
+      213: 8051218323977504169
+    second: oelpump_16
+  - first:
+      213: 3596743443618419652
+    second: oelpump_17
+  - first:
+      213: -8781564368387651727
+    second: oelpump_18
+  - first:
+      213: -7453963878307504270
+    second: oelpump_19
+  - first:
+      213: 6930045530458133179
+    second: oelpump_20
+  - first:
+      213: -6634653818664480980
+    second: oelpump_21
+  - first:
+      213: 8078550008959130445
+    second: oelpump_22
+  - first:
+      213: -5947671493009052042
+    second: oelpump_23
+  - first:
+      213: -714774327672295312
+    second: oelpump_24
+  - first:
+      213: -4238239250915201342
+    second: oelpump_25
+  - first:
+      213: 7249780117083050336
+    second: oelpump_26
+  - first:
+      213: -346356689253939645
+    second: oelpump_27
+  - first:
+      213: -8956709420850301940
+    second: oelpump_28
+  - first:
+      213: 4794271384862628443
+    second: oelpump_29
+  - first:
+      213: 7819185904222955361
+    second: oelpump_30
+  - first:
+      213: 2263741615176568777
+    second: oelpump_31
+  - first:
+      213: 7225051413179581880
+    second: oelpump_32
+  - first:
+      213: -1057906220176469229
+    second: oelpump_33
+  - first:
+      213: -4870954530726321396
+    second: oelpump_34
+  - first:
+      213: -8742475751501400636
+    second: oelpump_35
+  - first:
+      213: 2883999767641123471
+    second: oelpump_36
+  - first:
+      213: 9066383890387593339
+    second: oelpump_37
+  - first:
+      213: 6558278962500637183
+    second: oelpump_38
+  - first:
+      213: -5927769302045742548
+    second: oelpump_39
+  - first:
+      213: -8892236429932936059
+    second: oelpump_40
+  - first:
+      213: 4159442023643308435
+    second: oelpump_41
+  - first:
+      213: 4520809008331070207
+    second: oelpump_42
+  - first:
+      213: 6480832300498145110
+    second: oelpump_43
+  - first:
+      213: -4955096775577815301
+    second: oelpump_44
+  - first:
+      213: -8614296979576772141
+    second: oelpump_45
+  - first:
+      213: -5943501540448725618
+    second: oelpump_46
+  - first:
+      213: -3589700011868599263
+    second: oelpump_47
+  - first:
+      213: 4434528531119132804
+    second: oelpump_48
+  - first:
+      213: -312445702158767764
+    second: oelpump_49
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: oelpump_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 65
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6d12b1e931d46840800000000000000
+      internalID: 5216524314931764588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 65
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f77b31aa066fbd30800000000000000
+      internalID: 4449387152706074616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_2
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 0
+        width: 66
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3797612ed32f32a80800000000000000
+      internalID: -8492678124690572941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 0
+        width: 66
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10750a07164b2dac0800000000000000
+      internalID: -3831802002344487167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 0
+        width: 67
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08b2aa783ff0a0f0800000000000000
+      internalID: -1107604890292406258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_5
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 0
+        width: 67
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a975a5dc57237470800000000000000
+      internalID: 8391093810396232099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_6
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 0
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 790c0c9c64c28a070800000000000000
+      internalID: 8117787010879504535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_7
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 0
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 051b5d454c5383860800000000000000
+      internalID: 7509811495993454928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_8
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 0
+        width: 69
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b5d571589e88b40800000000000000
+      internalID: 5442856907509160825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_9
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 0
+        width: 69
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516f3dcbd309d1aa0800000000000000
+      internalID: -6188631718101780971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_10
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 0
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e17025f4d6ac5d30800000000000000
+      internalID: 4421592367746806243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_11
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 0
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44b428fe02d8b740800000000000000
+      internalID: 5168111534142174282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_12
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 0
+        width: 70
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ecb11700facecd30800000000000000
+      internalID: 4453720213775564005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_13
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 0
+        width: 70
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db8ee52c010fb8e40800000000000000
+      internalID: 5659881311492303037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_14
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 0
+        width: 70
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd9f90f4433a0540800000000000000
+      internalID: 4974845109571919345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_15
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 0
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78832bd625ccee160800000000000000
+      internalID: 7056802320535926919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_16
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 0
+        width: 70
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a58bc1986cabbf60800000000000000
+      internalID: 8051218323977504169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_17
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 0
+        width: 70
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c357190b133ae130800000000000000
+      internalID: 3596743443618419652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_18
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 0
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 177c602dbbd912680800000000000000
+      internalID: -8781564368387651727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_19
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 1
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27f53e078533e8890800000000000000
+      internalID: -7453963878307504270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_20
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 1
+        width: 68
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb29d3861b77c2060800000000000000
+      internalID: 6930045530458133179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_21
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 1
+        width: 68
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f80daf089fce3a0800000000000000
+      internalID: -6634653818664480980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_22
+      rect:
+        serializedVersion: 2
+        x: 1498
+        y: 1
+        width: 67
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4bdc306e66cc1070800000000000000
+      internalID: 8078550008959130445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_23
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 2
+        width: 67
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e6a7a0a40a57da0800000000000000
+      internalID: -5947671493009052042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_24
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 2
+        width: 66
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0703688398c9416f0800000000000000
+      internalID: -714774327672295312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_25
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 2
+        width: 66
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cee4104bdfbe25c0800000000000000
+      internalID: -4238239250915201342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_26
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 2
+        width: 66
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061dc620b946c9460800000000000000
+      internalID: 7249780117083050336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_27
+      rect:
+        serializedVersion: 2
+        x: 1839
+        y: 1
+        width: 66
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 346407b1d6e713bf0800000000000000
+      internalID: -346356689253939645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_28
+      rect:
+        serializedVersion: 2
+        x: 1906
+        y: 1
+        width: 67
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c04b2d58c3063b380800000000000000
+      internalID: -8956709420850301940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_29
+      rect:
+        serializedVersion: 2
+        x: 1973
+        y: 1
+        width: 68
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5a9e836c6ca88240800000000000000
+      internalID: 4794271384862628443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_30
+      rect:
+        serializedVersion: 2
+        x: 2041
+        y: 1
+        width: 68
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16763fde624538c60800000000000000
+      internalID: 7819185904222955361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_31
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 1
+        width: 69
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cf4ed3510d6a6f10800000000000000
+      internalID: 2263741615176568777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_32
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 0
+        width: 69
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5c086faf9844460800000000000000
+      internalID: 7225051413179581880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_33
+      rect:
+        serializedVersion: 2
+        x: 2244
+        y: 0
+        width: 69
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31394b4d5ef8151f0800000000000000
+      internalID: -1057906220176469229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_34
+      rect:
+        serializedVersion: 2
+        x: 2312
+        y: 0
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c036af669a4e66cb0800000000000000
+      internalID: -4870954530726321396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_35
+      rect:
+        serializedVersion: 2
+        x: 2380
+        y: 0
+        width: 69
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c5fa46af9c7ca680800000000000000
+      internalID: -8742475751501400636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_36
+      rect:
+        serializedVersion: 2
+        x: 2449
+        y: 0
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8aee823286060820800000000000000
+      internalID: 2883999767641123471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_37
+      rect:
+        serializedVersion: 2
+        x: 2517
+        y: 0
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7860efcc1442dd70800000000000000
+      internalID: 9066383890387593339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_38
+      rect:
+        serializedVersion: 2
+        x: 2585
+        y: 0
+        width: 68
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff194c918ffa30b50800000000000000
+      internalID: 6558278962500637183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_39
+      rect:
+        serializedVersion: 2
+        x: 2654
+        y: 0
+        width: 67
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2a2919f9355cbda0800000000000000
+      internalID: -5927769302045742548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_40
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 0
+        width: 66
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5844f0f741e689480800000000000000
+      internalID: -8892236429932936059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_41
+      rect:
+        serializedVersion: 2
+        x: 2792
+        y: 0
+        width: 65
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 391671b9b7e49b930800000000000000
+      internalID: 4159442023643308435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_42
+      rect:
+        serializedVersion: 2
+        x: 2860
+        y: 0
+        width: 65
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffa95fe37d32dbe30800000000000000
+      internalID: 4520809008331070207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_43
+      rect:
+        serializedVersion: 2
+        x: 2928
+        y: 0
+        width: 65
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65fc110f3aa80f950800000000000000
+      internalID: 6480832300498145110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_44
+      rect:
+        serializedVersion: 2
+        x: 2996
+        y: 0
+        width: 65
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf630006cb5fb3bb0800000000000000
+      internalID: -4955096775577815301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_45
+      rect:
+        serializedVersion: 2
+        x: 3064
+        y: 0
+        width: 65
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d92b9e998ed37880800000000000000
+      internalID: -8614296979576772141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_46
+      rect:
+        serializedVersion: 2
+        x: 3132
+        y: 0
+        width: 65
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e851197c6d0748da0800000000000000
+      internalID: -5943501540448725618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_47
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 65
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12c4b56bbd2de2ec0800000000000000
+      internalID: -3589700011868599263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_48
+      rect:
+        serializedVersion: 2
+        x: 3268
+        y: 0
+        width: 65
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 480d0b3343c9a8d30800000000000000
+      internalID: 4434528531119132804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oelpump_49
+      rect:
+        serializedVersion: 2
+        x: 3336
+        y: 0
+        width: 64
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c69aa3f0a48f9abf0800000000000000
+      internalID: -312445702158767764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      oelpump_0: 5216524314931764588
+      oelpump_1: 4449387152706074616
+      oelpump_10: 4421592367746806243
+      oelpump_11: 5168111534142174282
+      oelpump_12: 4453720213775564005
+      oelpump_13: 5659881311492303037
+      oelpump_14: 4974845109571919345
+      oelpump_15: 7056802320535926919
+      oelpump_16: 8051218323977504169
+      oelpump_17: 3596743443618419652
+      oelpump_18: -8781564368387651727
+      oelpump_19: -7453963878307504270
+      oelpump_2: -8492678124690572941
+      oelpump_20: 6930045530458133179
+      oelpump_21: -6634653818664480980
+      oelpump_22: 8078550008959130445
+      oelpump_23: -5947671493009052042
+      oelpump_24: -714774327672295312
+      oelpump_25: -4238239250915201342
+      oelpump_26: 7249780117083050336
+      oelpump_27: -346356689253939645
+      oelpump_28: -8956709420850301940
+      oelpump_29: 4794271384862628443
+      oelpump_3: -3831802002344487167
+      oelpump_30: 7819185904222955361
+      oelpump_31: 2263741615176568777
+      oelpump_32: 7225051413179581880
+      oelpump_33: -1057906220176469229
+      oelpump_34: -4870954530726321396
+      oelpump_35: -8742475751501400636
+      oelpump_36: 2883999767641123471
+      oelpump_37: 9066383890387593339
+      oelpump_38: 6558278962500637183
+      oelpump_39: -5927769302045742548
+      oelpump_4: -1107604890292406258
+      oelpump_40: -8892236429932936059
+      oelpump_41: 4159442023643308435
+      oelpump_42: 4520809008331070207
+      oelpump_43: 6480832300498145110
+      oelpump_44: -4955096775577815301
+      oelpump_45: -8614296979576772141
+      oelpump_46: -5943501540448725618
+      oelpump_47: -3589700011868599263
+      oelpump_48: 4434528531119132804
+      oelpump_49: -312445702158767764
+      oelpump_5: 8391093810396232099
+      oelpump_6: 8117787010879504535
+      oelpump_7: 7509811495993454928
+      oelpump_8: 5442856907509160825
+      oelpump_9: -6188631718101780971
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
