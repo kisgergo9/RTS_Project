@@ -1,0 +1,80 @@
+@startuml
+title RTS – funkcionális komponensek és együttműködés
+left to right direction
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+actor "Host játékos" as HostUser
+actor "Kliens játékos(ok)" as ClientUser
+
+package "Kliensenkénti megjelenítés" {
+  [Input / Selection] as Input
+  [Camera Controller] as Camera
+  [HUD és UI] as UI
+  [Sprite / Animation View] as View
+}
+
+package "Host által hitelesített játékszimuláció" {
+  [Command Gateway\n(tulajdonjog- és szabályellenőrzés)] as Commands
+  [Game State / Match Controller] as State
+  [World Generator] as Generator
+  [Movement & Pathfinding] as Movement
+  [Unit Combat] as Combat
+  [Base Target Controller] as Targeting
+  [Base / Capture System] as Base
+  [Economy & Production] as Economy
+  [Elimination & Victory] as Victory
+  [Save / Load] as Save
+}
+
+package "Hálózat" {
+  [Lobby / Session] as Lobby
+  [Command Transport] as CmdNet
+  [State Replication] as Replication
+}
+
+HostUser --> Input
+ClientUser --> Input
+Input --> Commands : játékosparancsok
+Input --> Camera : helyi kameravezérlés
+Input --> UI : UI-műveletek
+Camera --> View : helyi nézet
+Replication --> View : hitelesített állapot megjelenítése
+Replication --> UI : erőforrások, gyártás, eredmény
+
+Lobby --> State : mérkőzés indítása
+Lobby --> Replication : résztvevők / session
+CmdNet --> Commands : kliensparancs továbbítása
+Commands --> State : validált parancs
+State --> Generator : világ létrehozása
+State --> Movement : mozgás frissítése
+State --> Combat : harci szimuláció
+State --> Base : bázisállapot és foglalás
+State --> Economy : termelés / gyártás / fejlesztés
+State --> Victory : kiesés / győzelem
+State --> Save : menthető állapot
+Movement --> Combat : pozíciók és hatótávok
+Combat --> Targeting : érvényes ellenséges célpontok
+Targeting --> Base : közös báziscélpont
+Combat --> Base : torony / fal / épület sérülése
+Base --> Economy : tulajdonos és termelőszintek
+Base --> Victory : bázistulajdon változása
+Economy --> State : készletek és gyártott egységek
+Victory --> State : mérkőzés vége
+State --> Replication : hitelesített állapotfrissítés
+Save --> State : visszatöltés
+note right of Targeting
+  Bázisonként egy közös célpont.
+  Prioritás:
+  1. APC
+  2. bázisromboló
+  3. egyéb harci egység
+end note
+
+note bottom of State
+  A host az autoritatív szimuláció.
+  A kliensek parancsokat küldenek,
+  a közös állapotot nem írják át önállóan.
+end note
+@enduml

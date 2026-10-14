@@ -1,0 +1,132 @@
+@startuml
+title RTS – javasolt kódarchitektúra és függőségi irányok
+top to bottom direction
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+package "Presentation (Unity kliens)" {
+  [GameInputController] as Input
+  [SelectionController] as Selection
+  [CameraController] as Camera
+  [HUDController] as HUD
+  [UnitView / BaseView] as Views
+  [Animation & Sprite Adapters] as Anim
+}
+
+package "Application" {
+  [CommandDispatcher] as Dispatcher
+  [PlayerCommandValidator] as Validator
+  [MatchCoordinator] as Match
+  [GameEventRouter] as Events
+}
+
+package "Domain (Unity-független játékszabályok)" {
+  package "State / Entities" {
+    [MatchState]
+    [PlayerState]
+    [UnitState]
+    [BaseState]
+    [ResourceInventory]
+    [ProductionQueue]
+  }
+
+  package "Domain Services" {
+    [MovementService] as Move
+    [CombatService] as Combat
+    [BaseTargetingService] as Target
+    [BaseCaptureService] as Capture
+    [EconomyService] as Economy
+    [ProductionService] as Production
+    [UpgradeService] as Upgrade
+    [VictoryService] as Victory
+    [DiplomacyFilterService] as Diplomacy
+  }
+}
+
+package "World" {
+  [ProceduralMapGenerator] as Generator
+  [NavigationGrid / Pathfinding] as Pathfinding
+  [PlacementValidator] as Placement
+  [WorldBounds] as Bounds
+}
+
+package "Infrastructure" {
+  [NetworkSession / Lobby] as Network
+  [Command RPC Adapter] as RPC
+  [State Replication Adapter] as Replication
+  [SaveGameRepository] as Save
+  [Configuration Loader] as Config
+  [Clock / Simulation Tick] as Clock
+}
+
+package "Content / Data" {
+  [UnitDefinition] as UnitDef
+  [BuildingDefinition] as BuildingDef
+  [CombatRules] as CombatRules
+  [EconomyRules] as EconomyRules
+  [MapGenerationRules] as MapRules
+}
+
+Input --> Dispatcher
+Selection --> Input
+Camera --> Bounds
+HUD --> Match
+Views --> Anim
+Views --> Match : csak olvasás / megjelenítés
+
+Dispatcher --> Validator
+Validator --> Match
+Match --> Move
+Match --> Combat
+Match --> Capture
+Match --> Economy
+Match --> Production
+Match --> Upgrade
+Match --> Victory
+Combat --> Target
+Combat --> Diplomacy
+Capture --> Economy
+Capture --> Victory
+
+Move --> Pathfinding
+Move --> Bounds
+Generator --> Placement
+Generator --> MapRules
+Placement --> Bounds
+Placement --> Pathfinding
+
+Network --> RPC
+RPC --> Dispatcher : hoston validálandó parancs
+Match --> Replication : állapotközlés
+Save --> Match : mentés / betöltés
+Clock --> Match : szimulációs tick
+Config --> UnitDef
+Config --> BuildingDef
+Config --> CombatRules
+Config --> EconomyRules
+
+UnitState ..> UnitDef : típusadat
+BaseState ..> BuildingDef : épületadat
+Combat ..> CombatRules
+Economy ..> EconomyRules
+Generator ..> MapRules
+
+note right of "Presentation (Unity kliens)"
+  A megjelenítési réteg nem dönthet
+  sebzésről, tulajdonjogról, termelésről
+  vagy győzelmi feltételről.
+end note
+
+note right of "Domain (Unity-független játékszabályok)"
+  A domainállapot és -szabályok
+  lehetőleg ne függjenek MonoBehaviour-
+  vagy GameObject-referenciáktól.
+end note
+
+note bottom of Infrastructure
+  A hálózat és a mentés adapterréteg.
+  Nem tartalmazhat külön játékszabályokat;
+  a host ugyanazt a Domain logikát hívja.
+end note
+@enduml
