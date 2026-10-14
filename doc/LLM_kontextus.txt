@@ -1,0 +1,318 @@
+1. Szereped és a fejlesztés célja
+Egy meglévő, hosszabb távú játékfejlesztési projekt technikai és architekturális megvalósításában segítesz. A feladatod, hogy a játékot a lent meghatározott követelményeknek megfelelően, fokozatosan és jól karbantartható módon segítsd megvalósítani.
+A fejlesztés során:
+- A már rögzített funkcionális szabályokat tekintsd a projekt alapkövetelményeinek.
+- Ne változtass önállóan a játékmeneten vagy a szabályokon.
+- A még nem véglegesített részleteket különítsd el a már eldöntött követelményektől.
+- A konfigurálható értékeket ne égesd be a programkódba.
+- A megoldásokat a teljes projekt architektúrájához igazítsd, ne csak az adott részfeladatot tekintsd elszigetelten.
+- Törekedj moduláris, tesztelhető, bővíthető C#-megoldásokra.
+- Ha kódot módosítasz, vedd figyelembe a meglévő osztályokat, függőségeket és adatmodelleket. Ne hozz létre párhuzamos rendszereket ugyanarra a feladatra.
+- Ha egy fontos követelmény nincs meghatározva, jelezd a bizonytalanságot, és kérdezz rá, vagy javasolj egyértelműen megjelölt alapértelmezett megoldást.
+A cél nem egy gyors prototípus végleges architektúraként való továbbfejlesztése, hanem egy olyan rendszer létrehozása, amely később új egységekkel, épületekkel, játékszabályokkal és grafikai tartalmakkal is bővíthető.
+2. Technológiai alapok
+- Játékmotor: Unity 6.
+- Programozási nyelv: C#.
+- Platform: Windows.
+- Hálózat: LAN-alapú host–kliens többjátékos rendszer.
+- Játéktípus: felülnézetes, valós idejű stratégiai játék.
+- Grafikai megjelenítés: sprite-ok és rétegezhető 2D képelemek.
+- Világ: négyzetes, procedurálisan generált pálya.
+- Kamera: játékosonként különálló, rögzített tájolású kamera.
+- Játékmód: kompetitív, egyetlen győztessel végződő mérkőzés.
+A konkrét hálózati könyvtár, a Unity-projekt sablonja, a renderelési megoldás és az egyes technikai komponensek pontos implementációja külön technikai döntés lehet. Ezeket ne kezeld automatikusan már eldöntött kérdésként.
+3. A játék alapvető célja és játékmenete
+Minden játékos saját kezdőbázissal és kezdő erőforrásokkal indul. A pályán emellett semleges, sárga frakcióhoz tartozó bázisok találhatók.
+A játékos feladata:
+1. Egységek irányítása és a pálya felfedezése.
+2. Semleges és ellenséges bázisok védelmének lerombolása.
+3. Bázisok elfoglalása APC segítségével.
+4. Erőforrások termelése és készletek felhalmozása.
+5. Egységek gyártása és termelőépületek fejlesztése.
+6. Saját bázisok védelme és az ellenséges játékosok bázisainak megszerzése.
+A játékos akkor esik ki, amikor már egyetlen bázis sincs a tulajdonában. Kieséskor minden megmaradt egysége megsemmisül.
+A mérkőzés győztese az a játékos, aki az összes bázist birtokolja. A bázisok foglaláskor nem tűnnek el, hanem tulajdonost váltanak.
+Nincs kötelező diplomáciai vagy szövetségi rendszer. A játékosok közötti szóbeli megállapodások nem jelentenek a játék által kezelt szövetséget, közös gazdaságot vagy közös védelmet.
+4. Hálózati modell és hitelesített játékszimuláció
+A projekt host-authoritative hálózati architektúrát használja.
+Ez azt jelenti, hogy a host az egyetlen hiteles forrás a közös játékmenet szempontjából. A kliensek parancsokat küldenek, a host ellenőrzi és végrehajtja azokat, majd továbbítja a hitelesített állapotot a résztvevőknek.
+A host feladatai:
+- A mérkőzés és a világ létrehozása.
+- A játékosparancsok hitelesítése.
+- A tulajdonjogok és a játékszabályok ellenőrzése.
+- Az egységek mozgásának, az útvonalak végrehajtásának és az olajfogyasztásnak a kezelése.
+- A harc, a sebzés és a célpontválasztás szimulációja.
+- A bázisok állapotának és tulajdonjogának kezelése.
+- A termelés, a gyártás és a fejlesztések végrehajtása.
+- A kiesés és a győzelem megállapítása.
+- A mérkőzés mentése és visszatöltése.
+A kliensek feladatai:
+- Helyi kameramozgás.
+- Egységek kijelölése.
+- Játékosparancsok összeállítása és elküldése.
+- Helyi kezelőfelület és animációk.
+- A hosttól érkező hitelesített állapot megjelenítése.
+A kliens nem módosíthatja önállóan a közös játékállapotot. A tulajdonjogot, az erőforrásokat, a sebzést, a gyártás eredményét és a mérkőzés végét mindig a host határozza meg.
+A hostnak minden releváns parancsnál ellenőriznie kell a küldő játékos személyazonosságát, a célobjektum érvényességét, a tulajdonjogot, a szükséges erőforrásokat és az egyéb játékszabályokat.
+A hostátvétel az első változatban nem követelmény.
+5. A program architektúrája
+A projektet elkülönített felelősségi körökre kell bontani.
+Presentation / UI
+A helyi megjelenítésért felel:
+- Kamera.
+- Egységkijelölés.
+- HUD és felhasználói felület.
+- Sprite-ok és animációk.
+- Tulajdonost jelző zászlók és feliratok.
+- Vizuális visszajelzések.
+Ez a réteg nem dönthet közös játékszabályokról.
+Application / Commands
+A játékosparancsok feldolgozásáért felel:
+- Parancsok fogadása.
+- Parancsok ellenőrzése.
+- Tulajdonjog és jogosultság vizsgálata.
+- A megfelelő domain szolgáltatás meghívása.
+- A parancs eredményének kezelése.
+Domain / Simulation
+A játék tényleges szabályait és szimulációját tartalmazza:
+- Egységek állapota.
+- Bázisok és tulajdonjogok.
+- Harc és sebzés.
+- Automatikus célpontválasztás.
+- Gazdaság és erőforrások.
+- Gyártás és fejlesztés.
+- Foglalás, kiesés és győzelem.
+A domainréteg lehetőleg ne függjön Unity-megjelenítési komponensektől, és ne igényelje a GameObjectek közvetlen módosítását a játékszabályok végrehajtásához.
+World / Pathfinding
+Feladata:
+- Procedurális pályagenerálás.
+- Járhatóság és akadályok kezelése.
+- Útvonaltervezés.
+- Bázisok és egységek elhelyezésének ellenőrzése.
+- Pályahatárok betartatása.
+Networking
+Feladata:
+- Lobby és session.
+- Játékosok csatlakoztatása.
+- Parancsok továbbítása.
+- Állapotszinkronizáció.
+- Kapcsolatkezelés.
+A hálózati réteg nem tartalmazhat a domainlogikával párhuzamos, eltérő játékszabályokat.
+Persistence
+Feladata:
+- Mentés.
+- Visszatöltés.
+- Mentési formátum és verziókezelés.
+- A mérkőzés folytatásához szükséges állapot helyreállítása.
+Content / Data
+A játék tartalmi paramétereit kezeli, például:
+- Egységtípusok és statisztikák.
+- Gyártási költségek és idők.
+- Sebzési értékek.
+- Termelési ráták.
+- Fejlesztési költségek.
+- Toronyadatok.
+- Játékmód-beállítások.
+Unityben erre alkalmasak lehetnek a ScriptableObject-alapú konfigurációk, de a végleges adatformátumot a projekt tényleges igényeihez kell igazítani.
+6. Kamera, kijelölés és mozgás
+Minden játékos saját, egymástól független kamerával rendelkezik. A kamera tájolása rögzített, forgatása nem megengedett, és nem hagyhatja el a pálya határait.
+Az egységek egérrel, téglalap alakú kijelölőkerettel csoportosan kijelölhetők. Jobb egérgombbal mozgási parancs adható.
+A játékos csak a saját egységeit irányíthatja.
+Az egységek nem járőröznek és nem üldöznek önállóan. A mozgásuk játékosparancshoz kötött. Az automatikus harc nem eredményezhet automatikus üldözést.
+Az egységek nem mozoghatnak át terepakadályokon, a bázisok tiltott területein vagy a pálya határain. A csoportosan mozgatott egységek végső elrendezéséhez már létező Python-algoritmus használható referenciaként, de a játékba lehetőleg C#-implementáció kerüljön.
+Az útvonaltervezéshez A* vagy más, teljesítményméréssel igazolt algoritmus alkalmazható. Az útvonaltervező csak a járható útvonalról dönthet; tulajdonjogot, sebzést vagy harci állapotot nem kezelhet.
+Az egységek mozgása olajat fogyaszt. Ha nincs elegendő olaj, az ajánlott viselkedés az, hogy az egység megáll, megtartja a mozgási parancsát, és megfelelő készlet esetén folytatja az útját. Ez a viselkedés még véglegesítendő.
+7. Egységtípusok és harci szerepek
+A kezdeti változat négy egységkategóriát használ.
+Általános harci egység: kiegyensúlyozott sebzést okoz az ellenséges egységeknek és a bázisoknak.
+Bázisromboló: elsősorban bázisvédelmi elemek ellen hatékony, de mozgó ellenséges egységeket is képes támadni.
+Egységvadász: elsősorban ellenséges egységek ellen hatékony, a bázisoknak kisebb sebzést okoz.
+APC: elsődleges feladata a lerombolt védelmű bázisok elfoglalása.
+A három harci szerepkörön belül több konkrét egység is lehet, de az azonos szerepkörű egységek közös programlogikát használnak, és konfigurációs adatokkal különböznek.
+Az egységek adatai közé tartozhat:
+- Egyedi típusazonosító.
+- Tulajdonos.
+- Aktuális és maximális életerő.
+- Mozgási sebesség.
+- Támadási hatótávolság és időköz.
+- Egységek és épületek elleni sebzés.
+- Gyártási költség és idő.
+- Mozgási olajköltség.
+- Célpontválasztási kategória.
+A konkrét statisztikák és költségek konfigurálható adatok. Ne hozz létre minden egységtípushoz külön, egymást másoló vezérlőosztályt, ha a különbség adatokkal kifejezhető.
+8. Automatikus harc és célpontválasztás
+Az egységek mozgásához játékosparancs szükséges, de az ellenséges célpontok támadása automatikusan történhet.
+Ha egy érvényes ellenséges egység a támadási hatótávba kerül, az egység a szabályoknak megfelelően tüzet nyithat. Ha a célpont kikerül a hatótávból, az egység nem indul utána.
+A játékos meghatározhatja, hogy mely ellenfelek egységeit támadják automatikusan a saját egységei. Ez célpontszűrés, nem diplomáciai rendszer.
+A kézi támadási parancs és az automatikus célpontszűrés pontos viszonyát külön kell rögzíteni. Az ajánlott megoldás szerint az explicit játékosparancs felülírhatja az automatikus szűrést.
+Minden sebzést és megsemmisülést a host számol.
+Bázisok közös célpontja
+A bázis összes működő tornya egyetlen, bázisszinten meghatározott közös célpontot használ. A tornyok külön-külön számolják a saját tüzelési idejüket, hatótávolságukat és sebzésüket.
+A célpont-prioritás:
+1. APC.
+2. Bázisromboló.
+3. Egyéb harci egységek.
+Ha magasabb prioritású ellenség válik elérhetővé, a bázis célpontot vált. Azonos prioritású új célpont megjelenése önmagában nem kényszerít célpontváltást.
+Ha a jelenlegi célpont megsemmisül vagy érvénytelenné válik, a bázis a legmagasabb prioritású elérhető kategóriából véletlenszerű célpontot választ. Ha nincs érvényes célpont, a tornyok nem tüzelnek.
+A célpontválasztás logikája ne legyen minden toronyba külön beépítve. A közös célpontot egy dedikált bázisszintű szolgáltatás kezelje.
+9. Bázisok, falak, tornyok és foglalás
+Minden bázis tartalmaz:
+- Tulajdonosi állapotot.
+- Falat és védelmi tornyokat.
+- Szén-, acél-, olaj- és betontermelő épületet.
+- Egységgyártási sort.
+- Egységmegjelenési területet.
+- APC-foglalási területet.
+A bázis tulajdonosa lehet játékos, semleges sárga frakció vagy átmenetileg senki.
+A négy termelőépület kezdetben 1. szintű. A 0. szintű épület megmarad, de nem termel. A maximális szint és a fejlesztések költsége konfigurálható.
+A fal leomlása
+A fal akkor omlik le, amikor az utolsó működő védelmi torony is megsemmisül.
+Ennek következményei:
+- A bázis lerombolt védelmű, átmenetileg gazdátlan állapotba kerül.
+- A termelőépületek szintje azonnal csökken a konfigurált rombolási szabály szerint.
+- A tulajdonjog még nem változik meg.
+- A bázis nem kap automatikusan új tornyokat.
+APC-foglalás
+APC csak lerombolt védelmű bázist foglalhat el. A foglalás a host által ellenőrzött művelet.
+Sikeres foglaláskor:
+- A tulajdonos az APC tulajdonosára változik.
+- A bázis alapfalat és két kezdőtornyot kap.
+- A termelőépületek a harc után megmaradt szinten működnek tovább.
+- A bázis termelése és gyártása az új tulajdonoshoz kerül.
+A sárga frakció nem foglalhat játékosbázisokat.
+Bázisátadás
+A játékosok egymásnak bázist adhatnak át. Az átadás nem igényel falrombolást vagy APC-t, hacsak később más szabály nem rendelkezik erről.
+A gyártási sor, a tornyok, a termelőszintek és az erőforrások átadáskori kezelése még pontosítandó.
+10. Erőforrások, termelés és gyártás
+A játék négy erőforrást használ:
+- Szén: egységgyártásra és bázisvédelmi fejlesztésekre használható.
+- Acél: egységgyártásra és tornyok építésére használható.
+- Olaj: az egységek mozgásához szükséges.
+- Beton: a termelőépületek fejlesztéséhez szükséges.
+A játékos készletei játékosszinten tárolódnak. Minden birtokolt bázis termelése összeadódik.
+A termelés időalapú, és a szimulációs időből kell számolni, nem a képkockasebességből. A termelési ráta a termelőépület szintjétől és konfigurációjától függ.
+Minden bázis saját gyártási sorral rendelkezik.
+A gyártási folyamat:
+1. A játékos kiválaszt egy egységtípust.
+2. A host ellenőrzi a tulajdonjogot és az erőforrásokat.
+3. Siker esetén levonja a költséget, és a gyártási tételt a sorba helyezi.
+4. A gyártás a meghatározott idő alapján halad.
+5. A kész egység egy szabad, kijelölt megjelenési pontra kerül.
+6. A sor folytatódik a következő tétellel.
+A gyártási sor használata ingyenes, de az egységek gyártása erőforrásba kerül.
+A gyártás lemondásának visszatérítése és a blokkolt megjelenési pontok kezelése még pontosítandó.
+A termelőépületek fejleszthetők, a szintjük növeli a termelést. A tornyok építéséhez acél használható. A fejlesztési költségeket, időket, maximumszinteket és hatásokat adatokban kell tárolni.
+11. Sárga frakció
+A semleges sárga frakció az első változatban egyszerű, helyben maradó védelmi rendszert jelent.
+- Egységei előre meghatározott helyeken állnak.
+- Az érvényes ellenséges célpontokat hatótávon belül automatikusan támadják.
+- Nem járőröznek.
+- Nem üldöznek.
+- Nem mozognak önállóan.
+- Nem gyártanak utánpótlást.
+Az AI működése ne legyen összetettebb a szükségesnél. Az utánpótlás vagy hullámok rendszere később külön funkcióként hozzáadható.
+12. Procedurális világgenerálás
+A világ négyzetes pályaként készül, amelynek mérete a játékosok számától és a host beállításaitól függ.
+A generátor elhelyezi:
+- A játékosok kezdőbázisait.
+- A semleges sárga bázisokat.
+- A terepakadályokat, például hegyeket és szakadékokat.
+- Az opcionális, mozgást nem akadályozó dekorációkat.
+Folyók az első változatban nem szerepelnek.
+A pályagenerátornak ellenőriznie kell, hogy:
+- A bázisok és a kötelező megjelenési pontok ne fedjék egymást akadályokkal.
+- A kezdő egységek és APC-k számára elegendő hely legyen.
+- A bázisokhoz vezető útvonalak ne legyenek véletlenül teljesen elzárva.
+- Az objektumok között megfelelő ütközési távolság maradjon.
+- Az egységek és a kamerák a pálya határain belül maradjanak.
+Érvénytelen elhelyezés esetén a generátor új pozíciót keres vagy újragenerálja az érintett részt.
+A világ véletlenmagját menteni kell, hogy a generált pálya reprodukálható legyen.
+A sárga bázisok száma legalább egy, a játékosszámtól függő minimumot érjen el; a host ennél nagyobb értéket is választhasson. A pontos képlet és a generálási paraméterek még beállítandók.
+13. Kiesés és győzelem
+A host folyamatosan ellenőrzi a játékosok bázistulajdonát.
+- A legalább egy bázissal rendelkező játékos tovább játszhat.
+- Az utolsó bázis elvesztése kiesést jelent.
+- A kieső játékos összes megmaradt egysége megsemmisül.
+- A mérkőzés akkor ér véget, amikor egyetlen játékos birtokolja az összes bázist.
+- A győztes személye és a mérkőzés eredménye minden kliensen azonos.
+A győzelmi logikának a hitelesített bázisállapotból kell kiindulnia. A kliens nem dönthet önállóan a mérkőzés befejezéséről.
+14. Mentés és visszatöltés
+A mentésnek tartalmaznia kell a mérkőzés folytatásához szükséges összes állapotot.
+Ide tartozik:
+- Mérkőzésbeállítások, világméret és generálási seed.
+- Játékosok azonosítói és kiesési állapotai.
+- Játékosonkénti erőforráskészletek.
+- Bázisok pozíciói, tulajdonosai, falállapotai, tornyai és termelőszintjei.
+- Egységek azonosítói, típusai, tulajdonosai, pozíciói és életerejük.
+- Gyártási sorok és folyamatban lévő gyártások előrehaladása.
+- Folyamatban lévő mozgási parancsok és a folytatásukhoz szükséges állapot.
+- Automatikus célpontszűrési beállítások.
+- Játékidő és a mérkőzés eredménye.
+- Minden további olyan változó, amely a mérkőzés szabályos folytatásához szükséges.
+A host szabályos kilépésekor a mérkőzés mentendő, majd lezárandó. A kliens szabályos kilépése is a projekt jelenlegi követelménye szerint a mérkőzés mentését és lezárását váltja ki. Váratlan leállás ellen időszakos automatikus mentés szükséges.
+A mentési rendszer legyen verziózható, hogy a későbbi adatmodell-változások kezelhetők legyenek.
+15. Grafikai megjelenítés
+A játék sprite-okat és rétegezhető 2D képelemeket használ.
+A megjelenítés részei:
+- Egységek sprite-jai és mozgási animációi.
+- Bázisok és épületek különálló grafikai rétegei.
+- Bázistulajdonost jelző zászlók.
+- Egységek feletti tulajdonosfeliratok.
+- Életerő- és állapotjelzők.
+- HUD és kezelőfelület.
+A grafikai import során egységesíteni kell a pixels-per-unit értéket, a pivotpontokat, az átlátszó háttereket, a sorting layereket és az ütközési méreteket.
+A meglévő grafikák technikai használhatósága nem jelenti automatikusan azt, hogy azok terjesztése vagy kereskedelmi felhasználása engedélyezett. A kiadható változatban saját vagy megfelelő licencű tartalmakat kell használni.
+16. Fejlesztési sorrend
+A javasolt fejlesztési sorrend:
+1. Unity-projekt, mappastruktúra, alapadatok és egyszerű tesztpálya.
+2. Kamera, kijelölés, egységmozgás és útvonaltervezés.
+3. Host–kliens kapcsolat és minimális állapotszinkronizáció.
+4. Bázisok, tornyok, közös célpontválasztás és harc.
+5. APC-foglalás, gazdaság, gyártás és fejlesztések.
+6. Procedurális világgenerálás és sárga frakció.
+7. Lobby, játékosbeállítások, kiesés és győzelem.
+8. Mentés és visszatöltés.
+9. Kezelőfelület, integrációs tesztek, hibajavítás és teljes többjátékos tesztelés.
+A hálózati működést már a fejlesztés elején ellenőrizni kell, nem csak a végén. A cél annak korai igazolása, hogy a közös játékszimuláció host által vezérelve, több klienssel is helyesen működik.
+17. Konfigurálható és még nem véglegesített részletek
+Az alábbiak nem tekinthetők végleges, rögzített értékeknek:
+- Az egységek nevei, statisztikái, sebzése, költsége és gyártási ideje.
+- A termelési ráták és maximális épületszintek.
+- A bázisromboláskor bekövetkező termelőszint-vesztés pontos mértéke.
+- Az olajfogyasztás képlete és az olajhiány teljes viselkedése.
+- A gyártás megszakításának visszatérítési szabálya.
+- A blokkolt egységmegjelenési pontok kezelése.
+- A bázisátadás részletes szabályai.
+- A kézi támadás és az automatikus célpontszűrés pontos viszonya.
+- A világméret, a bázisszám és az akadályok konkrét generálási paraméterei.
+- A hálózati frissítések gyakorisága és az állapotszinkronizáció pontos technikája.
+- Az automatikus LAN-felderítés megvalósítása.
+- A mentési időköz és a mentési formátum.
+Ha ezek közül valamelyik szükséges egy konkrét feladat végrehajtásához, ne találj ki csendben végleges szabályt. Különítsd el a javaslatot a követelménytől, és jelezd, hogy döntés szükséges.
+18. Kötelező fejlesztési irányelvek
+A további fejlesztés során az alábbi elveket tartsd be.
+1. Egyetlen hiteles játékszimuláció. A host végzi a közös játékszabályok végrehajtását. A kliensek csak parancsokat küldenek és állapotot jelenítenek meg.
+2. Felelősségi körök szétválasztása. A mozgás, harc, gazdaság, bázisállapot, célpontválasztás, hálózat és megjelenítés külön felelősségi kör.
+3. Adatvezérelt játékmenet. A gyakran módosuló statisztikák, költségek, idők és fejlesztési paraméterek konfigurációban legyenek.
+4. Determinisztikus szabálykezelés, ahol indokolt. A közös állapotot a host határozza meg. A kliensoldali megjelenítés nem írhatja felül a szimuláció eredményeit.
+5. Minimális kódduplikáció. Hasonló egységek és épületek közös logikát használjanak, az eltérések adatokból származzanak.
+6. Ellenőrizhető módosítások. A kódváltoztatások legyenek tesztelhetők. A fontosabb szabályokat különösen a hálózati jogosultságok, a foglalás, a harc, a gazdaság és a kiesés területén tesztelni kell.
+7. A meglévő projekt tiszteletben tartása. Ha már létezik implementáció, először vizsgáld meg az érintett osztályokat és függőségeket. Ne cserélj le működő architektúrát indokolatlanul.
+8. Fokozatos integráció. A fejlesztési feladatokat kis, ellenőrizhető lépésekre bontsd. Minden új rendszer illeszkedjen a korábban kialakított struktúrához.
+9. A bizonytalanságok nyílt kezelése. Ne állítsd, hogy egy döntés már megszületett, ha a specifikáció csak javaslatot tartalmaz.
+10. A játékmenet elsődlegessége. A technikai megoldásokat a rögzített játékszabályokhoz igazítsd, és ne változtasd meg a játék működését pusztán azért, mert egy másik implementáció egyszerűbb.
+19. Az AI-modell feladatának végrehajtási módja
+Amikor konkrét fejlesztési feladatot kapsz:
+1. Határozd meg, hogy a feladat a rendszer melyik rétegéhez tartozik.
+2. Azonosítsd az érintett adatmodelleket, osztályokat és kapcsolódó rendszereket.
+3. Ellenőrizd, hogy a feladat mely rögzített követelményeket érinti.
+4. Válaszd ki a meglévő architektúrához illeszkedő megoldást.
+5. Mutasd be a szükséges kódot, fájlokat és módosításokat.
+6. Ismertesd a megoldás működését és az esetleges integrációs lépéseket.
+7. Jelezd a még nyitott kérdéseket és a szükséges teszteket.
+Ha teljes, futtatható kódot kérnek, ne csak elvi példát vagy hiányos metódust adj. Ha viszont a feladat tervezési döntésről szól, ne kezdj el szükségtelenül teljes implementációt készíteni.
+A kódot a projekt tényleges Unity- és C#-környezetéhez igazítsd. Ne feltételezz olyan külső csomagot, API-t vagy már létező osztályt, amelynek használata nincs igazolva.
+
+A projekt legfontosabb architekturális szabálya
+A játék közös állapotát a host által vezérelt szimuláció határozza meg. A parancsok feldolgozása, a játékszabályok, a hálózati továbbítás, a mentés és a grafikai megjelenítés egymástól elkülönített felelősségi körök. Az egységek, bázisok és fejlesztések paraméterei konfigurálhatók, miközben az alapvető játékszabályok minden kliens számára egységesek.
+Ez az alapelv minden későbbi architekturális és implementációs döntésnél elsődleges szempont.
