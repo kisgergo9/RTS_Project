@@ -316,3 +316,95 @@ A kódot a projekt tényleges Unity- és C#-környezetéhez igazítsd. Ne felté
 A projekt legfontosabb architekturális szabálya
 A játék közös állapotát a host által vezérelt szimuláció határozza meg. A parancsok feldolgozása, a játékszabályok, a hálózati továbbítás, a mentés és a grafikai megjelenítés egymástól elkülönített felelősségi körök. Az egységek, bázisok és fejlesztések paraméterei konfigurálhatók, miközben az alapvető játékszabályok minden kliens számára egységesek.
 Ez az alapelv minden későbbi architekturális és implementációs döntésnél elsődleges szempont.
+
+Tervezett mappa struktúra, melytől csak erősen indokolt esetben lehet eltérni:
+Assets/
+├── Game/
+│   ├── Art/
+│   │   ├── Units/
+│   │   │   ├── Common/
+│   │   │   ├── BaseDestroyers/
+│   │   │   ├── UnitHunters/
+│   │   │   └── APC/
+│   │   ├── Bases/
+│   │   │   ├── Walls/
+│   │   │   ├── Turrets/
+│   │   │   ├── Buildings/
+│   │   │   └── Flags/
+│   │   ├── Terrain/
+│   │   ├── UI/
+│   │   └── Effects/
+│   │
+│   ├── Audio/
+│   │
+│   ├── Animations/
+│   │   ├── Units/
+│   │   ├── Bases/
+│   │   └── Effects/
+│   │
+│   ├── Prefabs/
+│   │   ├── Units/
+│   │   ├── Bases/
+│   │   ├── Buildings/
+│   │   ├── Terrain/
+│   │   ├── UI/
+│   │   └── Effects/
+│   │
+│   ├── Scenes/
+│   │   ├── Boot.unity
+│   │   ├── MainMenu.unity
+│   │   ├── Lobby.unity
+│   │   ├── Game.unity
+│   │   └── Test_Sandbox.unity
+│   │
+│   ├── Scripts/
+│   │   ├── Domain/
+│   │   │   ├── State/
+│   │   │   ├── Units/
+│   │   │   ├── Bases/
+│   │   │   ├── Combat/
+│   │   │   ├── Economy/
+│   │   │   ├── Production/
+│   │   │   └── Victory/
+│   │   │
+│   │   ├── Application/
+│   │   │   ├── Commands/
+│   │   │   ├── Match/
+│   │   │   └── Events/
+│   │   │
+│   │   ├── World/
+│   │   │   ├── Generation/
+│   │   │   ├── Pathfinding/
+│   │   │   ├── Placement/
+│   │   │   └── Bounds/
+│   │   │
+│   │   ├── Presentation/
+│   │   │   ├── Camera/
+│   │   │   ├── Input/
+│   │   │   ├── Selection/
+│   │   │   ├── Units/
+│   │   │   ├── Bases/
+│   │   │   └── UI/
+│   │   │
+│   │   ├── Networking/
+│   │   │   ├── Lobby/
+│   │   │   ├── Commands/
+│   │   │   └── Replication/
+│   │   │
+│   │   ├── Persistence/
+│   │   ├── Configuration/
+│   │   └── Infrastructure/
+│   │
+│   ├── Data/
+│   │   ├── Units/
+│   │   ├── Buildings/
+│   │   ├── Economy/
+│   │   ├── Combat/
+│   │   └── WorldGeneration/
+│   │
+│   ├── Settings/
+│   └── Tests/
+│       ├── EditMode/
+│       └── PlayMode/
+│
+└── ThirdParty/
