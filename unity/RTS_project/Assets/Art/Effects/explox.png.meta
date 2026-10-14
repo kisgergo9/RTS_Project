@@ -1,0 +1,4888 @@
+fileFormatVersion: 2
+guid: ef8a053e59a5d81498a23f7a8dcbe84f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8906350073756577626
+    second: explox_0
+  - first:
+      213: 292484636799018467
+    second: explox_1
+  - first:
+      213: -9177881361913731057
+    second: explox_2
+  - first:
+      213: 85526081446364001
+    second: explox_3
+  - first:
+      213: -8795720609463429490
+    second: explox_4
+  - first:
+      213: 3129221832550080180
+    second: explox_5
+  - first:
+      213: -4623962983050845999
+    second: explox_6
+  - first:
+      213: 3414027782666740542
+    second: explox_7
+  - first:
+      213: -8864654463592033200
+    second: explox_8
+  - first:
+      213: -2370246174448574848
+    second: explox_9
+  - first:
+      213: -3765965793711584377
+    second: explox_10
+  - first:
+      213: -3586226406599864438
+    second: explox_11
+  - first:
+      213: 6126632455021446586
+    second: explox_12
+  - first:
+      213: 29606553433165637
+    second: explox_13
+  - first:
+      213: 4435278416767523087
+    second: explox_14
+  - first:
+      213: 6362080304290189166
+    second: explox_15
+  - first:
+      213: -6908419131045204154
+    second: explox_16
+  - first:
+      213: -918195422188649465
+    second: explox_17
+  - first:
+      213: 1344330178307553995
+    second: explox_18
+  - first:
+      213: 7939993058602640306
+    second: explox_19
+  - first:
+      213: 8929328412289343068
+    second: explox_20
+  - first:
+      213: 299366125200033810
+    second: explox_21
+  - first:
+      213: -8243486650157191333
+    second: explox_22
+  - first:
+      213: 7557747135813354467
+    second: explox_23
+  - first:
+      213: 2898688578433195493
+    second: explox_24
+  - first:
+      213: 2421794666403759803
+    second: explox_25
+  - first:
+      213: -9181024948642898936
+    second: explox_26
+  - first:
+      213: 3820332904193227476
+    second: explox_27
+  - first:
+      213: -4931783170804889869
+    second: explox_28
+  - first:
+      213: -7187984037689081209
+    second: explox_29
+  - first:
+      213: -5262030019634696413
+    second: explox_30
+  - first:
+      213: 3164986518325905627
+    second: explox_31
+  - first:
+      213: -2582080652102060987
+    second: explox_32
+  - first:
+      213: 7336219074371604337
+    second: explox_33
+  - first:
+      213: 6259407517582602658
+    second: explox_34
+  - first:
+      213: -7950857985219945835
+    second: explox_35
+  - first:
+      213: -6637944269528455396
+    second: explox_36
+  - first:
+      213: 6276935903297302087
+    second: explox_37
+  - first:
+      213: -3690977964067293689
+    second: explox_38
+  - first:
+      213: -8849098348988862919
+    second: explox_39
+  - first:
+      213: -4830244049583533558
+    second: explox_40
+  - first:
+      213: 4313819811613209397
+    second: explox_41
+  - first:
+      213: -8082685440159873392
+    second: explox_42
+  - first:
+      213: -1533043879879923227
+    second: explox_43
+  - first:
+      213: -8721753518243652641
+    second: explox_44
+  - first:
+      213: 332706878081302077
+    second: explox_45
+  - first:
+      213: 1678465749311447646
+    second: explox_46
+  - first:
+      213: -2903287376705814470
+    second: explox_47
+  - first:
+      213: -3516598691711127834
+    second: explox_48
+  - first:
+      213: 5379001417226405715
+    second: explox_49
+  - first:
+      213: -2374719320707613027
+    second: explox_50
+  - first:
+      213: -7836026048020632429
+    second: explox_51
+  - first:
+      213: -4764257706875928965
+    second: explox_52
+  - first:
+      213: 5894604629576632226
+    second: explox_53
+  - first:
+      213: 103479441204072965
+    second: explox_54
+  - first:
+      213: -7918665073432437112
+    second: explox_55
+  - first:
+      213: -6626132559342985324
+    second: explox_56
+  - first:
+      213: -3631872318525572181
+    second: explox_57
+  - first:
+      213: 4490534412083992752
+    second: explox_58
+  - first:
+      213: 8464173658138043199
+    second: explox_59
+  - first:
+      213: -5659860520974666001
+    second: explox_60
+  - first:
+      213: -8866825535179749610
+    second: explox_61
+  - first:
+      213: -8163188280594324714
+    second: explox_62
+  - first:
+      213: 2080523190218703501
+    second: explox_63
+  - first:
+      213: -7942397992306945973
+    second: explox_64
+  - first:
+      213: -5180254277053191083
+    second: explox_65
+  - first:
+      213: -3043049488815829050
+    second: explox_66
+  - first:
+      213: -5777080331400683714
+    second: explox_67
+  - first:
+      213: -3486267364962557648
+    second: explox_68
+  - first:
+      213: -3738171020916594322
+    second: explox_69
+  - first:
+      213: -2703069011000028022
+    second: explox_70
+  - first:
+      213: -2686460445088729032
+    second: explox_71
+  - first:
+      213: 6916218525108963347
+    second: explox_72
+  - first:
+      213: 2658943961761579207
+    second: explox_73
+  - first:
+      213: -1773706646314250805
+    second: explox_74
+  - first:
+      213: -4993236971453077439
+    second: explox_75
+  - first:
+      213: -5121520288566827091
+    second: explox_76
+  - first:
+      213: 487743200306815525
+    second: explox_77
+  - first:
+      213: -3058405497859661048
+    second: explox_78
+  - first:
+      213: -8577161095137715802
+    second: explox_79
+  - first:
+      213: 912891193032494597
+    second: explox_80
+  - first:
+      213: -3915977922627574515
+    second: explox_81
+  - first:
+      213: 4914265850430015268
+    second: explox_82
+  - first:
+      213: 6315759993826776784
+    second: explox_83
+  - first:
+      213: 5179815999205347962
+    second: explox_84
+  - first:
+      213: 1384605866886960103
+    second: explox_85
+  - first:
+      213: -5820569824500016730
+    second: explox_86
+  - first:
+      213: 8205941753953736927
+    second: explox_87
+  - first:
+      213: 8152427750314956108
+    second: explox_88
+  - first:
+      213: 6415871359261497837
+    second: explox_89
+  - first:
+      213: 7141116207405910790
+    second: explox_90
+  - first:
+      213: -4382871982282987798
+    second: explox_91
+  - first:
+      213: -5255712043506740764
+    second: explox_92
+  - first:
+      213: -850867976641220109
+    second: explox_93
+  - first:
+      213: -5328117271479020488
+    second: explox_94
+  - first:
+      213: 4558201421591523467
+    second: explox_95
+  - first:
+      213: 1036989962867742201
+    second: explox_96
+  - first:
+      213: -2225240633071780293
+    second: explox_97
+  - first:
+      213: -4822075733284510372
+    second: explox_98
+  - first:
+      213: 7909058527312618160
+    second: explox_99
+  - first:
+      213: -6440340095946458951
+    second: explox_100
+  - first:
+      213: -3074980098723982632
+    second: explox_101
+  - first:
+      213: -1549761466712217337
+    second: explox_102
+  - first:
+      213: 6314097082879334920
+    second: explox_103
+  - first:
+      213: -2710672627640682314
+    second: explox_104
+  - first:
+      213: 6339630300539126946
+    second: explox_105
+  - first:
+      213: 6982776139992533276
+    second: explox_106
+  - first:
+      213: 1788806167169110041
+    second: explox_107
+  - first:
+      213: 8000148585142498288
+    second: explox_108
+  - first:
+      213: -6115762744968432704
+    second: explox_109
+  - first:
+      213: 8402709962360640635
+    second: explox_110
+  - first:
+      213: -311211422891508276
+    second: explox_111
+  - first:
+      213: -6933325403367075558
+    second: explox_112
+  - first:
+      213: 8099437891572239503
+    second: explox_113
+  - first:
+      213: 4016765500540382776
+    second: explox_114
+  - first:
+      213: 6192402130470935932
+    second: explox_115
+  - first:
+      213: 6786096601602305032
+    second: explox_116
+  - first:
+      213: 6525776845985645373
+    second: explox_117
+  - first:
+      213: -8507550111071048019
+    second: explox_118
+  - first:
+      213: -1549198015958112541
+    second: explox_119
+  - first:
+      213: -4288078638882599417
+    second: explox_120
+  - first:
+      213: -9185771266194310420
+    second: explox_121
+  - first:
+      213: 2580513724393986662
+    second: explox_122
+  - first:
+      213: 590160730228795545
+    second: explox_123
+  - first:
+      213: -7289422227613597008
+    second: explox_124
+  - first:
+      213: 9213056476751858221
+    second: explox_125
+  - first:
+      213: 6214761030930918261
+    second: explox_126
+  - first:
+      213: 4568317455903150957
+    second: explox_127
+  - first:
+      213: 3790315072201109786
+    second: explox_128
+  - first:
+      213: 351290170968494384
+    second: explox_129
+  - first:
+      213: 6049810834359416293
+    second: explox_130
+  - first:
+      213: -1643593210785604899
+    second: explox_131
+  - first:
+      213: 6985532519041387897
+    second: explox_132
+  - first:
+      213: 3639807920109510884
+    second: explox_133
+  - first:
+      213: 1459893826492766998
+    second: explox_134
+  - first:
+      213: -1638502216021713245
+    second: explox_135
+  - first:
+      213: -1514374682052721135
+    second: explox_136
+  - first:
+      213: 5248922375117530528
+    second: explox_137
+  - first:
+      213: -1504163373250776772
+    second: explox_138
+  - first:
+      213: 1352765678390981883
+    second: explox_139
+  - first:
+      213: 2175363120912271930
+    second: explox_140
+  - first:
+      213: -3314687717550291734
+    second: explox_141
+  - first:
+      213: -1053714582683190957
+    second: explox_142
+  - first:
+      213: -3641534476818361341
+    second: explox_143
+  - first:
+      213: -4495595120375273198
+    second: explox_144
+  - first:
+      213: -3459932463089780367
+    second: explox_145
+  - first:
+      213: 596546173184503572
+    second: explox_146
+  - first:
+      213: 8284085772240780910
+    second: explox_147
+  - first:
+      213: 410293001857363679
+    second: explox_148
+  - first:
+      213: -4488026285116176925
+    second: explox_149
+  - first:
+      213: 1374723871615864232
+    second: explox_150
+  - first:
+      213: -1312386468748561567
+    second: explox_151
+  - first:
+      213: -4023784405769220370
+    second: explox_152
+  - first:
+      213: -967073584643378909
+    second: explox_153
+  - first:
+      213: -7974460558374464015
+    second: explox_154
+  - first:
+      213: 6213155229516020287
+    second: explox_155
+  - first:
+      213: -6939497078222616141
+    second: explox_156
+  - first:
+      213: -7514551888177328896
+    second: explox_157
+  - first:
+      213: -3259758586570867914
+    second: explox_158
+  - first:
+      213: -4281409576327060437
+    second: explox_159
+  - first:
+      213: 923823989144330117
+    second: explox_160
+  - first:
+      213: -8218513493940988378
+    second: explox_161
+  - first:
+      213: 1812127653200128524
+    second: explox_162
+  - first:
+      213: -3019632429570032081
+    second: explox_163
+  - first:
+      213: -2109756766435655656
+    second: explox_164
+  - first:
+      213: 2293566811910706723
+    second: explox_165
+  - first:
+      213: -7305572832144481143
+    second: explox_166
+  - first:
+      213: -9202637823010931835
+    second: explox_167
+  - first:
+      213: 5812816013324232983
+    second: explox_168
+  - first:
+      213: 431169338180984462
+    second: explox_169
+  - first:
+      213: -5392438661767471798
+    second: explox_170
+  - first:
+      213: -7361279145769125598
+    second: explox_171
+  - first:
+      213: 5439735044482555068
+    second: explox_172
+  - first:
+      213: 6443264852664703495
+    second: explox_173
+  - first:
+      213: 1304357867719121488
+    second: explox_174
+  - first:
+      213: 5246946128873874029
+    second: explox_175
+  - first:
+      213: 6127066825701847966
+    second: explox_176
+  - first:
+      213: -738286773854040325
+    second: explox_177
+  - first:
+      213: 5921032816697665876
+    second: explox_178
+  - first:
+      213: -6259976643870169598
+    second: explox_179
+  - first:
+      213: -6869985779932977498
+    second: explox_180
+  - first:
+      213: -4281957742741546599
+    second: explox_181
+  - first:
+      213: 6482926928353177791
+    second: explox_182
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: explox_0
+      rect:
+        serializedVersion: 2
+        x: 11100
+        y: 6
+        width: 158
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a01778bbc9466480800000000000000
+      internalID: -8906350073756577626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_1
+      rect:
+        serializedVersion: 2
+        x: 11276
+        y: 6
+        width: 156
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e52aae3a3d1f0400800000000000000
+      internalID: 292484636799018467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_2
+      rect:
+        serializedVersion: 2
+        x: 11451
+        y: 5
+        width: 155
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f082470278d91a080800000000000000
+      internalID: -9177881361913731057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_3
+      rect:
+        serializedVersion: 2
+        x: 11626
+        y: 5
+        width: 156
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16344a79489df2100800000000000000
+      internalID: 85526081446364001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_4
+      rect:
+        serializedVersion: 2
+        x: 11801
+        y: 5
+        width: 156
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e86995915b25fe580800000000000000
+      internalID: -8795720609463429490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_5
+      rect:
+        serializedVersion: 2
+        x: 11976
+        y: 4
+        width: 160
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be5b886daa3d6b20800000000000000
+      internalID: 3129221832550080180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_6
+      rect:
+        serializedVersion: 2
+        x: 12151
+        y: 4
+        width: 161
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0e2bc6a2264dfb0800000000000000
+      internalID: -4623962983050845999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_7
+      rect:
+        serializedVersion: 2
+        x: 12326
+        y: 3
+        width: 158
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e336a271e20116f20800000000000000
+      internalID: 3414027782666740542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_8
+      rect:
+        serializedVersion: 2
+        x: 12500
+        y: 3
+        width: 159
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05414097bbb6af480800000000000000
+      internalID: -8864654463592033200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_9
+      rect:
+        serializedVersion: 2
+        x: 12676
+        y: 3
+        width: 159
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e93c599a13b1fd0800000000000000
+      internalID: -2370246174448574848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_10
+      rect:
+        serializedVersion: 2
+        x: 12853
+        y: 2
+        width: 158
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b8c85401a9cbbc0800000000000000
+      internalID: -3765965793711584377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_11
+      rect:
+        serializedVersion: 2
+        x: 13027
+        y: 2
+        width: 160
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f4d76751a2b3ec0800000000000000
+      internalID: -3586226406599864438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_12
+      rect:
+        serializedVersion: 2
+        x: 13204
+        y: 2
+        width: 159
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab5ceeee1cb260550800000000000000
+      internalID: 6126632455021446586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_13
+      rect:
+        serializedVersion: 2
+        x: 13378
+        y: 1
+        width: 160
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54f4864e00f296000800000000000000
+      internalID: 29606553433165637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_14
+      rect:
+        serializedVersion: 2
+        x: 13554
+        y: 1
+        width: 160
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f09926f88364d8d30800000000000000
+      internalID: 4435278416767523087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_15
+      rect:
+        serializedVersion: 2
+        x: 13731
+        y: 1
+        width: 159
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6fc9b93456aa4850800000000000000
+      internalID: 6362080304290189166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_16
+      rect:
+        serializedVersion: 2
+        x: 13906
+        y: 0
+        width: 160
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64fa986176d5020a0800000000000000
+      internalID: -6908419131045204154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_17
+      rect:
+        serializedVersion: 2
+        x: 14081
+        y: 0
+        width: 161
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7044e0ad02ae143f0800000000000000
+      internalID: -918195422188649465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_18
+      rect:
+        serializedVersion: 2
+        x: 14256
+        y: 0
+        width: 161
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcafbd2bc2508a210800000000000000
+      internalID: 1344330178307553995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_19
+      rect:
+        serializedVersion: 2
+        x: 14434
+        y: 0
+        width: 159
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b3e3117e95803e60800000000000000
+      internalID: 7939993058602640306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_20
+      rect:
+        serializedVersion: 2
+        x: 14610
+        y: 0
+        width: 159
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e1f41a1e85beb70800000000000000
+      internalID: 8929328412289343068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_21
+      rect:
+        serializedVersion: 2
+        x: 14656
+        y: 162
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 218455e97ef872400800000000000000
+      internalID: 299366125200033810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_22
+      rect:
+        serializedVersion: 2
+        x: 14831
+        y: 162
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5fa4ba4190499d80800000000000000
+      internalID: -8243486650157191333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_23
+      rect:
+        serializedVersion: 2
+        x: 14840
+        y: 62
+        width: 105
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e381643af282e860800000000000000
+      internalID: 7557747135813354467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_24
+      rect:
+        serializedVersion: 2
+        x: 15008
+        y: 164
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ed1ef777e53a3820800000000000000
+      internalID: 2898688578433195493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_25
+      rect:
+        serializedVersion: 2
+        x: 15018
+        y: 65
+        width: 102
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb68ee9fa61fb9120800000000000000
+      internalID: 2421794666403759803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_26
+      rect:
+        serializedVersion: 2
+        x: 15081
+        y: 187
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c142ec372769080800000000000000
+      internalID: -9181024948642898936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_27
+      rect:
+        serializedVersion: 2
+        x: 15183
+        y: 164
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4da7c2e098c840530800000000000000
+      internalID: 3820332904193227476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_28
+      rect:
+        serializedVersion: 2
+        x: 15194
+        y: 65
+        width: 102
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f6cceaf559ce8bb0800000000000000
+      internalID: -4931783170804889869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_29
+      rect:
+        serializedVersion: 2
+        x: 15359
+        y: 165
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7824d5ee9962f3c90800000000000000
+      internalID: -7187984037689081209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_30
+      rect:
+        serializedVersion: 2
+        x: 15370
+        y: 67
+        width: 101
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f6b3a939389f6b0800000000000000
+      internalID: -5262030019634696413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_31
+      rect:
+        serializedVersion: 2
+        x: 15550
+        y: 164
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd847b7387a4ceb20800000000000000
+      internalID: 3164986518325905627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_32
+      rect:
+        serializedVersion: 2
+        x: 15566
+        y: 79
+        width: 81
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5443c0ec35b9a2cd0800000000000000
+      internalID: -2582080652102060987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_33
+      rect:
+        serializedVersion: 2
+        x: 15709
+        y: 164
+        width: 39
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17f4d52116c7fc560800000000000000
+      internalID: 7336219074371604337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_34
+      rect:
+        serializedVersion: 2
+        x: 15741
+        y: 69
+        width: 72
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a1bbe539f1edd650800000000000000
+      internalID: 6259407517582602658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_35
+      rect:
+        serializedVersion: 2
+        x: 15901
+        y: 170
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a1363b9c0e8a190800000000000000
+      internalID: -7950857985219945835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_36
+      rect:
+        serializedVersion: 2
+        x: 15922
+        y: 93
+        width: 59
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c17aaef2bd841e3a0800000000000000
+      internalID: -6637944269528455396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_37
+      rect:
+        serializedVersion: 2
+        x: 16077
+        y: 178
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e6ee982f72c1750800000000000000
+      internalID: 6276935903297302087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_38
+      rect:
+        serializedVersion: 2
+        x: 16100
+        y: 94
+        width: 73
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70679f9e81307ccc0800000000000000
+      internalID: -3690977964067293689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_39
+      rect:
+        serializedVersion: 2
+        x: 16252
+        y: 170
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ee506afefa13580800000000000000
+      internalID: -8849098348988862919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_40
+      rect:
+        serializedVersion: 2
+        x: 16277
+        y: 77
+        width: 69
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a02112ee0a687fcb0800000000000000
+      internalID: -4830244049583533558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_41
+      rect:
+        serializedVersion: 2
+        x: 16430
+        y: 170
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5337f385344cddb30800000000000000
+      internalID: 4313819811613209397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_42
+      rect:
+        serializedVersion: 2
+        x: 16454
+        y: 82
+        width: 64
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0968c048a6884df80800000000000000
+      internalID: -8082685440159873392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_43
+      rect:
+        serializedVersion: 2
+        x: 16607
+        y: 170
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9aba2b6b889bae0800000000000000
+      internalID: -1533043879879923227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_44
+      rect:
+        serializedVersion: 2
+        x: 16631
+        y: 112
+        width: 63
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbd29e826b16f680800000000000000
+      internalID: -8721753518243652641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_45
+      rect:
+        serializedVersion: 2
+        x: 16779
+        y: 115
+        width: 67
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e7d5294230e9400800000000000000
+      internalID: 332706878081302077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_46
+      rect:
+        serializedVersion: 2
+        x: 16786
+        y: 184
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e526e53c4bb1b4710800000000000000
+      internalID: 1678465749311447646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_47
+      rect:
+        serializedVersion: 2
+        x: 16955
+        y: 115
+        width: 64
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30039e538375b7d0800000000000000
+      internalID: -2903287376705814470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_48
+      rect:
+        serializedVersion: 2
+        x: 17170
+        y: 180
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee64f22f18823fc0800000000000000
+      internalID: -3516598691711127834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_49
+      rect:
+        serializedVersion: 2
+        x: 17346
+        y: 137
+        width: 21
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3574a103a4d06aa40800000000000000
+      internalID: 5379001417226405715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_50
+      rect:
+        serializedVersion: 2
+        x: 8652
+        y: 12
+        width: 145
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e37ff0c5d4b0fd0800000000000000
+      internalID: -2374719320707613027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_51
+      rect:
+        serializedVersion: 2
+        x: 8827
+        y: 12
+        width: 146
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ca50d83d7d04390800000000000000
+      internalID: -7836026048020632429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_52
+      rect:
+        serializedVersion: 2
+        x: 9002
+        y: 11
+        width: 147
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e3e339bd4f1edb0800000000000000
+      internalID: -4764257706875928965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_53
+      rect:
+        serializedVersion: 2
+        x: 9177
+        y: 11
+        width: 148
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a7c94dfda7ddc150800000000000000
+      internalID: 5894604629576632226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_54
+      rect:
+        serializedVersion: 2
+        x: 9351
+        y: 10
+        width: 154
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5025686e002af6100800000000000000
+      internalID: 103479441204072965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_55
+      rect:
+        serializedVersion: 2
+        x: 9526
+        y: 10
+        width: 155
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e54c212104b1290800000000000000
+      internalID: -7918665073432437112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_56
+      rect:
+        serializedVersion: 2
+        x: 9701
+        y: 9
+        width: 156
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49f16b54b8f3b04a0800000000000000
+      internalID: -6626132559342985324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_57
+      rect:
+        serializedVersion: 2
+        x: 9876
+        y: 9
+        width: 157
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab75b86e5ff89dc0800000000000000
+      internalID: -3631872318525572181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_58
+      rect:
+        serializedVersion: 2
+        x: 10051
+        y: 8
+        width: 158
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b81fe38145915e30800000000000000
+      internalID: 4490534412083992752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_59
+      rect:
+        serializedVersion: 2
+        x: 10226
+        y: 8
+        width: 159
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f336982d819c67570800000000000000
+      internalID: 8464173658138043199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_60
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 7
+        width: 161
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe63c09e7d22471b0800000000000000
+      internalID: -5659860520974666001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_61
+      rect:
+        serializedVersion: 2
+        x: 10575
+        y: 7
+        width: 162
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6178f3a7725b2f480800000000000000
+      internalID: -8866825535179749610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_62
+      rect:
+        serializedVersion: 2
+        x: 10750
+        y: 6
+        width: 158
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6132b8c528786be80800000000000000
+      internalID: -8163188280594324714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_63
+      rect:
+        serializedVersion: 2
+        x: 10925
+        y: 6
+        width: 158
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d82c2f381d08fdc10800000000000000
+      internalID: 2080523190218703501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_64
+      rect:
+        serializedVersion: 2
+        x: 15534
+        y: 170
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b40d4cb4b1fe6c190800000000000000
+      internalID: -7942397992306945973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_65
+      rect:
+        serializedVersion: 2
+        x: 15972
+        y: 171
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55ceb026e2a0c18b0800000000000000
+      internalID: -5180254277053191083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_66
+      rect:
+        serializedVersion: 2
+        x: 16084
+        y: 169
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cfc239dc9ae4c5d0800000000000000
+      internalID: -3043049488815829050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_67
+      rect:
+        serializedVersion: 2
+        x: 16151
+        y: 172
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f57fffb00b3dfa0800000000000000
+      internalID: -5777080331400683714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_68
+      rect:
+        serializedVersion: 2
+        x: 17173
+        y: 152
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 031ae577d4a4e9fc0800000000000000
+      internalID: -3486267364962557648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_69
+      rect:
+        serializedVersion: 2
+        x: 6902
+        y: 19
+        width: 129
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e696b9c13495f1cc0800000000000000
+      internalID: -3738171020916594322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_70
+      rect:
+        serializedVersion: 2
+        x: 7077
+        y: 18
+        width: 136
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a841af35e05cc7ad0800000000000000
+      internalID: -2703069011000028022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_71
+      rect:
+        serializedVersion: 2
+        x: 7252
+        y: 18
+        width: 137
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838395b6576c7bad0800000000000000
+      internalID: -2686460445088729032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_72
+      rect:
+        serializedVersion: 2
+        x: 7427
+        y: 17
+        width: 138
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 318881ada185bff50800000000000000
+      internalID: 6916218525108963347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_73
+      rect:
+        serializedVersion: 2
+        x: 7602
+        y: 16
+        width: 139
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0087e027776e420800000000000000
+      internalID: 2658943961761579207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_74
+      rect:
+        serializedVersion: 2
+        x: 7778
+        y: 16
+        width: 139
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd80b2e3378267e0800000000000000
+      internalID: -1773706646314250805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_75
+      rect:
+        serializedVersion: 2
+        x: 7953
+        y: 15
+        width: 140
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14821350e6574bab0800000000000000
+      internalID: -4993236971453077439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_76
+      rect:
+        serializedVersion: 2
+        x: 8128
+        y: 14
+        width: 141
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da7a40abe64bce8b0800000000000000
+      internalID: -5121520288566827091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_77
+      rect:
+        serializedVersion: 2
+        x: 8303
+        y: 14
+        width: 142
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52266e34bdfc4c600800000000000000
+      internalID: 487743200306815525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_78
+      rect:
+        serializedVersion: 2
+        x: 8477
+        y: 13
+        width: 144
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80329f0676c5e85d0800000000000000
+      internalID: -3058405497859661048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_79
+      rect:
+        serializedVersion: 2
+        x: 15978
+        y: 158
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a9140f7d6dc7f880800000000000000
+      internalID: -8577161095137715802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_80
+      rect:
+        serializedVersion: 2
+        x: 16808
+        y: 147
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50ec84f04bd3bac00800000000000000
+      internalID: 912891193032494597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_81
+      rect:
+        serializedVersion: 2
+        x: 5150
+        y: 25
+        width: 115
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d05e28db3d6a7a9c0800000000000000
+      internalID: -3915977922627574515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_82
+      rect:
+        serializedVersion: 2
+        x: 5326
+        y: 25
+        width: 115
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427c6ba01caf23440800000000000000
+      internalID: 4914265850430015268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_83
+      rect:
+        serializedVersion: 2
+        x: 5502
+        y: 24
+        width: 115
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d61ba6804616a750800000000000000
+      internalID: 6315759993826776784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_84
+      rect:
+        serializedVersion: 2
+        x: 5678
+        y: 23
+        width: 115
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a72158a153762e740800000000000000
+      internalID: 5179815999205347962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_85
+      rect:
+        serializedVersion: 2
+        x: 5853
+        y: 23
+        width: 119
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e318b133bb173310800000000000000
+      internalID: 1384605866886960103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_86
+      rect:
+        serializedVersion: 2
+        x: 6027
+        y: 22
+        width: 121
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a99154559e293fa0800000000000000
+      internalID: -5820569824500016730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_87
+      rect:
+        serializedVersion: 2
+        x: 6202
+        y: 22
+        width: 123
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd855fb5c8c51e170800000000000000
+      internalID: 8205941753953736927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_88
+      rect:
+        serializedVersion: 2
+        x: 6377
+        y: 21
+        width: 127
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c455f8278dd332170800000000000000
+      internalID: 8152427750314956108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_89
+      rect:
+        serializedVersion: 2
+        x: 6552
+        y: 20
+        width: 125
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9526d2201c90950800000000000000
+      internalID: 6415871359261497837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_90
+      rect:
+        serializedVersion: 2
+        x: 6727
+        y: 20
+        width: 126
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60bc63afa575a1360800000000000000
+      internalID: 7141116207405910790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_91
+      rect:
+        serializedVersion: 2
+        x: 15798
+        y: 123
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae6a2005729ec23c0800000000000000
+      internalID: -4382871982282987798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_92
+      rect:
+        serializedVersion: 2
+        x: 15802
+        y: 141
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1d90d0eb5ff07b0800000000000000
+      internalID: -5255712043506740764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_93
+      rect:
+        serializedVersion: 2
+        x: 15974
+        y: 130
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f17b85551c1134f0800000000000000
+      internalID: -850867976641220109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_94
+      rect:
+        serializedVersion: 2
+        x: 15982
+        y: 142
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8349ed73299be06b0800000000000000
+      internalID: -5328117271479020488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_95
+      rect:
+        serializedVersion: 2
+        x: 16150
+        y: 131
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b80b4a4ea0cf14f30800000000000000
+      internalID: 4558201421591523467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_96
+      rect:
+        serializedVersion: 2
+        x: 17180
+        y: 127
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f5906480e0246e00800000000000000
+      internalID: 1036989962867742201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_97
+      rect:
+        serializedVersion: 2
+        x: 2877
+        y: 31
+        width: 84
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ebdfd1f6b5e11e0800000000000000
+      internalID: -2225240633071780293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_98
+      rect:
+        serializedVersion: 2
+        x: 3051
+        y: 31
+        width: 87
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55ab854bab841db0800000000000000
+      internalID: -4822075733284510372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_99
+      rect:
+        serializedVersion: 2
+        x: 3225
+        y: 30
+        width: 90
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b22e3c93de92cd60800000000000000
+      internalID: 7909058527312618160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_100
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 30
+        width: 91
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8f76c1ec05f96a0800000000000000
+      internalID: -6440340095946458951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_101
+      rect:
+        serializedVersion: 2
+        x: 3574
+        y: 29
+        width: 97
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d2592464e97355d0800000000000000
+      internalID: -3074980098723982632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_102
+      rect:
+        serializedVersion: 2
+        x: 3749
+        y: 29
+        width: 98
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 709a70238242e7ae0800000000000000
+      internalID: -1549761466712217337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_103
+      rect:
+        serializedVersion: 2
+        x: 3923
+        y: 29
+        width: 100
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a5a56e7dd20a750800000000000000
+      internalID: 6314097082879334920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_104
+      rect:
+        serializedVersion: 2
+        x: 4098
+        y: 28
+        width: 101
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b83a1f5b91c16ad0800000000000000
+      internalID: -2710672627640682314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_105
+      rect:
+        serializedVersion: 2
+        x: 4273
+        y: 28
+        width: 103
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a400f66b24eaf750800000000000000
+      internalID: 6339630300539126946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_106
+      rect:
+        serializedVersion: 2
+        x: 4448
+        y: 28
+        width: 104
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c19045a27edc7e060800000000000000
+      internalID: 6982776139992533276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_107
+      rect:
+        serializedVersion: 2
+        x: 4623
+        y: 27
+        width: 107
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91094264bbd13d810800000000000000
+      internalID: 1788806167169110041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_108
+      rect:
+        serializedVersion: 2
+        x: 4799
+        y: 27
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f333c760cc360f60800000000000000
+      internalID: 8000148585142498288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_109
+      rect:
+        serializedVersion: 2
+        x: 4975
+        y: 26
+        width: 114
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3b697af22702ba0800000000000000
+      internalID: -6115762744968432704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_110
+      rect:
+        serializedVersion: 2
+        x: 15553
+        y: 117
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b745429f03c6c9470800000000000000
+      internalID: 8402709962360640635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_111
+      rect:
+        serializedVersion: 2
+        x: 15559
+        y: 120
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccdf1881cda5eabf0800000000000000
+      internalID: -311211422891508276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_112
+      rect:
+        serializedVersion: 2
+        x: 15730
+        y: 118
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a111d1ca741e7cf90800000000000000
+      internalID: -6933325403367075558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_113
+      rect:
+        serializedVersion: 2
+        x: 15735
+        y: 125
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c808789dbf66070800000000000000
+      internalID: 8099437891572239503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_114
+      rect:
+        serializedVersion: 2
+        x: 15816
+        y: 126
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83ee0c5e0fa6eb730800000000000000
+      internalID: 4016765500540382776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_115
+      rect:
+        serializedVersion: 2
+        x: 15908
+        y: 119
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d971dcde4dfe550800000000000000
+      internalID: 6192402130470935932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_116
+      rect:
+        serializedVersion: 2
+        x: 15914
+        y: 125
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80cadf5a7ee0d2e50800000000000000
+      internalID: 6786096601602305032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_117
+      rect:
+        serializedVersion: 2
+        x: 15983
+        y: 123
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3381746777309a50800000000000000
+      internalID: 6525776845985645373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_118
+      rect:
+        serializedVersion: 2
+        x: 16084
+        y: 122
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae66c8bf3c1fe980800000000000000
+      internalID: -8507550111071048019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_119
+      rect:
+        serializedVersion: 2
+        x: 16161
+        y: 123
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e6a31ccc94208ae0800000000000000
+      internalID: -1549198015958112541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_120
+      rect:
+        serializedVersion: 2
+        x: 16261
+        y: 123
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70e4678723fad74c0800000000000000
+      internalID: -4288078638882599417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_121
+      rect:
+        serializedVersion: 2
+        x: 16323
+        y: 120
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea7f72a3b5958080800000000000000
+      internalID: -9185771266194310420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_122
+      rect:
+        serializedVersion: 2
+        x: 16328
+        y: 132
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66a16886f83dfc320800000000000000
+      internalID: 2580513724393986662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_123
+      rect:
+        serializedVersion: 2
+        x: 16499
+        y: 122
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9982cadae0ca03800800000000000000
+      internalID: 590160730228795545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_124
+      rect:
+        serializedVersion: 2
+        x: 17005
+        y: 122
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b24141ea15c6da90800000000000000
+      internalID: -7289422227613597008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_125
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 35
+        width: 67
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a08608d0a5bdf70800000000000000
+      internalID: 9213056476751858221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_126
+      rect:
+        serializedVersion: 2
+        x: 2182
+        y: 34
+        width: 71
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57be39cfa344f3650800000000000000
+      internalID: 6214761030930918261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_127
+      rect:
+        serializedVersion: 2
+        x: 2355
+        y: 34
+        width: 74
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d63d25ca58ce56f30800000000000000
+      internalID: 4568317455903150957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_128
+      rect:
+        serializedVersion: 2
+        x: 2529
+        y: 33
+        width: 77
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a113b59e977e99430800000000000000
+      internalID: 3790315072201109786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_129
+      rect:
+        serializedVersion: 2
+        x: 2703
+        y: 32
+        width: 81
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 031d9ad9c8800e400800000000000000
+      internalID: 351290170968494384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_130
+      rect:
+        serializedVersion: 2
+        x: 15546
+        y: 99
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e57d4c86ee35f350800000000000000
+      internalID: 6049810834359416293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_131
+      rect:
+        serializedVersion: 2
+        x: 15564
+        y: 105
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dda51e3dea8c039e0800000000000000
+      internalID: -1643593210785604899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_132
+      rect:
+        serializedVersion: 2
+        x: 15722
+        y: 107
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97dc66ca0d891f060800000000000000
+      internalID: 6985532519041387897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_133
+      rect:
+        serializedVersion: 2
+        x: 15898
+        y: 110
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e0e7c0d402338230800000000000000
+      internalID: 3639807920109510884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_134
+      rect:
+        serializedVersion: 2
+        x: 16074
+        y: 110
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61b13e943b5924410800000000000000
+      internalID: 1459893826492766998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_135
+      rect:
+        serializedVersion: 2
+        x: 16250
+        y: 111
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aed55a6aeed249e0800000000000000
+      internalID: -1638502216021713245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_136
+      rect:
+        serializedVersion: 2
+        x: 16426
+        y: 112
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 116076b004cdbfae0800000000000000
+      internalID: -1514374682052721135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_137
+      rect:
+        serializedVersion: 2
+        x: 16603
+        y: 112
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a5ea76171be7d840800000000000000
+      internalID: 5248922375117530528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_138
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 46
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31fb35a163202be0800000000000000
+      internalID: -1504163373250776772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_139
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 45
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4b5dc973df5c210800000000000000
+      internalID: 1352765678390981883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_140
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 44
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a067f9b31703e10800000000000000
+      internalID: 2175363120912271930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_141
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 43
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae48016351ddff1d0800000000000000
+      internalID: -3314687717550291734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_142
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 41
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 359f48c7b247061f0800000000000000
+      internalID: -1053714582683190957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_143
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 40
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30457efdfaba67dc0800000000000000
+      internalID: -3641534476818361341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_144
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 39
+        width: 56
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2196d048e007c91c0800000000000000
+      internalID: -4495595120375273198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_145
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 37
+        width: 59
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179f0be91c9dbffc0800000000000000
+      internalID: -3459932463089780367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_146
+      rect:
+        serializedVersion: 2
+        x: 1835
+        y: 36
+        width: 64
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41fe7c8759b574800800000000000000
+      internalID: 596546173184503572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_147
+      rect:
+        serializedVersion: 2
+        x: 15592
+        y: 69
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e774f6e1cf6f270800000000000000
+      internalID: 8284085772240780910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_148
+      rect:
+        serializedVersion: 2
+        x: 15940
+        y: 72
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde6985bf47a1b500800000000000000
+      internalID: 410293001857363679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_149
+      rect:
+        serializedVersion: 2
+        x: 16117
+        y: 73
+        width: 14
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5c80d4fd357b1c0800000000000000
+      internalID: -4488026285116176925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_150
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 51
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8adc9efd310041310800000000000000
+      internalID: 1374723871615864232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_151
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 48
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1637632c57779cde0800000000000000
+      internalID: -1312386468748561567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_152
+      rect:
+        serializedVersion: 2
+        x: 10900
+        y: 53
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee8e51e665a828c0800000000000000
+      internalID: -4023784405769220370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_153
+      rect:
+        serializedVersion: 2
+        x: 14783
+        y: 0
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 321faa3d2b34492f0800000000000000
+      internalID: -967073584643378909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_154
+      rect:
+        serializedVersion: 2
+        x: 14981
+        y: 0
+        width: 105
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f51ab66f56055190800000000000000
+      internalID: -7974460558374464015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_155
+      rect:
+        serializedVersion: 2
+        x: 15166
+        y: 0
+        width: 94
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3ab9a533cf893650800000000000000
+      internalID: 6213155229516020287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_156
+      rect:
+        serializedVersion: 2
+        x: 15343
+        y: 0
+        width: 91
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b90ea4ac24f1bf90800000000000000
+      internalID: -6939497078222616141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_157
+      rect:
+        serializedVersion: 2
+        x: 15520
+        y: 0
+        width: 85
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00d03fa1fd2f6b790800000000000000
+      internalID: -7514551888177328896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_158
+      rect:
+        serializedVersion: 2
+        x: 15573
+        y: 47
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63bf9e126d203c2d0800000000000000
+      internalID: -3259758586570867914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_159
+      rect:
+        serializedVersion: 2
+        x: 15751
+        y: 49
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b24e1199ca06594c0800000000000000
+      internalID: -4281409576327060437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_160
+      rect:
+        serializedVersion: 2
+        x: 15875
+        y: 4
+        width: 75
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58f9ee3060512dc00800000000000000
+      internalID: 923823989144330117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_161
+      rect:
+        serializedVersion: 2
+        x: 6493
+        y: 45
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62694e35589f1fd80800000000000000
+      internalID: -8218513493940988378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_162
+      rect:
+        serializedVersion: 2
+        x: 15698
+        y: 0
+        width: 79
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ae7a0ef78f52910800000000000000
+      internalID: 1812127653200128524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_163
+      rect:
+        serializedVersion: 2
+        x: 16050
+        y: 4
+        width: 73
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2e7a33dd4c1816d0800000000000000
+      internalID: -3019632429570032081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_164
+      rect:
+        serializedVersion: 2
+        x: 16206
+        y: 11
+        width: 84
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810402e1663a8b2e0800000000000000
+      internalID: -2109756766435655656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_165
+      rect:
+        serializedVersion: 2
+        x: 16268
+        y: 38
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32610941dd264df10800000000000000
+      internalID: 2293566811910706723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_166
+      rect:
+        serializedVersion: 2
+        x: 16412
+        y: 18
+        width: 47
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 984a84b37346d9a90800000000000000
+      internalID: -7305572832144481143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_167
+      rect:
+        serializedVersion: 2
+        x: 14963
+        y: 9
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58bfbda58a9a94080800000000000000
+      internalID: -9202637823010931835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_168
+      rect:
+        serializedVersion: 2
+        x: 15142
+        y: 9
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 719a4e2dd554ba050800000000000000
+      internalID: 5812816013324232983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_169
+      rect:
+        serializedVersion: 2
+        x: 15319
+        y: 9
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8e51588a32dbf500800000000000000
+      internalID: 431169338180984462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_170
+      rect:
+        serializedVersion: 2
+        x: 16058
+        y: 16
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d54448b953a25b0800000000000000
+      internalID: -5392438661767471798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_171
+      rect:
+        serializedVersion: 2
+        x: 16587
+        y: 18
+        width: 43
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 229b0ff5e9b77d990800000000000000
+      internalID: -7361279145769125598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_172
+      rect:
+        serializedVersion: 2
+        x: 16773
+        y: 22
+        width: 31
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc50a6b332dd7b40800000000000000
+      internalID: 5439735044482555068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_173
+      rect:
+        serializedVersion: 2
+        x: 16950
+        y: 23
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ad6d0ee331b6950800000000000000
+      internalID: 6443264852664703495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_174
+      rect:
+        serializedVersion: 2
+        x: 17127
+        y: 23
+        width: 20
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05a5265e1920a1210800000000000000
+      internalID: 1304357867719121488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_175
+      rect:
+        serializedVersion: 2
+        x: 15367
+        y: 9
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d62632764b5e0d840800000000000000
+      internalID: 5246946128873874029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_176
+      rect:
+        serializedVersion: 2
+        x: 15373
+        y: 4
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93f90db0d6b70550800000000000000
+      internalID: 6127066825701847966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_177
+      rect:
+        serializedVersion: 2
+        x: 15496
+        y: 9
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe8f0e371411c5f0800000000000000
+      internalID: -738286773854040325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_178
+      rect:
+        serializedVersion: 2
+        x: 15545
+        y: 10
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 459e1bec9fbbb2250800000000000000
+      internalID: 5921032816697665876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_179
+      rect:
+        serializedVersion: 2
+        x: 15552
+        y: 4
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20660efb8681029a0800000000000000
+      internalID: -6259976643870169598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_180
+      rect:
+        serializedVersion: 2
+        x: 15672
+        y: 9
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a62c17f458e8a0a0800000000000000
+      internalID: -6869985779932977498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_181
+      rect:
+        serializedVersion: 2
+        x: 15848
+        y: 10
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99918a8ae1e6394c0800000000000000
+      internalID: -4281957742741546599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explox_182
+      rect:
+        serializedVersion: 2
+        x: 16025
+        y: 10
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb03e4d71bbf7f950800000000000000
+      internalID: 6482926928353177791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      explox_0: -8906350073756577626
+      explox_1: 292484636799018467
+      explox_10: -3765965793711584377
+      explox_100: -6440340095946458951
+      explox_101: -3074980098723982632
+      explox_102: -1549761466712217337
+      explox_103: 6314097082879334920
+      explox_104: -2710672627640682314
+      explox_105: 6339630300539126946
+      explox_106: 6982776139992533276
+      explox_107: 1788806167169110041
+      explox_108: 8000148585142498288
+      explox_109: -6115762744968432704
+      explox_11: -3586226406599864438
+      explox_110: 8402709962360640635
+      explox_111: -311211422891508276
+      explox_112: -6933325403367075558
+      explox_113: 8099437891572239503
+      explox_114: 4016765500540382776
+      explox_115: 6192402130470935932
+      explox_116: 6786096601602305032
+      explox_117: 6525776845985645373
+      explox_118: -8507550111071048019
+      explox_119: -1549198015958112541
+      explox_12: 6126632455021446586
+      explox_120: -4288078638882599417
+      explox_121: -9185771266194310420
+      explox_122: 2580513724393986662
+      explox_123: 590160730228795545
+      explox_124: -7289422227613597008
+      explox_125: 9213056476751858221
+      explox_126: 6214761030930918261
+      explox_127: 4568317455903150957
+      explox_128: 3790315072201109786
+      explox_129: 351290170968494384
+      explox_13: 29606553433165637
+      explox_130: 6049810834359416293
+      explox_131: -1643593210785604899
+      explox_132: 6985532519041387897
+      explox_133: 3639807920109510884
+      explox_134: 1459893826492766998
+      explox_135: -1638502216021713245
+      explox_136: -1514374682052721135
+      explox_137: 5248922375117530528
+      explox_138: -1504163373250776772
+      explox_139: 1352765678390981883
+      explox_14: 4435278416767523087
+      explox_140: 2175363120912271930
+      explox_141: -3314687717550291734
+      explox_142: -1053714582683190957
+      explox_143: -3641534476818361341
+      explox_144: -4495595120375273198
+      explox_145: -3459932463089780367
+      explox_146: 596546173184503572
+      explox_147: 8284085772240780910
+      explox_148: 410293001857363679
+      explox_149: -4488026285116176925
+      explox_15: 6362080304290189166
+      explox_150: 1374723871615864232
+      explox_151: -1312386468748561567
+      explox_152: -4023784405769220370
+      explox_153: -967073584643378909
+      explox_154: -7974460558374464015
+      explox_155: 6213155229516020287
+      explox_156: -6939497078222616141
+      explox_157: -7514551888177328896
+      explox_158: -3259758586570867914
+      explox_159: -4281409576327060437
+      explox_16: -6908419131045204154
+      explox_160: 923823989144330117
+      explox_161: -8218513493940988378
+      explox_162: 1812127653200128524
+      explox_163: -3019632429570032081
+      explox_164: -2109756766435655656
+      explox_165: 2293566811910706723
+      explox_166: -7305572832144481143
+      explox_167: -9202637823010931835
+      explox_168: 5812816013324232983
+      explox_169: 431169338180984462
+      explox_17: -918195422188649465
+      explox_170: -5392438661767471798
+      explox_171: -7361279145769125598
+      explox_172: 5439735044482555068
+      explox_173: 6443264852664703495
+      explox_174: 1304357867719121488
+      explox_175: 5246946128873874029
+      explox_176: 6127066825701847966
+      explox_177: -738286773854040325
+      explox_178: 5921032816697665876
+      explox_179: -6259976643870169598
+      explox_18: 1344330178307553995
+      explox_180: -6869985779932977498
+      explox_181: -4281957742741546599
+      explox_182: 6482926928353177791
+      explox_19: 7939993058602640306
+      explox_2: -9177881361913731057
+      explox_20: 8929328412289343068
+      explox_21: 299366125200033810
+      explox_22: -8243486650157191333
+      explox_23: 7557747135813354467
+      explox_24: 2898688578433195493
+      explox_25: 2421794666403759803
+      explox_26: -9181024948642898936
+      explox_27: 3820332904193227476
+      explox_28: -4931783170804889869
+      explox_29: -7187984037689081209
+      explox_3: 85526081446364001
+      explox_30: -5262030019634696413
+      explox_31: 3164986518325905627
+      explox_32: -2582080652102060987
+      explox_33: 7336219074371604337
+      explox_34: 6259407517582602658
+      explox_35: -7950857985219945835
+      explox_36: -6637944269528455396
+      explox_37: 6276935903297302087
+      explox_38: -3690977964067293689
+      explox_39: -8849098348988862919
+      explox_4: -8795720609463429490
+      explox_40: -4830244049583533558
+      explox_41: 4313819811613209397
+      explox_42: -8082685440159873392
+      explox_43: -1533043879879923227
+      explox_44: -8721753518243652641
+      explox_45: 332706878081302077
+      explox_46: 1678465749311447646
+      explox_47: -2903287376705814470
+      explox_48: -3516598691711127834
+      explox_49: 5379001417226405715
+      explox_5: 3129221832550080180
+      explox_50: -2374719320707613027
+      explox_51: -7836026048020632429
+      explox_52: -4764257706875928965
+      explox_53: 5894604629576632226
+      explox_54: 103479441204072965
+      explox_55: -7918665073432437112
+      explox_56: -6626132559342985324
+      explox_57: -3631872318525572181
+      explox_58: 4490534412083992752
+      explox_59: 8464173658138043199
+      explox_6: -4623962983050845999
+      explox_60: -5659860520974666001
+      explox_61: -8866825535179749610
+      explox_62: -8163188280594324714
+      explox_63: 2080523190218703501
+      explox_64: -7942397992306945973
+      explox_65: -5180254277053191083
+      explox_66: -3043049488815829050
+      explox_67: -5777080331400683714
+      explox_68: -3486267364962557648
+      explox_69: -3738171020916594322
+      explox_7: 3414027782666740542
+      explox_70: -2703069011000028022
+      explox_71: -2686460445088729032
+      explox_72: 6916218525108963347
+      explox_73: 2658943961761579207
+      explox_74: -1773706646314250805
+      explox_75: -4993236971453077439
+      explox_76: -5121520288566827091
+      explox_77: 487743200306815525
+      explox_78: -3058405497859661048
+      explox_79: -8577161095137715802
+      explox_8: -8864654463592033200
+      explox_80: 912891193032494597
+      explox_81: -3915977922627574515
+      explox_82: 4914265850430015268
+      explox_83: 6315759993826776784
+      explox_84: 5179815999205347962
+      explox_85: 1384605866886960103
+      explox_86: -5820569824500016730
+      explox_87: 8205941753953736927
+      explox_88: 8152427750314956108
+      explox_89: 6415871359261497837
+      explox_9: -2370246174448574848
+      explox_90: 7141116207405910790
+      explox_91: -4382871982282987798
+      explox_92: -5255712043506740764
+      explox_93: -850867976641220109
+      explox_94: -5328117271479020488
+      explox_95: 4558201421591523467
+      explox_96: 1036989962867742201
+      explox_97: -2225240633071780293
+      explox_98: -4822075733284510372
+      explox_99: 7909058527312618160
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

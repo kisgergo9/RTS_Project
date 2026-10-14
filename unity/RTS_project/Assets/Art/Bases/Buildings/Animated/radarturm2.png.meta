@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: 6b231783969ff594f89d4a632e0ab6a8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 269171791839965567
+    second: radarturm2_0
+  - first:
+      213: 2008256896739162215
+    second: radarturm2_1
+  - first:
+      213: -1613540745464732365
+    second: radarturm2_2
+  - first:
+      213: -3754153529710766460
+    second: radarturm2_3
+  - first:
+      213: -2231509167268231281
+    second: radarturm2_4
+  - first:
+      213: -5507429599112958147
+    second: radarturm2_5
+  - first:
+      213: 1682176366484256733
+    second: radarturm2_6
+  - first:
+      213: -6020161983580029486
+    second: radarturm2_7
+  - first:
+      213: -9149348705933721778
+    second: radarturm2_8
+  - first:
+      213: -5593778101309138342
+    second: radarturm2_9
+  - first:
+      213: -3130737587243643723
+    second: radarturm2_10
+  - first:
+      213: -4985740953927353955
+    second: radarturm2_11
+  - first:
+      213: 2371347569923880950
+    second: radarturm2_12
+  - first:
+      213: 2097706842690153166
+    second: radarturm2_13
+  - first:
+      213: 6795591155861499658
+    second: radarturm2_14
+  - first:
+      213: -2005863843933385258
+    second: radarturm2_15
+  - first:
+      213: 2085913813618001580
+    second: radarturm2_16
+  - first:
+      213: 1435358017313468154
+    second: radarturm2_17
+  - first:
+      213: 2240711477052925002
+    second: radarturm2_18
+  - first:
+      213: -4701337960071246255
+    second: radarturm2_19
+  - first:
+      213: 8165233713376905561
+    second: radarturm2_20
+  - first:
+      213: 6197039438634966050
+    second: radarturm2_21
+  - first:
+      213: 2715406330243880237
+    second: radarturm2_22
+  - first:
+      213: -1169316623625412910
+    second: radarturm2_23
+  - first:
+      213: 7457756413621357851
+    second: radarturm2_24
+  - first:
+      213: -414992510722476008
+    second: radarturm2_25
+  - first:
+      213: 3906880162485536039
+    second: radarturm2_26
+  - first:
+      213: -3419975608245066479
+    second: radarturm2_27
+  - first:
+      213: 6919281154187481065
+    second: radarturm2_28
+  - first:
+      213: 3031417435986340528
+    second: radarturm2_29
+  - first:
+      213: 1949462609592225592
+    second: radarturm2_30
+  - first:
+      213: 5543431889250082650
+    second: radarturm2_31
+  - first:
+      213: 4870738604638763310
+    second: radarturm2_32
+  - first:
+      213: -7363632582611439667
+    second: radarturm2_33
+  - first:
+      213: 1655254065462170536
+    second: radarturm2_34
+  - first:
+      213: 1511242033769515563
+    second: radarturm2_35
+  - first:
+      213: -556292251144925841
+    second: radarturm2_36
+  - first:
+      213: -6328193944854286375
+    second: radarturm2_37
+  - first:
+      213: 289193514584643613
+    second: radarturm2_38
+  - first:
+      213: -2051601100418246619
+    second: radarturm2_39
+  - first:
+      213: 1195577390297319450
+    second: radarturm2_40
+  - first:
+      213: -4191801265263890467
+    second: radarturm2_41
+  - first:
+      213: -4742112811520617054
+    second: radarturm2_42
+  - first:
+      213: -4903477755019566781
+    second: radarturm2_43
+  - first:
+      213: -4057365275859128514
+    second: radarturm2_44
+  - first:
+      213: -3759317207604008720
+    second: radarturm2_45
+  - first:
+      213: -2242998548995356197
+    second: radarturm2_46
+  - first:
+      213: 5794177310219593794
+    second: radarturm2_47
+  - first:
+      213: -1654912728423764156
+    second: radarturm2_48
+  - first:
+      213: 161638288251306186
+    second: radarturm2_49
+  - first:
+      213: -3665292379157270093
+    second: radarturm2_50
+  - first:
+      213: 7830642072275455669
+    second: radarturm2_51
+  - first:
+      213: 4476300977981329018
+    second: radarturm2_52
+  - first:
+      213: -1989414189367617368
+    second: radarturm2_53
+  - first:
+      213: 2099394385535875411
+    second: radarturm2_54
+  - first:
+      213: -1050167735334068481
+    second: radarturm2_55
+  - first:
+      213: -4992757626762066222
+    second: radarturm2_56
+  - first:
+      213: -7344809218787718778
+    second: radarturm2_57
+  - first:
+      213: -6589084859375358190
+    second: radarturm2_58
+  - first:
+      213: -1847119519827131572
+    second: radarturm2_59
+  - first:
+      213: -2758444290821778665
+    second: radarturm2_60
+  - first:
+      213: -2572411654707807590
+    second: radarturm2_61
+  - first:
+      213: -7315683771654054270
+    second: radarturm2_62
+  - first:
+      213: -2279473759160379844
+    second: radarturm2_63
+  - first:
+      213: -2090208888123937905
+    second: radarturm2_64
+  - first:
+      213: 2691544682750184312
+    second: radarturm2_65
+  - first:
+      213: -5851256451840956588
+    second: radarturm2_66
+  - first:
+      213: 2435414337202823901
+    second: radarturm2_67
+  - first:
+      213: 1171552816704461461
+    second: radarturm2_68
+  - first:
+      213: 3942467769682405182
+    second: radarturm2_69
+  - first:
+      213: 1895010529370069959
+    second: radarturm2_70
+  - first:
+      213: 8401978277748443085
+    second: radarturm2_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: radarturm2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f713d2c815a4cb300800000000000000
+      internalID: 269171791839965567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768bdd3e103cedb10800000000000000
+      internalID: 2008256896739162215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 335a4fbad3d8b99e0800000000000000
+      internalID: -1613540745464732365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_3
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 0
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4869f4d414196ebc0800000000000000
+      internalID: -3754153529710766460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_4
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8703f34c361801e0800000000000000
+      internalID: -2231509167268231281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_5
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f666f85fda193b0800000000000000
+      internalID: -5507429599112958147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_6
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 0
+        width: 37
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd7f9d52e7a485710800000000000000
+      internalID: 1682176366484256733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_7
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 35
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ddb6667296147ca0800000000000000
+      internalID: -6020161983580029486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_8
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ff3a8c3dbf60180800000000000000
+      internalID: -9149348705933721778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_9
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 0
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5a1c173478ee52b0800000000000000
+      internalID: -5593778101309138342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_10
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 0
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bc016370c26d84d0800000000000000
+      internalID: -3130737587243643723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_11
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d99fa0b94071fcab0800000000000000
+      internalID: -4985740953927353955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_12
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f77c480d08b8e020800000000000000
+      internalID: 2371347569923880950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_13
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecae371624d8c1d10800000000000000
+      internalID: 2097706842690153166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_14
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0f29e3d62ace4e50800000000000000
+      internalID: 6795591155861499658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_15
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dd0d82267db924e0800000000000000
+      internalID: -2005863843933385258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_16
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca608c4df87a2fc10800000000000000
+      internalID: 2085913813618001580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_17
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe6a7b038a6be310800000000000000
+      internalID: 1435358017313468154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_18
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4461e1773b981f10800000000000000
+      internalID: 2240711477052925002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_19
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15ec4e8b80e71ceb0800000000000000
+      internalID: -4701337960071246255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_20
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 959cfd11dccb05170800000000000000
+      internalID: 8165233713376905561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_21
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c5cee398e400650800000000000000
+      internalID: 6197039438634966050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_22
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d259807abaf0fa520800000000000000
+      internalID: 2715406330243880237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_23
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de19d2e9b0c5cfe0800000000000000
+      internalID: -1169316623625412910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_24
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1dca4ff1f54f7760800000000000000
+      internalID: 7457756413621357851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_25
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81870fd9286ad3af0800000000000000
+      internalID: -414992510722476008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_26
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72588f8eec6083630800000000000000
+      internalID: 3906880162485536039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_27
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 0
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1156d0add4ec980d0800000000000000
+      internalID: -3419975608245066479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_28
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef4660cc89360060800000000000000
+      internalID: 6919281154187481065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_29
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba24edc812c11a20800000000000000
+      internalID: 3031417435986340528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_30
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 0
+        width: 36
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83f86ab2ae1ed0b10800000000000000
+      internalID: 1949462609592225592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_31
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 0
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5fd253dee93eec40800000000000000
+      internalID: 5543431889250082650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_32
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 0
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29764364f6589340800000000000000
+      internalID: 4870738604638763310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_33
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 0
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcfe3f82e2f1fc990800000000000000
+      internalID: -7363632582611439667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_34
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 0
+        width: 40
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a3d4e87dc4a8f610800000000000000
+      internalID: 1655254065462170536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_35
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 0
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a88707f9209f410800000000000000
+      internalID: 1511242033769515563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_36
+      rect:
+        serializedVersion: 2
+        x: 1477
+        y: 0
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d443b1527a748f0800000000000000
+      internalID: -556292251144925841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_37
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 0
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dfae27a22dbd28a0800000000000000
+      internalID: -6328193944854286375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_38
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 0
+        width: 41
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d181a2428fb630400800000000000000
+      internalID: 289193514584643613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_39
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 0
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52815c44baf3783e0800000000000000
+      internalID: -2051601100418246619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_40
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 0
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1809225d4b879010800000000000000
+      internalID: 1195577390297319450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_41
+      rect:
+        serializedVersion: 2
+        x: 1684
+        y: 0
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddfa9e655fab3d5c0800000000000000
+      internalID: -4191801265263890467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_42
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 0
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a51c70d581a03eb0800000000000000
+      internalID: -4742112811520617054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_43
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 0
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 341670826f853fbb0800000000000000
+      internalID: -4903477755019566781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_44
+      rect:
+        serializedVersion: 2
+        x: 1810
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f696847c751b7c0800000000000000
+      internalID: -4057365275859128514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_45
+      rect:
+        serializedVersion: 2
+        x: 1852
+        y: 0
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8efbadae834dbc0800000000000000
+      internalID: -3759317207604008720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_46
+      rect:
+        serializedVersion: 2
+        x: 1894
+        y: 0
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd94a6f14b44fd0e0800000000000000
+      internalID: -2242998548995356197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_47
+      rect:
+        serializedVersion: 2
+        x: 1935
+        y: 0
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2486445909d096050800000000000000
+      internalID: 5794177310219593794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_48
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44f670044a19809e0800000000000000
+      internalID: -1654912728423764156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_49
+      rect:
+        serializedVersion: 2
+        x: 2019
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac04251ba214e3200800000000000000
+      internalID: 161638288251306186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_50
+      rect:
+        serializedVersion: 2
+        x: 2060
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b1726e2004422dc0800000000000000
+      internalID: -3665292379157270093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_51
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be0539e9770cac60800000000000000
+      internalID: 7830642072275455669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_52
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e8f44e5040f1e30800000000000000
+      internalID: 4476300977981329018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_53
+      rect:
+        serializedVersion: 2
+        x: 2183
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a81f9bc55e2464e0800000000000000
+      internalID: -1989414189367617368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_54
+      rect:
+        serializedVersion: 2
+        x: 2224
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 359b051121c822d10800000000000000
+      internalID: 2099394385535875411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_55
+      rect:
+        serializedVersion: 2
+        x: 2264
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe16dc320e0d61f0800000000000000
+      internalID: -1050167735334068481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_56
+      rect:
+        serializedVersion: 2
+        x: 2305
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d68937246926bab0800000000000000
+      internalID: -4992757626762066222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_57
+      rect:
+        serializedVersion: 2
+        x: 2346
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689c4231eeef11a90800000000000000
+      internalID: -7344809218787718778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_58
+      rect:
+        serializedVersion: 2
+        x: 2387
+        y: 0
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21fe60a1b3ede84a0800000000000000
+      internalID: -6589084859375358190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_59
+      rect:
+        serializedVersion: 2
+        x: 2428
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c43830b4596bd56e0800000000000000
+      internalID: -1847119519827131572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_60
+      rect:
+        serializedVersion: 2
+        x: 2469
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7131dd8488908b9d0800000000000000
+      internalID: -2758444290821778665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_61
+      rect:
+        serializedVersion: 2
+        x: 2509
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9af011ba35fc4cd0800000000000000
+      internalID: -2572411654707807590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_62
+      rect:
+        serializedVersion: 2
+        x: 2549
+        y: 0
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e587dae58797a90800000000000000
+      internalID: -7315683771654054270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_63
+      rect:
+        serializedVersion: 2
+        x: 2589
+        y: 0
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36db6671bead50e0800000000000000
+      internalID: -2279473759160379844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_64
+      rect:
+        serializedVersion: 2
+        x: 2629
+        y: 0
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b220537161ef2e0800000000000000
+      internalID: -2090208888123937905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_65
+      rect:
+        serializedVersion: 2
+        x: 2669
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b8a68e0a94a5520800000000000000
+      internalID: 2691544682750184312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_66
+      rect:
+        serializedVersion: 2
+        x: 2709
+        y: 0
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 457ae4222492ccea0800000000000000
+      internalID: -5851256451840956588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_67
+      rect:
+        serializedVersion: 2
+        x: 2749
+        y: 0
+        width: 38
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd22ed1bf645cc120800000000000000
+      internalID: 2435414337202823901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_68
+      rect:
+        serializedVersion: 2
+        x: 2789
+        y: 0
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a17436411324010800000000000000
+      internalID: 1171552816704461461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_69
+      rect:
+        serializedVersion: 2
+        x: 2830
+        y: 0
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e37a8566c8576b630800000000000000
+      internalID: 3942467769682405182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_70
+      rect:
+        serializedVersion: 2
+        x: 2870
+        y: 0
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb5ab8490e6c4a10800000000000000
+      internalID: 1895010529370069959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radarturm2_71
+      rect:
+        serializedVersion: 2
+        x: 2911
+        y: 0
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc78ebf5ab2d99470800000000000000
+      internalID: 8401978277748443085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      radarturm2_0: 269171791839965567
+      radarturm2_1: 2008256896739162215
+      radarturm2_10: -3130737587243643723
+      radarturm2_11: -4985740953927353955
+      radarturm2_12: 2371347569923880950
+      radarturm2_13: 2097706842690153166
+      radarturm2_14: 6795591155861499658
+      radarturm2_15: -2005863843933385258
+      radarturm2_16: 2085913813618001580
+      radarturm2_17: 1435358017313468154
+      radarturm2_18: 2240711477052925002
+      radarturm2_19: -4701337960071246255
+      radarturm2_2: -1613540745464732365
+      radarturm2_20: 8165233713376905561
+      radarturm2_21: 6197039438634966050
+      radarturm2_22: 2715406330243880237
+      radarturm2_23: -1169316623625412910
+      radarturm2_24: 7457756413621357851
+      radarturm2_25: -414992510722476008
+      radarturm2_26: 3906880162485536039
+      radarturm2_27: -3419975608245066479
+      radarturm2_28: 6919281154187481065
+      radarturm2_29: 3031417435986340528
+      radarturm2_3: -3754153529710766460
+      radarturm2_30: 1949462609592225592
+      radarturm2_31: 5543431889250082650
+      radarturm2_32: 4870738604638763310
+      radarturm2_33: -7363632582611439667
+      radarturm2_34: 1655254065462170536
+      radarturm2_35: 1511242033769515563
+      radarturm2_36: -556292251144925841
+      radarturm2_37: -6328193944854286375
+      radarturm2_38: 289193514584643613
+      radarturm2_39: -2051601100418246619
+      radarturm2_4: -2231509167268231281
+      radarturm2_40: 1195577390297319450
+      radarturm2_41: -4191801265263890467
+      radarturm2_42: -4742112811520617054
+      radarturm2_43: -4903477755019566781
+      radarturm2_44: -4057365275859128514
+      radarturm2_45: -3759317207604008720
+      radarturm2_46: -2242998548995356197
+      radarturm2_47: 5794177310219593794
+      radarturm2_48: -1654912728423764156
+      radarturm2_49: 161638288251306186
+      radarturm2_5: -5507429599112958147
+      radarturm2_50: -3665292379157270093
+      radarturm2_51: 7830642072275455669
+      radarturm2_52: 4476300977981329018
+      radarturm2_53: -1989414189367617368
+      radarturm2_54: 2099394385535875411
+      radarturm2_55: -1050167735334068481
+      radarturm2_56: -4992757626762066222
+      radarturm2_57: -7344809218787718778
+      radarturm2_58: -6589084859375358190
+      radarturm2_59: -1847119519827131572
+      radarturm2_6: 1682176366484256733
+      radarturm2_60: -2758444290821778665
+      radarturm2_61: -2572411654707807590
+      radarturm2_62: -7315683771654054270
+      radarturm2_63: -2279473759160379844
+      radarturm2_64: -2090208888123937905
+      radarturm2_65: 2691544682750184312
+      radarturm2_66: -5851256451840956588
+      radarturm2_67: 2435414337202823901
+      radarturm2_68: 1171552816704461461
+      radarturm2_69: 3942467769682405182
+      radarturm2_7: -6020161983580029486
+      radarturm2_70: 1895010529370069959
+      radarturm2_71: 8401978277748443085
+      radarturm2_8: -9149348705933721778
+      radarturm2_9: -5593778101309138342
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
