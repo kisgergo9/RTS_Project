@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: 0d93d6b2930a4cd489e6a93a01551839
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4399914082819631827
+    second: panzer1b_0
+  - first:
+      213: 5122814947153679857
+    second: panzer1b_1
+  - first:
+      213: -258131166346753549
+    second: panzer1b_2
+  - first:
+      213: 5128661074219644289
+    second: panzer1b_3
+  - first:
+      213: 3224136123731092538
+    second: panzer1b_4
+  - first:
+      213: -2347834284399779715
+    second: panzer1b_5
+  - first:
+      213: 1502940047130542919
+    second: panzer1b_6
+  - first:
+      213: 1579398841307125275
+    second: panzer1b_7
+  - first:
+      213: 2414129380137754231
+    second: panzer1b_8
+  - first:
+      213: -3503181405894051709
+    second: panzer1b_9
+  - first:
+      213: 2496380191852929835
+    second: panzer1b_10
+  - first:
+      213: -4912802418559885568
+    second: panzer1b_11
+  - first:
+      213: -6676807900567327551
+    second: panzer1b_12
+  - first:
+      213: 2489762641349379956
+    second: panzer1b_13
+  - first:
+      213: -5981102999835917635
+    second: panzer1b_14
+  - first:
+      213: -5007332080768318024
+    second: panzer1b_15
+  - first:
+      213: -3964966158737099456
+    second: panzer1b_16
+  - first:
+      213: -7639346139606350073
+    second: panzer1b_17
+  - first:
+      213: 2915141652456888940
+    second: panzer1b_18
+  - first:
+      213: 6819014016289350769
+    second: panzer1b_19
+  - first:
+      213: 3057899396192826770
+    second: panzer1b_20
+  - first:
+      213: 5592609638052460482
+    second: panzer1b_21
+  - first:
+      213: -4703681454997519588
+    second: panzer1b_22
+  - first:
+      213: -4609327218896203721
+    second: panzer1b_23
+  - first:
+      213: 2998451806135312005
+    second: panzer1b_24
+  - first:
+      213: -2778494439893911310
+    second: panzer1b_25
+  - first:
+      213: 8264111572800586302
+    second: panzer1b_26
+  - first:
+      213: 5936419242818843696
+    second: panzer1b_27
+  - first:
+      213: 4473916920579363876
+    second: panzer1b_28
+  - first:
+      213: -5646484511392238829
+    second: panzer1b_29
+  - first:
+      213: 3472561411416792242
+    second: panzer1b_30
+  - first:
+      213: -414488778339503743
+    second: panzer1b_31
+  - first:
+      213: 5617888622023105614
+    second: panzer1b_32
+  - first:
+      213: -9100794699398768299
+    second: panzer1b_33
+  - first:
+      213: -8278853023748416333
+    second: panzer1b_34
+  - first:
+      213: 8204584868045456015
+    second: panzer1b_35
+  - first:
+      213: 2446861819130368681
+    second: panzer1b_36
+  - first:
+      213: -538980712014284307
+    second: panzer1b_37
+  - first:
+      213: 853671238002405323
+    second: panzer1b_38
+  - first:
+      213: -3365317050853944212
+    second: panzer1b_39
+  - first:
+      213: 7232781329734556064
+    second: panzer1b_40
+  - first:
+      213: -7270048964101791641
+    second: panzer1b_41
+  - first:
+      213: -2264830096460538767
+    second: panzer1b_42
+  - first:
+      213: -842985779793766943
+    second: panzer1b_43
+  - first:
+      213: 5798510649778662862
+    second: panzer1b_44
+  - first:
+      213: -200473793887859239
+    second: panzer1b_45
+  - first:
+      213: 4381658688706831502
+    second: panzer1b_46
+  - first:
+      213: 8602989812846731103
+    second: panzer1b_47
+  - first:
+      213: 2786210839827358943
+    second: panzer1b_48
+  - first:
+      213: 2541529359398158983
+    second: panzer1b_49
+  - first:
+      213: -3958265476651118024
+    second: panzer1b_50
+  - first:
+      213: 6461691501882398532
+    second: panzer1b_51
+  - first:
+      213: -5983196443234930691
+    second: panzer1b_52
+  - first:
+      213: -676195672356780549
+    second: panzer1b_53
+  - first:
+      213: -8758977620079211532
+    second: panzer1b_54
+  - first:
+      213: -7406973630016725562
+    second: panzer1b_55
+  - first:
+      213: 8900943817222537676
+    second: panzer1b_56
+  - first:
+      213: -6095390952102467121
+    second: panzer1b_57
+  - first:
+      213: 783927218964107557
+    second: panzer1b_58
+  - first:
+      213: -8433028236109771371
+    second: panzer1b_59
+  - first:
+      213: 3429882905125497673
+    second: panzer1b_60
+  - first:
+      213: -605452410262127722
+    second: panzer1b_61
+  - first:
+      213: 4928835651671951840
+    second: panzer1b_62
+  - first:
+      213: 4641135426595378067
+    second: panzer1b_63
+  - first:
+      213: -2021638402791832368
+    second: panzer1b_64
+  - first:
+      213: 6561145329691434188
+    second: panzer1b_65
+  - first:
+      213: 5735266259335580567
+    second: panzer1b_66
+  - first:
+      213: -1933096087609308449
+    second: panzer1b_67
+  - first:
+      213: -1847256378928057761
+    second: panzer1b_68
+  - first:
+      213: 2592168844638809710
+    second: panzer1b_69
+  - first:
+      213: -5596440245605806153
+    second: panzer1b_70
+  - first:
+      213: -6759180927921916323
+    second: panzer1b_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: panzer1b_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dae3bceb82af0d30800000000000000
+      internalID: 4399914082819631827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f518277d05e71740800000000000000
+      internalID: 5122814947153679857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9c174621fea6cf0800000000000000
+      internalID: -258131166346753549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_3
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1853c3ef21aac2740800000000000000
+      internalID: 5128661074219644289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_4
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 0
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a342f7ae8be6ebc20800000000000000
+      internalID: 3224136123731092538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_5
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d702ede5821da6fd0800000000000000
+      internalID: -2347834284399779715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743cceb82048bd410800000000000000
+      internalID: 1502940047130542919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_7
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1656cec0e62be510800000000000000
+      internalID: 1579398841307125275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_8
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77ed1f071e5b08120800000000000000
+      internalID: 2414129380137754231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_9
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 0
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3887eed6213326fc0800000000000000
+      internalID: -3503181405894051709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_10
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2327bfde8ce4a220800000000000000
+      internalID: 2496380191852929835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_11
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 0
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00fde0eba3832dbb0800000000000000
+      internalID: -4912802418559885568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_12
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 0
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cca925f6963753a0800000000000000
+      internalID: -6676807900567327551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_13
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4770ba45ee96d8220800000000000000
+      internalID: 2489762641349379956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_14
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db2c1c9c28adefca0800000000000000
+      internalID: -5981102999835917635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_15
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b50365a002628ab0800000000000000
+      internalID: -5007332080768318024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_16
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 045b702394c99f8c0800000000000000
+      internalID: -3964966158737099456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_17
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 707038839279bf590800000000000000
+      internalID: -7639346139606350073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_18
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6a53a843e9a47820800000000000000
+      internalID: 2915141652456888940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_19
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 174265f7e1102ae50800000000000000
+      internalID: 6819014016289350769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_20
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 0
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29574f4ac47df6a20800000000000000
+      internalID: 3057899396192826770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_21
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 0
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7fa8bb5d0fc9d40800000000000000
+      internalID: 5592609638052460482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_22
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 0
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c13c74a43aa29beb0800000000000000
+      internalID: -4703681454997519588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_23
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7301720d0516800c0800000000000000
+      internalID: -4609327218896203721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_24
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 0
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ed2dcf704ac9920800000000000000
+      internalID: 2998451806135312005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_25
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 0
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f8b9bb270ec079d0800000000000000
+      internalID: -2778494439893911310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_26
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 0
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3249f8b0b500b270800000000000000
+      internalID: 8264111572800586302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_27
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 0
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034b20e49d5626250800000000000000
+      internalID: 5936419242818843696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_28
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 0
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4241eb54cbb861e30800000000000000
+      internalID: 4473916920579363876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_29
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 0
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31378b4d048a3a1b0800000000000000
+      internalID: -5646484511392238829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_30
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 0
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc1a3c8434013030800000000000000
+      internalID: 3472561411416792242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_31
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 0
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18130b3f6a07f3af0800000000000000
+      internalID: -414488778339503743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_32
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 0
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c5567dfefb6fd40800000000000000
+      internalID: 5617888622023105614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_33
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 0
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5591490607b73b180800000000000000
+      internalID: -9100794699398768299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_34
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 0
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc9ec3c90b9b1d80800000000000000
+      internalID: -8278853023748416333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_35
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 0
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f82056db77a8cd170800000000000000
+      internalID: 8204584868045456015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_36
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a25bb74cdff4f120800000000000000
+      internalID: 2446861819130368681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_37
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9f997e5e72588f0800000000000000
+      internalID: -538980712014284307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_38
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 0
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcfe910d779d8db00800000000000000
+      internalID: 853671238002405323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_39
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 0
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c641943f8fdfb41d0800000000000000
+      internalID: -3365317050853944212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_40
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 0
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9d7e86c40006460800000000000000
+      internalID: 7232781329734556064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_41
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 0
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 760240b4cf89b1b90800000000000000
+      internalID: -7270048964101791641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_42
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 0
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17c1bdfd605b190e0800000000000000
+      internalID: -2264830096460538767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_43
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 0
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5dfac46ec1d44f0800000000000000
+      internalID: -842985779793766943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_44
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 0
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd6062d6b2787050800000000000000
+      internalID: 5798510649778662862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_45
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 0
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dd0a888526c73df0800000000000000
+      internalID: -200473793887859239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_46
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e84ef53cc57cecc30800000000000000
+      internalID: 4381658688706831502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_47
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 0
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f980977a5f36770800000000000000
+      internalID: 8602989812846731103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_48
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4a0413ffb9aa620800000000000000
+      internalID: 2786210839827358943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_49
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 0
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 782472d9c73554320800000000000000
+      internalID: 2541529359398158983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_50
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 0
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8329481558a6119c0800000000000000
+      internalID: -3958265476651118024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_51
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 0
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4475cd97f2a8ca950800000000000000
+      internalID: 6461691501882398532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_52
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 0
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dffe993098a67fca0800000000000000
+      internalID: -5983196443234930691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_53
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 1
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf5848e5e9bad96f0800000000000000
+      internalID: -676195672356780549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_54
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 1
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb0597f24cd17680800000000000000
+      internalID: -8758977620079211532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_55
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 1
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cdda223ab4253990800000000000000
+      internalID: -7406973630016725562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_56
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 1
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc142471e31868b70800000000000000
+      internalID: 8900943817222537676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_57
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 1
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc96dcc4932d86ba0800000000000000
+      internalID: -6095390952102467121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_58
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 1
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5219d18f6a111ea00800000000000000
+      internalID: 783927218964107557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_59
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 1
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59d86d5df7dd7fa80800000000000000
+      internalID: -8433028236109771371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_60
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ba0357454699f20800000000000000
+      internalID: 3429882905125497673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_61
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 0
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69bfbed9d300997f0800000000000000
+      internalID: -605452410262127722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_62
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 0
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e9003e39edb66440800000000000000
+      internalID: 4928835651671951840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_63
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 0
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 393d2b8a410a86040800000000000000
+      internalID: 4641135426595378067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_64
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 0
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d40e417592b1f3e0800000000000000
+      internalID: -2021638402791832368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_65
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccc98f73aeedd0b50800000000000000
+      internalID: 6561145329691434188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_66
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 0
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b0bffa642c79f40800000000000000
+      internalID: 5735266259335580567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_67
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 0
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda895da9534c25e0800000000000000
+      internalID: -1933096087609308449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_68
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 0
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f523bec4c1a3d56e0800000000000000
+      internalID: -1847256378928057761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_69
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 0
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6ee78e84db39f320800000000000000
+      internalID: 2592168844638809710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_70
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 0
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bf47f17f337552b0800000000000000
+      internalID: -5596440245605806153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panzer1b_71
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 0
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d567e9af1c09232a0800000000000000
+      internalID: -6759180927921916323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      panzer1b_0: 4399914082819631827
+      panzer1b_1: 5122814947153679857
+      panzer1b_10: 2496380191852929835
+      panzer1b_11: -4912802418559885568
+      panzer1b_12: -6676807900567327551
+      panzer1b_13: 2489762641349379956
+      panzer1b_14: -5981102999835917635
+      panzer1b_15: -5007332080768318024
+      panzer1b_16: -3964966158737099456
+      panzer1b_17: -7639346139606350073
+      panzer1b_18: 2915141652456888940
+      panzer1b_19: 6819014016289350769
+      panzer1b_2: -258131166346753549
+      panzer1b_20: 3057899396192826770
+      panzer1b_21: 5592609638052460482
+      panzer1b_22: -4703681454997519588
+      panzer1b_23: -4609327218896203721
+      panzer1b_24: 2998451806135312005
+      panzer1b_25: -2778494439893911310
+      panzer1b_26: 8264111572800586302
+      panzer1b_27: 5936419242818843696
+      panzer1b_28: 4473916920579363876
+      panzer1b_29: -5646484511392238829
+      panzer1b_3: 5128661074219644289
+      panzer1b_30: 3472561411416792242
+      panzer1b_31: -414488778339503743
+      panzer1b_32: 5617888622023105614
+      panzer1b_33: -9100794699398768299
+      panzer1b_34: -8278853023748416333
+      panzer1b_35: 8204584868045456015
+      panzer1b_36: 2446861819130368681
+      panzer1b_37: -538980712014284307
+      panzer1b_38: 853671238002405323
+      panzer1b_39: -3365317050853944212
+      panzer1b_4: 3224136123731092538
+      panzer1b_40: 7232781329734556064
+      panzer1b_41: -7270048964101791641
+      panzer1b_42: -2264830096460538767
+      panzer1b_43: -842985779793766943
+      panzer1b_44: 5798510649778662862
+      panzer1b_45: -200473793887859239
+      panzer1b_46: 4381658688706831502
+      panzer1b_47: 8602989812846731103
+      panzer1b_48: 2786210839827358943
+      panzer1b_49: 2541529359398158983
+      panzer1b_5: -2347834284399779715
+      panzer1b_50: -3958265476651118024
+      panzer1b_51: 6461691501882398532
+      panzer1b_52: -5983196443234930691
+      panzer1b_53: -676195672356780549
+      panzer1b_54: -8758977620079211532
+      panzer1b_55: -7406973630016725562
+      panzer1b_56: 8900943817222537676
+      panzer1b_57: -6095390952102467121
+      panzer1b_58: 783927218964107557
+      panzer1b_59: -8433028236109771371
+      panzer1b_6: 1502940047130542919
+      panzer1b_60: 3429882905125497673
+      panzer1b_61: -605452410262127722
+      panzer1b_62: 4928835651671951840
+      panzer1b_63: 4641135426595378067
+      panzer1b_64: -2021638402791832368
+      panzer1b_65: 6561145329691434188
+      panzer1b_66: 5735266259335580567
+      panzer1b_67: -1933096087609308449
+      panzer1b_68: -1847256378928057761
+      panzer1b_69: 2592168844638809710
+      panzer1b_7: 1579398841307125275
+      panzer1b_70: -5596440245605806153
+      panzer1b_71: -6759180927921916323
+      panzer1b_8: 2414129380137754231
+      panzer1b_9: -3503181405894051709
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

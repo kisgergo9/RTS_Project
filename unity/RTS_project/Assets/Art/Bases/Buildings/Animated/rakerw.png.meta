@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: fb788e4019bfa31459544e3689d53606
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4298808452313948189
+    second: rakerw_0
+  - first:
+      213: -2424951027104792166
+    second: rakerw_1
+  - first:
+      213: -7582685672406738045
+    second: rakerw_2
+  - first:
+      213: 1138091529824912140
+    second: rakerw_3
+  - first:
+      213: -8225415649578364105
+    second: rakerw_4
+  - first:
+      213: -7890975074458063021
+    second: rakerw_5
+  - first:
+      213: 4638789003278109305
+    second: rakerw_6
+  - first:
+      213: -2408533048051008472
+    second: rakerw_7
+  - first:
+      213: 5181620501393750657
+    second: rakerw_8
+  - first:
+      213: -3049725543846348617
+    second: rakerw_9
+  - first:
+      213: 285084847277731668
+    second: rakerw_10
+  - first:
+      213: 6285255596515669838
+    second: rakerw_11
+  - first:
+      213: -4662496923578132832
+    second: rakerw_12
+  - first:
+      213: -5115654513950073696
+    second: rakerw_13
+  - first:
+      213: 678481708588729211
+    second: rakerw_14
+  - first:
+      213: -5853881230775188713
+    second: rakerw_15
+  - first:
+      213: -5846994622594646522
+    second: rakerw_16
+  - first:
+      213: 288921984310937913
+    second: rakerw_17
+  - first:
+      213: 7042379028502414897
+    second: rakerw_18
+  - first:
+      213: -7869374385962593126
+    second: rakerw_19
+  - first:
+      213: 3782025682323839312
+    second: rakerw_20
+  - first:
+      213: -4199851955891978534
+    second: rakerw_21
+  - first:
+      213: 9177002171622601040
+    second: rakerw_22
+  - first:
+      213: -3775489852919836199
+    second: rakerw_23
+  - first:
+      213: 2204102037096199121
+    second: rakerw_24
+  - first:
+      213: -5094073289534535932
+    second: rakerw_25
+  - first:
+      213: 1678363261519654919
+    second: rakerw_26
+  - first:
+      213: 4125201707551450063
+    second: rakerw_27
+  - first:
+      213: -7977410636267342324
+    second: rakerw_28
+  - first:
+      213: 8486094498728615405
+    second: rakerw_29
+  - first:
+      213: -5871711354196151480
+    second: rakerw_30
+  - first:
+      213: 6880682983624958657
+    second: rakerw_31
+  - first:
+      213: 7738700704432992172
+    second: rakerw_32
+  - first:
+      213: 654780660223432128
+    second: rakerw_33
+  - first:
+      213: 6220647907734674999
+    second: rakerw_34
+  - first:
+      213: -3682846922227837889
+    second: rakerw_35
+  - first:
+      213: -9073665294287795593
+    second: rakerw_36
+  - first:
+      213: -8600496700085555536
+    second: rakerw_37
+  - first:
+      213: 1063049376668753838
+    second: rakerw_38
+  - first:
+      213: -5823612151027218058
+    second: rakerw_39
+  - first:
+      213: 2859202410070741000
+    second: rakerw_40
+  - first:
+      213: -4086638479625074931
+    second: rakerw_41
+  - first:
+      213: 1630223244064934941
+    second: rakerw_42
+  - first:
+      213: -7339062916930480118
+    second: rakerw_43
+  - first:
+      213: -3611427463140833807
+    second: rakerw_44
+  - first:
+      213: -7267516084752615223
+    second: rakerw_45
+  - first:
+      213: 8514578104914687593
+    second: rakerw_46
+  - first:
+      213: 6860602447684875538
+    second: rakerw_47
+  - first:
+      213: 8197968268396929359
+    second: rakerw_48
+  - first:
+      213: -7345207384539155080
+    second: rakerw_49
+  - first:
+      213: -1482031706680603581
+    second: rakerw_50
+  - first:
+      213: 4848772578317193515
+    second: rakerw_51
+  - first:
+      213: -458799551487325975
+    second: rakerw_52
+  - first:
+      213: -7485185434733647034
+    second: rakerw_53
+  - first:
+      213: -519669095604310570
+    second: rakerw_54
+  - first:
+      213: -299765807716331764
+    second: rakerw_55
+  - first:
+      213: 4257912226381022783
+    second: rakerw_56
+  - first:
+      213: 5541104101989841594
+    second: rakerw_57
+  - first:
+      213: 1761578235346498301
+    second: rakerw_58
+  - first:
+      213: -4667059492963003652
+    second: rakerw_59
+  - first:
+      213: -3645098637010771586
+    second: rakerw_60
+  - first:
+      213: 2608403865701935465
+    second: rakerw_61
+  - first:
+      213: 2397328664009683647
+    second: rakerw_62
+  - first:
+      213: 1027019858376393361
+    second: rakerw_63
+  - first:
+      213: 8198898401366775256
+    second: rakerw_64
+  - first:
+      213: 1892818878399231083
+    second: rakerw_65
+  - first:
+      213: 2848966635018841168
+    second: rakerw_66
+  - first:
+      213: -2297883388710573959
+    second: rakerw_67
+  - first:
+      213: 8252441828605446739
+    second: rakerw_68
+  - first:
+      213: -7617515401638982662
+    second: rakerw_69
+  - first:
+      213: -3982721883623870100
+    second: rakerw_70
+  - first:
+      213: -3292472480907128130
+    second: rakerw_71
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rakerw_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef516a1d709754c0800000000000000
+      internalID: -4298808452313948189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9143b783e7d85ed0800000000000000
+      internalID: -2424951027104792166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b90c44e83e4c690800000000000000
+      internalID: -7582685672406738045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03481d67305bcf00800000000000000
+      internalID: 1138091529824912140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73351fcfb0479dd80800000000000000
+      internalID: -8225415649578364105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 0
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f277b5aff9d7290800000000000000
+      internalID: -7890975074458063021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a4168650a406040800000000000000
+      internalID: 4638789003278109305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_7
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82c712924fb239ed0800000000000000
+      internalID: -2408533048051008472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_8
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 0
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18ab4728460d8e740800000000000000
+      internalID: 5181620501393750657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b87a98a6c23da5d0800000000000000
+      internalID: -3049725543846348617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_10
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 0
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45fe5dc7823d4f300800000000000000
+      internalID: 285084847277731668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_11
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 0
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e473ad01aa6b93750800000000000000
+      internalID: 6285255596515669838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_12
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 0
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a616cf30cb7b4fb0800000000000000
+      internalID: -4662496923578132832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_13
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 0
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acd16ec25b8109b0800000000000000
+      internalID: -5115654513950073696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_14
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 0
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73080be4837a6900800000000000000
+      internalID: 678481708588729211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_15
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 0
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 713815a2906d2cea0800000000000000
+      internalID: -5853881230775188713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_16
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 0
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e70a49e5d4bdea0800000000000000
+      internalID: -5846994622594646522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_17
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 0
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93987a29305720400800000000000000
+      internalID: 288921984310937913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_18
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1360c8f0a6e8bb160800000000000000
+      internalID: 7042379028502414897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_19
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 0
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a94542090bd5ac290800000000000000
+      internalID: -7869374385962593126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_20
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 0
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 059115ee1547c7430800000000000000
+      internalID: 3782025682323839312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_21
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 0
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade34dbd5e027b5c0800000000000000
+      internalID: -4199851955891978534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_22
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 0
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 051bd8e6ad24b5f70800000000000000
+      internalID: 9177002171622601040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_23
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 0
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d11f9f6bf3ca9bc0800000000000000
+      internalID: -3775489852919836199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_24
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 0
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d375d9ff1b869e10800000000000000
+      internalID: 2204102037096199121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_25
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 0
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4070d7d25573e49b0800000000000000
+      internalID: -5094073289534535932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_26
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 0
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 700f1f67e7eba4710800000000000000
+      internalID: 1678363261519654919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_27
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 0
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc36075c819af3930800000000000000
+      internalID: 4125201707551450063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_28
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 0
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06bcddda4b8a4190800000000000000
+      internalID: -7977410636267342324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_29
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ded9d1f3cf9a4c570800000000000000
+      internalID: 8486094498728615405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_30
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 843b28d02ad738ea0800000000000000
+      internalID: -5871711354196151480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_31
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c26a0bd7b81d7f50800000000000000
+      internalID: 6880682983624958657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_32
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf2bce0a43656b60800000000000000
+      internalID: 7738700704432992172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_33
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 1
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c5d9629a8f361900800000000000000
+      internalID: 654780660223432128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_34
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 1
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e5d4d405e245650800000000000000
+      internalID: 6220647907734674999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_35
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 1
+        width: 35
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34187e9c36e3ecc0800000000000000
+      internalID: -3682846922227837889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_36
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 1
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a8f2b3d7dd31280800000000000000
+      internalID: -9073665294287795593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_37
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 1
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be2b7391d5e4a880800000000000000
+      internalID: -8600496700085555536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_38
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf9a0b96c5b0ce00800000000000000
+      internalID: 1063049376668753838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_39
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 1
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 679cf5c7a9f5e2fa0800000000000000
+      internalID: -5823612151027218058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_40
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 0
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8001539717deda720800000000000000
+      internalID: 2859202410070741000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_41
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d07418864f75947c0800000000000000
+      internalID: -4086638479625074931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_42
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 0
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c43173767bf9610800000000000000
+      internalID: 1630223244064934941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_43
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 0
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a08dd1c3929662a90800000000000000
+      internalID: -7339062916930480118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_44
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 0
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5866f3bd1a1edc0800000000000000
+      internalID: -3611427463140833807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_45
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 0
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c8f1e830a8942b90800000000000000
+      internalID: -7267516084752615223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_46
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 0
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96632cb9cabd92670800000000000000
+      internalID: 8514578104914687593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_47
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 0
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 215be6fb391c53f50800000000000000
+      internalID: 6860602447684875538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_48
+      rect:
+        serializedVersion: 2
+        x: 1586
+        y: 0
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4129b594b805c170800000000000000
+      internalID: 8197968268396929359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_49
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 0
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875b7f2ecc4901a90800000000000000
+      internalID: -7345207384539155080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_50
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 0
+        width: 21
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ccf61d304ce6be0800000000000000
+      internalID: -1482031706680603581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_51
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 0
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21504758fc4a4340800000000000000
+      internalID: 4848772578317193515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_52
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 0
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e84d7e1d3402a9f0800000000000000
+      internalID: -458799551487325975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_53
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 0
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64be5cc51874f1890800000000000000
+      internalID: -7485185434733647034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_54
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 0
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dda1cbf5b3c9c8f0800000000000000
+      internalID: -519669095604310570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_55
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 0
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f824b069407dbf0800000000000000
+      internalID: -299765807716331764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_56
+      rect:
+        serializedVersion: 2
+        x: 1851
+        y: 0
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f36cb3a4c94271b30800000000000000
+      internalID: 4257912226381022783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_57
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 0
+        width: 21
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aba709e92d4f5ec40800000000000000
+      internalID: 5541104101989841594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_58
+      rect:
+        serializedVersion: 2
+        x: 1918
+        y: 0
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df233e16212627810800000000000000
+      internalID: 1761578235346498301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_59
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 0
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf253584e164b3fb0800000000000000
+      internalID: -4667059492963003652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_60
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 0
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7166b92a120a6dc0800000000000000
+      internalID: -3645098637010771586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_61
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 0
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9696be5fe79e23420800000000000000
+      internalID: 2608403865701935465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_62
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 0
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb2b824e7b5054120800000000000000
+      internalID: 2397328664009683647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_63
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 0
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1920ccbae15b04e00800000000000000
+      internalID: 1027019858376393361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_64
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d51cfa08a658c170800000000000000
+      internalID: 8198898401366775256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_65
+      rect:
+        serializedVersion: 2
+        x: 2145
+        y: 0
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b64b327cdb4a44a10800000000000000
+      internalID: 1892818878399231083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_66
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 0
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05cec316f00998720800000000000000
+      internalID: 2848966635018841168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_67
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978a2a09b374c10e0800000000000000
+      internalID: -2297883388710573959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_68
+      rect:
+        serializedVersion: 2
+        x: 2243
+        y: 0
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a4a9bae10968270800000000000000
+      internalID: 8252441828605446739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_69
+      rect:
+        serializedVersion: 2
+        x: 2276
+        y: 0
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afbcd3ef916294690800000000000000
+      internalID: -7617515401638982662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_70
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 0
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c61bc675c878ab8c0800000000000000
+      internalID: -3982721883623870100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rakerw_71
+      rect:
+        serializedVersion: 2
+        x: 2342
+        y: 0
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb218ce09b9ce42d0800000000000000
+      internalID: -3292472480907128130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rakerw_0: -4298808452313948189
+      rakerw_1: -2424951027104792166
+      rakerw_10: 285084847277731668
+      rakerw_11: 6285255596515669838
+      rakerw_12: -4662496923578132832
+      rakerw_13: -5115654513950073696
+      rakerw_14: 678481708588729211
+      rakerw_15: -5853881230775188713
+      rakerw_16: -5846994622594646522
+      rakerw_17: 288921984310937913
+      rakerw_18: 7042379028502414897
+      rakerw_19: -7869374385962593126
+      rakerw_2: -7582685672406738045
+      rakerw_20: 3782025682323839312
+      rakerw_21: -4199851955891978534
+      rakerw_22: 9177002171622601040
+      rakerw_23: -3775489852919836199
+      rakerw_24: 2204102037096199121
+      rakerw_25: -5094073289534535932
+      rakerw_26: 1678363261519654919
+      rakerw_27: 4125201707551450063
+      rakerw_28: -7977410636267342324
+      rakerw_29: 8486094498728615405
+      rakerw_3: 1138091529824912140
+      rakerw_30: -5871711354196151480
+      rakerw_31: 6880682983624958657
+      rakerw_32: 7738700704432992172
+      rakerw_33: 654780660223432128
+      rakerw_34: 6220647907734674999
+      rakerw_35: -3682846922227837889
+      rakerw_36: -9073665294287795593
+      rakerw_37: -8600496700085555536
+      rakerw_38: 1063049376668753838
+      rakerw_39: -5823612151027218058
+      rakerw_4: -8225415649578364105
+      rakerw_40: 2859202410070741000
+      rakerw_41: -4086638479625074931
+      rakerw_42: 1630223244064934941
+      rakerw_43: -7339062916930480118
+      rakerw_44: -3611427463140833807
+      rakerw_45: -7267516084752615223
+      rakerw_46: 8514578104914687593
+      rakerw_47: 6860602447684875538
+      rakerw_48: 8197968268396929359
+      rakerw_49: -7345207384539155080
+      rakerw_5: -7890975074458063021
+      rakerw_50: -1482031706680603581
+      rakerw_51: 4848772578317193515
+      rakerw_52: -458799551487325975
+      rakerw_53: -7485185434733647034
+      rakerw_54: -519669095604310570
+      rakerw_55: -299765807716331764
+      rakerw_56: 4257912226381022783
+      rakerw_57: 5541104101989841594
+      rakerw_58: 1761578235346498301
+      rakerw_59: -4667059492963003652
+      rakerw_6: 4638789003278109305
+      rakerw_60: -3645098637010771586
+      rakerw_61: 2608403865701935465
+      rakerw_62: 2397328664009683647
+      rakerw_63: 1027019858376393361
+      rakerw_64: 8198898401366775256
+      rakerw_65: 1892818878399231083
+      rakerw_66: 2848966635018841168
+      rakerw_67: -2297883388710573959
+      rakerw_68: 8252441828605446739
+      rakerw_69: -7617515401638982662
+      rakerw_7: -2408533048051008472
+      rakerw_70: -3982721883623870100
+      rakerw_71: -3292472480907128130
+      rakerw_8: 5181620501393750657
+      rakerw_9: -3049725543846348617
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

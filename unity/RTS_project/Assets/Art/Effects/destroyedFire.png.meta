@@ -1,0 +1,3484 @@
+fileFormatVersion: 2
+guid: c0661868e4a34a747a0d9e456c54c35d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6318945114205856671
+    second: destroyedFire_0
+  - first:
+      213: 6065227200568190651
+    second: destroyedFire_1
+  - first:
+      213: -8137426669117007196
+    second: destroyedFire_2
+  - first:
+      213: -1379645066789053206
+    second: destroyedFire_3
+  - first:
+      213: -1465577506701960559
+    second: destroyedFire_4
+  - first:
+      213: 5890796946400850278
+    second: destroyedFire_5
+  - first:
+      213: -1843583872646217490
+    second: destroyedFire_6
+  - first:
+      213: -2684148895239403925
+    second: destroyedFire_7
+  - first:
+      213: -1056641834712632987
+    second: destroyedFire_8
+  - first:
+      213: 2851922244797605350
+    second: destroyedFire_9
+  - first:
+      213: 2261143942637395154
+    second: destroyedFire_10
+  - first:
+      213: -683256267420637284
+    second: destroyedFire_11
+  - first:
+      213: 1616128130840439410
+    second: destroyedFire_12
+  - first:
+      213: -8923148813538155905
+    second: destroyedFire_13
+  - first:
+      213: 5559434204920226501
+    second: destroyedFire_14
+  - first:
+      213: -8294400144538943134
+    second: destroyedFire_15
+  - first:
+      213: 5253632634179668962
+    second: destroyedFire_16
+  - first:
+      213: 4273519636120643318
+    second: destroyedFire_17
+  - first:
+      213: 7070844157942362462
+    second: destroyedFire_18
+  - first:
+      213: 6333555124894595306
+    second: destroyedFire_19
+  - first:
+      213: -3179859165945126528
+    second: destroyedFire_20
+  - first:
+      213: 6324344263396356305
+    second: destroyedFire_21
+  - first:
+      213: -8345232675795124225
+    second: destroyedFire_22
+  - first:
+      213: 1890089012988963181
+    second: destroyedFire_23
+  - first:
+      213: 6857740812917346504
+    second: destroyedFire_24
+  - first:
+      213: 2065698923736136899
+    second: destroyedFire_25
+  - first:
+      213: -1699872624466812893
+    second: destroyedFire_26
+  - first:
+      213: -4558791898672490958
+    second: destroyedFire_27
+  - first:
+      213: 1454536980978027032
+    second: destroyedFire_28
+  - first:
+      213: -2550419303356358922
+    second: destroyedFire_29
+  - first:
+      213: -3982223446352289775
+    second: destroyedFire_30
+  - first:
+      213: -3109465562935642384
+    second: destroyedFire_31
+  - first:
+      213: 1004409449201135286
+    second: destroyedFire_32
+  - first:
+      213: 4286748781734793032
+    second: destroyedFire_33
+  - first:
+      213: -9200676580221245073
+    second: destroyedFire_34
+  - first:
+      213: 3199332840284090813
+    second: destroyedFire_35
+  - first:
+      213: -7927544157722850847
+    second: destroyedFire_36
+  - first:
+      213: -8991980671997813055
+    second: destroyedFire_37
+  - first:
+      213: 6837130614505735459
+    second: destroyedFire_38
+  - first:
+      213: -3727484067707952588
+    second: destroyedFire_39
+  - first:
+      213: -5011085695641636716
+    second: destroyedFire_40
+  - first:
+      213: 2912193825269899330
+    second: destroyedFire_41
+  - first:
+      213: -5267281361778989573
+    second: destroyedFire_42
+  - first:
+      213: 3266091242110080444
+    second: destroyedFire_43
+  - first:
+      213: -3714965284080843023
+    second: destroyedFire_44
+  - first:
+      213: -3346304098921164821
+    second: destroyedFire_45
+  - first:
+      213: -6532426433546349630
+    second: destroyedFire_46
+  - first:
+      213: -6506118815123700265
+    second: destroyedFire_47
+  - first:
+      213: 403683788107664450
+    second: destroyedFire_48
+  - first:
+      213: -991904543906956174
+    second: destroyedFire_49
+  - first:
+      213: 4409052735474242250
+    second: destroyedFire_50
+  - first:
+      213: -6023926461622460923
+    second: destroyedFire_51
+  - first:
+      213: 2659041246304907008
+    second: destroyedFire_52
+  - first:
+      213: 1168241898881307154
+    second: destroyedFire_53
+  - first:
+      213: 807479349484779433
+    second: destroyedFire_54
+  - first:
+      213: -5827138972697283497
+    second: destroyedFire_55
+  - first:
+      213: 8419579963489101656
+    second: destroyedFire_56
+  - first:
+      213: -1978828648054783546
+    second: destroyedFire_57
+  - first:
+      213: -3373698434294494427
+    second: destroyedFire_58
+  - first:
+      213: 4268283793629645797
+    second: destroyedFire_59
+  - first:
+      213: 7585621862790804138
+    second: destroyedFire_60
+  - first:
+      213: 5960123500931099213
+    second: destroyedFire_61
+  - first:
+      213: -594060313998018165
+    second: destroyedFire_62
+  - first:
+      213: 1958370042140280954
+    second: destroyedFire_63
+  - first:
+      213: 7804297396035548830
+    second: destroyedFire_64
+  - first:
+      213: -1058337596413485813
+    second: destroyedFire_65
+  - first:
+      213: -3866873308869082832
+    second: destroyedFire_66
+  - first:
+      213: 6523189575412380601
+    second: destroyedFire_67
+  - first:
+      213: -8121917044904264288
+    second: destroyedFire_68
+  - first:
+      213: -4676957459618020945
+    second: destroyedFire_69
+  - first:
+      213: 8990685995519927785
+    second: destroyedFire_70
+  - first:
+      213: 2722767969438924720
+    second: destroyedFire_71
+  - first:
+      213: -1159206485871834678
+    second: destroyedFire_72
+  - first:
+      213: -8946207408657567589
+    second: destroyedFire_73
+  - first:
+      213: -2314825938215135789
+    second: destroyedFire_74
+  - first:
+      213: 7184393672854745987
+    second: destroyedFire_75
+  - first:
+      213: -4790511416885551585
+    second: destroyedFire_76
+  - first:
+      213: -3255791646179502132
+    second: destroyedFire_77
+  - first:
+      213: -8112291733728981079
+    second: destroyedFire_78
+  - first:
+      213: -3740162448257975264
+    second: destroyedFire_79
+  - first:
+      213: 3092606790994039753
+    second: destroyedFire_80
+  - first:
+      213: -1558592527298436525
+    second: destroyedFire_81
+  - first:
+      213: 8495436439999201873
+    second: destroyedFire_82
+  - first:
+      213: 3722527190109952784
+    second: destroyedFire_83
+  - first:
+      213: 5769241440615316207
+    second: destroyedFire_84
+  - first:
+      213: -5148557363215650206
+    second: destroyedFire_85
+  - first:
+      213: -4859746840319221995
+    second: destroyedFire_86
+  - first:
+      213: -3741644137271837511
+    second: destroyedFire_87
+  - first:
+      213: 6186458111362447793
+    second: destroyedFire_88
+  - first:
+      213: -76180613828702454
+    second: destroyedFire_89
+  - first:
+      213: -3362577861000259670
+    second: destroyedFire_90
+  - first:
+      213: 1835823402562135352
+    second: destroyedFire_91
+  - first:
+      213: 5631695499338833703
+    second: destroyedFire_92
+  - first:
+      213: -8840488317991890745
+    second: destroyedFire_93
+  - first:
+      213: 9120916894158766662
+    second: destroyedFire_94
+  - first:
+      213: -3761477517868247255
+    second: destroyedFire_95
+  - first:
+      213: 2784348857499993777
+    second: destroyedFire_96
+  - first:
+      213: -4626240762701132615
+    second: destroyedFire_97
+  - first:
+      213: -4427570020301878121
+    second: destroyedFire_98
+  - first:
+      213: -2000455807962763711
+    second: destroyedFire_99
+  - first:
+      213: 4230064583184339381
+    second: destroyedFire_100
+  - first:
+      213: -1643277335832031363
+    second: destroyedFire_101
+  - first:
+      213: 8458373516728592596
+    second: destroyedFire_102
+  - first:
+      213: -6577534348817601649
+    second: destroyedFire_103
+  - first:
+      213: -151528197605070039
+    second: destroyedFire_104
+  - first:
+      213: -4412562188383413321
+    second: destroyedFire_105
+  - first:
+      213: 4588443936245681343
+    second: destroyedFire_106
+  - first:
+      213: -5196589925289175539
+    second: destroyedFire_107
+  - first:
+      213: -6805807229519702286
+    second: destroyedFire_108
+  - first:
+      213: -2147998905715508570
+    second: destroyedFire_109
+  - first:
+      213: 2926470612130768911
+    second: destroyedFire_110
+  - first:
+      213: -2689380734244311111
+    second: destroyedFire_111
+  - first:
+      213: 8299836277153508224
+    second: destroyedFire_112
+  - first:
+      213: 8320448128266836577
+    second: destroyedFire_113
+  - first:
+      213: -3690708040391323965
+    second: destroyedFire_114
+  - first:
+      213: -6246488387537553734
+    second: destroyedFire_115
+  - first:
+      213: -1099838829054665135
+    second: destroyedFire_116
+  - first:
+      213: -1368293257197868750
+    second: destroyedFire_117
+  - first:
+      213: 6878390951430421779
+    second: destroyedFire_118
+  - first:
+      213: 4428659577165426579
+    second: destroyedFire_119
+  - first:
+      213: -7035628331263782504
+    second: destroyedFire_120
+  - first:
+      213: -8426643198547173169
+    second: destroyedFire_121
+  - first:
+      213: -5699202670501681837
+    second: destroyedFire_122
+  - first:
+      213: -9159661150535933045
+    second: destroyedFire_123
+  - first:
+      213: -7214104597544936496
+    second: destroyedFire_124
+  - first:
+      213: -803298036711021475
+    second: destroyedFire_125
+  - first:
+      213: 7310691242678383737
+    second: destroyedFire_126
+  - first:
+      213: 3487904139599458602
+    second: destroyedFire_127
+  - first:
+      213: 4664662779262514642
+    second: destroyedFire_128
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: destroyedFire_0
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 58
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f932e672a1761b750800000000000000
+      internalID: 6318945114205856671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 60
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb667e301040c2450800000000000000
+      internalID: 6065227200568190651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_2
+      rect:
+        serializedVersion: 2
+        x: 4434
+        y: 0
+        width: 67
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa9d71fe8d021f80800000000000000
+      internalID: -8137426669117007196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_3
+      rect:
+        serializedVersion: 2
+        x: 4508
+        y: 0
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aec1be51f148adce0800000000000000
+      internalID: -1379645066789053206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_4
+      rect:
+        serializedVersion: 2
+        x: 4583
+        y: 0
+        width: 68
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a1a3ac50939abe0800000000000000
+      internalID: -1465577506701960559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_5
+      rect:
+        serializedVersion: 2
+        x: 4657
+        y: 0
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661bd2aac9050c150800000000000000
+      internalID: 5890796946400850278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_6
+      rect:
+        serializedVersion: 2
+        x: 4731
+        y: 0
+        width: 70
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0884d4c364a66e0800000000000000
+      internalID: -1843583872646217490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_7
+      rect:
+        serializedVersion: 2
+        x: 4806
+        y: 0
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b668ffe0dccffbad0800000000000000
+      internalID: -2684148895239403925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_8
+      rect:
+        serializedVersion: 2
+        x: 4880
+        y: 0
+        width: 71
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 561f22389dd0651f0800000000000000
+      internalID: -1056641834712632987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_9
+      rect:
+        serializedVersion: 2
+        x: 4954
+        y: 0
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e52238eb20149720800000000000000
+      internalID: 2851922244797605350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_10
+      rect:
+        serializedVersion: 2
+        x: 5029
+        y: 0
+        width: 70
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc9dee8f62316f10800000000000000
+      internalID: 2261143942637395154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_11
+      rect:
+        serializedVersion: 2
+        x: 5103
+        y: 0
+        width: 71
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9765d97b069486f0800000000000000
+      internalID: -683256267420637284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_12
+      rect:
+        serializedVersion: 2
+        x: 5177
+        y: 0
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27aa24ee8f3ad6610800000000000000
+      internalID: 1616128130840439410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_13
+      rect:
+        serializedVersion: 2
+        x: 5252
+        y: 0
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f722c135e6b9a2480800000000000000
+      internalID: -8923148813538155905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_14
+      rect:
+        serializedVersion: 2
+        x: 5326
+        y: 0
+        width: 75
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c22d6844f3172d40800000000000000
+      internalID: 5559434204920226501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_15
+      rect:
+        serializedVersion: 2
+        x: 5409
+        y: 0
+        width: 69
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261cecf930f54ec80800000000000000
+      internalID: -8294400144538943134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_16
+      rect:
+        serializedVersion: 2
+        x: 5477
+        y: 0
+        width: 72
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ebcdacbb07a8e840800000000000000
+      internalID: 5253632634179668962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_17
+      rect:
+        serializedVersion: 2
+        x: 5555
+        y: 0
+        width: 69
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f6a0ab87779e4b30800000000000000
+      internalID: 4273519636120643318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_18
+      rect:
+        serializedVersion: 2
+        x: 5625
+        y: 0
+        width: 74
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e51fc487c4fa02260800000000000000
+      internalID: 7070844157942362462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_19
+      rect:
+        serializedVersion: 2
+        x: 5700
+        y: 0
+        width: 74
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae872b854de45e750800000000000000
+      internalID: 6333555124894595306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_20
+      rect:
+        serializedVersion: 2
+        x: 5780
+        y: 0
+        width: 69
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 081221aafeeded3d0800000000000000
+      internalID: -3179859165945126528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_21
+      rect:
+        serializedVersion: 2
+        x: 5855
+        y: 0
+        width: 69
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0f409899594c750800000000000000
+      internalID: 6324344263396356305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_22
+      rect:
+        serializedVersion: 2
+        x: 5929
+        y: 0
+        width: 71
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fffbf37a817cf2c80800000000000000
+      internalID: -8345232675795124225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_23
+      rect:
+        serializedVersion: 2
+        x: 6004
+        y: 0
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d69631571f1fa3a10800000000000000
+      internalID: 1890089012988963181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_24
+      rect:
+        serializedVersion: 2
+        x: 6078
+        y: 0
+        width: 72
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c013ab7fe69b2f50800000000000000
+      internalID: 6857740812917346504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_25
+      rect:
+        serializedVersion: 2
+        x: 6153
+        y: 0
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ccf2320a36daac10800000000000000
+      internalID: 2065698923736136899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_26
+      rect:
+        serializedVersion: 2
+        x: 6229
+        y: 0
+        width: 70
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320ae37bad6d868e0800000000000000
+      internalID: -1699872624466812893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_27
+      rect:
+        serializedVersion: 2
+        x: 6304
+        y: 0
+        width: 70
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23692b2fbeaebb0c0800000000000000
+      internalID: -4558791898672490958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_28
+      rect:
+        serializedVersion: 2
+        x: 6381
+        y: 0
+        width: 68
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a4ddf7dad8f2410800000000000000
+      internalID: 1454536980978027032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_29
+      rect:
+        serializedVersion: 2
+        x: 6415
+        y: 63
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fe152308271b9cd0800000000000000
+      internalID: -2550419303356358922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_30
+      rect:
+        serializedVersion: 2
+        x: 6455
+        y: 0
+        width: 69
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110a0ffcfdc4cb8c0800000000000000
+      internalID: -3982223446352289775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_31
+      rect:
+        serializedVersion: 2
+        x: 6490
+        y: 65
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f639ef8b85f8d4d0800000000000000
+      internalID: -3109465562935642384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_32
+      rect:
+        serializedVersion: 2
+        x: 6530
+        y: 0
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6beedac821160fd00800000000000000
+      internalID: 1004409449201135286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_33
+      rect:
+        serializedVersion: 2
+        x: 6606
+        y: 0
+        width: 68
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84f04a80e479d7b30800000000000000
+      internalID: 4286748781734793032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_34
+      rect:
+        serializedVersion: 2
+        x: 6680
+        y: 0
+        width: 69
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6928a6c561a05080800000000000000
+      internalID: -9200676580221245073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_35
+      rect:
+        serializedVersion: 2
+        x: 6755
+        y: 0
+        width: 69
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db1ff577440566c20800000000000000
+      internalID: 3199332840284090813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_36
+      rect:
+        serializedVersion: 2
+        x: 6829
+        y: 0
+        width: 69
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9c4b92794bbf190800000000000000
+      internalID: -7927544157722850847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_37
+      rect:
+        serializedVersion: 2
+        x: 6904
+        y: 0
+        width: 70
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ce546a6831163380800000000000000
+      internalID: -8991980671997813055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_38
+      rect:
+        serializedVersion: 2
+        x: 6988
+        y: 0
+        width: 61
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3250098b11e52ee50800000000000000
+      internalID: 6837130614505735459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_39
+      rect:
+        serializedVersion: 2
+        x: 7056
+        y: 0
+        width: 68
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432e65e4df0554cc0800000000000000
+      internalID: -3727484067707952588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_40
+      rect:
+        serializedVersion: 2
+        x: 7137
+        y: 0
+        width: 62
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4903d341c1c057ab0800000000000000
+      internalID: -5011085695641636716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_41
+      rect:
+        serializedVersion: 2
+        x: 7211
+        y: 0
+        width: 63
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2406c48cad03a6820800000000000000
+      internalID: 2912193825269899330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_42
+      rect:
+        serializedVersion: 2
+        x: 7286
+        y: 0
+        width: 63
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf5a02b328bd6e6b0800000000000000
+      internalID: -5267281361778989573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_43
+      rect:
+        serializedVersion: 2
+        x: 7360
+        y: 1
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb55cf12eac735d20800000000000000
+      internalID: 3266091242110080444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_44
+      rect:
+        serializedVersion: 2
+        x: 7435
+        y: 0
+        width: 64
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f60471c1cac17cc0800000000000000
+      internalID: -3714965284080843023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_45
+      rect:
+        serializedVersion: 2
+        x: 7659
+        y: 0
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: befce59c62a8f81d0800000000000000
+      internalID: -3346304098921164821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_46
+      rect:
+        serializedVersion: 2
+        x: 7734
+        y: 0
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3191bd4c82855a0800000000000000
+      internalID: -6532426433546349630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_47
+      rect:
+        serializedVersion: 2
+        x: 7809
+        y: 0
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d50116986f95b5a0800000000000000
+      internalID: -6506118815123700265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_48
+      rect:
+        serializedVersion: 2
+        x: 7885
+        y: 0
+        width: 64
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ccdb7344c2a9500800000000000000
+      internalID: 403683788107664450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_49
+      rect:
+        serializedVersion: 2
+        x: 7986
+        y: 49
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c7459921c0c32f0800000000000000
+      internalID: -991904543906956174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_50
+      rect:
+        serializedVersion: 2
+        x: 8061
+        y: 53
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac218ed4a1a103d30800000000000000
+      internalID: 4409052735474242250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_51
+      rect:
+        serializedVersion: 2
+        x: 8110
+        y: 0
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50edaed9cc6b66ca0800000000000000
+      internalID: -6023926461622460923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_52
+      rect:
+        serializedVersion: 2
+        x: 8136
+        y: 56
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00fad11ecefc6e420800000000000000
+      internalID: 2659041246304907008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_53
+      rect:
+        serializedVersion: 2
+        x: 8210
+        y: 58
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2125c8241dd663010800000000000000
+      internalID: 1168241898881307154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_54
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 67
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a7f08da03eb43b00800000000000000
+      internalID: 807479349484779433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_55
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 62
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7543b835af7d12fa0800000000000000
+      internalID: -5827138972697283497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_56
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 0
+        width: 69
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857a3c13e5b58d470800000000000000
+      internalID: 8419579963489101656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_57
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 0
+        width: 78
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c1045134d9c984e0800000000000000
+      internalID: -1978828648054783546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_58
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 0
+        width: 73
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52bc59c06273e21d0800000000000000
+      internalID: -3373698434294494427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_59
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 0
+        width: 71
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb0ad7fe7dfb3b30800000000000000
+      internalID: 4268283793629645797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_60
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 0
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa23514d4ea854960800000000000000
+      internalID: 7585621862790804138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_61
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 0
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4aa47afebc96b250800000000000000
+      internalID: 5960123500931099213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_62
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 0
+        width: 65
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89bdf8ba4971c7f0800000000000000
+      internalID: -594060313998018165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_63
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 0
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a78c98c6d278d2b10800000000000000
+      internalID: 1958370042140280954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_64
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 1
+        width: 68
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e96743cf12f6e4c60800000000000000
+      internalID: 7804297396035548830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_65
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 1
+        width: 68
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0d555930970051f0800000000000000
+      internalID: -1058337596413485813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_66
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 1
+        width: 68
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0314b61963b165ac0800000000000000
+      internalID: -3866873308869082832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_67
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 1
+        width: 68
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b37cf48b56078a50800000000000000
+      internalID: 6523189575412380601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_68
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 1
+        width: 69
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ad7a4bba77294f80800000000000000
+      internalID: -8121917044904264288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_69
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 70
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa1cad558fb181fb0800000000000000
+      internalID: -4676957459618020945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_70
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 0
+        width: 70
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e56b0a374555cc70800000000000000
+      internalID: 8990685995519927785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_71
+      rect:
+        serializedVersion: 2
+        x: 1806
+        y: 0
+        width: 70
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bff738da0739c520800000000000000
+      internalID: 2722767969438924720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_72
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 0
+        width: 70
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac9c744c7dba9efe0800000000000000
+      internalID: -1159206485871834678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_73
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 0
+        width: 70
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b907ff7c2cfa8d380800000000000000
+      internalID: -8946207408657567589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_74
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 44
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d593dbd21610efd0800000000000000
+      internalID: -2314825938215135789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_75
+      rect:
+        serializedVersion: 2
+        x: 2029
+        y: 0
+        width: 72
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 383321d1bf714b360800000000000000
+      internalID: 7184393672854745987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_76
+      rect:
+        serializedVersion: 2
+        x: 2041
+        y: 45
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1e55106f3fa48db0800000000000000
+      internalID: -4790511416885551585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_77
+      rect:
+        serializedVersion: 2
+        x: 2104
+        y: 0
+        width: 72
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc759ca6fba11d2d0800000000000000
+      internalID: -3255791646179502132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_78
+      rect:
+        serializedVersion: 2
+        x: 2116
+        y: 48
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af0fb026a95b6f80800000000000000
+      internalID: -8112291733728981079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_79
+      rect:
+        serializedVersion: 2
+        x: 2185
+        y: 1
+        width: 66
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02cf35dc116481cc0800000000000000
+      internalID: -3740162448257975264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_80
+      rect:
+        serializedVersion: 2
+        x: 2192
+        y: 51
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c31927bd752bea20800000000000000
+      internalID: 3092606790994039753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_81
+      rect:
+        serializedVersion: 2
+        x: 2262
+        y: 0
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3526cccaa54ce5ae0800000000000000
+      internalID: -1558592527298436525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_82
+      rect:
+        serializedVersion: 2
+        x: 2266
+        y: 52
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152cf027e6ad5e570800000000000000
+      internalID: 8495436439999201873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_83
+      rect:
+        serializedVersion: 2
+        x: 2337
+        y: 0
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b9c31b1c219a330800000000000000
+      internalID: 3722527190109952784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_84
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 52
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feab6530686701050800000000000000
+      internalID: 5769241440615316207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_85
+      rect:
+        serializedVersion: 2
+        x: 2412
+        y: 0
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2623fcb3b56ac88b0800000000000000
+      internalID: -5148557363215650206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_86
+      rect:
+        serializedVersion: 2
+        x: 2487
+        y: 1
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f127c2ff5be8cb0800000000000000
+      internalID: -4859746840319221995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_87
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 0
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc3df13b72031cc0800000000000000
+      internalID: -3741644137271837511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_88
+      rect:
+        serializedVersion: 2
+        x: 2640
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b9b79100e6bad550800000000000000
+      internalID: 6186458111362447793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_89
+      rect:
+        serializedVersion: 2
+        x: 2715
+        y: 0
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0f08f5a22a51fef0800000000000000
+      internalID: -76180613828702454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_90
+      rect:
+        serializedVersion: 2
+        x: 2792
+        y: 0
+        width: 59
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa79c794049b551d0800000000000000
+      internalID: -3362577861000259670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_91
+      rect:
+        serializedVersion: 2
+        x: 2833
+        y: 51
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 835a01478a72a7910800000000000000
+      internalID: 1835823402562135352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_92
+      rect:
+        serializedVersion: 2
+        x: 2868
+        y: 0
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72fd149f73dc72e40800000000000000
+      internalID: 5631695499338833703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_93
+      rect:
+        serializedVersion: 2
+        x: 2942
+        y: 0
+        width: 59
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c05a15b6b6405580800000000000000
+      internalID: -8840488317991890745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_94
+      rect:
+        serializedVersion: 2
+        x: 3016
+        y: 0
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 642413e2791049e70800000000000000
+      internalID: 9120916894158766662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_95
+      rect:
+        serializedVersion: 2
+        x: 3091
+        y: 0
+        width: 60
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92758dc602c8ccbc0800000000000000
+      internalID: -3761477517868247255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_96
+      rect:
+        serializedVersion: 2
+        x: 3165
+        y: 0
+        width: 61
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b64d06a88ef3a620800000000000000
+      internalID: 2784348857499993777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_97
+      rect:
+        serializedVersion: 2
+        x: 3239
+        y: 0
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc44c5898a4ccfb0800000000000000
+      internalID: -4626240762701132615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_98
+      rect:
+        serializedVersion: 2
+        x: 3313
+        y: 0
+        width: 63
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79cccb9568c1e82c0800000000000000
+      internalID: -4427570020301878121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_99
+      rect:
+        serializedVersion: 2
+        x: 3388
+        y: 0
+        width: 63
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14e2381aa04fc34e0800000000000000
+      internalID: -2000455807962763711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_100
+      rect:
+        serializedVersion: 2
+        x: 3462
+        y: 0
+        width: 64
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1d9a9935534ba30800000000000000
+      internalID: 4230064583184339381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_101
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 0
+        width: 65
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7f084238f7e139e0800000000000000
+      internalID: -1643277335832031363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_102
+      rect:
+        serializedVersion: 2
+        x: 3611
+        y: 0
+        width: 65
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8ed2a26ed226570800000000000000
+      internalID: 8458373516728592596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_103
+      rect:
+        serializedVersion: 2
+        x: 3686
+        y: 0
+        width: 65
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8bebc8eb57e7b4a0800000000000000
+      internalID: -6577534348817601649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_104
+      rect:
+        serializedVersion: 2
+        x: 3759
+        y: 0
+        width: 67
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b6b4838e9a5edf0800000000000000
+      internalID: -151528197605070039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_105
+      rect:
+        serializedVersion: 2
+        x: 3834
+        y: 0
+        width: 67
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb1614811e63c2c0800000000000000
+      internalID: -4412562188383413321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_106
+      rect:
+        serializedVersion: 2
+        x: 3909
+        y: 0
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc08bb037d6daf30800000000000000
+      internalID: 4588443936245681343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_107
+      rect:
+        serializedVersion: 2
+        x: 3985
+        y: 0
+        width: 66
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d06d3c3eef002e7b0800000000000000
+      internalID: -5196589925289175539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_108
+      rect:
+        serializedVersion: 2
+        x: 4060
+        y: 0
+        width: 66
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f651ba226aec81a0800000000000000
+      internalID: -6805807229519702286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_109
+      rect:
+        serializedVersion: 2
+        x: 4136
+        y: 0
+        width: 65
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa36e63066c032e0800000000000000
+      internalID: -2147998905715508570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_110
+      rect:
+        serializedVersion: 2
+        x: 4209
+        y: 0
+        width: 66
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08aca14489ec9820800000000000000
+      internalID: 2926470612130768911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_111
+      rect:
+        serializedVersion: 2
+        x: 4285
+        y: 0
+        width: 65
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bfa69d98766daad0800000000000000
+      internalID: -2689380734244311111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_112
+      rect:
+        serializedVersion: 2
+        x: 4360
+        y: 0
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ba2a1ae11fe2370800000000000000
+      internalID: 8299836277153508224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_113
+      rect:
+        serializedVersion: 2
+        x: 7511
+        y: 0
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16a98613d7b287370800000000000000
+      internalID: 8320448128266836577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_114
+      rect:
+        serializedVersion: 2
+        x: 7586
+        y: 0
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce0cca6798f7ccc0800000000000000
+      internalID: -3690708040391323965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_115
+      rect:
+        serializedVersion: 2
+        x: 7960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab6b83728e30059a0800000000000000
+      internalID: -6246488387537553734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_116
+      rect:
+        serializedVersion: 2
+        x: 8032
+        y: 0
+        width: 67
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15ed30489669cb0f0800000000000000
+      internalID: -1099838829054665135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_117
+      rect:
+        serializedVersion: 2
+        x: 8184
+        y: 0
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 239a8283888d20de0800000000000000
+      internalID: -1368293257197868750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_118
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 4
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d75468024f47f50800000000000000
+      internalID: 6878390951430421779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_119
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 2
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39fa310eb62c57d30800000000000000
+      internalID: 4428659577165426579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_120
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 1
+        width: 65
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 891195f1f4d6c5e90800000000000000
+      internalID: -7035628331263782504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_121
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 1
+        width: 66
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc062ad38ac8e0b80800000000000000
+      internalID: -8426643198547173169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_122
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 1
+        width: 66
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3552ac9ed5d58e0b0800000000000000
+      internalID: -5699202670501681837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_123
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 1
+        width: 66
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b832c5ba6b852e080800000000000000
+      internalID: -9159661150535933045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_124
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 1
+        width: 66
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db52da271a52eb90800000000000000
+      internalID: -7214104597544936496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_125
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 1
+        width: 67
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54221111bc1ad4f0800000000000000
+      internalID: -803298036711021475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_126
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 0
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 974776693fac47560800000000000000
+      internalID: 7310691242678383737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_127
+      rect:
+        serializedVersion: 2
+        x: 5549
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21b073d556876030800000000000000
+      internalID: 3487904139599458602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyedFire_128
+      rect:
+        serializedVersion: 2
+        x: 6979
+        y: 4
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d5bde255163cb040800000000000000
+      internalID: 4664662779262514642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      destroyedFire_0: 6318945114205856671
+      destroyedFire_1: 6065227200568190651
+      destroyedFire_10: 2261143942637395154
+      destroyedFire_100: 4230064583184339381
+      destroyedFire_101: -1643277335832031363
+      destroyedFire_102: 8458373516728592596
+      destroyedFire_103: -6577534348817601649
+      destroyedFire_104: -151528197605070039
+      destroyedFire_105: -4412562188383413321
+      destroyedFire_106: 4588443936245681343
+      destroyedFire_107: -5196589925289175539
+      destroyedFire_108: -6805807229519702286
+      destroyedFire_109: -2147998905715508570
+      destroyedFire_11: -683256267420637284
+      destroyedFire_110: 2926470612130768911
+      destroyedFire_111: -2689380734244311111
+      destroyedFire_112: 8299836277153508224
+      destroyedFire_113: 8320448128266836577
+      destroyedFire_114: -3690708040391323965
+      destroyedFire_115: -6246488387537553734
+      destroyedFire_116: -1099838829054665135
+      destroyedFire_117: -1368293257197868750
+      destroyedFire_118: 6878390951430421779
+      destroyedFire_119: 4428659577165426579
+      destroyedFire_12: 1616128130840439410
+      destroyedFire_120: -7035628331263782504
+      destroyedFire_121: -8426643198547173169
+      destroyedFire_122: -5699202670501681837
+      destroyedFire_123: -9159661150535933045
+      destroyedFire_124: -7214104597544936496
+      destroyedFire_125: -803298036711021475
+      destroyedFire_126: 7310691242678383737
+      destroyedFire_127: 3487904139599458602
+      destroyedFire_128: 4664662779262514642
+      destroyedFire_13: -8923148813538155905
+      destroyedFire_14: 5559434204920226501
+      destroyedFire_15: -8294400144538943134
+      destroyedFire_16: 5253632634179668962
+      destroyedFire_17: 4273519636120643318
+      destroyedFire_18: 7070844157942362462
+      destroyedFire_19: 6333555124894595306
+      destroyedFire_2: -8137426669117007196
+      destroyedFire_20: -3179859165945126528
+      destroyedFire_21: 6324344263396356305
+      destroyedFire_22: -8345232675795124225
+      destroyedFire_23: 1890089012988963181
+      destroyedFire_24: 6857740812917346504
+      destroyedFire_25: 2065698923736136899
+      destroyedFire_26: -1699872624466812893
+      destroyedFire_27: -4558791898672490958
+      destroyedFire_28: 1454536980978027032
+      destroyedFire_29: -2550419303356358922
+      destroyedFire_3: -1379645066789053206
+      destroyedFire_30: -3982223446352289775
+      destroyedFire_31: -3109465562935642384
+      destroyedFire_32: 1004409449201135286
+      destroyedFire_33: 4286748781734793032
+      destroyedFire_34: -9200676580221245073
+      destroyedFire_35: 3199332840284090813
+      destroyedFire_36: -7927544157722850847
+      destroyedFire_37: -8991980671997813055
+      destroyedFire_38: 6837130614505735459
+      destroyedFire_39: -3727484067707952588
+      destroyedFire_4: -1465577506701960559
+      destroyedFire_40: -5011085695641636716
+      destroyedFire_41: 2912193825269899330
+      destroyedFire_42: -5267281361778989573
+      destroyedFire_43: 3266091242110080444
+      destroyedFire_44: -3714965284080843023
+      destroyedFire_45: -3346304098921164821
+      destroyedFire_46: -6532426433546349630
+      destroyedFire_47: -6506118815123700265
+      destroyedFire_48: 403683788107664450
+      destroyedFire_49: -991904543906956174
+      destroyedFire_5: 5890796946400850278
+      destroyedFire_50: 4409052735474242250
+      destroyedFire_51: -6023926461622460923
+      destroyedFire_52: 2659041246304907008
+      destroyedFire_53: 1168241898881307154
+      destroyedFire_54: 807479349484779433
+      destroyedFire_55: -5827138972697283497
+      destroyedFire_56: 8419579963489101656
+      destroyedFire_57: -1978828648054783546
+      destroyedFire_58: -3373698434294494427
+      destroyedFire_59: 4268283793629645797
+      destroyedFire_6: -1843583872646217490
+      destroyedFire_60: 7585621862790804138
+      destroyedFire_61: 5960123500931099213
+      destroyedFire_62: -594060313998018165
+      destroyedFire_63: 1958370042140280954
+      destroyedFire_64: 7804297396035548830
+      destroyedFire_65: -1058337596413485813
+      destroyedFire_66: -3866873308869082832
+      destroyedFire_67: 6523189575412380601
+      destroyedFire_68: -8121917044904264288
+      destroyedFire_69: -4676957459618020945
+      destroyedFire_7: -2684148895239403925
+      destroyedFire_70: 8990685995519927785
+      destroyedFire_71: 2722767969438924720
+      destroyedFire_72: -1159206485871834678
+      destroyedFire_73: -8946207408657567589
+      destroyedFire_74: -2314825938215135789
+      destroyedFire_75: 7184393672854745987
+      destroyedFire_76: -4790511416885551585
+      destroyedFire_77: -3255791646179502132
+      destroyedFire_78: -8112291733728981079
+      destroyedFire_79: -3740162448257975264
+      destroyedFire_8: -1056641834712632987
+      destroyedFire_80: 3092606790994039753
+      destroyedFire_81: -1558592527298436525
+      destroyedFire_82: 8495436439999201873
+      destroyedFire_83: 3722527190109952784
+      destroyedFire_84: 5769241440615316207
+      destroyedFire_85: -5148557363215650206
+      destroyedFire_86: -4859746840319221995
+      destroyedFire_87: -3741644137271837511
+      destroyedFire_88: 6186458111362447793
+      destroyedFire_89: -76180613828702454
+      destroyedFire_9: 2851922244797605350
+      destroyedFire_90: -3362577861000259670
+      destroyedFire_91: 1835823402562135352
+      destroyedFire_92: 5631695499338833703
+      destroyedFire_93: -8840488317991890745
+      destroyedFire_94: 9120916894158766662
+      destroyedFire_95: -3761477517868247255
+      destroyedFire_96: 2784348857499993777
+      destroyedFire_97: -4626240762701132615
+      destroyedFire_98: -4427570020301878121
+      destroyedFire_99: -2000455807962763711
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
