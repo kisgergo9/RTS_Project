@@ -17,22 +17,14 @@ public sealed class DirectionalSpriteRenderer : MonoBehaviour
 
     public int ViewCount => _spriteSet?.ViewCount ?? 0;
 
-    private void Awake()
+    public void Initialize()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
-        try
-        {
-            _spriteSet = new DirectionalSpriteSet(
-                sprites);
+        _spriteSet = new DirectionalSpriteSet(
+            sprites);
 
-            SetAngle(referenceAngle);
-        }
-        catch (System.Exception exception)
-        {
-            Debug.LogException(exception, this);
-            enabled = false;
-        }
+        SetAngle(referenceAngle);
     }
 
     public void SetAngle(float worldAngle)
@@ -51,5 +43,13 @@ public sealed class DirectionalSpriteRenderer : MonoBehaviour
 
         _spriteRenderer.sprite =
             _spriteSet.GetSpriteAtIndex(index);
+    }
+
+    public Sprite GetSpriteAtIndex(int index)
+    {
+        if (_spriteSet == null)
+            return null;
+
+        return _spriteSet.GetSpriteAtIndex(index);
     }
 }

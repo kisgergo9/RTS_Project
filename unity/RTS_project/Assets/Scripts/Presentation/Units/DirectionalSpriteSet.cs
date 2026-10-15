@@ -40,8 +40,10 @@ public sealed class DirectionalSpriteSet
     /// </summary>
     public Sprite GetSpriteForAngle(float worldAngle)
     {
-        int index = Mathf.RoundToInt(
-            worldAngle / AnglePerView) % ViewCount;
+        int index = Mathf.RoundToInt(worldAngle / AnglePerView) % ViewCount;
+
+        if (index < 0)
+            index += ViewCount;
 
         return _sprites[index];
     }
