@@ -101,7 +101,7 @@ public sealed class UnitSelectionController : MonoBehaviour
                 unit.GetComponent<DirectionalSpriteRenderer>();
 
             if (directionalRenderer != null)
-                directionalRenderer.SetAngle(angle);
+                directionalRenderer.SetTargetAngle(angle);
         }
     }
 

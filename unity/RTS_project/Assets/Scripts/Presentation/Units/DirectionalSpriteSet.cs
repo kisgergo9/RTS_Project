@@ -5,7 +5,6 @@ using UnityEngine;
 public sealed class DirectionalSpriteSet
 {
     private readonly Sprite[] _sprites;
-    private readonly float _referenceAngle;
 
     public int ViewCount => _sprites.Length;
 
@@ -34,9 +33,13 @@ public sealed class DirectionalSpriteSet
         _sprites = (Sprite[])sprites.Clone();
     }
 
+
     /// <summary>
-    /// 0 fok = jobbra, 90 fok = felfelé.
+    /// 0 fok = felfelé, 90 fok = jobbra,
+    /// 180 fok = lefelé, 270 fok = balra.
     /// A legközelebbi nézetet adja vissza.
+    /// A sprite-ok sorrendje 0 foktól indulva,
+    /// növekvõ, óramutató járásával megegyezõ irányú.
     /// </summary>
     public Sprite GetSpriteForAngle(float worldAngle)
     {
