@@ -1,0 +1,56 @@
+
+using System;
+using UnityEngine;
+
+public sealed class DirectionalSpriteSet
+{
+    private readonly Sprite[] _sprites;
+    private readonly float _referenceAngle;
+
+    public int ViewCount => _sprites.Length;
+
+    public float AnglePerView => 360f / ViewCount;
+
+    public DirectionalSpriteSet(Sprite[] sprites)
+    {
+        if (sprites == null)
+            throw new ArgumentNullException(nameof(sprites));
+
+        if (sprites.Length == 0)
+            throw new ArgumentException(
+                "Legalább egy sprite szükséges.",
+                nameof(sprites));
+
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            if (sprites[i] == null)
+            {
+                throw new ArgumentException(
+                    $"A sprite tömb {i}. eleme null.",
+                    nameof(sprites));
+            }
+        }
+
+        _sprites = (Sprite[])sprites.Clone();
+    }
+
+    /// <summary>
+    /// 0 fok = jobbra, 90 fok = felfelé.
+    /// A legközelebbi nézetet adja vissza.
+    /// </summary>
+    public Sprite GetSpriteForAngle(float worldAngle)
+    {
+        int index = Mathf.RoundToInt(
+            worldAngle / AnglePerView) % ViewCount;
+
+        return _sprites[index];
+    }
+
+    public Sprite GetSpriteAtIndex(int index)
+    {
+        if (index < 0 || index >= ViewCount)
+            throw new ArgumentOutOfRangeException(nameof(index));
+
+        return _sprites[index];
+    }
+}
