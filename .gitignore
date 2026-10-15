@@ -108,3 +108,7 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+unity/RTS_project/ProjectSettings/ProjectSettings.asset
+unity/RTS_project/ProjectSettings/ShaderGraphSettings.asset
+unity/RTS_project/ProjectSettings/ShaderGraphSettings.asset
+*.unity
