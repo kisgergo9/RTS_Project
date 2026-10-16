@@ -285,7 +285,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -329,10 +329,10 @@ TextureImporter:
       name: panzer5a_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 33
-        height: 30
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +351,10 @@ TextureImporter:
       name: panzer5a_1
       rect:
         serializedVersion: 2
-        x: 77
+        x: 63
         y: 0
-        width: 35
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,10 +373,10 @@ TextureImporter:
       name: panzer5a_2
       rect:
         serializedVersion: 2
-        x: 138
+        x: 126
         y: 0
-        width: 39
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,10 +395,10 @@ TextureImporter:
       name: panzer5a_3
       rect:
         serializedVersion: 2
-        x: 199
+        x: 189
         y: 0
-        width: 43
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -417,10 +417,10 @@ TextureImporter:
       name: panzer5a_4
       rect:
         serializedVersion: 2
-        x: 260
+        x: 252
         y: 0
-        width: 47
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,10 +439,10 @@ TextureImporter:
       name: panzer5a_5
       rect:
         serializedVersion: 2
-        x: 322
+        x: 315
         y: 0
-        width: 50
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,10 +461,10 @@ TextureImporter:
       name: panzer5a_6
       rect:
         serializedVersion: 2
-        x: 383
+        x: 378
         y: 0
-        width: 54
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +483,10 @@ TextureImporter:
       name: panzer5a_7
       rect:
         serializedVersion: 2
-        x: 445
+        x: 441
         y: 0
-        width: 56
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -505,10 +505,10 @@ TextureImporter:
       name: panzer5a_8
       rect:
         serializedVersion: 2
-        x: 507
+        x: 504
         y: 0
-        width: 58
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -527,10 +527,10 @@ TextureImporter:
       name: panzer5a_9
       rect:
         serializedVersion: 2
-        x: 569
+        x: 567
         y: 0
-        width: 60
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,10 +549,10 @@ TextureImporter:
       name: panzer5a_10
       rect:
         serializedVersion: 2
-        x: 631
+        x: 630
         y: 0
-        width: 62
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -573,8 +573,8 @@ TextureImporter:
         serializedVersion: 2
         x: 693
         y: 0
-        width: 64
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -593,10 +593,10 @@ TextureImporter:
       name: panzer5a_12
       rect:
         serializedVersion: 2
-        x: 755
-        y: 1
-        width: 65
-        height: 29
+        x: 756
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,10 +615,10 @@ TextureImporter:
       name: panzer5a_13
       rect:
         serializedVersion: 2
-        x: 818
-        y: 1
-        width: 65
-        height: 29
+        x: 819
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -637,10 +637,10 @@ TextureImporter:
       name: panzer5a_14
       rect:
         serializedVersion: 2
-        x: 881
-        y: 2
-        width: 65
-        height: 28
+        x: 882
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -659,10 +659,10 @@ TextureImporter:
       name: panzer5a_15
       rect:
         serializedVersion: 2
-        x: 944
-        y: 2
-        width: 65
-        height: 27
+        x: 945
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -681,10 +681,10 @@ TextureImporter:
       name: panzer5a_16
       rect:
         serializedVersion: 2
-        x: 1007
-        y: 3
-        width: 64
-        height: 26
+        x: 1008
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -704,9 +704,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1071
-        y: 3
-        width: 62
-        height: 25
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -726,9 +726,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1134
-        y: 4
-        width: 62
-        height: 24
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -748,9 +748,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1197
-        y: 3
-        width: 62
-        height: 26
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -769,10 +769,10 @@ TextureImporter:
       name: panzer5a_20
       rect:
         serializedVersion: 2
-        x: 1259
-        y: 3
-        width: 64
-        height: 26
+        x: 1260
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,10 +791,10 @@ TextureImporter:
       name: panzer5a_21
       rect:
         serializedVersion: 2
-        x: 1322
-        y: 2
-        width: 65
-        height: 28
+        x: 1323
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -813,10 +813,10 @@ TextureImporter:
       name: panzer5a_22
       rect:
         serializedVersion: 2
-        x: 1385
-        y: 2
-        width: 65
-        height: 28
+        x: 1386
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -835,10 +835,10 @@ TextureImporter:
       name: panzer5a_23
       rect:
         serializedVersion: 2
-        x: 1448
-        y: 1
-        width: 65
-        height: 30
+        x: 1449
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -857,10 +857,10 @@ TextureImporter:
       name: panzer5a_24
       rect:
         serializedVersion: 2
-        x: 1511
-        y: 1
-        width: 65
-        height: 30
+        x: 1512
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -880,9 +880,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1575
-        y: 1
-        width: 64
-        height: 31
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -901,9 +901,9 @@ TextureImporter:
       name: panzer5a_26
       rect:
         serializedVersion: 2
-        x: 1639
+        x: 1638
         y: 0
-        width: 62
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -923,9 +923,9 @@ TextureImporter:
       name: panzer5a_27
       rect:
         serializedVersion: 2
-        x: 1703
+        x: 1701
         y: 0
-        width: 60
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -945,9 +945,9 @@ TextureImporter:
       name: panzer5a_28
       rect:
         serializedVersion: 2
-        x: 1767
+        x: 1764
         y: 0
-        width: 58
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -967,9 +967,9 @@ TextureImporter:
       name: panzer5a_29
       rect:
         serializedVersion: 2
-        x: 1831
+        x: 1827
         y: 0
-        width: 56
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -989,9 +989,9 @@ TextureImporter:
       name: panzer5a_30
       rect:
         serializedVersion: 2
-        x: 1895
+        x: 1890
         y: 0
-        width: 54
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1011,9 +1011,9 @@ TextureImporter:
       name: panzer5a_31
       rect:
         serializedVersion: 2
-        x: 1960
+        x: 1953
         y: 0
-        width: 50
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1033,9 +1033,9 @@ TextureImporter:
       name: panzer5a_32
       rect:
         serializedVersion: 2
-        x: 2024
+        x: 2016
         y: 0
-        width: 47
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1055,9 +1055,9 @@ TextureImporter:
       name: panzer5a_33
       rect:
         serializedVersion: 2
-        x: 2089
+        x: 2079
         y: 0
-        width: 43
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1077,9 +1077,9 @@ TextureImporter:
       name: panzer5a_34
       rect:
         serializedVersion: 2
-        x: 2154
+        x: 2142
         y: 0
-        width: 39
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1099,9 +1099,9 @@ TextureImporter:
       name: panzer5a_35
       rect:
         serializedVersion: 2
-        x: 2219
+        x: 2205
         y: 0
-        width: 35
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1121,9 +1121,9 @@ TextureImporter:
       name: panzer5a_36
       rect:
         serializedVersion: 2
-        x: 2283
+        x: 2268
         y: 0
-        width: 33
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1143,9 +1143,9 @@ TextureImporter:
       name: panzer5a_37
       rect:
         serializedVersion: 2
-        x: 2345
+        x: 2331
         y: 0
-        width: 35
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1165,9 +1165,9 @@ TextureImporter:
       name: panzer5a_38
       rect:
         serializedVersion: 2
-        x: 2406
+        x: 2394
         y: 0
-        width: 39
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1187,9 +1187,9 @@ TextureImporter:
       name: panzer5a_39
       rect:
         serializedVersion: 2
-        x: 2467
+        x: 2457
         y: 0
-        width: 43
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1209,9 +1209,9 @@ TextureImporter:
       name: panzer5a_40
       rect:
         serializedVersion: 2
-        x: 2528
+        x: 2520
         y: 0
-        width: 46
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1231,9 +1231,9 @@ TextureImporter:
       name: panzer5a_41
       rect:
         serializedVersion: 2
-        x: 2589
+        x: 2583
         y: 0
-        width: 50
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1253,9 +1253,9 @@ TextureImporter:
       name: panzer5a_42
       rect:
         serializedVersion: 2
-        x: 2651
+        x: 2646
         y: 0
-        width: 52
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1275,9 +1275,9 @@ TextureImporter:
       name: panzer5a_43
       rect:
         serializedVersion: 2
-        x: 2712
+        x: 2709
         y: 0
-        width: 56
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1297,9 +1297,9 @@ TextureImporter:
       name: panzer5a_44
       rect:
         serializedVersion: 2
-        x: 2774
+        x: 2772
         y: 0
-        width: 58
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1319,9 +1319,9 @@ TextureImporter:
       name: panzer5a_45
       rect:
         serializedVersion: 2
-        x: 2836
+        x: 2835
         y: 0
-        width: 59
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1343,7 +1343,7 @@ TextureImporter:
         serializedVersion: 2
         x: 2898
         y: 0
-        width: 61
+        width: 63
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1364,9 +1364,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2961
-        y: 1
-        width: 61
-        height: 31
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1385,10 +1385,10 @@ TextureImporter:
       name: panzer5a_48
       rect:
         serializedVersion: 2
-        x: 3023
-        y: 1
+        x: 3024
+        y: 0
         width: 63
-        height: 30
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1407,10 +1407,10 @@ TextureImporter:
       name: panzer5a_49
       rect:
         serializedVersion: 2
-        x: 3086
-        y: 2
+        x: 3087
+        y: 0
         width: 63
-        height: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1429,10 +1429,10 @@ TextureImporter:
       name: panzer5a_50
       rect:
         serializedVersion: 2
-        x: 3149
-        y: 2
+        x: 3150
+        y: 0
         width: 63
-        height: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1451,10 +1451,10 @@ TextureImporter:
       name: panzer5a_51
       rect:
         serializedVersion: 2
-        x: 3212
-        y: 2
+        x: 3213
+        y: 0
         width: 63
-        height: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1474,9 +1474,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3276
-        y: 3
-        width: 62
-        height: 26
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1495,10 +1495,10 @@ TextureImporter:
       name: panzer5a_53
       rect:
         serializedVersion: 2
-        x: 3340
-        y: 3
-        width: 61
-        height: 26
+        x: 3339
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1517,10 +1517,10 @@ TextureImporter:
       name: panzer5a_54
       rect:
         serializedVersion: 2
-        x: 3404
-        y: 4
-        width: 59
-        height: 24
+        x: 3402
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1539,10 +1539,10 @@ TextureImporter:
       name: panzer5a_55
       rect:
         serializedVersion: 2
-        x: 3466
-        y: 3
-        width: 60
-        height: 25
+        x: 3465
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1562,9 +1562,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3528
-        y: 3
-        width: 62
-        height: 26
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1584,9 +1584,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3591
-        y: 2
-        width: 62
-        height: 27
+        y: 0
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1605,10 +1605,10 @@ TextureImporter:
       name: panzer5a_58
       rect:
         serializedVersion: 2
-        x: 3653
-        y: 2
+        x: 3654
+        y: 0
         width: 63
-        height: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1627,10 +1627,10 @@ TextureImporter:
       name: panzer5a_59
       rect:
         serializedVersion: 2
-        x: 3716
-        y: 1
+        x: 3717
+        y: 0
         width: 63
-        height: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1649,10 +1649,10 @@ TextureImporter:
       name: panzer5a_60
       rect:
         serializedVersion: 2
-        x: 3779
-        y: 1
+        x: 3780
+        y: 0
         width: 63
-        height: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1673,8 +1673,8 @@ TextureImporter:
         serializedVersion: 2
         x: 3843
         y: 0
-        width: 61
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1695,8 +1695,8 @@ TextureImporter:
         serializedVersion: 2
         x: 3906
         y: 0
-        width: 61
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1715,10 +1715,10 @@ TextureImporter:
       name: panzer5a_63
       rect:
         serializedVersion: 2
-        x: 3970
+        x: 3969
         y: 0
-        width: 59
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1737,10 +1737,10 @@ TextureImporter:
       name: panzer5a_64
       rect:
         serializedVersion: 2
-        x: 4034
+        x: 4032
         y: 0
-        width: 58
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1759,10 +1759,10 @@ TextureImporter:
       name: panzer5a_65
       rect:
         serializedVersion: 2
-        x: 4098
+        x: 4095
         y: 0
-        width: 56
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1781,10 +1781,10 @@ TextureImporter:
       name: panzer5a_66
       rect:
         serializedVersion: 2
-        x: 4162
+        x: 4158
         y: 0
-        width: 53
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1803,10 +1803,10 @@ TextureImporter:
       name: panzer5a_67
       rect:
         serializedVersion: 2
-        x: 4227
+        x: 4221
         y: 0
-        width: 50
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1825,10 +1825,10 @@ TextureImporter:
       name: panzer5a_68
       rect:
         serializedVersion: 2
-        x: 4292
+        x: 4284
         y: 0
-        width: 46
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1847,10 +1847,10 @@ TextureImporter:
       name: panzer5a_69
       rect:
         serializedVersion: 2
-        x: 4357
+        x: 4347
         y: 0
-        width: 43
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1869,10 +1869,10 @@ TextureImporter:
       name: panzer5a_70
       rect:
         serializedVersion: 2
-        x: 4422
+        x: 4410
         y: 0
-        width: 39
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1891,10 +1891,10 @@ TextureImporter:
       name: panzer5a_71
       rect:
         serializedVersion: 2
-        x: 4486
+        x: 4473
         y: 0
-        width: 36
-        height: 31
+        width: 63
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1913,7 +1913,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8bde1b74601213840affb3f975c48a89
     internalID: 0
     vertices: []
     indices: 
@@ -1921,7 +1921,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":63.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       panzer5a_0: -6200218018410113422
       panzer5a_1: -4534430942957377464

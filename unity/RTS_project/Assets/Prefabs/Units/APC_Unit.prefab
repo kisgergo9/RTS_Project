@@ -177,7 +177,7 @@ MonoBehaviour:
   - {fileID: -1726771688535154557, guid: b3f28c21b19dc4c4589c8491d67b0c36, type: 3}
   - {fileID: -6918590333885054249, guid: b3f28c21b19dc4c4589c8491d67b0c36, type: 3}
   referenceAngle: 0
-  turnSpeed: 120
+  turnSpeed: 140
 --- !u!114 &2115952602093898345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.54452467, y: 0.35}
+    oldSize: {x: 0.57, y: 0.35}
     newSize: {x: 0.54452467, y: 0.35}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -251,5 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   arrivalDistance: 0.1
-  slowDownDistance: 0.6
-  turnAlignmentTolerance: 3
+  acceleration: 2
+  deceleration: 4
+  fullSpeedTurnAngle: 30
+  stopForTurnAngle: 150
