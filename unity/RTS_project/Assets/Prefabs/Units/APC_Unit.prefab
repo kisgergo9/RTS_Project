@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6031267399662345268}
   - component: {fileID: 2115952602093898345}
   - component: {fileID: 6185807416255990439}
+  - component: {fileID: -6917139268604766783}
   m_Layer: 0
   m_Name: APC_Unit
   m_TagString: Untagged
@@ -176,6 +177,7 @@ MonoBehaviour:
   - {fileID: -1726771688535154557, guid: b3f28c21b19dc4c4589c8491d67b0c36, type: 3}
   - {fileID: -6918590333885054249, guid: b3f28c21b19dc4c4589c8491d67b0c36, type: 3}
   referenceAngle: 0
+  turnSpeed: 120
 --- !u!114 &2115952602093898345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,3 +237,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
+--- !u!114 &-6917139268604766783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220304001249831631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87e740c67d0346489d62bee55ec2c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  arrivalDistance: 0.1
+  slowDownDistance: 0.6
+  turnAlignmentTolerance: 3

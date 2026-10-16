@@ -29,7 +29,7 @@ public sealed class UnitSelectionController : MonoBehaviour
 
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            RotateSelectedUnitsTowardsMouse();
+            IssueMoveCommandToSelectedUnits();
         }
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -61,7 +61,7 @@ public sealed class UnitSelectionController : MonoBehaviour
         }
     }
 
-    private void RotateSelectedUnitsTowardsMouse()
+    private void IssueMoveCommandToSelectedUnits()
     {
         if (_selectedUnits.Count == 0)
             return;
@@ -71,8 +71,10 @@ public sealed class UnitSelectionController : MonoBehaviour
 
         Ray ray = worldCamera.ScreenPointToRay(mousePosition);
 
-        // A játékvilág XY síkjának z koordinátája 0.
-        Plane worldPlane = new Plane(Vector3.forward, Vector3.zero);
+        Plane worldPlane = new Plane(
+            Vector3.forward,
+            Vector3.zero
+        );
 
         if (!worldPlane.Raycast(ray, out float distance))
             return;
@@ -84,26 +86,21 @@ public sealed class UnitSelectionController : MonoBehaviour
             if (unit == null)
                 continue;
 
-            Vector2 direction =
-                (Vector2)(mouseWorldPosition - unit.transform.position);
+            UnitMovement movement =
+                unit.GetComponent<UnitMovement>();
 
-            // Ne számoljunk irányt, ha a kattintás az egység középpontjára esik.
-            if (direction.sqrMagnitude < 0.0001f)
+            if (movement == null)
                 continue;
 
-            float angle = Mathf.Atan2(
-                direction.x,
-                direction.y) * Mathf.Rad2Deg;
-
-            angle = Mathf.Repeat(angle, 360f);
-
-            DirectionalSpriteRenderer directionalRenderer =
-                unit.GetComponent<DirectionalSpriteRenderer>();
-
-            if (directionalRenderer != null)
-                directionalRenderer.SetTargetAngle(angle);
+            movement.MoveTo(
+                new Vector2(
+                    mouseWorldPosition.x,
+                    mouseWorldPosition.y
+                )
+            );
         }
     }
+
 
     private void SelectUnitAtMousePosition()
     {
