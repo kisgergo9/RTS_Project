@@ -29,7 +29,8 @@ public sealed class UnitSelectionController : MonoBehaviour
 
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            IssueMoveCommandToSelectedUnits();
+            if (!TryMergeWithGroupAtMousePosition())
+                IssueMoveCommandToSelectedUnits();
         }
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -59,6 +60,57 @@ public sealed class UnitSelectionController : MonoBehaviour
 
             _isDragging = false;
         }
+    }
+
+    private bool TryMergeWithGroupAtMousePosition()
+    {
+        if (_selectedUnits.Count == 0)
+            return false;
+
+        Vector2 mousePosition =
+            Mouse.current.position.ReadValue();
+
+        Ray ray = worldCamera.ScreenPointToRay(mousePosition);
+
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+
+        if (hit.collider == null)
+            return false;
+
+        UnitGroupMember targetMember =
+            hit.collider.GetComponentInParent<UnitGroupMember>();
+
+        // Ha nem egységre kattintottunk, marad a mozgási parancs.
+        if (targetMember == null || targetMember.Group == null)
+            return false;
+
+        UnitGroup sourceGroup = null;
+
+        foreach (UnitSelection selected in _selectedUnits)
+        {
+            if (selected == null)
+                continue;
+
+            UnitGroupMember selectedMember =
+                selected.GetComponent<UnitGroupMember>();
+
+            if (selectedMember != null && selectedMember.Group != null)
+            {
+                sourceGroup = selectedMember.Group;
+                break;
+            }
+        }
+
+        if (sourceGroup == null)
+            return true;
+
+        // A célcsoport tagjára kattintottunk, ezért összevonási
+        // parancsot próbálunk végrehajtani, nem mozgást.
+        UnitGroupManager.Instance?.MergeNewestMember(
+            sourceGroup,
+            targetMember.Group);
+
+        return true;
     }
 
     private void IssueMoveCommandToSelectedUnits()

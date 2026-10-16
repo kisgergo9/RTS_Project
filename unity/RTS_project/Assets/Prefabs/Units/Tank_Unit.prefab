@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3229966141214569448}
   - component: {fileID: 5405694742806992020}
   - component: {fileID: 7528745034786810412}
+  - component: {fileID: 8734295922587518796}
   - component: {fileID: 3893646626734813467}
   m_Layer: 0
   m_Name: Tank_Unit
@@ -227,6 +228,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderPadding: 0.05
+--- !u!114 &8734295922587518796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4287949919641131713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa4ea0503ee9c54686909b5f4551ece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &3893646626734813467
 BoxCollider2D:
   m_ObjectHideFlags: 0
