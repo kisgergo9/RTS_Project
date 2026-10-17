@@ -17,6 +17,19 @@ public sealed class UnitGroup : MonoBehaviour
         ReferenceSpriteWidth / ReferencePixelsPerUnit,
         ReferenceSpriteHeight / ReferencePixelsPerUnit);
 
+    // A rombusz hegyesszögének fele.
+    private const float FormationHalfAngle = 18.62f;
+
+    private static readonly float FormationSin =
+        Mathf.Sin(FormationHalfAngle * Mathf.Deg2Rad);
+
+    private static readonly float FormationCos =
+        Mathf.Cos(FormationHalfAngle * Mathf.Deg2Rad);
+
+    // A szomszédos formációs helyek közötti távolság.
+    private static readonly float FormationStep =
+        Mathf.Max(CellSize.x, CellSize.y);
+
     public IReadOnlyList<UnitGroupMember> Members => _members;
 
     public int MemberCount => _members.Count;
@@ -37,11 +50,11 @@ public sealed class UnitGroup : MonoBehaviour
         new SortedDictionary<int, float>
         {
         { 1, 1.0f },
-        { 2, 2f },
+        { 2, 1.8f },
         { 3, 2.5f },
-        { 5, 2.8f },
-        { 6, 2.5f },
-        { 10, 3.0f }
+        { 5, 2.9f },
+        { 7, 3.5f },
+        { 11, 4.6f }
         };
 
     [SerializeField, Min(0.001f)]
@@ -138,21 +151,41 @@ public sealed class UnitGroup : MonoBehaviour
         if (_selectionOutline == null)
             return;
 
-        UnitGroupMember leader = GetLeader();
-
-        if (leader == null || MemberCount == 0)
+        if (MemberCount == 0)
         {
             _selectionOutline.enabled = false;
             return;
         }
 
+        Vector3 center = Vector3.zero;
+        int validMemberCount = 0;
+
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null)
+                continue;
+
+            center += member.transform.position;
+            validMemberCount++;
+        }
+
+        if (validMemberCount == 0)
+        {
+            _selectionOutline.enabled = false;
+            return;
+        }
+
+        // A csapat geometriai középpontja.
+        center /= validMemberCount;
+
+        // A korábbi, létszámfüggõ növekedési szabály megtartása.
         float halfSize =
             selectionBaseHalfSize * GetSelectionScale();
 
+        // A paralelogramma arányai változatlanok.
         float halfWidth = halfSize * 1.35f;
         float halfHeight = halfSize * 0.75f;
 
-        Vector3 center = leader.transform.position;
         float z = center.z - 0.05f;
 
         Vector3[] corners =
@@ -285,17 +318,28 @@ public sealed class UnitGroup : MonoBehaviour
 
         Vector2 grid = GetSpiralOffset(slot);
 
-        // A Python-mátrix sorindexe lefelé nõ,
-        // ezért a világ Y-koordinátáját megfordítjuk.
-        Vector3 offset = new Vector3(
-            grid.y * CellSize.x,
-            -grid.x * CellSize.y,
+        // A két rácstengely közötti szög 40°.
+        float spacing = Mathf.Max(CellSize.x, CellSize.y);
+        float angleRadians = 40f * Mathf.Deg2Rad;
+
+        // Oszlopirány.
+        Vector2 columnOffset = new Vector2(
+            grid.y * spacing,
             0f);
 
-        // A formáció 45 fokkal elforgatva jelenik meg.
-        offset = Quaternion.Euler(0f, 0f, 45f) * offset;
+        // Sorirány: 40°-os szöget zár be az oszloptengellyel.
+        Vector2 rowOffset = new Vector2(
+            grid.x * spacing * Mathf.Cos(angleRadians),
+            -grid.x * spacing * Mathf.Sin(angleRadians));
 
-        return leader.transform.position + offset;
+        // Elõször kiszámítjuk a rombusz rácspontját.
+        Vector2 offset = columnOffset + rowOffset;
+
+        // Ezután elforgatjuk, hogy a rövidebbik átló függõleges legyen.
+        offset = Quaternion.Euler(0f, 0f, 20f) * offset;
+
+        return leader.transform.position +
+               new Vector3(offset.x, offset.y, 0f);
     }
 
 
