@@ -51,10 +51,13 @@ public sealed class UnitGroup : MonoBehaviour
         {
         { 1, 1.0f },
         { 2, 1.8f },
-        { 3, 2.5f },
-        { 5, 2.9f },
-        { 7, 3.5f },
-        { 11, 4.6f }
+        { 4, 2.55f },
+        { 6, 2.9f },
+        { 7, 3.1f },
+        { 10, 4.3f },
+        { 15, 4.4f },
+        { 20, 4.5f },
+        { 26, 6f },
         };
 
     [SerializeField, Min(0.001f)]
@@ -179,22 +182,34 @@ public sealed class UnitGroup : MonoBehaviour
         center /= validMemberCount;
 
         // A korábbi, létszámfüggõ növekedési szabály megtartása.
-        float halfSize =
-            selectionBaseHalfSize * GetSelectionScale();
+        float halfSize = selectionBaseHalfSize * GetSelectionScale();
 
-        // A paralelogramma arányai változatlanok.
-        float halfWidth = halfSize * 1.35f;
-        float halfHeight = halfSize * 0.75f;
+        // A kijelölési rombusz mérete.
+        float spacing = halfSize;
+        float angleRadians = 40f * Mathf.Deg2Rad;
 
-        float z = center.z - 0.05f;
+        // A két rácstengely eltolásvektorai.
+        Vector2 columnOffset = new Vector2(spacing, 0f);
 
+        Vector2 rowOffset = new Vector2(
+            spacing * Mathf.Cos(angleRadians),
+            -spacing * Mathf.Sin(angleRadians));
+
+        // A formációval azonos, 20°-os elforgatás.
+        Quaternion rotation = Quaternion.Euler(0f, 0f, 20f);
+
+        Vector2 column = rotation * columnOffset;
+        Vector2 row = rotation * rowOffset;
+
+        // A négy sarok a két tengelyvektor összegébõl és
+        // különbségébõl áll elõ.
         Vector3[] corners =
         {
-        new Vector3(0f, halfHeight, 0f),
-        new Vector3(halfWidth, 0f, 0f),
-        new Vector3(0f, -halfHeight, 0f),
-        new Vector3(-halfWidth, 0f, 0f)
-    };
+            new Vector3(column.x + row.x, column.y + row.y, 0f),
+            new Vector3(column.x - row.x, column.y - row.y, 0f),
+            new Vector3(-column.x - row.x, -column.y - row.y, 0f),
+            new Vector3(-column.x + row.x, -column.y + row.y, 0f)
+        };
 
         for (int i = 0; i < corners.Length; i++)
         {
@@ -205,7 +220,7 @@ public sealed class UnitGroup : MonoBehaviour
                 new Vector3(
                     center.x + corner.x,
                     center.y + corner.y,
-                    z));
+                    0));
         }
     }
 
