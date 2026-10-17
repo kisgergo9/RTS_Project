@@ -20,16 +20,6 @@ public sealed class UnitGroup : MonoBehaviour
     // A rombusz hegyesszögének fele.
     private const float FormationHalfAngle = 18.62f;
 
-    private static readonly float FormationSin =
-        Mathf.Sin(FormationHalfAngle * Mathf.Deg2Rad);
-
-    private static readonly float FormationCos =
-        Mathf.Cos(FormationHalfAngle * Mathf.Deg2Rad);
-
-    // A szomszédos formációs helyek közötti távolság.
-    private static readonly float FormationStep =
-        Mathf.Max(CellSize.x, CellSize.y);
-
     public IReadOnlyList<UnitGroupMember> Members => _members;
 
     public int MemberCount => _members.Count;
@@ -59,6 +49,23 @@ public sealed class UnitGroup : MonoBehaviour
         { 20, 4.5f },
         { 26, 6f },
         };
+
+    private enum GroupMovementState
+    {
+        Idle,
+        Turning,
+        Moving
+    }
+
+    private GroupMovementState _movementState = GroupMovementState.Idle;
+
+    private Vector2 _groupDestination;
+
+    private float _groupMaxSpeed;
+    private float _groupMaxTurnSpeed;
+
+    public float GroupMaxSpeed => _groupMaxSpeed;
+    public float GroupMaxTurnSpeed => _groupMaxTurnSpeed;
 
     [SerializeField, Min(0.001f)]
     private float selectionLineWidth = 0.025f;
@@ -96,6 +103,319 @@ public sealed class UnitGroup : MonoBehaviour
         return scale;
     }
 
+    private bool AreAllMembersTravelling()
+    {
+        bool foundMember = false;
+
+        foreach (UnitGroupMember member in Members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement == null)
+                continue;
+
+            foundMember = true;
+
+            if (!movement.IsTravelling)
+                return false;
+        }
+
+        return foundMember;
+    }
+
+    private void RecalculateMovementLimits()
+    {
+        float minMoveSpeed = float.PositiveInfinity;
+        float minTurnSpeed = float.PositiveInfinity;
+        bool foundMovementComponent = false;
+
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement == null)
+                continue;
+
+            foundMovementComponent = true;
+
+            minMoveSpeed = Mathf.Min(
+                minMoveSpeed,
+                movement.BaseMoveSpeed);
+
+            minTurnSpeed = Mathf.Min(
+                minTurnSpeed,
+                movement.BaseTurnSpeed);
+        }
+
+        _groupMaxSpeed = foundMovementComponent ? minMoveSpeed : 0f;
+        _groupMaxTurnSpeed = foundMovementComponent ? minTurnSpeed : 0f;
+
+        // Az új közös maximumokat minden meglévõ tag megkapja.
+        ApplyMovementLimitsToMembers();
+    }
+
+    private void ApplyMovementLimitsToMembers()
+    {
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement != null)
+            {
+                movement.SetMovementLimits(
+                    _groupMaxSpeed,
+                    _groupMaxTurnSpeed);
+            }
+        }
+    }
+
+    private void ApplyMovementLimits(UnitMovement movement)
+    {
+        if (movement == null)
+            return;
+
+        movement.SetMovementLimits(
+            _groupMaxSpeed,
+            _groupMaxTurnSpeed);
+    }
+
+    public bool IsMoving
+    {
+        get
+        {
+            if (_movementState != GroupMovementState.Idle)
+                return true;
+
+            foreach (UnitGroupMember member in Members)
+            {
+                if (member == null)
+                    continue;
+
+                UnitMovement movement =
+                    member.GetComponent<UnitMovement>();
+
+                if (movement != null && movement.IsMoving)
+                    return true;
+            }
+
+            return false;
+        }
+    }
+
+    public bool TryGetJoinSlot(UnitGroupMember member, out int slot, out Vector3 worldPosition)
+    {
+        slot = -1;
+        worldPosition = Vector3.zero;
+
+        if (member == null || IsMoving || !CanAccept(member))
+            return false;
+
+        slot = FindNextFreeSlot();
+
+        if (slot < 1)
+            return false;
+
+        worldPosition = GetSlotWorldPosition(slot);
+        return true;
+    }
+
+    public void MoveTo(Vector2 destination)
+    {
+        UnitGroupMember leader = GetLeader();
+
+        if (leader == null)
+            return;
+
+        // Ha minden tag halad, menet közben módosítjuk
+        // a célpontokat, és nem indítunk új fordulási fázist.
+        if (_movementState == GroupMovementState.Moving &&
+            AreAllMembersTravelling())
+        {
+            Vector2 leaderPosition = leader.transform.position;
+
+            _groupDestination = destination;
+
+            foreach (UnitGroupMember member in Members)
+            {
+                if (member == null)
+                    continue;
+
+                UnitMovement movement =
+                    member.GetComponent<UnitMovement>();
+
+                if (movement == null)
+                    continue;
+
+                Vector2 relativeOffset =
+                    (Vector2)member.transform.position - leaderPosition;
+
+                ApplyMovementLimits(movement);
+                movement.MoveTo(destination + relativeOffset);
+            }
+
+            return;
+        }
+
+        Vector2 direction =
+            destination - (Vector2)leader.transform.position;
+
+        // Ha a célpont gyakorlatilag a vezetõ helyén van,
+        // a csoport megáll.
+        if (direction.sqrMagnitude < 0.0001f)
+        {
+            StopGroupMovement();
+            return;
+        }
+
+        _groupDestination = destination;
+
+        float targetAngle = Mathf.Repeat(
+            Mathf.Atan2(direction.x, direction.y) *
+            Mathf.Rad2Deg,
+            360f);
+
+        bool hasMovementComponent = false;
+
+        foreach (UnitGroupMember member in Members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement == null)
+                continue;
+
+            hasMovementComponent = true;
+            ApplyMovementLimits(movement);
+            movement.BeginGroupTurn(targetAngle);
+        }
+
+        _movementState = hasMovementComponent
+            ? GroupMovementState.Turning
+            : GroupMovementState.Idle;
+    }
+
+    public void StopGroupMovement()
+    {
+        foreach (UnitGroupMember member in Members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement != null)
+                movement.StopMovement();
+        }
+
+        _movementState = GroupMovementState.Idle;
+    }
+
+    private void Update()
+    {
+        switch (_movementState)
+        {
+            case GroupMovementState.Turning:
+                if (AreAllMembersTurned())
+                    StartGroupMovement();
+                break;
+
+            case GroupMovementState.Moving:
+                if (AreAllMembersStopped())
+                    _movementState = GroupMovementState.Idle;
+                break;
+        }
+    }
+
+    private bool AreAllMembersTurned()
+    {
+        foreach (UnitGroupMember member in Members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement != null &&
+                !movement.IsGroupTurnComplete)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void StartGroupMovement()
+    {
+        UnitGroupMember leader = GetLeader();
+
+        if (leader == null)
+        {
+            _movementState = GroupMovementState.Idle;
+            return;
+        }
+
+        Vector2 leaderPosition = leader.transform.position;
+
+        foreach (UnitGroupMember member in Members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement == null)
+                continue;
+
+            // A fordulás alatt esetleg elmozdult egységek
+            // aktuális egymáshoz viszonyított helyzetét tartjuk meg.
+            Vector2 relativeOffset =
+                (Vector2)member.transform.position - leaderPosition;
+
+            Vector2 memberDestination =
+                _groupDestination + relativeOffset;
+
+            ApplyMovementLimits(movement);
+            movement.MoveTo(memberDestination);
+        }
+
+        _movementState = GroupMovementState.Moving;
+    }
+
+    private bool AreAllMembersStopped()
+    {
+        foreach (UnitGroupMember member in Members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement != null && movement.IsMoving)
+                return false;
+        }
+
+        return true;
+    }
     public bool CanAccept(UnitGroupMember member)
     {
         if (member == null || IsFull)
@@ -267,6 +587,8 @@ public sealed class UnitGroup : MonoBehaviour
         _members.Add(member);
         member.SetGroup(this, slot);
 
+        RecalculateMovementLimits();
+
         return true;
     }
 
@@ -275,7 +597,16 @@ public sealed class UnitGroup : MonoBehaviour
         if (member == null || !_members.Remove(member))
             return false;
 
+        UnitMovement movement =
+            member.GetComponent<UnitMovement>();
+
+        if (movement != null)
+            movement.ResetMovementLimits();
+
         member.SetGroup(null);
+
+        RecalculateMovementLimits();
+
         return true;
     }
 

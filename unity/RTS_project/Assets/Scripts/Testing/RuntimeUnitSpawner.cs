@@ -115,7 +115,7 @@ public sealed class RuntimeUnitSpawner : MonoBehaviour
             spawnedMember.GetComponentsInChildren<DirectionalSpriteRenderer>(true);
 
         foreach (DirectionalSpriteRenderer directional in directionalRenderers)
-            directional.SetAngle(90f);
+            directional.SetAngle(Random.value * 123);
 
         return true;
     }

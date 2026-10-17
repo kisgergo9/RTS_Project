@@ -33,6 +33,26 @@ public sealed class DirectionalSpriteRenderer : MonoBehaviour
         get => turnSpeed;
         set => turnSpeed = Mathf.Max(0f, value);
     }
+    public float BaseTurnSpeed => turnSpeed;
+
+    // Alapértelmezésben nincs külsõ korlát.
+    private float _turnSpeedLimit = float.PositiveInfinity;
+
+    // A tényleges fordulási sebesség nem lépheti túl
+    // sem az egység saját értékét, sem a csoport korlátját.
+    private float EffectiveTurnSpeed =>
+        Mathf.Min(turnSpeed, _turnSpeedLimit);
+
+    public void SetTurnSpeedLimit(float maxTurnSpeed)
+    {
+        _turnSpeedLimit = Mathf.Max(0f, maxTurnSpeed);
+    }
+
+    public void ResetTurnSpeedLimit()
+    {
+        _turnSpeedLimit = float.PositiveInfinity;
+    }
+
 
     public void Initialize()
     {
@@ -59,7 +79,7 @@ public sealed class DirectionalSpriteRenderer : MonoBehaviour
         CurrentAngle = Mathf.MoveTowardsAngle(
             CurrentAngle,
             TargetAngle,
-            turnSpeed * Time.deltaTime
+            EffectiveTurnSpeed * Time.deltaTime
         );
 
         CurrentAngle = Mathf.Repeat(CurrentAngle, 360f);

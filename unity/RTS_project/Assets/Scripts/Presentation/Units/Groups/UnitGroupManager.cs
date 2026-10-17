@@ -48,6 +48,111 @@ public sealed class UnitGroupManager : MonoBehaviour
         return group;
     }
 
+    public bool BeginJoinNewestMember(
+    UnitGroup source,
+    UnitGroup target)
+    {
+        if (source == null || target == null || source == target)
+            return false;
+
+        if (target.IsMoving)
+            return false;
+
+        UnitGroupMember member = source.GetNewestMember();
+
+        if (member == null)
+            return false;
+
+        // Csak kezdeti ellenõrzés. Helyfoglalás nem történik.
+        if (!target.TryGetJoinSlot(member, out _, out _))
+            return false;
+
+        int originalSlot = member.FormationSlot;
+
+        source.RemoveMember(member);
+
+        GameObject joiningObject =
+            new GameObject($"Group_{_nextGroupId++}");
+
+        joiningObject.transform.position = member.transform.position;
+        joiningObject.transform.SetParent(transform, true);
+
+        UnitGroup joiningGroup =
+            joiningObject.AddComponent<UnitGroup>();
+
+        member.transform.SetParent(joiningGroup.transform, true);
+
+        if (!joiningGroup.AddMember(member, 1))
+        {
+            member.transform.SetParent(source.transform, true);
+            source.AddMember(member, originalSlot);
+            Destroy(joiningObject);
+            return false;
+        }
+
+        UnitGroupJoinRequest request =
+            joiningObject.AddComponent<UnitGroupJoinRequest>();
+
+        request.Initialize(target);
+
+        if (source.MemberCount == 0)
+            Destroy(source.gameObject);
+
+        return true;
+    }
+
+    public bool TryCompleteJoin(
+        UnitGroup joiningGroup,
+        UnitGroup target,
+        UnitGroupMember member,
+        float positionTolerance)
+    {
+        if (joiningGroup == null ||
+            target == null ||
+            member == null ||
+            joiningGroup == target)
+        {
+            return false;
+        }
+
+        // A végsõ ellenõrzéskor ismét lekérjük az aktuális slotot.
+        if (!target.TryGetJoinSlot(
+                member,
+                out int slot,
+                out Vector3 currentSlotPosition))
+        {
+            return false;
+        }
+
+        Vector2 currentPosition = member.transform.position;
+        Vector2 slotPosition = currentSlotPosition;
+
+        if ((currentPosition - slotPosition).sqrMagnitude >
+            positionTolerance * positionTolerance)
+        {
+            return false;
+        }
+
+        int originalSlot = member.FormationSlot;
+
+        joiningGroup.RemoveMember(member);
+        member.transform.SetParent(target.transform, true);
+
+        // A világpozíció és a forgatás megõrzésével próbáljuk felvenni.
+        if (!target.AddMember(member, slot))
+        {
+            member.transform.SetParent(joiningGroup.transform, true);
+            joiningGroup.AddMember(member, originalSlot);
+            return false;
+        }
+
+        // Nem állítjuk át sem a pozíciót, sem a forgatást.
+        Destroy(joiningGroup.gameObject);
+
+        return true;
+    }
+
+    // nem használt véglegesítéskor törölhetõ ha nem kerül használatba de teszteléshez még jól jöhet.
     public bool MergeNewestMember(UnitGroup source, UnitGroup target)
     {
         if (source == null || target == null || source == target)

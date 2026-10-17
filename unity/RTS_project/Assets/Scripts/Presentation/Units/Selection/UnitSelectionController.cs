@@ -97,17 +97,26 @@ public sealed class UnitSelectionController : MonoBehaviour
 
         UnitGroup targetGroup = targetMember.Group;
 
-        bool merged = UnitGroupManager.Instance != null &&
-                      UnitGroupManager.Instance.MergeNewestMember(
-                          sourceGroup,
-                          targetGroup);
+        bool started =
+            UnitGroupManager.Instance != null &&
+            UnitGroupManager.Instance.BeginJoinNewestMember(
+                sourceGroup,
+                targetGroup);
 
-        if (merged)
+        if (!started)
+            return true;
+
+        // Ha a forráscsoport kiürült, az eredeti kijelölés
+        // helyett a célcsoportot jelöljük ki.
+        if (sourceGroup == targetGroup ||
+            sourceGroup.MemberCount == 0)
         {
             ClearSelection();
             AddToSelection(targetGroup);
         }
 
+        // Ha maradt egység a forráscsoportban, megtartjuk
+        // a jelenlegi kijelölést.
         return true;
     }
 
@@ -119,7 +128,9 @@ public sealed class UnitSelectionController : MonoBehaviour
         Ray ray = worldCamera.ScreenPointToRay(
             Mouse.current.position.ReadValue());
 
-        Plane worldPlane = new Plane(Vector3.forward, Vector3.zero);
+        Plane worldPlane = new Plane(
+            Vector3.forward,
+            Vector3.zero);
 
         if (!worldPlane.Raycast(ray, out float distance))
             return;
@@ -131,33 +142,14 @@ public sealed class UnitSelectionController : MonoBehaviour
             if (group == null)
                 continue;
 
-            UnitGroupMember leader = group.GetLeader();
+            UnitGroupJoinRequest joinRequest = group.GetComponent<UnitGroupJoinRequest>();
 
-            if (leader == null)
-                continue;
+            if (joinRequest != null)
+                joinRequest.CancelJoin();
 
-            Vector3 originalCenter = leader.transform.position;
-
-            foreach (UnitGroupMember member in group.Members)
-            {
-                if (member == null)
-                    continue;
-
-                UnitMovement movement =
-                    member.GetComponent<UnitMovement>();
-
-                if (movement == null)
-                    continue;
-
-                Vector3 relativeOffset =
-                    member.transform.position - originalCenter;
-
-                Vector2 memberDestination = new Vector2(
-                    destination.x + relativeOffset.x,
-                    destination.y + relativeOffset.y);
-
-                movement.MoveTo(memberDestination);
-            }
+            group.MoveTo(new Vector2(
+                destination.x,
+                destination.y));
         }
     }
 
