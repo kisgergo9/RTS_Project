@@ -36,7 +36,6 @@ public sealed class UnitGroupManager : MonoBehaviour
         groupObject.transform.SetParent(transform, true);
 
         UnitGroup group = groupObject.AddComponent<UnitGroup>();
-        group.InitializeCellSize(member);
 
         if (!group.AddMember(member, 1))
         {

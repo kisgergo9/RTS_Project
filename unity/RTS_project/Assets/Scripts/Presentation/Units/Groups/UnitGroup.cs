@@ -5,8 +5,17 @@ public sealed class UnitGroup : MonoBehaviour
 {
     private readonly List<UnitGroupMember> _members = new();
 
-    // A csoport létrehozásakor rögzített cellaméret.
-    private Vector2 _cellSize = Vector2.one;
+    // A formáció minden egységtípusnál azonos cellaméretet használ.
+    // A megadott értékek a sprite pixeles méretét jelentik.
+    private const float ReferenceSpriteWidth = 60f;
+    private const float ReferenceSpriteHeight = 40f;
+
+    // A világkoordinátákra váltáshoz használt Pixels Per Unit érték.
+    private const float ReferencePixelsPerUnit = 100f;
+
+    private static readonly Vector2 CellSize = new Vector2(
+        ReferenceSpriteWidth / ReferencePixelsPerUnit,
+        ReferenceSpriteHeight / ReferencePixelsPerUnit);
 
     public IReadOnlyList<UnitGroupMember> Members => _members;
 
@@ -15,15 +24,178 @@ public sealed class UnitGroup : MonoBehaviour
     public UnitType? GroupType =>
         _members.Count > 0 ? _members[0].Type : null;
 
+    private const int FormationSize = 7;
+    private const int MaxMembers = FormationSize * FormationSize;
+
+    [Header("Group selection")]
+
+    [SerializeField, Min(0.001f)]
+    private float selectionBaseHalfSize = 0.4f;
+
+    // A kulcs a csapattagok száma, az érték a méretszorzó.
+    private static readonly SortedDictionary<int, float> SelectionScaleRules =
+        new SortedDictionary<int, float>
+        {
+        { 1, 1.0f },
+        { 2, 2f },
+        { 3, 2.5f },
+        { 5, 2.8f },
+        { 6, 2.5f },
+        { 10, 3.0f }
+        };
+
+    [SerializeField, Min(0.001f)]
+    private float selectionLineWidth = 0.025f;
+
+    private LineRenderer _selectionOutline;
+    private bool _isSelected;
+
+    public bool IsSelected => _isSelected;
+
+    private static readonly int[,] FormationOrder =
+    {
+    { 48, 45, 37, 29, 33, 40, 47 },
+    { 43, 22, 14, 10, 19, 23, 38 },
+    { 35, 18,  6,  2,  7, 15, 31 },
+    { 26, 13,  5,  1,  3, 11, 27 },
+    { 32, 21,  9,  4,  8, 20, 34 },
+    { 41, 25, 17, 12, 16, 24, 42 },
+    { 49, 39, 30, 28, 36, 44, 46 }
+};
+
+    public bool IsFull => _members.Count >= MaxMembers;
+
+    private float GetSelectionScale()
+    {
+        float scale = 1f;
+
+        foreach (KeyValuePair<int, float> rule in SelectionScaleRules)
+        {
+            if (MemberCount < rule.Key)
+                break;
+
+            scale = rule.Value;
+        }
+
+        return scale;
+    }
+
     public bool CanAccept(UnitGroupMember member)
     {
-        if (member == null)
+        if (member == null || IsFull)
             return false;
 
         if (_members.Count == 0)
             return true;
 
         return AreCompatible(_members[0].Type, member.Type);
+    }
+
+    private void Awake()
+    {
+        InitializeSelectionOutline();
+    }
+
+    private void InitializeSelectionOutline()
+    {
+        GameObject outlineObject = new GameObject("GroupSelectionOutline");
+        outlineObject.transform.SetParent(transform, false);
+
+        _selectionOutline = outlineObject.AddComponent<LineRenderer>();
+        _selectionOutline.useWorldSpace = true;
+        _selectionOutline.loop = true;
+        _selectionOutline.positionCount = 4;
+        _selectionOutline.startWidth = selectionLineWidth;
+        _selectionOutline.endWidth = selectionLineWidth;
+        _selectionOutline.startColor = Color.white;
+        _selectionOutline.endColor = Color.white;
+        _selectionOutline.material =
+            new Material(Shader.Find("Sprites/Default"));
+
+        _selectionOutline.sortingOrder = 100;
+        _selectionOutline.enabled = false;
+    }
+
+    public void SetSelected(bool selected)
+    {
+        _isSelected = selected;
+
+        if (_selectionOutline != null)
+            _selectionOutline.enabled = selected;
+
+        if (selected)
+            UpdateSelectionOutline();
+    }
+
+    private void LateUpdate()
+    {
+        if (_isSelected)
+            UpdateSelectionOutline();
+    }
+
+    private void UpdateSelectionOutline()
+    {
+        if (_selectionOutline == null)
+            return;
+
+        UnitGroupMember leader = GetLeader();
+
+        if (leader == null || MemberCount == 0)
+        {
+            _selectionOutline.enabled = false;
+            return;
+        }
+
+        float halfSize =
+            selectionBaseHalfSize * GetSelectionScale();
+
+        float halfWidth = halfSize * 1.35f;
+        float halfHeight = halfSize * 0.75f;
+
+        Vector3 center = leader.transform.position;
+        float z = center.z - 0.05f;
+
+        Vector3[] corners =
+        {
+        new Vector3(0f, halfHeight, 0f),
+        new Vector3(halfWidth, 0f, 0f),
+        new Vector3(0f, -halfHeight, 0f),
+        new Vector3(-halfWidth, 0f, 0f)
+    };
+
+        for (int i = 0; i < corners.Length; i++)
+        {
+            Vector3 corner = corners[i];
+
+            _selectionOutline.SetPosition(
+                i,
+                new Vector3(
+                    center.x + corner.x,
+                    center.y + corner.y,
+                    z));
+        }
+    }
+
+    private static float GetMemberSpriteRadius(UnitGroupMember member)
+    {
+        SpriteRenderer[] renderers =
+            member.GetComponentsInChildren<SpriteRenderer>(true);
+
+        float radius = 0f;
+
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            if (renderer == null || !renderer.enabled || renderer.sprite == null)
+                continue;
+
+            Vector3 extents = renderer.bounds.extents;
+
+            radius = Mathf.Max(
+                radius,
+                Mathf.Sqrt(extents.x * extents.x + extents.y * extents.y));
+        }
+
+        return radius;
     }
 
     public static bool AreCompatible(UnitType a, UnitType b)
@@ -72,7 +244,7 @@ public sealed class UnitGroup : MonoBehaviour
 
     public int FindNextFreeSlot()
     {
-        for (int slot = 1; slot < int.MaxValue; slot++)
+        for (int slot = 1; slot <= MaxMembers; slot++)
         {
             if (!IsSlotOccupied(slot))
                 return slot;
@@ -103,40 +275,6 @@ public sealed class UnitGroup : MonoBehaviour
         return _members.Count > 0 ? _members[0] : null;
     }
 
-    public void InitializeCellSize(UnitGroupMember member)
-    {
-        if (member == null)
-            return;
-
-        float maxWidth = 0f;
-        float maxHeight = 0f;
-
-        DirectionalSpriteRenderer[] renderers =
-            member.GetComponentsInChildren<DirectionalSpriteRenderer>(true);
-
-        foreach (DirectionalSpriteRenderer directional in renderers)
-        {
-            for (int i = 0; i < directional.ViewCount; i++)
-            {
-                Sprite sprite = directional.GetSpriteAtIndex(i);
-
-                if (sprite == null)
-                    continue;
-
-                Vector3 scale = directional.transform.lossyScale;
-                Vector2 size = sprite.bounds.size;
-
-                float width = size.x * Mathf.Abs(scale.x);
-                float height = size.y * Mathf.Abs(scale.y);
-
-                maxWidth = Mathf.Max(maxWidth, width);
-                maxHeight = Mathf.Max(maxHeight, height);
-            }
-        }
-
-        if (maxWidth > 0f && maxHeight > 0f)
-            _cellSize = new Vector2(maxWidth, maxHeight);
-    }
 
     public Vector3 GetSlotWorldPosition(int slot)
     {
@@ -150,52 +288,39 @@ public sealed class UnitGroup : MonoBehaviour
         // A Python-mátrix sorindexe lefelé nõ,
         // ezért a világ Y-koordinátáját megfordítjuk.
         Vector3 offset = new Vector3(
-            grid.y * _cellSize.x,
-            -grid.x * _cellSize.y,
+            grid.y * CellSize.x,
+            -grid.x * CellSize.y,
             0f);
+
+        // A formáció 45 fokkal elforgatva jelenik meg.
+        offset = Quaternion.Euler(0f, 0f, 45f) * offset;
 
         return leader.transform.position + offset;
     }
 
+
     private static Vector2 GetSpiralOffset(int targetSlot)
     {
-        if (targetSlot < 1)
+        if (targetSlot < 1 || targetSlot > 49)
+        {
+            Debug.LogError(
+                $"A formációs hely jelenleg csak 1 és 49 között támogatott: {targetSlot}");
+
             return Vector2.zero;
+        }
 
-        // A Python-algoritmus kezdõpontja a középpont.
-        int row = 0;
-        int column = 0;
-        int currentSlot = 1;
-        int stepSize = 1;
-
-        int[,] directions =
+        for (int row = 0; row < 7; row++)
         {
-            { 0,  1 }, // jobbra
-            { 1,  0 }, // le
-            { 0, -1 }, // balra
-            { -1, 0 }  // fel
-        };
-
-        while (currentSlot < targetSlot)
-        {
-            for (int direction = 0; direction < 4; direction++)
+            for (int column = 0; column < 7; column++)
             {
-                int dx = directions[direction, 0];
-                int dy = directions[direction, 1];
-
-                for (int step = 0; step < stepSize; step++)
+                if (FormationOrder[row, column] == targetSlot)
                 {
-                    row += dx;
-                    column += dy;
-                    currentSlot++;
-
-                    if (currentSlot == targetSlot)
-                        return new Vector2(row, column);
+                    // A mátrix középpontja a (3, 3) index.
+                    return new Vector2(
+                        row - 3,
+                        column - 3
+                    );
                 }
-
-                // A Python-algoritmusban le és fel után nõ a lépésszám.
-                if (direction == 1 || direction == 3)
-                    stepSize++;
             }
         }
 

@@ -7,7 +7,7 @@ public sealed class UnitSelectionController : MonoBehaviour
     [SerializeField] private Camera worldCamera;
     [SerializeField, Min(1f)] private float dragThreshold = 8f;
 
-    private readonly HashSet<UnitSelection> _selectedUnits = new();
+    private readonly HashSet<UnitGroup> _selectedGroups = new();
 
     private Vector2 _dragStart;
     private Vector2 _currentMousePosition;
@@ -30,7 +30,7 @@ public sealed class UnitSelectionController : MonoBehaviour
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             if (!TryMergeWithGroupAtMousePosition())
-                IssueMoveCommandToSelectedUnits();
+                IssueMoveCommandToSelectedGroups();
         }
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -54,9 +54,9 @@ public sealed class UnitSelectionController : MonoBehaviour
         if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
             if (_isDragging)
-                SelectUnitsInRectangle();
+                SelectGroupsInRectangle();
             else
-                SelectUnitAtMousePosition();
+                SelectGroupAtMousePosition();
 
             _isDragging = false;
         }
@@ -64,13 +64,11 @@ public sealed class UnitSelectionController : MonoBehaviour
 
     private bool TryMergeWithGroupAtMousePosition()
     {
-        if (_selectedUnits.Count == 0)
+        if (_selectedGroups.Count == 0)
             return false;
 
-        Vector2 mousePosition =
-            Mouse.current.position.ReadValue();
-
-        Ray ray = worldCamera.ScreenPointToRay(mousePosition);
+        Ray ray = worldCamera.ScreenPointToRay(
+            Mouse.current.position.ReadValue());
 
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
 
@@ -80,23 +78,16 @@ public sealed class UnitSelectionController : MonoBehaviour
         UnitGroupMember targetMember =
             hit.collider.GetComponentInParent<UnitGroupMember>();
 
-        // Ha nem egységre kattintottunk, marad a mozgási parancs.
         if (targetMember == null || targetMember.Group == null)
             return false;
 
         UnitGroup sourceGroup = null;
 
-        foreach (UnitSelection selected in _selectedUnits)
+        foreach (UnitGroup group in _selectedGroups)
         {
-            if (selected == null)
-                continue;
-
-            UnitGroupMember selectedMember =
-                selected.GetComponent<UnitGroupMember>();
-
-            if (selectedMember != null && selectedMember.Group != null)
+            if (group != null)
             {
-                sourceGroup = selectedMember.Group;
+                sourceGroup = group;
                 break;
             }
         }
@@ -104,57 +95,73 @@ public sealed class UnitSelectionController : MonoBehaviour
         if (sourceGroup == null)
             return true;
 
-        // A célcsoport tagjára kattintottunk, ezért összevonási
-        // parancsot próbálunk végrehajtani, nem mozgást.
-        UnitGroupManager.Instance?.MergeNewestMember(
-            sourceGroup,
-            targetMember.Group);
+        UnitGroup targetGroup = targetMember.Group;
+
+        bool merged = UnitGroupManager.Instance != null &&
+                      UnitGroupManager.Instance.MergeNewestMember(
+                          sourceGroup,
+                          targetGroup);
+
+        if (merged)
+        {
+            ClearSelection();
+            AddToSelection(targetGroup);
+        }
 
         return true;
     }
 
-    private void IssueMoveCommandToSelectedUnits()
+    private void IssueMoveCommandToSelectedGroups()
     {
-        if (_selectedUnits.Count == 0)
+        if (_selectedGroups.Count == 0)
             return;
 
-        Vector2 mousePosition =
-            Mouse.current.position.ReadValue();
+        Ray ray = worldCamera.ScreenPointToRay(
+            Mouse.current.position.ReadValue());
 
-        Ray ray = worldCamera.ScreenPointToRay(mousePosition);
-
-        Plane worldPlane = new Plane(
-            Vector3.forward,
-            Vector3.zero
-        );
+        Plane worldPlane = new Plane(Vector3.forward, Vector3.zero);
 
         if (!worldPlane.Raycast(ray, out float distance))
             return;
 
-        Vector3 mouseWorldPosition = ray.GetPoint(distance);
+        Vector3 destination = ray.GetPoint(distance);
 
-        foreach (UnitSelection unit in _selectedUnits)
+        foreach (UnitGroup group in _selectedGroups)
         {
-            if (unit == null)
+            if (group == null)
                 continue;
 
-            UnitMovement movement =
-                unit.GetComponent<UnitMovement>();
+            UnitGroupMember leader = group.GetLeader();
 
-            if (movement == null)
+            if (leader == null)
                 continue;
 
-            movement.MoveTo(
-                new Vector2(
-                    mouseWorldPosition.x,
-                    mouseWorldPosition.y
-                )
-            );
+            Vector3 originalCenter = leader.transform.position;
+
+            foreach (UnitGroupMember member in group.Members)
+            {
+                if (member == null)
+                    continue;
+
+                UnitMovement movement =
+                    member.GetComponent<UnitMovement>();
+
+                if (movement == null)
+                    continue;
+
+                Vector3 relativeOffset =
+                    member.transform.position - originalCenter;
+
+                Vector2 memberDestination = new Vector2(
+                    destination.x + relativeOffset.x,
+                    destination.y + relativeOffset.y);
+
+                movement.MoveTo(memberDestination);
+            }
         }
     }
 
-
-    private void SelectUnitAtMousePosition()
+    private void SelectGroupAtMousePosition()
     {
         ClearSelection();
 
@@ -164,31 +171,36 @@ public sealed class UnitSelectionController : MonoBehaviour
         if (hit.collider == null)
             return;
 
-        UnitSelection unit =
-            hit.collider.GetComponentInParent<UnitSelection>();
+        UnitGroupMember member =
+            hit.collider.GetComponentInParent<UnitGroupMember>();
 
-        if (unit != null)
-            AddToSelection(unit);
+        if (member != null && member.Group != null)
+            AddToSelection(member.Group);
     }
 
-    private void SelectUnitsInRectangle()
+    private void SelectGroupsInRectangle()
     {
         ClearSelection();
 
         Vector2 min = Vector2.Min(_dragStart, _currentMousePosition);
         Vector2 max = Vector2.Max(_dragStart, _currentMousePosition);
 
-        UnitSelection[] allUnits =
-            FindObjectsByType<UnitSelection>(
+        UnitGroupMember[] allMembers =
+            FindObjectsByType<UnitGroupMember>(
                 FindObjectsSortMode.None);
 
-        foreach (UnitSelection unit in allUnits)
+        foreach (UnitGroupMember member in allMembers)
         {
-            if (unit == null || !unit.isActiveAndEnabled)
+            if (member == null || !member.isActiveAndEnabled)
+                continue;
+
+            UnitGroup group = member.Group;
+
+            if (group == null)
                 continue;
 
             Vector3 screenPosition =
-                worldCamera.WorldToScreenPoint(unit.transform.position);
+                worldCamera.WorldToScreenPoint(member.transform.position);
 
             if (screenPosition.z < 0f)
                 continue;
@@ -200,25 +212,25 @@ public sealed class UnitSelectionController : MonoBehaviour
                 screenPosition.y <= max.y;
 
             if (inside)
-                AddToSelection(unit);
+                AddToSelection(group);
         }
     }
 
-    private void AddToSelection(UnitSelection unit)
+    private void AddToSelection(UnitGroup group)
     {
-        if (_selectedUnits.Add(unit))
-            unit.SetSelected(true);
+        if (group != null && _selectedGroups.Add(group))
+            group.SetSelected(true);
     }
 
     private void ClearSelection()
     {
-        foreach (UnitSelection unit in _selectedUnits)
+        foreach (UnitGroup group in _selectedGroups)
         {
-            if (unit != null)
-                unit.SetSelected(false);
+            if (group != null)
+                group.SetSelected(false);
         }
 
-        _selectedUnits.Clear();
+        _selectedGroups.Clear();
     }
 
     private void OnGUI()
@@ -227,15 +239,12 @@ public sealed class UnitSelectionController : MonoBehaviour
             return;
 
         Rect rect = GetScreenRect(_dragStart, _currentMousePosition);
-
         rect.y = Screen.height - rect.y - rect.height;
 
         Color previousColor = GUI.color;
 
         GUI.color = new Color(1f, 1f, 1f, 0.18f);
-
         GUI.DrawTexture(rect, Texture2D.whiteTexture);
-
         GUI.color = Color.white;
 
         const float borderWidth = 1f;
