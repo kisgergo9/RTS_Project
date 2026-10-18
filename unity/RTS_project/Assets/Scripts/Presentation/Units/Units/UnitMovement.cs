@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 [RequireComponent(typeof(DirectionalSpriteRenderer))]
@@ -7,7 +8,8 @@ public sealed class UnitMovement : MonoBehaviour
     {
         Idle,
         Moving,
-        TurningInPlace
+        TurningInPlace,
+        GroupTurning
     }
 
     [Header("Movement")]
@@ -32,6 +34,10 @@ public sealed class UnitMovement : MonoBehaviour
     [SerializeField, Range(1f, 180f)]
     private float stopForTurnAngle = 150f;
 
+    [Tooltip("A csoportos fordulás ennyi fokos eltérésnél tekinthetõ késznek.")]
+    [SerializeField, Range(0.1f, 10f)]
+    private float groupTurnTolerance = 1f;
+
     private DirectionalSpriteRenderer _directionalRenderer;
 
     private MovementState _state = MovementState.Idle;
@@ -39,11 +45,35 @@ public sealed class UnitMovement : MonoBehaviour
     private Vector2 _destination;
     private float _currentSpeed;
 
+    private float _groupMaxSpeed = float.PositiveInfinity;
+
+    public float BaseMoveSpeed => moveSpeed;
+
+    public float BaseTurnSpeed
+    {
+        get
+        {
+            DirectionalSpriteRenderer renderer =
+                GetComponent<DirectionalSpriteRenderer>();
+
+            return renderer != null ? renderer.BaseTurnSpeed : 0f;
+        }
+    }
+
+    private float EffectiveMoveSpeed =>
+        Mathf.Min(moveSpeed, _groupMaxSpeed);
+
+    private float _groupTurnAngle;
+    private bool _groupTurnComplete;
+
     public bool IsMoving => _state != MovementState.Idle;
+    public bool IsTravelling => _state == MovementState.Moving;
 
     public Vector2 Destination => _destination;
 
     public float CurrentSpeed => _currentSpeed;
+
+    public bool IsGroupTurnComplete => _groupTurnComplete;
 
     private void Awake()
     {
@@ -55,6 +85,7 @@ public sealed class UnitMovement : MonoBehaviour
 
     public void MoveTo(Vector2 destination)
     {
+        _groupTurnComplete = false;
         _destination = destination;
 
         Vector2 position = transform.position;
@@ -70,20 +101,69 @@ public sealed class UnitMovement : MonoBehaviour
         _state = MovementState.Moving;
     }
 
+    /// <summary>
+    /// Csoport által kezdeményezett fordulás.
+    /// Az egység elõször lefékez, majd helyben a megadott
+    /// irányba fordul. A befejezés az IsGroupTurnComplete
+    /// tulajdonságon keresztül ellenõrizhetõ.
+    /// </summary>
+    public void BeginGroupTurn(float targetAngle)
+    {
+        _groupTurnAngle = Mathf.Repeat(targetAngle, 360f);
+        _groupTurnComplete = false;
+        _state = MovementState.GroupTurning;
+    }
+
+    public void SetMovementLimits(
+    float maxMoveSpeed,
+    float maxTurnSpeed)
+    {
+        _groupMaxSpeed = Mathf.Max(0f, maxMoveSpeed);
+
+        if (_directionalRenderer == null)
+        {
+            _directionalRenderer =
+                GetComponent<DirectionalSpriteRenderer>();
+        }
+
+        if (_directionalRenderer != null)
+            _directionalRenderer.SetTurnSpeedLimit(maxTurnSpeed);
+    }
+
+    public void ResetMovementLimits()
+    {
+        _groupMaxSpeed = float.PositiveInfinity;
+
+        if (_directionalRenderer == null)
+        {
+            _directionalRenderer =
+                GetComponent<DirectionalSpriteRenderer>();
+        }
+
+        if (_directionalRenderer != null)
+            _directionalRenderer.ResetTurnSpeedLimit();
+    }
+
     public void StopMovement()
     {
         _state = MovementState.Idle;
         _currentSpeed = 0f;
+        _groupTurnComplete = false;
 
         _directionalRenderer.SetAngle(
-            _directionalRenderer.CurrentAngle
-        );
+            _directionalRenderer.CurrentAngle);
     }
 
     private void Update()
     {
         if (_state == MovementState.Idle)
             return;
+
+        if (_state == MovementState.GroupTurning)
+        {
+            UpdateGroupTurning();
+            return;
+        }
 
         Vector2 position = transform.position;
         Vector2 toDestination = _destination - position;
@@ -96,7 +176,6 @@ public sealed class UnitMovement : MonoBehaviour
             return;
         }
 
-        // A cél irányát mindig az aktuális pozícióból számoljuk.
         float targetAngle = CalculateAngle(toDestination);
 
         _directionalRenderer.SetTargetAngle(targetAngle);
@@ -104,19 +183,14 @@ public sealed class UnitMovement : MonoBehaviour
         float angleDifference = Mathf.Abs(
             Mathf.DeltaAngle(
                 _directionalRenderer.CurrentAngle,
-                targetAngle
-            )
-        );
+                targetAngle));
 
-        // Nagy irányeltérésnél átváltunk helyben fordulásra.
         if (_state == MovementState.Moving &&
             angleDifference >= stopForTurnAngle)
         {
             _state = MovementState.TurningInPlace;
         }
 
-        // Csak teljes megállás után indulhat újra,
-        // ha már megfelelõen a cél felé néz.
         if (_state == MovementState.TurningInPlace &&
             _currentSpeed <= 0.01f &&
             angleDifference <= fullSpeedTurnAngle)
@@ -129,7 +203,6 @@ public sealed class UnitMovement : MonoBehaviour
 
         if (_state == MovementState.TurningInPlace)
         {
-            // Elõször lefékezünk, utána helyben fordulunk.
             targetSpeed = 0f;
         }
         else
@@ -139,17 +212,14 @@ public sealed class UnitMovement : MonoBehaviour
 
             float stoppingDistance = Mathf.Max(
                 0f,
-                distance - arrivalDistance
-            );
+                distance - arrivalDistance);
 
             float brakingSpeed = Mathf.Sqrt(
-                2f * deceleration * stoppingDistance
-            );
+                2f * deceleration * stoppingDistance);
 
             targetSpeed = Mathf.Min(
-                moveSpeed * turnSpeedFactor,
-                brakingSpeed
-            );
+                EffectiveMoveSpeed * turnSpeedFactor,
+                brakingSpeed);
         }
 
         float speedChange = targetSpeed > _currentSpeed
@@ -159,30 +229,57 @@ public sealed class UnitMovement : MonoBehaviour
         _currentSpeed = Mathf.MoveTowards(
             _currentSpeed,
             targetSpeed,
-            speedChange * Time.deltaTime
-        );
+            speedChange * Time.deltaTime);
 
-        // A sprite iránya szerint haladunk.
-        // A TurningInPlace állapotban is lefékezünk,
-        // ezért a sebesség csak fokozatosan csökken nullára.
+        MoveForward();
+    }
+
+    private void UpdateGroupTurning()
+    {
+        _directionalRenderer.SetTargetAngle(_groupTurnAngle);
+
+        float angleDifference = Mathf.Abs(
+            Mathf.DeltaAngle(
+                _directionalRenderer.CurrentAngle,
+                _groupTurnAngle));
+
+        // A már mozgó egység elõször lefékez.
+        _currentSpeed = Mathf.MoveTowards(
+            _currentSpeed,
+            0f,
+            deceleration * Time.deltaTime);
+
+        if (_currentSpeed > 0f)
+            MoveForward();
+
+        // Csak teljes megállás és befejezett fordulás
+        // után küldünk kész állapotot a csapatnak.
+        if (_currentSpeed <= 0.01f &&
+            angleDifference <= groupTurnTolerance)
+        {
+            _currentSpeed = 0f;
+            _state = MovementState.Idle;
+            _groupTurnComplete = true;
+        }
+    }
+
+    private void MoveForward()
+    {
         float angleRadians =
             _directionalRenderer.CurrentAngle * Mathf.Deg2Rad;
 
         Vector2 forward = new Vector2(
             Mathf.Sin(angleRadians),
-            Mathf.Cos(angleRadians)
-        );
+            Mathf.Cos(angleRadians));
 
-        float step = _currentSpeed * Time.deltaTime;
-        step = Mathf.Min(step, distance);
-
-        Vector2 nextPosition = position + forward * step;
+        Vector2 position = transform.position;
+        Vector2 nextPosition =
+            position + forward * (_currentSpeed * Time.deltaTime);
 
         transform.position = new Vector3(
             nextPosition.x,
             nextPosition.y,
-            transform.position.z
-        );
+            transform.position.z);
     }
 
     private float CalculateTurnSpeedFactor(float angleDifference)
@@ -196,8 +293,7 @@ public sealed class UnitMovement : MonoBehaviour
         float t = Mathf.InverseLerp(
             fullSpeedTurnAngle,
             stopForTurnAngle,
-            angleDifference
-        );
+            angleDifference);
 
         return 1f - t;
     }
@@ -206,8 +302,7 @@ public sealed class UnitMovement : MonoBehaviour
     {
         float angle = Mathf.Atan2(
             direction.x,
-            direction.y
-        ) * Mathf.Rad2Deg;
+            direction.y) * Mathf.Rad2Deg;
 
         return Mathf.Repeat(angle, 360f);
     }
@@ -218,7 +313,6 @@ public sealed class UnitMovement : MonoBehaviour
         _currentSpeed = 0f;
 
         _directionalRenderer.SetAngle(
-            _directionalRenderer.CurrentAngle
-        );
+            _directionalRenderer.CurrentAngle);
     }
 }
