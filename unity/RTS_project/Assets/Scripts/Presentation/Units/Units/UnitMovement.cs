@@ -2,6 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(DirectionalSpriteRenderer))]
+[RequireComponent(typeof(UnitCollisionHandler))]
 public sealed class UnitMovement : MonoBehaviour
 {
     private enum MovementState
@@ -39,6 +40,7 @@ public sealed class UnitMovement : MonoBehaviour
     private float groupTurnTolerance = 1f;
 
     private DirectionalSpriteRenderer _directionalRenderer;
+    private UnitCollisionHandler _collisionHandler;
 
     private MovementState _state = MovementState.Idle;
 
@@ -79,6 +81,9 @@ public sealed class UnitMovement : MonoBehaviour
     {
         _directionalRenderer =
             GetComponent<DirectionalSpriteRenderer>();
+
+        _collisionHandler =
+            GetComponent<UnitCollisionHandler>();
 
         _directionalRenderer.Initialize();
     }
@@ -273,8 +278,28 @@ public sealed class UnitMovement : MonoBehaviour
             Mathf.Cos(angleRadians));
 
         Vector2 position = transform.position;
+
         Vector2 nextPosition =
             position + forward * (_currentSpeed * Time.deltaTime);
+
+        // Elõbb ütközést vizsgálunk, csak utána mozgatunk.
+        if (!_collisionHandler.CanMoveTo(nextPosition))
+        {
+            if (_state == MovementState.GroupTurning)
+            {
+                // A csoportfordulás alatt sem maradhatunk
+                // végtelenül várakozó állapotban.
+                _currentSpeed = 0f;
+                _state = MovementState.Idle;
+                _groupTurnComplete = true;
+            }
+            else
+            {
+                StopMovement();
+            }
+
+            return;
+        }
 
         transform.position = new Vector3(
             nextPosition.x,
