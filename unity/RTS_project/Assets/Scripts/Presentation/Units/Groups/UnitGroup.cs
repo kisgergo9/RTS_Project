@@ -544,28 +544,6 @@ public sealed class UnitGroup : MonoBehaviour
         }
     }
 
-    private static float GetMemberSpriteRadius(UnitGroupMember member)
-    {
-        SpriteRenderer[] renderers =
-            member.GetComponentsInChildren<SpriteRenderer>(true);
-
-        float radius = 0f;
-
-        foreach (SpriteRenderer renderer in renderers)
-        {
-            if (renderer == null || !renderer.enabled || renderer.sprite == null)
-                continue;
-
-            Vector3 extents = renderer.bounds.extents;
-
-            radius = Mathf.Max(
-                radius,
-                Mathf.Sqrt(extents.x * extents.x + extents.y * extents.y));
-        }
-
-        return radius;
-    }
-
     public static bool AreCompatible(UnitType a, UnitType b)
     {
         // Jelenleg csak azonos típusok alkothatnak csoportot.
@@ -621,6 +599,63 @@ public sealed class UnitGroup : MonoBehaviour
         return false;
     }
 
+    public void HandleMemberCollision(UnitGroupMember collidedMember)
+    {
+        if (collidedMember == null ||
+            !_members.Contains(collidedMember))
+        {
+            StopGroupMovement();
+            return;
+        }
+
+        // Elõször minden tag azonnal megáll.
+        StopGroupMovement();
+
+        // Az ütközött egység pozíciója alapján visszaszámítjuk
+        // a formáció középpontját.
+        Vector2 collidedPosition = collidedMember.transform.position;
+
+        Vector2 collidedSlotOffset =
+            GetSlotOffset(collidedMember.FormationSlot);
+
+        Vector2 formationCenter =
+            collidedPosition - collidedSlotOffset;
+
+        // A középponti egység (1-es slot) helyreállítása.
+        UnitGroupMember leader = GetLeader();
+
+        if (leader == null)
+            return;
+
+        UnitMovement leaderMovement =
+            leader.GetComponent<UnitMovement>();
+
+        if (leaderMovement == null)
+            return;
+
+        leaderMovement.TeleportTo(formationCenter);
+
+        // A többi tag helyreállítása a középpontból.
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null || member == leader)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement == null)
+                continue;
+
+            Vector2 slotOffset =
+                GetSlotOffset(member.FormationSlot);
+
+            movement.TeleportTo(formationCenter + slotOffset);
+        }
+
+        _movementState = GroupMovementState.Idle;
+    }
+
     public int FindNextFreeSlot()
     {
         for (int slot = 1; slot <= MaxMembers; slot++)
@@ -655,6 +690,28 @@ public sealed class UnitGroup : MonoBehaviour
     }
 
 
+    private Vector2 GetSlotOffset(int slot)
+    {
+        Vector2 grid = GetSpiralOffset(slot);
+
+        float spacing = Mathf.Max(CellSize.x, CellSize.y);
+        float angleRadians = 40f * Mathf.Deg2Rad;
+
+        Vector2 columnOffset = new Vector2(
+            grid.y * spacing,
+            0f);
+
+        Vector2 rowOffset = new Vector2(
+            grid.x * spacing * Mathf.Cos(angleRadians),
+            -grid.x * spacing * Mathf.Sin(angleRadians));
+
+        Vector2 offset = columnOffset + rowOffset;
+
+        offset = Quaternion.Euler(0f, 0f, 20f) * offset;
+
+        return offset;
+    }
+
     public Vector3 GetSlotWorldPosition(int slot)
     {
         UnitGroupMember leader = GetLeader();
@@ -662,27 +719,7 @@ public sealed class UnitGroup : MonoBehaviour
         if (leader == null)
             return transform.position;
 
-        Vector2 grid = GetSpiralOffset(slot);
-
-        // A két rácstengely közötti szög 40°.
-        float spacing = Mathf.Max(CellSize.x, CellSize.y);
-        float angleRadians = 40f * Mathf.Deg2Rad;
-
-        // Oszlopirány.
-        Vector2 columnOffset = new Vector2(
-            grid.y * spacing,
-            0f);
-
-        // Sorirány: 40°-os szöget zár be az oszloptengellyel.
-        Vector2 rowOffset = new Vector2(
-            grid.x * spacing * Mathf.Cos(angleRadians),
-            -grid.x * spacing * Mathf.Sin(angleRadians));
-
-        // Elõször kiszámítjuk a rombusz rácspontját.
-        Vector2 offset = columnOffset + rowOffset;
-
-        // Ezután elforgatjuk, hogy a rövidebbik átló függõleges legyen.
-        offset = Quaternion.Euler(0f, 0f, 20f) * offset;
+        Vector2 offset = GetSlotOffset(slot);
 
         return leader.transform.position +
                new Vector3(offset.x, offset.y, 0f);

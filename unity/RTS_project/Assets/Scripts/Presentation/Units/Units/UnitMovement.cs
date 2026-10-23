@@ -106,6 +106,21 @@ public sealed class UnitMovement : MonoBehaviour
         _state = MovementState.Moving;
     }
 
+    public void TeleportTo(Vector2 position)
+    {
+        // Minden korábbi mozgási folyamat megszakítása.
+        _state = MovementState.Idle;
+        _currentSpeed = 0f;
+        _destination = position;
+        _groupTurnComplete = false;
+
+        // Azonnali pozícióváltoztatás, normál mozgás nélkül.
+        transform.position = new Vector3(
+            position.x,
+            position.y,
+            transform.position.z);
+    }
+
     /// <summary>
     /// Csoport által kezdeményezett fordulás.
     /// Az egység elõször lefékez, majd helyben a megadott
@@ -297,7 +312,7 @@ public sealed class UnitMovement : MonoBehaviour
             {
                 StopMovement();
             }
-
+            _collisionHandler.NotifyMovementBlocked();
             return;
         }
 

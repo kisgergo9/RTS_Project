@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -114,6 +115,19 @@ public sealed class UnitCollisionHandler : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void NotifyMovementBlocked()
+    {
+        UnitGroupMember groupMember =
+            GetComponent<UnitGroupMember>();
+
+        if (groupMember != null && groupMember.Group != null)
+        {
+            // A saját csoport állítja le az összes tagot.
+            groupMember.Group.HandleMemberCollision(groupMember);
+            return;
+        }
     }
 
     private static bool IsMovementObstacle(Collider2D collider)
