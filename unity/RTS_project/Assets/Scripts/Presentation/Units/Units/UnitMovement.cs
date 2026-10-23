@@ -96,8 +96,7 @@ public sealed class UnitMovement : MonoBehaviour
         Vector2 position = transform.position;
         Vector2 direction = _destination - position;
 
-        if (direction.sqrMagnitude
-            <= arrivalDistance * arrivalDistance)
+        if (direction.sqrMagnitude <= arrivalDistance * arrivalDistance)
         {
             StopMovement();
             return;
@@ -270,12 +269,16 @@ public sealed class UnitMovement : MonoBehaviour
             deceleration * Time.deltaTime);
 
         if (_currentSpeed > 0f)
+        { 
             MoveForward();
+        }
+        if (_state != MovementState.GroupTurning)
+            return;
+
 
         // Csak teljes megállás és befejezett fordulás
         // után küldünk kész állapotot a csapatnak.
-        if (_currentSpeed <= 0.01f &&
-            angleDifference <= groupTurnTolerance)
+        if (_currentSpeed <= 0.01f && angleDifference <= groupTurnTolerance)
         {
             _currentSpeed = 0f;
             _state = MovementState.Idle;
@@ -297,21 +300,8 @@ public sealed class UnitMovement : MonoBehaviour
         Vector2 nextPosition =
             position + forward * (_currentSpeed * Time.deltaTime);
 
-        // Elõbb ütközést vizsgálunk, csak utána mozgatunk.
         if (!_collisionHandler.CanMoveTo(nextPosition))
         {
-            if (_state == MovementState.GroupTurning)
-            {
-                // A csoportfordulás alatt sem maradhatunk
-                // végtelenül várakozó állapotban.
-                _currentSpeed = 0f;
-                _state = MovementState.Idle;
-                _groupTurnComplete = true;
-            }
-            else
-            {
-                StopMovement();
-            }
             _collisionHandler.NotifyMovementBlocked();
             return;
         }

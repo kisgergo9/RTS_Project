@@ -57,6 +57,25 @@ public sealed class UnitGroup : MonoBehaviour
         Moving
     }
 
+    private Vector2 _avoidanceWaypoint;
+    private bool _handlingMemberCollision;
+
+    [Header("Obstacle Avoidance")]
+    [SerializeField]
+    private bool avoidLeft = true;
+
+    [SerializeField, Min(1f)]
+    private float avoidanceAngleStep = 5f;
+
+    [SerializeField, Min(0.01f)]
+    private float avoidanceProbeDistance = 0.01f;
+
+    [SerializeField, Min(1f)]
+    private float avoidanceWaypointDistance = 1f;
+
+    private bool _isAvoidingObstacle;
+    private float _avoidanceAngle;
+
     private GroupMovementState _movementState = GroupMovementState.Idle;
 
     private Vector2 _groupDestination;
@@ -233,6 +252,13 @@ public sealed class UnitGroup : MonoBehaviour
 
     public void MoveTo(Vector2 destination)
     {
+        // Érvénytelen célpont esetén elutasítjuk a parancsot,
+        // és a csoport korábbi állapotát változatlanul hagyjuk.
+        if (!CanFormationOccupyDestination(destination))
+            return;
+
+        _isAvoidingObstacle = false;
+        _groupDestination = destination;
         UnitGroupMember leader = GetLeader();
 
         if (leader == null)
@@ -240,8 +266,7 @@ public sealed class UnitGroup : MonoBehaviour
 
         // Ha minden tag halad, menet közben módosítjuk
         // a célpontokat, és nem indítunk új fordulási fázist.
-        if (_movementState == GroupMovementState.Moving &&
-            AreAllMembersTravelling())
+        if (_movementState == GroupMovementState.Moving && AreAllMembersTravelling())
         {
             Vector2 leaderPosition = leader.transform.position;
 
@@ -309,15 +334,39 @@ public sealed class UnitGroup : MonoBehaviour
             : GroupMovementState.Idle;
     }
 
+    private bool CanFormationOccupyDestination(Vector2 destination)
+    {
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null)
+                continue;
+
+            UnitCollisionHandler collisionHandler =
+                member.GetComponent<UnitCollisionHandler>();
+
+            if (collisionHandler == null)
+                continue;
+
+            Vector2 memberDestination =
+                destination + GetSlotOffset(member.FormationSlot);
+
+            if (!collisionHandler.CanOccupyPosition(memberDestination))
+                return false;
+        }
+
+        return true;
+    }
+
     public void StopGroupMovement()
     {
+        _isAvoidingObstacle = false;
+
         foreach (UnitGroupMember member in Members)
         {
             if (member == null)
                 continue;
 
-            UnitMovement movement =
-                member.GetComponent<UnitMovement>();
+            UnitMovement movement = member.GetComponent<UnitMovement>();
 
             if (movement != null)
                 movement.StopMovement();
@@ -328,6 +377,12 @@ public sealed class UnitGroup : MonoBehaviour
 
     private void Update()
     {
+        if (_movementState == GroupMovementState.Moving &&
+            _isAvoidingObstacle)
+        {
+            UpdateGroupAvoidance();
+        }
+
         switch (_movementState)
         {
             case GroupMovementState.Turning:
@@ -336,7 +391,7 @@ public sealed class UnitGroup : MonoBehaviour
                 break;
 
             case GroupMovementState.Moving:
-                if (AreAllMembersStopped())
+                if (!_isAvoidingObstacle && AreAllMembersStopped())
                     _movementState = GroupMovementState.Idle;
                 break;
         }
@@ -601,59 +656,271 @@ public sealed class UnitGroup : MonoBehaviour
 
     public void HandleMemberCollision(UnitGroupMember collidedMember)
     {
-        if (collidedMember == null ||
-            !_members.Contains(collidedMember))
+        if (_handlingMemberCollision)
+            return;
+
+        if (collidedMember == null || !_members.Contains(collidedMember))
+            return;
+
+        // Ha már kerülõirányt követünk, egy újabb ütközés
+        // ne indítsa újra az iránykeresést.
+        if (_isAvoidingObstacle)
+            return;
+
+        _handlingMemberCollision = true;
+
+        try
+        {
+            Vector2 originalDestination = _groupDestination;
+
+            StopGroupMovement();
+            _groupDestination = originalDestination;
+
+            UnitGroupMember leader = GetLeader();
+            if (leader == null)
+                return;
+
+            UnitMovement leaderMovement = leader.GetComponent<UnitMovement>();
+            if (leaderMovement == null)
+                return;
+
+            // A vezetõ pozíciójából és az ütközött tag slotjából
+            // visszaszámítjuk a formáció középpontját.
+            Vector2 collidedPosition = collidedMember.transform.position;
+            Vector2 collidedOffset = GetSlotOffset(collidedMember.FormationSlot);
+            Vector2 formationCenter = collidedPosition - collidedOffset;
+
+            // Elõször helyreállítjuk a teljes formációt.
+            leaderMovement.TeleportTo(formationCenter);
+
+            foreach (UnitGroupMember member in _members)
+            {
+                if (member == null || member == leader)
+                    continue;
+
+                UnitMovement movement = member.GetComponent<UnitMovement>();
+                if (movement == null)
+                    continue;
+
+                movement.TeleportTo(
+                    formationCenter + GetSlotOffset(member.FormationSlot));
+            }
+
+            // Az eredeti cél irányából indulunk, ugyanúgy,
+            // mint a korábbi egyedi akadálykerülésnél.
+            Vector2 toDestination = originalDestination - formationCenter;
+
+            if (toDestination.sqrMagnitude < 0.000001f)
+                return;
+
+            float desiredAngle = Mathf.Repeat(
+                Mathf.Atan2(toDestination.x, toDestination.y) * Mathf.Rad2Deg,
+                360f);
+
+            // Ha az eredeti cél felé már járható az út,
+            // nincs szükség kerülõirányra.
+            if (CanGroupMoveInDirection(
+                    toDestination.normalized,
+                    avoidanceProbeDistance))
+            {
+                _isAvoidingObstacle = false;
+                _movementState = GroupMovementState.Moving;
+                MoveFormationTo(originalDestination);
+                return;
+            }
+
+            if (!TryFindGroupAvoidanceAngle(desiredAngle))
+            {
+                // Egyetlen irány sem járható:
+                // a csoport megáll, a célpontot eldobja.
+                StopGroupMovement();
+                _groupDestination = formationCenter;
+                return;
+            }
+
+            _isAvoidingObstacle = true;
+            _movementState = GroupMovementState.Moving;
+
+            SetAvoidanceWaypoint();
+        }
+        finally
+        {
+            _handlingMemberCollision = false;
+        }
+    }
+
+    private void SetAvoidanceWaypoint()
+    {
+        UnitGroupMember leader = GetLeader();
+
+        if (leader == null)
         {
             StopGroupMovement();
             return;
         }
 
-        // Elõször minden tag azonnal megáll.
-        StopGroupMovement();
+        float radians = _avoidanceAngle * Mathf.Deg2Rad;
 
-        // Az ütközött egység pozíciója alapján visszaszámítjuk
-        // a formáció középpontját.
-        Vector2 collidedPosition = collidedMember.transform.position;
+        Vector2 direction = new Vector2(
+            Mathf.Sin(radians),
+            Mathf.Cos(radians));
 
-        Vector2 collidedSlotOffset =
-            GetSlotOffset(collidedMember.FormationSlot);
+        Vector2 leaderPosition = leader.transform.position;
 
-        Vector2 formationCenter =
-            collidedPosition - collidedSlotOffset;
+        _avoidanceWaypoint =
+            leaderPosition + direction * avoidanceWaypointDistance;
 
-        // A középponti egység (1-es slot) helyreállítása.
-        UnitGroupMember leader = GetLeader();
+        MoveFormationTo(_avoidanceWaypoint);
+    }
 
-        if (leader == null)
-            return;
-
-        UnitMovement leaderMovement =
-            leader.GetComponent<UnitMovement>();
-
-        if (leaderMovement == null)
-            return;
-
-        leaderMovement.TeleportTo(formationCenter);
-
-        // A többi tag helyreállítása a középpontból.
+    private void MoveFormationTo(Vector2 centerDestination)
+    {
         foreach (UnitGroupMember member in _members)
         {
-            if (member == null || member == leader)
+            if (member == null)
                 continue;
 
-            UnitMovement movement =
-                member.GetComponent<UnitMovement>();
+            UnitMovement movement = member.GetComponent<UnitMovement>();
 
             if (movement == null)
                 continue;
 
-            Vector2 slotOffset =
-                GetSlotOffset(member.FormationSlot);
+            ApplyMovementLimits(movement);
 
-            movement.TeleportTo(formationCenter + slotOffset);
+            // Minden tag ugyanahhoz a csoportközépponthoz
+            // tartozó, rögzített formációs célpontot kap.
+            Vector2 memberDestination =
+                centerDestination + GetSlotOffset(member.FormationSlot);
+
+            movement.MoveTo(memberDestination);
+        }
+    }
+
+    private bool CanGroupMoveInDirection(Vector2 direction, float distance)
+    {
+        if (direction.sqrMagnitude < 0.000001f)
+            return true;
+
+        direction.Normalize();
+
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null)
+                continue;
+
+            UnitCollisionHandler collisionHandler =
+                member.GetComponent<UnitCollisionHandler>();
+
+            if (collisionHandler == null)
+                continue;
+
+            Vector2 candidatePosition =
+                (Vector2)member.transform.position + direction * distance;
+
+            if (!collisionHandler.CanMoveTo(candidatePosition))
+                return false;
         }
 
-        _movementState = GroupMovementState.Idle;
+        return true;
+    }
+
+
+
+    private bool TryFindGroupAvoidanceAngle(float desiredAngle)
+    {
+        int stepCount = Mathf.CeilToInt(360f / avoidanceAngleStep);
+
+        for (int i = 1; i <= stepCount; i++)
+        {
+            float angleOffset = i * avoidanceAngleStep;
+
+            float candidateAngle = avoidLeft
+                ? desiredAngle - angleOffset
+                : desiredAngle + angleOffset;
+
+            candidateAngle = Mathf.Repeat(candidateAngle, 360f);
+
+            float radians = candidateAngle * Mathf.Deg2Rad;
+
+            Vector2 direction = new Vector2(
+                Mathf.Sin(radians),
+                Mathf.Cos(radians));
+
+            if (!CanGroupMoveInDirection(direction, avoidanceProbeDistance))
+                continue;
+
+            _avoidanceAngle = candidateAngle;
+            return true;
+        }
+
+        return false;
+    }
+
+    private void UpdateGroupAvoidance()
+    {
+        UnitGroupMember leader = GetLeader();
+
+        if (leader == null)
+        {
+            StopGroupMovement();
+            return;
+        }
+
+        Vector2 leaderPosition = leader.transform.position;
+        Vector2 toDestination = _groupDestination - leaderPosition;
+
+        if (toDestination.sqrMagnitude < 0.0001f)
+        {
+            _isAvoidingObstacle = false;
+            return;
+        }
+
+        // Amíg a csoport a jelenlegi kerülõpont felé halad,
+        // nem váltunk vissza az eredeti cél irányába.
+        if (!AreAllMembersStopped())
+            return;
+
+        // A csoport elérte az aktuális kerülõpontot.
+        // Most már megvizsgálhatjuk, hogy folytatható-e
+        // közvetlenül az eredeti útvonal.
+        Vector2 directDirection = toDestination.normalized;
+
+        if (CanGroupMoveInDirection(
+                directDirection,
+                avoidanceProbeDistance))
+        {
+            _isAvoidingObstacle = false;
+            MoveFormationTo(_groupDestination);
+            return;
+        }
+
+        // Az eredeti út még blokkolt.
+        // Elõször próbáljuk megtartani a korábbi kerülõirányt.
+        float radians = _avoidanceAngle * Mathf.Deg2Rad;
+
+        Vector2 currentAvoidanceDirection = new Vector2(
+            Mathf.Sin(radians),
+            Mathf.Cos(radians));
+
+        if (CanGroupMoveInDirection(
+                currentAvoidanceDirection,
+                avoidanceProbeDistance))
+        {
+            SetAvoidanceWaypoint();
+            return;
+        }
+
+        // A korábbi kerülõirány is blokkolt:
+        // új irányt csak most keresünk.
+        if (TryFindGroupAvoidanceAngle(_avoidanceAngle))
+        {
+            SetAvoidanceWaypoint();
+            return;
+        }
+
+        // Egyik irány sem járható.
+        StopGroupMovement();
+        _groupDestination = leaderPosition;
     }
 
     public int FindNextFreeSlot()

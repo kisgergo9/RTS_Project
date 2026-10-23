@@ -138,4 +138,54 @@ public sealed class UnitCollisionHandler : MonoBehaviour
         return collider.GetComponentInParent<MovementObstacle>()
             != null;
     }
+
+    public bool CanOccupyPosition(Vector2 position)
+{
+    BoxCollider2D boxCollider =
+        GetComponentInChildren<BoxCollider2D>();
+
+    if (boxCollider == null || !boxCollider.enabled)
+        return true;
+
+    Vector2 currentPosition = transform.position;
+
+    // A collider középpontját az egység tervezett
+    // pozíciójához igazítjuk.
+    Vector2 candidateCenter =
+        (Vector2)boxCollider.bounds.center
+        + (position - currentPosition);
+
+    Vector2 scale = boxCollider.transform.lossyScale;
+
+    Vector2 size = new Vector2(
+        boxCollider.size.x * Mathf.Abs(scale.x),
+        boxCollider.size.y * Mathf.Abs(scale.y));
+
+    float angle = boxCollider.transform.eulerAngles.z;
+
+    Collider2D[] overlaps = Physics2D.OverlapBoxAll(
+        candidateCenter,
+        size,
+        angle);
+
+    foreach (Collider2D overlap in overlaps)
+    {
+        if (overlap == null || overlap == boxCollider)
+            continue;
+
+        // Saját egységhez tartozó collidereket figyelmen
+        // kívül hagyjuk.
+        if (overlap.transform == transform ||
+            overlap.transform.IsChildOf(transform))
+        {
+            continue;
+        }
+
+        // Csak a megjelölt tereptárgyak akadályok.
+        if (overlap.GetComponentInParent<MovementObstacle>() != null)
+            return false;
+    }
+
+    return true;
+}
 }
