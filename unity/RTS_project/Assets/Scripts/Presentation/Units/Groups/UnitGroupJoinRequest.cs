@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -149,7 +150,12 @@ public sealed class UnitGroupJoinRequest : MonoBehaviour
 
         if (_movement != null)
             _movement.StopMovement();
+        
+        UnitCollisionHandler collisionHandler = _member.GetComponent<UnitCollisionHandler>();
 
+        if (collisionHandler != null)
+            collisionHandler.SetPassThroughGroups();
+        
         Destroy(this);
     }
 }

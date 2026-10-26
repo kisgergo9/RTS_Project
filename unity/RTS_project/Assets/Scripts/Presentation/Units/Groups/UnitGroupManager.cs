@@ -48,9 +48,7 @@ public sealed class UnitGroupManager : MonoBehaviour
         return group;
     }
 
-    public bool BeginJoinNewestMember(
-    UnitGroup source,
-    UnitGroup target)
+    public bool BeginJoinNewestMember(UnitGroup source, UnitGroup target)
     {
         if (source == null || target == null || source == target)
             return false;
@@ -68,8 +66,7 @@ public sealed class UnitGroupManager : MonoBehaviour
             return false;
 
         int originalSlot = member.FormationSlot;
-
-        source.RemoveMember(member);
+        UnitGroup originalGroup = source;
 
         GameObject joiningObject =
             new GameObject($"Group_{_nextGroupId++}");
@@ -81,13 +78,27 @@ public sealed class UnitGroupManager : MonoBehaviour
             joiningObject.AddComponent<UnitGroup>();
 
         member.transform.SetParent(joiningGroup.transform, true);
+        source.RemoveMember(member);
 
         if (!joiningGroup.AddMember(member, 1))
         {
-            member.transform.SetParent(source.transform, true);
-            source.AddMember(member, originalSlot);
+            member.transform.SetParent(originalGroup.transform, true);
+            originalGroup.AddMember(member, originalSlot);
+
             Destroy(joiningObject);
             return false;
+        }
+
+        // Sikeres leválasztás után engedélyezzük az áthaladást
+        // a célcsoport és az eredeti csoport tagjain.
+        UnitCollisionHandler collisionHandler =
+            member.GetComponent<UnitCollisionHandler>();
+
+        if (collisionHandler != null)
+        {
+            collisionHandler.SetPassThroughGroups(
+                originalGroup,
+                target);
         }
 
         UnitGroupJoinRequest request =
@@ -95,17 +106,13 @@ public sealed class UnitGroupManager : MonoBehaviour
 
         request.Initialize(target);
 
-        if (source.MemberCount == 0)
-            Destroy(source.gameObject);
+        if (originalGroup.MemberCount == 0)
+            Destroy(originalGroup.gameObject);
 
         return true;
     }
 
-    public bool TryCompleteJoin(
-        UnitGroup joiningGroup,
-        UnitGroup target,
-        UnitGroupMember member,
-        float positionTolerance)
+    public bool TryCompleteJoin(UnitGroup joiningGroup, UnitGroup target, UnitGroupMember member, float positionTolerance)
     {
         if (joiningGroup == null ||
             target == null ||
@@ -145,6 +152,11 @@ public sealed class UnitGroupManager : MonoBehaviour
             joiningGroup.AddMember(member, originalSlot);
             return false;
         }
+
+        UnitCollisionHandler collisionHandler = member.GetComponent<UnitCollisionHandler>();
+
+        if (collisionHandler != null)
+            collisionHandler.SetPassThroughGroups();
 
         // Nem állítjuk át sem a pozíciót, sem a forgatást.
         Destroy(joiningGroup.gameObject);
