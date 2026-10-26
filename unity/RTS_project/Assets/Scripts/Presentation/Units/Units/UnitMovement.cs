@@ -63,6 +63,33 @@ public sealed class UnitMovement : MonoBehaviour
         }
     }
 
+    public Vector2 CurrentMovementDirection
+    {
+        get
+        {
+            float angle;
+
+            if (_groupControlledTranslation && _hasGroupMovementDirection)
+            {
+                angle = _groupMovementDirection;
+            }
+            else if (_directionalRenderer != null)
+            {
+                angle = _directionalRenderer.CurrentAngle;
+            }
+            else
+            {
+                return Vector2.zero;
+            }
+
+            float radians = angle * Mathf.Deg2Rad;
+
+            return new Vector2(
+                Mathf.Sin(radians),
+                Mathf.Cos(radians));
+        }
+    }
+
     private float EffectiveMoveSpeed =>
         Mathf.Min(moveSpeed, _groupMaxSpeed);
 

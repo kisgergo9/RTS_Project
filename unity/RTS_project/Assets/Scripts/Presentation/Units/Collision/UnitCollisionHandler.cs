@@ -20,6 +20,12 @@ public sealed class UnitCollisionHandler : MonoBehaviour
 
     private readonly HashSet<UnitGroup> _passThroughGroups = new();
 
+    private UnitGroup _lastBlockingGroup;
+    private UnitGroupMember _lastBlockingMember;
+
+    public UnitGroup LastBlockingGroup => _lastBlockingGroup;
+    public UnitGroupMember LastBlockingMember => _lastBlockingMember;
+
     public void SetPassThroughGroups(params UnitGroup[] groups)
     {
         _passThroughGroups.Clear();
@@ -45,6 +51,9 @@ public sealed class UnitCollisionHandler : MonoBehaviour
 
             return false;
         }
+
+        _lastBlockingGroup = null;
+        _lastBlockingMember = null;
 
         Vector2 delta =
             nextPosition - (Vector2)transform.position;
@@ -92,6 +101,7 @@ public sealed class UnitCollisionHandler : MonoBehaviour
             {
                 // Legalább az egyik átfedõ akadály felé
                 // haladnánk, ezért blokkoljuk a mozgást.
+                RecordBlockingCollider(other);
                 return false;
             }
         }
@@ -129,10 +139,24 @@ public sealed class UnitCollisionHandler : MonoBehaviour
                 continue;
             }
 
+            RecordBlockingCollider(other);
             return false;
         }
 
         return true;
+    }
+
+    private void RecordBlockingCollider(Collider2D collider)
+    {
+        if (collider == null)
+            return;
+
+        _lastBlockingMember =
+            collider.GetComponentInParent<UnitGroupMember>();
+
+        _lastBlockingGroup = _lastBlockingMember != null
+            ? _lastBlockingMember.Group
+            : null;
     }
 
     public void NotifyMovementBlocked()
@@ -140,12 +164,13 @@ public sealed class UnitCollisionHandler : MonoBehaviour
         UnitGroupMember groupMember =
             GetComponent<UnitGroupMember>();
 
-        if (groupMember != null && groupMember.Group != null)
-        {
-            // A saját csoport állítja le az összes tagot.
-            groupMember.Group.HandleMemberCollision(groupMember);
+        if (groupMember == null || groupMember.Group == null)
             return;
-        }
+
+        groupMember.Group.HandleMemberCollision(
+            groupMember,
+            _lastBlockingGroup,
+            _lastBlockingMember);
     }
 
     private bool IsMovementObstacle(Collider2D collider)
@@ -191,10 +216,9 @@ public sealed class UnitCollisionHandler : MonoBehaviour
             return false;
         }
 
-        // Csak az álló másik csapatot kezeljük akadályként.
-        if (otherMember.Group == null)
-            return false;
-        return !otherMember.Group.IsMoving;
+        // A másik csoport tagja akadály,
+        // függetlenül attól, hogy a csoport mozog-e.
+        return otherMember.Group != null;
     }
 
     public bool CanOccupyPosition(Vector2 position)
