@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,6 +17,22 @@ public sealed class UnitCollisionHandler : MonoBehaviour
 
     [SerializeField, Min(0f)]
     private float separationTolerance = 0.001f;
+
+    private readonly HashSet<UnitGroup> _passThroughGroups = new();
+
+    public void SetPassThroughGroups(params UnitGroup[] groups)
+    {
+        _passThroughGroups.Clear();
+
+        if (groups == null)
+            return;
+
+        foreach (UnitGroup group in groups)
+        {
+            if (group != null)
+                _passThroughGroups.Add(group);
+        }
+    }
 
     public bool CanMoveTo(Vector2 nextPosition)
     {
@@ -130,13 +148,53 @@ public sealed class UnitCollisionHandler : MonoBehaviour
         }
     }
 
-    private static bool IsMovementObstacle(Collider2D collider)
+    private bool IsMovementObstacle(Collider2D collider)
     {
         if (collider == null)
             return false;
 
-        return collider.GetComponentInParent<MovementObstacle>()
-            != null;
+        // A terepakadályokat továbbra is a meglévõ
+        // MovementObstacle komponens alapján azonosítjuk.
+        if (collider.GetComponentInParent<MovementObstacle>() != null)
+            return true;
+
+        // A saját egységhez tartozó collidereket kihagyjuk.
+        if (collider.transform == transform ||
+            collider.transform.IsChildOf(transform))
+        {
+            return false;
+        }
+
+        // Megkeressük, tartozik-e a collider egy másik
+        // egységhez.
+        UnitGroupMember otherMember =
+            collider.GetComponentInParent<UnitGroupMember>();
+
+        if (otherMember == null)
+            return false;
+
+        // A csatlakozás során az eredeti és a célcsoport
+        // egységein is át lehet haladni.
+        if (otherMember.Group != null && _passThroughGroups.Contains(otherMember.Group))
+        {
+            return false;
+        }
+
+        // Saját csoporttag ne számítson külsõ akadálynak.
+        UnitGroupMember ownMember =
+            GetComponent<UnitGroupMember>();
+
+        if (ownMember != null &&
+            ownMember.Group != null &&
+            ownMember.Group == otherMember.Group)
+        {
+            return false;
+        }
+
+        // Csak az álló másik csapatot kezeljük akadályként.
+        if (otherMember.Group == null)
+            return false;
+        return !otherMember.Group.IsMoving;
     }
 
     public bool CanOccupyPosition(Vector2 position)

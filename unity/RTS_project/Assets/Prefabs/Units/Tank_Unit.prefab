@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 4287949919641131713}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.24, y: -0.4, z: 0}
+  m_LocalPosition: {x: 2.08, y: 2.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -303,6 +303,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementCollider: {fileID: 3037621174562879400}
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  separationTolerance: 0.001
 --- !u!1 &6466802972174177604
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +373,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0050991774, y: 0.030595183}
+  m_Offset: {x: 0.0066298842, y: 0.033656597}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -379,7 +383,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.3710997, y: 0.1773305}
+  m_Size: {x: 0.2823106, y: 0.12834358}
   m_EdgeRadius: 0
 --- !u!1 &8135812613917824780
 GameObject:

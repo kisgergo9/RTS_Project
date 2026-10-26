@@ -68,10 +68,10 @@ public sealed class UnitGroup : MonoBehaviour
     private float avoidanceAngleStep = 5f;
 
     [SerializeField, Min(0.01f)]
-    private float avoidanceProbeDistance = 0.05f;
+    private float avoidanceProbeDistance = 0.01f;
 
     [SerializeField, Min(0.5f)]
-    private float avoidanceWaypointDistance = 2f;
+    private float avoidanceWaypointDistance = 0.5f;
 
     private bool _isAvoidingObstacle;
     private float _avoidanceAngle;
