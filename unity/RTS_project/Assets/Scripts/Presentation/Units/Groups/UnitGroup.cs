@@ -68,13 +68,15 @@ public sealed class UnitGroup : MonoBehaviour
     private float avoidanceAngleStep = 5f;
 
     [SerializeField, Min(0.01f)]
-    private float avoidanceProbeDistance = 0.01f;
+    private float avoidanceProbeDistance = 0.05f;
 
-    [SerializeField, Min(1f)]
-    private float avoidanceWaypointDistance = 1f;
+    [SerializeField, Min(0.5f)]
+    private float avoidanceWaypointDistance = 2f;
 
     private bool _isAvoidingObstacle;
     private float _avoidanceAngle;
+    [SerializeField, Min(0.01f)]
+    private float avoidanceWaypointReachDistance = 0.2f;
 
     private GroupMovementState _movementState = GroupMovementState.Idle;
 
@@ -252,17 +254,22 @@ public sealed class UnitGroup : MonoBehaviour
 
     public void MoveTo(Vector2 destination)
     {
-        // Érvénytelen célpont esetén elutasítjuk a parancsot,
-        // és a csoport korábbi állapotát változatlanul hagyjuk.
         if (!CanFormationOccupyDestination(destination))
             return;
 
-        _isAvoidingObstacle = false;
-        _groupDestination = destination;
         UnitGroupMember leader = GetLeader();
 
         if (leader == null)
             return;
+
+        // Az új parancs érvényteleníti a korábbi kerülési tervet.
+        _isAvoidingObstacle = false;
+
+        // Ha az elõzõ parancs akadálykerülés közben érkezett,
+        // visszaállítjuk a normál mozgásvezérlést.
+        SetGroupControlledTranslation(false);
+
+        _groupDestination = destination;
 
         // Ha minden tag halad, menet közben módosítjuk
         // a célpontokat, és nem indítunk új fordulási fázist.
@@ -289,7 +296,7 @@ public sealed class UnitGroup : MonoBehaviour
                 ApplyMovementLimits(movement);
                 movement.MoveTo(destination + relativeOffset);
             }
-
+            _movementState = GroupMovementState.Moving;
             return;
         }
 
@@ -360,7 +367,7 @@ public sealed class UnitGroup : MonoBehaviour
     public void StopGroupMovement()
     {
         _isAvoidingObstacle = false;
-
+        SetGroupControlledTranslation(false);
         foreach (UnitGroupMember member in Members)
         {
             if (member == null)
@@ -380,6 +387,7 @@ public sealed class UnitGroup : MonoBehaviour
         if (_movementState == GroupMovementState.Moving &&
             _isAvoidingObstacle)
         {
+            UpdateGroupAvoidanceMovement();
             UpdateGroupAvoidance();
         }
 
@@ -394,6 +402,21 @@ public sealed class UnitGroup : MonoBehaviour
                 if (!_isAvoidingObstacle && AreAllMembersStopped())
                     _movementState = GroupMovementState.Idle;
                 break;
+        }
+    }
+
+    private void SetGroupControlledTranslation(bool enabled)
+    {
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement != null)
+                movement.SetGroupControlledTranslation(enabled);
         }
     }
 
@@ -673,7 +696,7 @@ public sealed class UnitGroup : MonoBehaviour
         {
             Vector2 originalDestination = _groupDestination;
 
-            StopGroupMovement();
+            //StopGroupMovement();
             _groupDestination = originalDestination;
 
             UnitGroupMember leader = GetLeader();
@@ -691,7 +714,7 @@ public sealed class UnitGroup : MonoBehaviour
             Vector2 formationCenter = collidedPosition - collidedOffset;
 
             // Elõször helyreállítjuk a teljes formációt.
-            leaderMovement.TeleportTo(formationCenter);
+            //leaderMovement.TeleportTo(formationCenter);
 
             foreach (UnitGroupMember member in _members)
             {
@@ -702,8 +725,7 @@ public sealed class UnitGroup : MonoBehaviour
                 if (movement == null)
                     continue;
 
-                movement.TeleportTo(
-                    formationCenter + GetSlotOffset(member.FormationSlot));
+                //movement.TeleportTo(formationCenter + GetSlotOffset(member.FormationSlot));
             }
 
             // Az eredeti cél irányából indulunk, ugyanúgy,
@@ -719,10 +741,9 @@ public sealed class UnitGroup : MonoBehaviour
 
             // Ha az eredeti cél felé már járható az út,
             // nincs szükség kerülõirányra.
-            if (CanGroupMoveInDirection(
-                    toDestination.normalized,
-                    avoidanceProbeDistance))
+            if (CanGroupMoveInDirection(toDestination.normalized, avoidanceProbeDistance))
             {
+                //Debug.LogError("három");
                 _isAvoidingObstacle = false;
                 _movementState = GroupMovementState.Moving;
                 MoveFormationTo(originalDestination);
@@ -770,10 +791,33 @@ public sealed class UnitGroup : MonoBehaviour
         _avoidanceWaypoint =
             leaderPosition + direction * avoidanceWaypointDistance;
 
-        MoveFormationTo(_avoidanceWaypoint);
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement == null)
+                continue;
+
+            ApplyMovementLimits(movement);
+
+            Vector2 memberDestination =
+                _avoidanceWaypoint +
+                GetSlotOffset(member.FormationSlot);
+
+            movement.MoveTo(
+                memberDestination,
+                continuousMovement: true);
+
+            movement.SetGroupMovementDirection(_avoidanceAngle);
+            movement.SetGroupControlledTranslation(true);
+        }
     }
 
-    private void MoveFormationTo(Vector2 centerDestination)
+    private void MoveFormationTo(Vector2 centerDestination, bool continuousMovement = false)
     {
         foreach (UnitGroupMember member in _members)
         {
@@ -787,12 +831,10 @@ public sealed class UnitGroup : MonoBehaviour
 
             ApplyMovementLimits(movement);
 
-            // Minden tag ugyanahhoz a csoportközépponthoz
-            // tartozó, rögzített formációs célpontot kap.
             Vector2 memberDestination =
                 centerDestination + GetSlotOffset(member.FormationSlot);
 
-            movement.MoveTo(memberDestination);
+            movement.MoveTo(memberDestination, continuousMovement);
         }
     }
 
@@ -811,8 +853,10 @@ public sealed class UnitGroup : MonoBehaviour
             UnitCollisionHandler collisionHandler =
                 member.GetComponent<UnitCollisionHandler>();
 
+            // Ha egy tag járhatósága nem ellenõrizhetõ,
+            // a csoport ne tekintse automatikusan járhatónak az irányt.
             if (collisionHandler == null)
-                continue;
+                return false;
 
             Vector2 candidatePosition =
                 (Vector2)member.transform.position + direction * distance;
@@ -824,7 +868,86 @@ public sealed class UnitGroup : MonoBehaviour
         return true;
     }
 
+    private float GetGroupCurrentSpeed()
+    {
+        float minimumSpeed = float.MaxValue;
+        bool foundMember = false;
 
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null)
+                continue;
+
+            UnitMovement movement =
+                member.GetComponent<UnitMovement>();
+
+            if (movement == null)
+                return 0f;
+
+            minimumSpeed = Mathf.Min(
+                minimumSpeed,
+                movement.CurrentSpeed);
+
+            foundMember = true;
+        }
+
+        return foundMember ? minimumSpeed : 0f;
+    }
+
+    private void UpdateGroupAvoidanceMovement()
+    {
+        if (_movementState != GroupMovementState.Moving ||
+            !_isAvoidingObstacle)
+        {
+            return;
+        }
+
+        float groupSpeed = GetGroupCurrentSpeed();
+
+        if (groupSpeed <= 0f)
+            return;
+
+        float radians = _avoidanceAngle * Mathf.Deg2Rad;
+
+        Vector2 direction = new Vector2(
+            Mathf.Sin(radians),
+            Mathf.Cos(radians));
+
+        float moveDistance = groupSpeed * Time.deltaTime;
+
+        // Még a tényleges elmozdulás elõtt ellenõrizzük
+        // a formáció összes tagjának következõ pozícióját.
+        if (!CanGroupMoveInDirection(direction, moveDistance))
+        {
+            // Az aktuális irány blokkolt.
+            // Keressünk új, balra eltérõ irányt.
+            if (TryFindGroupAvoidanceAngle(_avoidanceAngle))
+            {
+                SetAvoidanceWaypoint();
+            }
+            else
+            {
+                StopGroupMovement();
+            }
+
+            return;
+        }
+
+        Vector3 displacement = new Vector3(
+            direction.x * moveDistance,
+            direction.y * moveDistance,
+            0f);
+
+        // Minden tag pontosan ugyanazt az elmozdulást kapja.
+        // Így az eredeti formációs távolságok nem változnak.
+        foreach (UnitGroupMember member in _members)
+        {
+            if (member == null)
+                continue;
+
+            member.transform.position += displacement;
+        }
+    }
 
     private bool TryFindGroupAvoidanceAngle(float desiredAngle)
     {
@@ -875,14 +998,16 @@ public sealed class UnitGroup : MonoBehaviour
             return;
         }
 
-        // Amíg a csoport a jelenlegi kerülõpont felé halad,
-        // nem váltunk vissza az eredeti cél irányába.
-        if (!AreAllMembersStopped())
+        // Megnézzük, hogy a csoport elérte-e a jelenlegi kerülõpontot.
+        // Nem várjuk meg, hogy a tagok megálljanak.
+        float distanceToWaypoint =
+            Vector2.Distance(leaderPosition, _avoidanceWaypoint);
+
+        if (distanceToWaypoint > avoidanceWaypointReachDistance)
             return;
 
-        // A csoport elérte az aktuális kerülõpontot.
-        // Most már megvizsgálhatjuk, hogy folytatható-e
-        // közvetlenül az eredeti útvonal.
+        // A csoport elérte a kerülõpontot.
+        // Megvizsgáljuk, folytatható-e az út az eredeti cél felé.
         Vector2 directDirection = toDestination.normalized;
 
         if (CanGroupMoveInDirection(
@@ -890,12 +1015,13 @@ public sealed class UnitGroup : MonoBehaviour
                 avoidanceProbeDistance))
         {
             _isAvoidingObstacle = false;
+            SetGroupControlledTranslation(false);
             MoveFormationTo(_groupDestination);
             return;
         }
 
         // Az eredeti út még blokkolt.
-        // Elõször próbáljuk megtartani a korábbi kerülõirányt.
+        // Megpróbáljuk megtartani a jelenlegi kerülõirányt.
         float radians = _avoidanceAngle * Mathf.Deg2Rad;
 
         Vector2 currentAvoidanceDirection = new Vector2(
@@ -910,15 +1036,14 @@ public sealed class UnitGroup : MonoBehaviour
             return;
         }
 
-        // A korábbi kerülõirány is blokkolt:
-        // új irányt csak most keresünk.
+        // A jelenlegi irány sem járható, ezért új irányt keresünk.
         if (TryFindGroupAvoidanceAngle(_avoidanceAngle))
         {
             SetAvoidanceWaypoint();
             return;
         }
 
-        // Egyik irány sem járható.
+        // Nincs járható irány.
         StopGroupMovement();
         _groupDestination = leaderPosition;
     }
