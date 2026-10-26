@@ -13,6 +13,12 @@ public sealed class UnitSelectionController : MonoBehaviour
     private Vector2 _currentMousePosition;
     private bool _isDragging;
 
+    [SerializeField, Min(1f)]
+    private float rightClickDragThreshold = 10f;
+
+    private Vector2 _rightDragStart;
+    private bool _isRightDragging;
+
     private void Awake()
     {
         if (worldCamera == null)
@@ -29,8 +35,28 @@ public sealed class UnitSelectionController : MonoBehaviour
 
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            if (!TryMergeWithGroupAtMousePosition())
-                IssueMoveCommandToSelectedGroups();
+            _rightDragStart = mousePosition;
+            _isRightDragging = false;
+        }
+
+        if (Mouse.current.rightButton.isPressed)
+        {
+            if (Vector2.Distance(_rightDragStart, mousePosition)
+                >= rightClickDragThreshold)
+            {
+                _isRightDragging = true;
+            }
+        }
+
+        if (Mouse.current.rightButton.wasReleasedThisFrame)
+        {
+            if (!_isRightDragging)
+            {
+                if (!TryMergeWithGroupAtMousePosition())
+                    IssueMoveCommandToSelectedGroups();
+            }
+
+            _isRightDragging = false;
         }
 
         if (Mouse.current.leftButton.wasPressedThisFrame)

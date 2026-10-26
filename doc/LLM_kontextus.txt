@@ -319,92 +319,96 @@ Ez az alapelv minden későbbi architekturális és implementációs döntésné
 
 Tervezett mappa struktúra, melytől csak erősen indokolt esetben lehet eltérni:
 Assets/
-├── Game/
-│   ├── Art/
-│   │   ├── Units/
-│   │   │   ├── Common/
-│   │   │   ├── BaseDestroyers/
-│   │   │   ├── UnitHunters/
-│   │   │   └── APC/
-│   │   ├── Bases/
-│   │   │   ├── Walls/
-│   │   │   ├── Turrets/
-│   │   │   ├── Buildings/
-│   │   │   └── Flags/
-│   │   ├── Terrain/
-│   │   ├── UI/
-│   │   └── Effects/
-│   │
-│   ├── Audio/
-│   │
-│   ├── Animations/
-│   │   ├── Units/
-│   │   ├── Bases/
-│   │   └── Effects/
-│   │
-│   ├── Prefabs/
-│   │   ├── Units/
-│   │   ├── Bases/
-│   │   ├── Buildings/
-│   │   ├── Terrain/
-│   │   ├── UI/
-│   │   └── Effects/
-│   │
-│   ├── Scenes/
-│   │   ├── Boot.unity
-│   │   ├── MainMenu.unity
-│   │   ├── Lobby.unity
-│   │   ├── Game.unity
-│   │   └── Test_Sandbox.unity
-│   │
-│   ├── Scripts/
-│   │   ├── Domain/
-│   │   │   ├── State/
-│   │   │   ├── Units/
-│   │   │   ├── Bases/
-│   │   │   ├── Combat/
-│   │   │   ├── Economy/
-│   │   │   ├── Production/
-│   │   │   └── Victory/
-│   │   │
-│   │   ├── Application/
-│   │   │   ├── Commands/
-│   │   │   ├── Match/
-│   │   │   └── Events/
-│   │   │
-│   │   ├── World/
-│   │   │   ├── Generation/
-│   │   │   ├── Pathfinding/
-│   │   │   ├── Placement/
-│   │   │   └── Bounds/
-│   │   │
-│   │   ├── Presentation/
-│   │   │   ├── Camera/
-│   │   │   ├── Input/
-│   │   │   ├── Selection/
-│   │   │   ├── Units/
-│   │   │   ├── Bases/
-│   │   │   └── UI/
-│   │   │
-│   │   ├── Networking/
-│   │   │   ├── Lobby/
-│   │   │   ├── Commands/
-│   │   │   └── Replication/
-│   │   │
-│   │   ├── Persistence/
-│   │   ├── Configuration/
-│   │   └── Infrastructure/
-│   │
-│   ├── Data/
-│   │   ├── Units/
-│   │   ├── Buildings/
-│   │   ├── Economy/
-│   │   ├── Combat/
-│   │   └── WorldGeneration/
-│   │
-│   ├── Settings/
-│   └── Tests/
-│       ├── EditMode/
-│       └── PlayMode/
-│
-└── ThirdParty/
+├───Animations
+│   ├───Bases
+│   ├───Effects
+│   └───Units
+├───Art
+│   ├───Bases
+│   │   ├───Buildings
+│   │   │   ├───Airbase
+│   │   │   ├───Animated
+│   │   │   ├───Helicopter
+│   │   │   ├───Normal
+│   │   │   ├───Production
+│   │   │   └───SpecialBuilding
+│   │   ├───Flags
+│   │   ├───Turrets
+│   │   └───Walls
+│   ├───Effects
+│   ├───Terrain
+│   │   ├───Decor
+│   │   ├───Highway
+│   │   └───Obstructive
+│   ├───UI
+│   └───Units
+│       ├───APC
+│       ├───BaseDestroyers
+│       ├───Common
+│       ├───Shadow
+│       └───UnitHunters
+├───Audio
+├───Data
+│   ├───Buildings
+│   ├───Combat
+│   ├───Economy
+│   ├───Units
+│   └───WorldGeneration
+├───Prefabs
+│   ├───Bases
+│   ├───Buildings
+│   ├───Effects
+│   ├───Terrain
+│   ├───UI
+│   └───Units
+├───Scenes
+├───Scripts
+│   ├───Application
+│   │   ├───Commands
+│   │   ├───Events
+│   │   └───Match
+│   ├───Configuration
+│   ├───Domain
+│   │   ├───Bases
+│   │   ├───Combat
+│   │   ├───Economy
+│   │   ├───Production
+│   │   ├───State
+│   │   ├───Units
+│   │   └───Victory
+│   ├───Infrastructure
+│   ├───Networking
+│   │   ├───Commands
+│   │   ├───Lobby
+│   │   └───Replication
+│   ├───Persistence
+│   ├───Presentation
+│   │   ├───Bases
+│   │   ├───Camera
+│   │   ├───Input
+│   │   ├───UI
+│   │   └───Units
+│   │       ├───Collision
+│   │       ├───Groups
+│   │       ├───Selection
+│   │       ├───TestPreviews
+│   │       └───Units
+│   ├───Testing
+│   └───World
+│       ├───Bounds
+│       ├───Generation
+│       ├───Pathfinding
+│       └───Placement
+├───Settings
+│   └───Scenes
+├───Tests
+│   ├───EditMode
+│   └───PlayMode
+└───TextMesh Pro
+    ├───Fonts
+    ├───Resources
+    │   ├───Fonts & Materials
+    │   ├───Sprite Assets
+    │   └───Style Sheets
+    ├───Shaders
+    └───Sprites
