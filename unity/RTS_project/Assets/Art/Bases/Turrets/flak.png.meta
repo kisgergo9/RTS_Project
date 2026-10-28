@@ -329,10 +329,10 @@ TextureImporter:
       name: flak_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
-        width: 34
-        height: 36
+        x: 0
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +351,10 @@ TextureImporter:
       name: flak_1
       rect:
         serializedVersion: 2
-        x: 51
-        y: 3
-        width: 34
-        height: 37
+        x: 43
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,10 +373,10 @@ TextureImporter:
       name: flak_2
       rect:
         serializedVersion: 2
-        x: 94
-        y: 3
-        width: 34
-        height: 37
+        x: 86
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,10 +395,10 @@ TextureImporter:
       name: flak_3
       rect:
         serializedVersion: 2
-        x: 137
-        y: 3
-        width: 34
-        height: 37
+        x: 129
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -417,10 +417,10 @@ TextureImporter:
       name: flak_4
       rect:
         serializedVersion: 2
-        x: 180
-        y: 3
-        width: 34
-        height: 37
+        x: 172
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,10 +439,10 @@ TextureImporter:
       name: flak_5
       rect:
         serializedVersion: 2
-        x: 223
-        y: 3
-        width: 34
-        height: 37
+        x: 215
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,10 +461,10 @@ TextureImporter:
       name: flak_6
       rect:
         serializedVersion: 2
-        x: 266
-        y: 3
-        width: 34
-        height: 37
+        x: 258
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +483,10 @@ TextureImporter:
       name: flak_7
       rect:
         serializedVersion: 2
-        x: 309
-        y: 3
-        width: 34
-        height: 37
+        x: 301
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -505,10 +505,10 @@ TextureImporter:
       name: flak_8
       rect:
         serializedVersion: 2
-        x: 352
-        y: 3
-        width: 34
-        height: 37
+        x: 344
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -527,10 +527,10 @@ TextureImporter:
       name: flak_9
       rect:
         serializedVersion: 2
-        x: 395
-        y: 3
-        width: 34
-        height: 37
+        x: 387
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,10 +549,10 @@ TextureImporter:
       name: flak_10
       rect:
         serializedVersion: 2
-        x: 438
-        y: 3
-        width: 35
-        height: 37
+        x: 430
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -571,10 +571,10 @@ TextureImporter:
       name: flak_11
       rect:
         serializedVersion: 2
-        x: 481
-        y: 3
-        width: 35
-        height: 37
+        x: 473
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -593,10 +593,10 @@ TextureImporter:
       name: flak_12
       rect:
         serializedVersion: 2
-        x: 523
-        y: 4
-        width: 37
-        height: 36
+        x: 516
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,10 +615,10 @@ TextureImporter:
       name: flak_13
       rect:
         serializedVersion: 2
-        x: 566
-        y: 3
-        width: 37
-        height: 37
+        x: 559
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -637,10 +637,10 @@ TextureImporter:
       name: flak_14
       rect:
         serializedVersion: 2
-        x: 609
-        y: 3
-        width: 37
-        height: 37
+        x: 602
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -659,10 +659,10 @@ TextureImporter:
       name: flak_15
       rect:
         serializedVersion: 2
-        x: 653
-        y: 3
-        width: 36
-        height: 36
+        x: 645
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -681,10 +681,10 @@ TextureImporter:
       name: flak_16
       rect:
         serializedVersion: 2
-        x: 696
-        y: 2
-        width: 36
-        height: 37
+        x: 688
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -703,10 +703,10 @@ TextureImporter:
       name: flak_17
       rect:
         serializedVersion: 2
-        x: 739
-        y: 2
-        width: 35
-        height: 37
+        x: 731
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -725,10 +725,10 @@ TextureImporter:
       name: flak_18
       rect:
         serializedVersion: 2
-        x: 782
-        y: 1
-        width: 35
-        height: 37
+        x: 774
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -747,10 +747,10 @@ TextureImporter:
       name: flak_19
       rect:
         serializedVersion: 2
-        x: 825
-        y: 1
-        width: 35
-        height: 37
+        x: 817
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -769,10 +769,10 @@ TextureImporter:
       name: flak_20
       rect:
         serializedVersion: 2
-        x: 868
-        y: 1
-        width: 36
-        height: 37
+        x: 860
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,10 +791,10 @@ TextureImporter:
       name: flak_21
       rect:
         serializedVersion: 2
-        x: 911
+        x: 903
         y: 0
-        width: 36
-        height: 37
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -813,10 +813,10 @@ TextureImporter:
       name: flak_22
       rect:
         serializedVersion: 2
-        x: 953
+        x: 946
         y: 0
-        width: 37
-        height: 37
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -835,10 +835,10 @@ TextureImporter:
       name: flak_23
       rect:
         serializedVersion: 2
-        x: 996
+        x: 989
         y: 0
-        width: 36
-        height: 36
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -857,10 +857,10 @@ TextureImporter:
       name: flak_24
       rect:
         serializedVersion: 2
-        x: 1039
+        x: 1032
         y: 0
-        width: 36
-        height: 36
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -879,10 +879,10 @@ TextureImporter:
       name: flak_25
       rect:
         serializedVersion: 2
-        x: 1082
+        x: 1075
         y: 0
-        width: 36
-        height: 36
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -901,10 +901,10 @@ TextureImporter:
       name: flak_26
       rect:
         serializedVersion: 2
-        x: 1126
+        x: 1118
         y: 0
-        width: 34
-        height: 35
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -923,10 +923,10 @@ TextureImporter:
       name: flak_27
       rect:
         serializedVersion: 2
-        x: 1169
+        x: 1161
         y: 0
-        width: 34
-        height: 35
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -945,10 +945,10 @@ TextureImporter:
       name: flak_28
       rect:
         serializedVersion: 2
-        x: 1212
+        x: 1204
         y: 0
-        width: 34
-        height: 35
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -967,10 +967,10 @@ TextureImporter:
       name: flak_29
       rect:
         serializedVersion: 2
-        x: 1255
+        x: 1247
         y: 0
-        width: 34
-        height: 34
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -989,10 +989,10 @@ TextureImporter:
       name: flak_30
       rect:
         serializedVersion: 2
-        x: 1298
+        x: 1290
         y: 0
-        width: 34
-        height: 34
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1011,10 +1011,10 @@ TextureImporter:
       name: flak_31
       rect:
         serializedVersion: 2
-        x: 1341
+        x: 1333
         y: 0
-        width: 34
-        height: 34
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1033,10 +1033,10 @@ TextureImporter:
       name: flak_32
       rect:
         serializedVersion: 2
-        x: 1384
+        x: 1376
         y: 0
-        width: 34
-        height: 33
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1055,10 +1055,10 @@ TextureImporter:
       name: flak_33
       rect:
         serializedVersion: 2
-        x: 1427
+        x: 1419
         y: 0
-        width: 34
-        height: 33
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1077,10 +1077,10 @@ TextureImporter:
       name: flak_34
       rect:
         serializedVersion: 2
-        x: 1470
+        x: 1462
         y: 0
-        width: 34
-        height: 33
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1099,10 +1099,10 @@ TextureImporter:
       name: flak_35
       rect:
         serializedVersion: 2
-        x: 1513
+        x: 1505
         y: 0
-        width: 34
-        height: 33
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1121,10 +1121,10 @@ TextureImporter:
       name: flak_36
       rect:
         serializedVersion: 2
-        x: 1556
+        x: 1548
         y: 0
-        width: 34
-        height: 33
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1143,10 +1143,10 @@ TextureImporter:
       name: flak_37
       rect:
         serializedVersion: 2
-        x: 1598
+        x: 1591
         y: 0
-        width: 35
-        height: 33
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1165,10 +1165,10 @@ TextureImporter:
       name: flak_38
       rect:
         serializedVersion: 2
-        x: 1640
+        x: 1634
         y: 0
-        width: 36
-        height: 33
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1187,10 +1187,10 @@ TextureImporter:
       name: flak_39
       rect:
         serializedVersion: 2
-        x: 1682
+        x: 1677
         y: 0
-        width: 37
-        height: 33
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1209,10 +1209,10 @@ TextureImporter:
       name: flak_40
       rect:
         serializedVersion: 2
-        x: 1724
+        x: 1720
         y: 0
-        width: 38
-        height: 33
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1231,10 +1231,10 @@ TextureImporter:
       name: flak_41
       rect:
         serializedVersion: 2
-        x: 1766
+        x: 1763
         y: 0
-        width: 39
-        height: 34
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1253,10 +1253,10 @@ TextureImporter:
       name: flak_42
       rect:
         serializedVersion: 2
-        x: 1809
+        x: 1806
         y: 0
-        width: 39
-        height: 34
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1275,10 +1275,10 @@ TextureImporter:
       name: flak_43
       rect:
         serializedVersion: 2
-        x: 1851
+        x: 1849
         y: 0
-        width: 40
-        height: 34
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1297,10 +1297,10 @@ TextureImporter:
       name: flak_44
       rect:
         serializedVersion: 2
-        x: 1893
+        x: 1892
         y: 0
-        width: 41
-        height: 35
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1319,10 +1319,10 @@ TextureImporter:
       name: flak_45
       rect:
         serializedVersion: 2
-        x: 1936
+        x: 1935
         y: 0
-        width: 41
-        height: 35
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1343,8 +1343,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1978
         y: 0
-        width: 42
-        height: 35
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1365,8 +1365,8 @@ TextureImporter:
         serializedVersion: 2
         x: 2021
         y: 0
-        width: 42
-        height: 36
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1385,10 +1385,10 @@ TextureImporter:
       name: flak_48
       rect:
         serializedVersion: 2
-        x: 2063
+        x: 2064
         y: 0
         width: 43
-        height: 36
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1407,10 +1407,10 @@ TextureImporter:
       name: flak_49
       rect:
         serializedVersion: 2
-        x: 2106
+        x: 2107
         y: 0
         width: 43
-        height: 37
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1429,10 +1429,10 @@ TextureImporter:
       name: flak_50
       rect:
         serializedVersion: 2
-        x: 2149
+        x: 2150
         y: 0
         width: 43
-        height: 37
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1451,10 +1451,10 @@ TextureImporter:
       name: flak_51
       rect:
         serializedVersion: 2
-        x: 2192
-        y: 1
+        x: 2193
+        y: 0
         width: 43
-        height: 36
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1473,10 +1473,10 @@ TextureImporter:
       name: flak_52
       rect:
         serializedVersion: 2
-        x: 2235
-        y: 1
+        x: 2236
+        y: 0
         width: 43
-        height: 37
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1496,9 +1496,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2279
-        y: 1
-        width: 42
-        height: 37
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1518,9 +1518,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2322
-        y: 2
-        width: 42
-        height: 37
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1540,9 +1540,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2365
-        y: 2
-        width: 42
-        height: 37
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1561,10 +1561,10 @@ TextureImporter:
       name: flak_56
       rect:
         serializedVersion: 2
-        x: 2407
-        y: 2
+        x: 2408
+        y: 0
         width: 43
-        height: 37
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1583,10 +1583,10 @@ TextureImporter:
       name: flak_57
       rect:
         serializedVersion: 2
-        x: 2450
-        y: 3
+        x: 2451
+        y: 0
         width: 43
-        height: 37
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1605,10 +1605,10 @@ TextureImporter:
       name: flak_58
       rect:
         serializedVersion: 2
-        x: 2493
-        y: 3
+        x: 2494
+        y: 0
         width: 43
-        height: 37
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1627,10 +1627,10 @@ TextureImporter:
       name: flak_59
       rect:
         serializedVersion: 2
-        x: 2536
-        y: 3
+        x: 2537
+        y: 0
         width: 43
-        height: 37
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1649,10 +1649,10 @@ TextureImporter:
       name: flak_60
       rect:
         serializedVersion: 2
-        x: 2579
-        y: 4
+        x: 2580
+        y: 0
         width: 43
-        height: 36
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1672,9 +1672,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2623
-        y: 4
-        width: 42
-        height: 36
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1694,9 +1694,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2666
-        y: 3
-        width: 42
-        height: 37
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1715,10 +1715,10 @@ TextureImporter:
       name: flak_63
       rect:
         serializedVersion: 2
-        x: 2710
-        y: 3
-        width: 41
-        height: 37
+        x: 2709
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1737,10 +1737,10 @@ TextureImporter:
       name: flak_64
       rect:
         serializedVersion: 2
-        x: 2753
-        y: 3
-        width: 41
-        height: 37
+        x: 2752
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1759,10 +1759,10 @@ TextureImporter:
       name: flak_65
       rect:
         serializedVersion: 2
-        x: 2797
-        y: 3
-        width: 40
-        height: 37
+        x: 2795
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1781,10 +1781,10 @@ TextureImporter:
       name: flak_66
       rect:
         serializedVersion: 2
-        x: 2841
-        y: 3
-        width: 39
-        height: 37
+        x: 2838
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1803,10 +1803,10 @@ TextureImporter:
       name: flak_67
       rect:
         serializedVersion: 2
-        x: 2885
-        y: 3
-        width: 38
-        height: 37
+        x: 2881
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1825,10 +1825,10 @@ TextureImporter:
       name: flak_68
       rect:
         serializedVersion: 2
-        x: 2928
-        y: 3
-        width: 38
-        height: 37
+        x: 2924
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1847,10 +1847,10 @@ TextureImporter:
       name: flak_69
       rect:
         serializedVersion: 2
-        x: 2972
-        y: 3
-        width: 37
-        height: 37
+        x: 2967
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1869,10 +1869,10 @@ TextureImporter:
       name: flak_70
       rect:
         serializedVersion: 2
-        x: 3016
-        y: 3
-        width: 36
-        height: 37
+        x: 3010
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1891,10 +1891,10 @@ TextureImporter:
       name: flak_71
       rect:
         serializedVersion: 2
-        x: 3060
-        y: 3
-        width: 35
-        height: 37
+        x: 3053
+        y: 0
+        width: 43
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1913,7 +1913,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ea1d173c0cecf4643b23ea73669eec29
     internalID: 0
     vertices: []
     indices: 
@@ -1921,7 +1921,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":72.0,"y":1.0},"gridSpriteSize":{"x":43.0,"y":40.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       flak_0: -3255897101563602938
       flak_1: 1546440428325006664
