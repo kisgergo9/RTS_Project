@@ -263,10 +263,10 @@ TextureImporter:
       name: oelpump_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 65
-        height: 71
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: oelpump_1
       rect:
         serializedVersion: 2
-        x: 72
+        x: 68
         y: 0
-        width: 65
-        height: 71
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +307,10 @@ TextureImporter:
       name: oelpump_2
       rect:
         serializedVersion: 2
-        x: 139
+        x: 136
         y: 0
-        width: 66
-        height: 70
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,10 +329,10 @@ TextureImporter:
       name: oelpump_3
       rect:
         serializedVersion: 2
-        x: 207
+        x: 204
         y: 0
-        width: 66
-        height: 70
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +351,10 @@ TextureImporter:
       name: oelpump_4
       rect:
         serializedVersion: 2
-        x: 274
+        x: 272
         y: 0
-        width: 67
-        height: 70
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,10 +373,10 @@ TextureImporter:
       name: oelpump_5
       rect:
         serializedVersion: 2
-        x: 342
+        x: 340
         y: 0
-        width: 67
-        height: 69
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,10 +395,10 @@ TextureImporter:
       name: oelpump_6
       rect:
         serializedVersion: 2
-        x: 409
+        x: 408
         y: 0
         width: 68
-        height: 69
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -417,10 +417,10 @@ TextureImporter:
       name: oelpump_7
       rect:
         serializedVersion: 2
-        x: 477
+        x: 476
         y: 0
         width: 68
-        height: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,8 +441,8 @@ TextureImporter:
         serializedVersion: 2
         x: 544
         y: 0
-        width: 69
-        height: 67
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -463,8 +463,8 @@ TextureImporter:
         serializedVersion: 2
         x: 612
         y: 0
-        width: 69
-        height: 67
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +483,10 @@ TextureImporter:
       name: oelpump_10
       rect:
         serializedVersion: 2
-        x: 679
+        x: 680
         y: 0
-        width: 70
-        height: 66
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -505,10 +505,10 @@ TextureImporter:
       name: oelpump_11
       rect:
         serializedVersion: 2
-        x: 747
+        x: 748
         y: 0
-        width: 70
-        height: 66
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -527,10 +527,10 @@ TextureImporter:
       name: oelpump_12
       rect:
         serializedVersion: 2
-        x: 815
+        x: 816
         y: 0
-        width: 70
-        height: 67
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,10 +549,10 @@ TextureImporter:
       name: oelpump_13
       rect:
         serializedVersion: 2
-        x: 883
+        x: 884
         y: 0
-        width: 70
-        height: 68
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -571,10 +571,10 @@ TextureImporter:
       name: oelpump_14
       rect:
         serializedVersion: 2
-        x: 951
+        x: 952
         y: 0
-        width: 70
-        height: 69
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -593,10 +593,10 @@ TextureImporter:
       name: oelpump_15
       rect:
         serializedVersion: 2
-        x: 1019
+        x: 1020
         y: 0
-        width: 70
-        height: 70
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,10 +615,10 @@ TextureImporter:
       name: oelpump_16
       rect:
         serializedVersion: 2
-        x: 1087
+        x: 1088
         y: 0
-        width: 70
-        height: 71
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -637,10 +637,10 @@ TextureImporter:
       name: oelpump_17
       rect:
         serializedVersion: 2
-        x: 1155
+        x: 1156
         y: 0
-        width: 70
-        height: 72
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -661,8 +661,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1224
         y: 0
-        width: 69
-        height: 73
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -682,9 +682,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1292
-        y: 1
-        width: 69
-        height: 72
+        y: 0
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -703,10 +703,10 @@ TextureImporter:
       name: oelpump_20
       rect:
         serializedVersion: 2
-        x: 1361
-        y: 1
+        x: 1360
+        y: 0
         width: 68
-        height: 73
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -725,10 +725,10 @@ TextureImporter:
       name: oelpump_21
       rect:
         serializedVersion: 2
-        x: 1429
-        y: 1
+        x: 1428
+        y: 0
         width: 68
-        height: 73
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -747,10 +747,10 @@ TextureImporter:
       name: oelpump_22
       rect:
         serializedVersion: 2
-        x: 1498
-        y: 1
-        width: 67
-        height: 73
+        x: 1496
+        y: 0
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -769,10 +769,10 @@ TextureImporter:
       name: oelpump_23
       rect:
         serializedVersion: 2
-        x: 1566
-        y: 2
-        width: 67
-        height: 72
+        x: 1564
+        y: 0
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,10 +791,10 @@ TextureImporter:
       name: oelpump_24
       rect:
         serializedVersion: 2
-        x: 1635
-        y: 2
-        width: 66
-        height: 72
+        x: 1632
+        y: 0
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -813,10 +813,10 @@ TextureImporter:
       name: oelpump_25
       rect:
         serializedVersion: 2
-        x: 1703
-        y: 2
-        width: 66
-        height: 72
+        x: 1700
+        y: 0
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -835,10 +835,10 @@ TextureImporter:
       name: oelpump_26
       rect:
         serializedVersion: 2
-        x: 1771
-        y: 2
-        width: 66
-        height: 72
+        x: 1768
+        y: 0
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -857,10 +857,10 @@ TextureImporter:
       name: oelpump_27
       rect:
         serializedVersion: 2
-        x: 1839
-        y: 1
-        width: 66
-        height: 73
+        x: 1836
+        y: 0
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -879,10 +879,10 @@ TextureImporter:
       name: oelpump_28
       rect:
         serializedVersion: 2
-        x: 1906
-        y: 1
-        width: 67
-        height: 72
+        x: 1904
+        y: 0
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -901,10 +901,10 @@ TextureImporter:
       name: oelpump_29
       rect:
         serializedVersion: 2
-        x: 1973
-        y: 1
+        x: 1972
+        y: 0
         width: 68
-        height: 72
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -923,10 +923,10 @@ TextureImporter:
       name: oelpump_30
       rect:
         serializedVersion: 2
-        x: 2041
-        y: 1
+        x: 2040
+        y: 0
         width: 68
-        height: 71
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -946,9 +946,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2108
-        y: 1
-        width: 69
-        height: 70
+        y: 0
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -969,8 +969,8 @@ TextureImporter:
         serializedVersion: 2
         x: 2176
         y: 0
-        width: 69
-        height: 70
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -991,8 +991,8 @@ TextureImporter:
         serializedVersion: 2
         x: 2244
         y: 0
-        width: 69
-        height: 69
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1013,8 +1013,8 @@ TextureImporter:
         serializedVersion: 2
         x: 2312
         y: 0
-        width: 69
-        height: 68
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1035,8 +1035,8 @@ TextureImporter:
         serializedVersion: 2
         x: 2380
         y: 0
-        width: 69
-        height: 67
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1055,10 +1055,10 @@ TextureImporter:
       name: oelpump_36
       rect:
         serializedVersion: 2
-        x: 2449
+        x: 2448
         y: 0
         width: 68
-        height: 66
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1077,10 +1077,10 @@ TextureImporter:
       name: oelpump_37
       rect:
         serializedVersion: 2
-        x: 2517
+        x: 2516
         y: 0
         width: 68
-        height: 66
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1099,10 +1099,10 @@ TextureImporter:
       name: oelpump_38
       rect:
         serializedVersion: 2
-        x: 2585
+        x: 2584
         y: 0
         width: 68
-        height: 65
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1121,10 +1121,10 @@ TextureImporter:
       name: oelpump_39
       rect:
         serializedVersion: 2
-        x: 2654
+        x: 2652
         y: 0
-        width: 67
-        height: 66
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1143,19 +1143,19 @@ TextureImporter:
       name: oelpump_40
       rect:
         serializedVersion: 2
-        x: 2723
+        x: 2720
         y: 0
-        width: 66
-        height: 67
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5844f0f741e689480800000000000000
+      spriteID: 32a84ef1643ed9748b74e5ee36d01457
       internalID: -8892236429932936059
       vertices: []
       indices: 
@@ -1165,19 +1165,19 @@ TextureImporter:
       name: oelpump_41
       rect:
         serializedVersion: 2
-        x: 2792
+        x: 2788
         y: 0
-        width: 65
-        height: 67
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 391671b9b7e49b930800000000000000
+      spriteID: 0afc9feafe22cd148a1bb115baddd75f
       internalID: 4159442023643308435
       vertices: []
       indices: 
@@ -1187,19 +1187,19 @@ TextureImporter:
       name: oelpump_42
       rect:
         serializedVersion: 2
-        x: 2860
+        x: 2856
         y: 0
-        width: 65
-        height: 68
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ffa95fe37d32dbe30800000000000000
+      spriteID: 2afae086ef1a39a48b33af833f6ddccd
       internalID: 4520809008331070207
       vertices: []
       indices: 
@@ -1209,19 +1209,19 @@ TextureImporter:
       name: oelpump_43
       rect:
         serializedVersion: 2
-        x: 2928
+        x: 2924
         y: 0
-        width: 65
-        height: 69
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 65fc110f3aa80f950800000000000000
+      spriteID: bdfff046c84369e489d3b99181df05c6
       internalID: 6480832300498145110
       vertices: []
       indices: 
@@ -1231,19 +1231,19 @@ TextureImporter:
       name: oelpump_44
       rect:
         serializedVersion: 2
-        x: 2996
+        x: 2992
         y: 0
-        width: 65
-        height: 69
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bf630006cb5fb3bb0800000000000000
+      spriteID: 234fc32e924697f4c83e34012e4582b9
       internalID: -4955096775577815301
       vertices: []
       indices: 
@@ -1253,19 +1253,19 @@ TextureImporter:
       name: oelpump_45
       rect:
         serializedVersion: 2
-        x: 3064
+        x: 3060
         y: 0
-        width: 65
-        height: 70
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3d92b9e998ed37880800000000000000
+      spriteID: 20946afef2f171c42b004c75f29578ce
       internalID: -8614296979576772141
       vertices: []
       indices: 
@@ -1275,19 +1275,19 @@ TextureImporter:
       name: oelpump_46
       rect:
         serializedVersion: 2
-        x: 3132
+        x: 3128
         y: 0
-        width: 65
-        height: 70
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e851197c6d0748da0800000000000000
+      spriteID: e6858942d6397334a94d75141bd47ddf
       internalID: -5943501540448725618
       vertices: []
       indices: 
@@ -1297,19 +1297,19 @@ TextureImporter:
       name: oelpump_47
       rect:
         serializedVersion: 2
-        x: 3200
+        x: 3196
         y: 0
-        width: 65
-        height: 70
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 12c4b56bbd2de2ec0800000000000000
+      spriteID: 29c5e9fa050813247908f9877a0d9ecb
       internalID: -3589700011868599263
       vertices: []
       indices: 
@@ -1319,19 +1319,19 @@ TextureImporter:
       name: oelpump_48
       rect:
         serializedVersion: 2
-        x: 3268
+        x: 3264
         y: 0
-        width: 65
-        height: 70
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 480d0b3343c9a8d30800000000000000
+      spriteID: 7625bc1fabd92d140913f955d341d2f8
       internalID: 4434528531119132804
       vertices: []
       indices: 
@@ -1341,19 +1341,19 @@ TextureImporter:
       name: oelpump_49
       rect:
         serializedVersion: 2
-        x: 3336
+        x: 3332
         y: 0
-        width: 64
-        height: 71
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c69aa3f0a48f9abf0800000000000000
+      spriteID: f93d2fc97ea8b254e972336d2776f47a
       internalID: -312445702158767764
       vertices: []
       indices: 
@@ -1363,7 +1363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 65411c5a3f6b78544a9d28f1e87981cd
     internalID: 0
     vertices: []
     indices: 
@@ -1371,7 +1371,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":50.0,"y":1.0},"gridSpriteSize":{"x":68.0,"y":74.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       oelpump_0: 5216524314931764588
       oelpump_1: 4449387152706074616

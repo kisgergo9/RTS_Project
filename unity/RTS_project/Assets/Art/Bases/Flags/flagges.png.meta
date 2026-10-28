@@ -217,7 +217,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 21
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -237,9 +237,9 @@ TextureImporter:
       name: flagges_1
       rect:
         serializedVersion: 2
-        x: 22
+        x: 23
         y: 0
-        width: 22
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -261,8 +261,8 @@ TextureImporter:
         serializedVersion: 2
         x: 46
         y: 0
-        width: 21
-        height: 10
+        width: 23
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,9 +281,9 @@ TextureImporter:
       name: flagges_3
       rect:
         serializedVersion: 2
-        x: 70
+        x: 69
         y: 0
-        width: 21
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -303,10 +303,10 @@ TextureImporter:
       name: flagges_4
       rect:
         serializedVersion: 2
-        x: 94
+        x: 92
         y: 0
-        width: 19
-        height: 10
+        width: 23
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,10 +325,10 @@ TextureImporter:
       name: flagges_5
       rect:
         serializedVersion: 2
-        x: 118
+        x: 115
         y: 0
-        width: 18
-        height: 10
+        width: 23
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,9 +347,9 @@ TextureImporter:
       name: flagges_6
       rect:
         serializedVersion: 2
-        x: 142
+        x: 138
         y: 0
-        width: 19
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -369,9 +369,9 @@ TextureImporter:
       name: flagges_7
       rect:
         serializedVersion: 2
-        x: 166
+        x: 161
         y: 0
-        width: 18
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -391,9 +391,9 @@ TextureImporter:
       name: flagges_8
       rect:
         serializedVersion: 2
-        x: 191
+        x: 184
         y: 0
-        width: 17
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -413,9 +413,9 @@ TextureImporter:
       name: flagges_9
       rect:
         serializedVersion: 2
-        x: 213
+        x: 207
         y: 0
-        width: 17
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -435,9 +435,9 @@ TextureImporter:
       name: flagges_10
       rect:
         serializedVersion: 2
-        x: 235
+        x: 230
         y: 0
-        width: 19
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -457,9 +457,9 @@ TextureImporter:
       name: flagges_11
       rect:
         serializedVersion: 2
-        x: 257
+        x: 253
         y: 0
-        width: 19
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -479,9 +479,9 @@ TextureImporter:
       name: flagges_12
       rect:
         serializedVersion: 2
-        x: 280
+        x: 276
         y: 0
-        width: 19
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -501,9 +501,9 @@ TextureImporter:
       name: flagges_13
       rect:
         serializedVersion: 2
-        x: 302
+        x: 299
         y: 0
-        width: 20
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -523,9 +523,9 @@ TextureImporter:
       name: flagges_14
       rect:
         serializedVersion: 2
-        x: 324
+        x: 322
         y: 0
-        width: 20
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -545,9 +545,9 @@ TextureImporter:
       name: flagges_15
       rect:
         serializedVersion: 2
-        x: 347
+        x: 345
         y: 0
-        width: 21
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -567,9 +567,9 @@ TextureImporter:
       name: flagges_16
       rect:
         serializedVersion: 2
-        x: 371
+        x: 368
         y: 0
-        width: 19
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -589,9 +589,9 @@ TextureImporter:
       name: flagges_17
       rect:
         serializedVersion: 2
-        x: 393
+        x: 391
         y: 0
-        width: 19
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -611,9 +611,9 @@ TextureImporter:
       name: flagges_18
       rect:
         serializedVersion: 2
-        x: 416
+        x: 414
         y: 0
-        width: 19
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -633,10 +633,10 @@ TextureImporter:
       name: flagges_19
       rect:
         serializedVersion: 2
-        x: 439
+        x: 437
         y: 0
-        width: 19
-        height: 10
+        width: 23
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -655,9 +655,9 @@ TextureImporter:
       name: flagges_20
       rect:
         serializedVersion: 2
-        x: 462
+        x: 460
         y: 0
-        width: 21
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -677,9 +677,9 @@ TextureImporter:
       name: flagges_21
       rect:
         serializedVersion: 2
-        x: 486
+        x: 483
         y: 0
-        width: 21
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -699,9 +699,9 @@ TextureImporter:
       name: flagges_22
       rect:
         serializedVersion: 2
-        x: 510
+        x: 506
         y: 0
-        width: 20
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -721,9 +721,9 @@ TextureImporter:
       name: flagges_23
       rect:
         serializedVersion: 2
-        x: 533
+        x: 529
         y: 0
-        width: 20
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -743,10 +743,10 @@ TextureImporter:
       name: flagges_24
       rect:
         serializedVersion: 2
-        x: 558
-        y: 1
-        width: 18
-        height: 10
+        x: 552
+        y: 0
+        width: 23
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -765,9 +765,9 @@ TextureImporter:
       name: flagges_25
       rect:
         serializedVersion: 2
-        x: 579
+        x: 575
         y: 0
-        width: 20
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -787,9 +787,9 @@ TextureImporter:
       name: flagges_26
       rect:
         serializedVersion: 2
-        x: 601
+        x: 598
         y: 0
-        width: 21
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -809,9 +809,9 @@ TextureImporter:
       name: flagges_27
       rect:
         serializedVersion: 2
-        x: 623
+        x: 621
         y: 0
-        width: 22
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -831,7 +831,7 @@ TextureImporter:
       name: flagges_28
       rect:
         serializedVersion: 2
-        x: 645
+        x: 644
         y: 0
         width: 23
         height: 11
@@ -853,7 +853,7 @@ TextureImporter:
       name: flagges_29
       rect:
         serializedVersion: 2
-        x: 668
+        x: 667
         y: 0
         width: 23
         height: 11
@@ -897,10 +897,10 @@ TextureImporter:
       name: flagges_31
       rect:
         serializedVersion: 2
-        x: 714
-        y: 1
-        width: 22
-        height: 10
+        x: 713
+        y: 0
+        width: 23
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -941,9 +941,9 @@ TextureImporter:
       name: flagges_33
       rect:
         serializedVersion: 2
-        x: 758
+        x: 759
         y: 0
-        width: 24
+        width: 23
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -963,7 +963,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2d6233fa6f398b241938c1bdac46f0e7
     internalID: 0
     vertices: []
     indices: 
@@ -971,7 +971,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":34.0,"y":1.0},"gridSpriteSize":{"x":23.0,"y":11.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       flagges_0: 3236737585015884142
       flagges_1: 1465703882775502274

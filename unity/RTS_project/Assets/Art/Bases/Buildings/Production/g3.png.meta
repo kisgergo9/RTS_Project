@@ -146,34 +146,12 @@ TextureImporter:
       name: g3_0
       rect:
         serializedVersion: 2
-        x: 60
-        y: 31
-        width: 26
-        height: 29
+        x: 61
+        y: 7
+        width: 93
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75164d38574c30220800000000000000
-      internalID: 2451018631221633367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: g3_1
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 8
-        width: 78
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,7 +165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g3_2
+      name: g3_1
       rect:
         serializedVersion: 2
         x: 246
@@ -195,7 +173,7 @@ TextureImporter:
         width: 99
         height: 84
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,7 +187,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g3_3
+      name: g3_2
       rect:
         serializedVersion: 2
         x: 437
@@ -217,7 +195,7 @@ TextureImporter:
         width: 121
         height: 84
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,7 +209,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g3_4
+      name: g3_3
       rect:
         serializedVersion: 2
         x: 610
@@ -239,7 +217,7 @@ TextureImporter:
         width: 142
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,7 +231,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g3_5
+      name: g3_4
       rect:
         serializedVersion: 2
         x: 804
@@ -261,7 +239,7 @@ TextureImporter:
         width: 142
         height: 95
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,7 +253,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g3_6
+      name: g3_5
       rect:
         serializedVersion: 2
         x: 990
@@ -283,7 +261,7 @@ TextureImporter:
         width: 150
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -297,7 +275,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g3_7
+      name: g3_6
       rect:
         serializedVersion: 2
         x: 1184
@@ -305,7 +283,7 @@ TextureImporter:
         width: 150
         height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -319,7 +297,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g3_8
+      name: g3_7
       rect:
         serializedVersion: 2
         x: 1378
@@ -327,7 +305,7 @@ TextureImporter:
         width: 172
         height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -341,7 +319,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g3_9
+      name: g3_8
       rect:
         serializedVersion: 2
         x: 1551
@@ -349,7 +327,7 @@ TextureImporter:
         width: 193
         height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -363,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g3_10
+      name: g3_9
       rect:
         serializedVersion: 2
         x: 1745
@@ -371,7 +349,7 @@ TextureImporter:
         width: 193
         height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -388,7 +366,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6506f49b9cd7e184cac9e514dcb44885
     internalID: 0
     vertices: []
     indices: 
@@ -398,17 +376,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      g3_0: 2451018631221633367
-      g3_1: -3681639091457262343
-      g3_10: -6100059371621059757
-      g3_2: -830689509488047431
-      g3_3: -2571711969497597442
-      g3_4: 4163525577480567441
-      g3_5: 6885190814001092648
-      g3_6: 1150240894529575270
-      g3_7: -4621083698450292226
-      g3_8: 3071622726067821082
-      g3_9: -7195292671065068524
+      g3_0: -3681639091457262343
+      g3_1: -830689509488047431
+      g3_2: -2571711969497597442
+      g3_3: 4163525577480567441
+      g3_4: 6885190814001092648
+      g3_5: 1150240894529575270
+      g3_6: -4621083698450292226
+      g3_7: 3071622726067821082
+      g3_8: -7195292671065068524
+      g3_9: -6100059371621059757
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
