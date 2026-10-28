@@ -248,10 +248,10 @@ TextureImporter:
       name: boom2a_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 26
-        height: 26
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: boom2a_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 1
-        width: 26
-        height: 26
+        x: 30
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,10 +292,10 @@ TextureImporter:
       name: boom2a_2
       rect:
         serializedVersion: 2
-        x: 65
-        y: 1
-        width: 26
-        height: 26
+        x: 60
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +314,10 @@ TextureImporter:
       name: boom2a_3
       rect:
         serializedVersion: 2
-        x: 94
-        y: 1
-        width: 26
-        height: 26
+        x: 90
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: boom2a_4
       rect:
         serializedVersion: 2
-        x: 125
-        y: 2
-        width: 26
-        height: 26
+        x: 120
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,10 +358,10 @@ TextureImporter:
       name: boom2a_5
       rect:
         serializedVersion: 2
-        x: 155
-        y: 3
-        width: 25
-        height: 21
+        x: 150
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -380,10 +380,10 @@ TextureImporter:
       name: boom2a_6
       rect:
         serializedVersion: 2
-        x: 185
-        y: 3
-        width: 25
-        height: 22
+        x: 180
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,10 +402,10 @@ TextureImporter:
       name: boom2a_7
       rect:
         serializedVersion: 2
-        x: 214
-        y: 3
-        width: 27
-        height: 22
+        x: 210
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,10 +424,10 @@ TextureImporter:
       name: boom2a_8
       rect:
         serializedVersion: 2
-        x: 243
-        y: 2
-        width: 28
-        height: 24
+        x: 240
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -446,10 +446,10 @@ TextureImporter:
       name: boom2a_9
       rect:
         serializedVersion: 2
-        x: 273
-        y: 2
-        width: 28
-        height: 25
+        x: 270
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,10 +468,10 @@ TextureImporter:
       name: boom2a_10
       rect:
         serializedVersion: 2
-        x: 302
-        y: 2
-        width: 29
-        height: 25
+        x: 300
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -490,10 +490,10 @@ TextureImporter:
       name: boom2a_11
       rect:
         serializedVersion: 2
-        x: 332
-        y: 2
-        width: 29
-        height: 26
+        x: 330
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -512,10 +512,10 @@ TextureImporter:
       name: boom2a_12
       rect:
         serializedVersion: 2
-        x: 361
-        y: 1
+        x: 360
+        y: 0
         width: 30
-        height: 28
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -534,10 +534,10 @@ TextureImporter:
       name: boom2a_13
       rect:
         serializedVersion: 2
-        x: 391
-        y: 1
+        x: 390
+        y: 0
         width: 30
-        height: 28
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -556,10 +556,10 @@ TextureImporter:
       name: boom2a_14
       rect:
         serializedVersion: 2
-        x: 421
-        y: 1
+        x: 420
+        y: 0
         width: 30
-        height: 29
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -579,9 +579,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 450
-        y: 1
-        width: 31
-        height: 29
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -601,9 +601,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 1
-        width: 31
-        height: 30
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -624,8 +624,8 @@ TextureImporter:
         serializedVersion: 2
         x: 510
         y: 0
-        width: 31
-        height: 32
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -644,10 +644,10 @@ TextureImporter:
       name: boom2a_18
       rect:
         serializedVersion: 2
-        x: 539
+        x: 540
         y: 0
-        width: 32
-        height: 32
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -666,10 +666,10 @@ TextureImporter:
       name: boom2a_19
       rect:
         serializedVersion: 2
-        x: 569
+        x: 570
         y: 0
-        width: 31
-        height: 33
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -688,10 +688,10 @@ TextureImporter:
       name: boom2a_20
       rect:
         serializedVersion: 2
-        x: 599
+        x: 600
         y: 0
-        width: 31
-        height: 33
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -710,9 +710,9 @@ TextureImporter:
       name: boom2a_21
       rect:
         serializedVersion: 2
-        x: 629
+        x: 630
         y: 0
-        width: 31
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -732,9 +732,9 @@ TextureImporter:
       name: boom2a_22
       rect:
         serializedVersion: 2
-        x: 659
+        x: 660
         y: 0
-        width: 31
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -754,9 +754,9 @@ TextureImporter:
       name: boom2a_23
       rect:
         serializedVersion: 2
-        x: 689
+        x: 690
         y: 0
-        width: 31
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -776,9 +776,9 @@ TextureImporter:
       name: boom2a_24
       rect:
         serializedVersion: 2
-        x: 719
+        x: 720
         y: 0
-        width: 31
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -798,9 +798,9 @@ TextureImporter:
       name: boom2a_25
       rect:
         serializedVersion: 2
-        x: 749
+        x: 750
         y: 0
-        width: 31
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -820,7 +820,7 @@ TextureImporter:
       name: boom2a_26
       rect:
         serializedVersion: 2
-        x: 779
+        x: 780
         y: 0
         width: 30
         height: 34
@@ -842,7 +842,7 @@ TextureImporter:
       name: boom2a_27
       rect:
         serializedVersion: 2
-        x: 809
+        x: 810
         y: 0
         width: 30
         height: 34
@@ -864,7 +864,7 @@ TextureImporter:
       name: boom2a_28
       rect:
         serializedVersion: 2
-        x: 839
+        x: 840
         y: 0
         width: 30
         height: 34
@@ -886,7 +886,7 @@ TextureImporter:
       name: boom2a_29
       rect:
         serializedVersion: 2
-        x: 869
+        x: 870
         y: 0
         width: 30
         height: 34
@@ -908,7 +908,7 @@ TextureImporter:
       name: boom2a_30
       rect:
         serializedVersion: 2
-        x: 899
+        x: 900
         y: 0
         width: 30
         height: 34
@@ -930,9 +930,9 @@ TextureImporter:
       name: boom2a_31
       rect:
         serializedVersion: 2
-        x: 929
+        x: 930
         y: 0
-        width: 29
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -952,9 +952,9 @@ TextureImporter:
       name: boom2a_32
       rect:
         serializedVersion: 2
-        x: 959
+        x: 960
         y: 0
-        width: 29
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -976,7 +976,7 @@ TextureImporter:
         serializedVersion: 2
         x: 990
         y: 0
-        width: 28
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -998,7 +998,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1020
         y: 0
-        width: 28
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1018,9 +1018,9 @@ TextureImporter:
       name: boom2a_35
       rect:
         serializedVersion: 2
-        x: 1051
+        x: 1050
         y: 0
-        width: 26
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1040,9 +1040,9 @@ TextureImporter:
       name: boom2a_36
       rect:
         serializedVersion: 2
-        x: 1081
+        x: 1080
         y: 0
-        width: 25
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1062,9 +1062,9 @@ TextureImporter:
       name: boom2a_37
       rect:
         serializedVersion: 2
-        x: 1112
+        x: 1110
         y: 0
-        width: 23
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1084,9 +1084,9 @@ TextureImporter:
       name: boom2a_38
       rect:
         serializedVersion: 2
-        x: 1143
+        x: 1140
         y: 0
-        width: 21
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1106,9 +1106,9 @@ TextureImporter:
       name: boom2a_39
       rect:
         serializedVersion: 2
-        x: 1173
+        x: 1170
         y: 0
-        width: 20
+        width: 30
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -1128,10 +1128,10 @@ TextureImporter:
       name: boom2a_40
       rect:
         serializedVersion: 2
-        x: 1205
-        y: 2
-        width: 16
-        height: 32
+        x: 1200
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1150,10 +1150,10 @@ TextureImporter:
       name: boom2a_41
       rect:
         serializedVersion: 2
-        x: 1236
-        y: 7
-        width: 15
-        height: 27
+        x: 1230
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1172,10 +1172,10 @@ TextureImporter:
       name: boom2a_42
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 15
-        width: 12
-        height: 18
+        x: 1260
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1194,10 +1194,10 @@ TextureImporter:
       name: boom2a_43
       rect:
         serializedVersion: 2
-        x: 1299
-        y: 16
-        width: 6
-        height: 10
+        x: 1290
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1216,10 +1216,10 @@ TextureImporter:
       name: boom2a_44
       rect:
         serializedVersion: 2
-        x: 1304
-        y: 21
-        width: 34
-        height: 12
+        x: 1320
+        y: 0
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1238,7 +1238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 53e3d7aaf37f4474d847528dca43d707
     internalID: 0
     vertices: []
     indices: 
@@ -1246,7 +1246,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":45.0,"y":1.0},"gridSpriteSize":{"x":30.0,"y":34.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       boom2a_0: -4698668025662232227
       boom2a_1: -7669960250267135532
