@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
-public class BaseFlagView : MonoBehaviour
+[RequireComponent(typeof(BaseController))]
+public class BaseOwnerView : MonoBehaviour
 {
     [SerializeField] private Animator clothAnimator;
+    [SerializeField] private GameObject wall;
+    [SerializeField] private TMP_Text ownerText;
 
     // A Cloth.controller állapotainak nevei.
     [SerializeField] private string ownFlagState = "FlagClothAnim";
@@ -17,7 +21,7 @@ public class BaseFlagView : MonoBehaviour
 
     private void Awake()
     {
-        controller = GetComponentInParent<BaseController>();
+        controller = GetComponent<BaseController>();
     }
 
     private void Update()
@@ -30,7 +34,10 @@ public class BaseFlagView : MonoBehaviour
         }
 
         shownOwner = owner;
+
         ShowFlag(owner);
+        ShowWall(owner);
+        ShowOwnerText(owner);
     }
 
     private void ShowFlag(BaseOwner owner)
@@ -54,6 +61,30 @@ public class BaseFlagView : MonoBehaviour
         if (state != null)
         {
             clothAnimator.Play(state);
+        }
+    }
+
+    // Gazdátlan bázison nincs fal.
+    private void ShowWall(BaseOwner owner)
+    {
+        wall.SetActive(owner.Type != BaseOwnerType.None);
+    }
+
+    private void ShowOwnerText(BaseOwner owner)
+    {
+        switch (owner.Type)
+        {
+            case BaseOwnerType.Player:
+                ownerText.text = $"Játékos {owner.PlayerId}";
+                break;
+
+            case BaseOwnerType.Yellow:
+                ownerText.text = "Sárga";
+                break;
+
+            default:
+                ownerText.text = "Gazdátlan";
+                break;
         }
     }
 }
