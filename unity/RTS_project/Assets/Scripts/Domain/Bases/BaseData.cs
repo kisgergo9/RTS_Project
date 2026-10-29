@@ -39,7 +39,6 @@ public enum ActionInfo
 {
     Started,
     ActionRunning,
-    LevelZero,
     MaxLevelReached,
     NotEnoughConcrete
 }
@@ -54,7 +53,7 @@ public class BaseData
 
     private int producingIndex = -1;
     private float productionTimeLeft;
-    private float productionProgress;
+    private int productionReward;
 
     private int upgradingIndex = -1;
     private float upgradeTimeLeft;
@@ -126,26 +125,20 @@ public class BaseData
         return levels[buildingIndex];
     }
 
+    public static ResourceType GetResource(int buildingIndex)
+    {
+        return (ResourceType)buildingIndex;
+    }
+
     public void Tick(float deltaTime, IResourceWallet wallet)
     {
         if (producingIndex >= 0)
         {
-            float usedTime = Math.Min(deltaTime, productionTimeLeft);
-            int ratePerSecond = settings.buildings[producingIndex].productionPerSecondByLevel[levels[producingIndex]];
-
-            productionProgress = productionProgress + ratePerSecond * usedTime;
-            int wholeUnits = (int)productionProgress;
-
-            if (wholeUnits >= 1)
-            {
-                productionProgress = productionProgress - wholeUnits;
-                wallet.Add((ResourceType)producingIndex, wholeUnits);
-            }
-
-            productionTimeLeft = productionTimeLeft - deltaTime;
+            productionTimeLeft -= deltaTime;
 
             if (productionTimeLeft <= 0f)
             {
+                wallet.Add(GetResource(producingIndex), productionReward);
                 producingIndex = -1;
                 productionTimeLeft = 0f;
             }
@@ -153,11 +146,11 @@ public class BaseData
 
         if (upgradingIndex >= 0)
         {
-            upgradeTimeLeft = upgradeTimeLeft - deltaTime;
+            upgradeTimeLeft -= deltaTime;
 
             if (upgradeTimeLeft <= 0f)
             {
-                levels[upgradingIndex] = levels[upgradingIndex] + 1;
+                levels[upgradingIndex] += 1;
                 upgradingIndex = -1;
                 upgradeTimeLeft = 0f;
             }
@@ -166,6 +159,8 @@ public class BaseData
 
     public ActionInfo StartAction(int buildingIndex, BuildingAction action, IResourceWallet wallet)
     {
+        BuildingSettings building = settings.buildings[buildingIndex];
+
         switch (action)
         {
             case BuildingAction.Produce:
@@ -174,13 +169,9 @@ public class BaseData
                     return ActionInfo.ActionRunning;
                 }
 
-                if (levels[buildingIndex] <= 0)
-                {
-                    return ActionInfo.LevelZero;
-                }
-
                 producingIndex = buildingIndex;
-                productionTimeLeft = settings.buildings[buildingIndex].productionDurationSeconds;
+                productionTimeLeft = building.productionTimeByLevel[levels[buildingIndex]];
+                productionReward = building.productionAmountByLevel[levels[buildingIndex]];
                 return ActionInfo.Started;
 
             case BuildingAction.Upgrade:
@@ -189,7 +180,6 @@ public class BaseData
                     return ActionInfo.ActionRunning;
                 }
 
-                BuildingSettings building = settings.buildings[buildingIndex];
                 int targetLevel = levels[buildingIndex] + 1;
 
                 if (targetLevel >= building.upgradeCostConcreteByLevel.Length)

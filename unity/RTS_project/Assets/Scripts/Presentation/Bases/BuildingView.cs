@@ -20,7 +20,7 @@ public class BuildingView : MonoBehaviour
             return;
         }
 
-        if (levelSprites == null || level < 0 || level >= levelSprites.Length)
+        if (level >= levelSprites.Length)
         {
             return;
         }

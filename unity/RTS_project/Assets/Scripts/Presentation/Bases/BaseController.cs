@@ -26,11 +26,6 @@ public class BaseController : MonoBehaviour
 
     private void Update()
     {
-        if (wallet == null)
-        {
-            return;
-        }
-
         data.Tick(Time.deltaTime, wallet);
         UpdateBuildingViews();
     }
@@ -46,7 +41,7 @@ public class BaseController : MonoBehaviour
         {
             if (settings.buildings[i] != null)
             {
-                settings.buildings[i].name = $"{(ResourceType)i}Building";
+                settings.buildings[i].name = $"{BaseData.GetResource(i)}Building";
             }
         }
     }
@@ -62,24 +57,13 @@ public class BaseController : MonoBehaviour
         wallet = newWallet;
     }
 
-    public void StartAction(int buildingIndex, BuildingAction action)
+    public ActionInfo StartAction(int buildingIndex, BuildingAction action)
     {
-        if (wallet == null)
-        {
-            return;
-        }
-
-        ActionInfo info = data.StartAction(buildingIndex, action, wallet);
-        Debug.Log($"{action}, épület: {buildingIndex}, eredmény: {GetInfoText(info)}");
+        return data.StartAction(buildingIndex, action, wallet);
     }
 
     private void UpdateBuildingViews()
     {
-        if (buildingViews == null)
-        {
-            return;
-        }
-
         int count = Mathf.Min(buildingViews.Length, data.BuildingCount);
 
         for (int i = 0; i < count; i++)
@@ -88,30 +72,6 @@ public class BaseController : MonoBehaviour
             {
                 buildingViews[i].SetLevel(data.GetLevel(i));
             }
-        }
-    }
-
-    private string GetInfoText(ActionInfo info)
-    {
-        switch (info)
-        {
-            case ActionInfo.Started:
-                return "elindult";
-
-            case ActionInfo.ActionRunning:
-                return "ilyen művelet már megy a bázison";
-
-            case ActionInfo.LevelZero:
-                return "0. szintű épület nem termel";
-
-            case ActionInfo.MaxLevelReached:
-                return "elérte a legmagasabb szintet";
-
-            case ActionInfo.NotEnoughConcrete:
-                return "nincs elég beton";
-
-            default:
-                return info.ToString();
         }
     }
 }
