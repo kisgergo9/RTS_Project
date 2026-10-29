@@ -3,13 +3,15 @@
 [RequireComponent(typeof(SpriteRenderer))]
 public class BuildingView : MonoBehaviour
 {
-    [SerializeField] private Sprite[] levelSprites;
+    private static readonly Color OutlineColor = new Color32(255, 255, 255, 130);
+    private const float OutlineScale = 1.06f;
+    private const float PanelGap = 0.1f;
 
-    [SerializeField] private Color outlineColor = new Color32(255, 255, 255, 130);
-    [SerializeField] private float outlineScale = 1.06f;
+    [SerializeField] private Sprite[] levelSprites;
 
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer outlineRenderer;
+    private BuildingInfoPanel infoPanel;
     private int shownLevel = -1;
 
     private void Awake()
@@ -18,14 +20,50 @@ public class BuildingView : MonoBehaviour
         CreateOutline();
     }
 
-    public void SetLevel(int level)
+    public void Show(BaseData data, int buildingIndex)
     {
-        if (level == shownLevel)
+        int level = data.GetLevel(buildingIndex);
+        SetLevel(level);
+
+        if (infoPanel == null)
+        {
+            infoPanel = new BuildingInfoPanel(transform, buildingIndex, spriteRenderer.sortingLayerID, spriteRenderer.sortingOrder + 100);
+        }
+
+        bool producing = buildingIndex == data.ProducingIndex;
+        bool upgrading = buildingIndex == data.UpgradingIndex;
+
+        outlineRenderer.enabled = producing || upgrading;
+        infoPanel.SetVisible(producing || upgrading);
+
+        if (!producing && !upgrading)
         {
             return;
         }
 
-        if (level >= levelSprites.Length)
+        int targetLevel = level + 1;
+
+        Bounds bounds = spriteRenderer.sprite.bounds;
+        infoPanel.SetPosition(new Vector2(bounds.center.x, bounds.max.y), PanelGap);
+
+        infoPanel.SetLevel(level);
+        infoPanel.SetProduction(producing, Mathf.CeilToInt(data.ProductionTimeLeft), data.ProductionProgress);
+        infoPanel.SetUpgrade(upgrading, targetLevel, Mathf.CeilToInt(data.UpgradeTimeLeft), data.UpgradeProgress, GetSprite(targetLevel));
+    }
+
+    private Sprite GetSprite(int level)
+    {
+        if (level < 0 || level >= levelSprites.Length)
+        {
+            return null;
+        }
+
+        return levelSprites[level];
+    }
+
+    private void SetLevel(int level)
+    {
+        if (level == shownLevel || level >= levelSprites.Length)
         {
             return;
         }
@@ -33,34 +71,24 @@ public class BuildingView : MonoBehaviour
         shownLevel = level;
         spriteRenderer.sprite = levelSprites[level];
         outlineRenderer.sprite = levelSprites[level];
-        CenterOutline();
-    }
 
-    public void SetHighlighted(bool highlighted)
-    {
-        outlineRenderer.enabled = highlighted;
+        // A nagyítás a sprite közepe körül történjen, ne a pivot körül.
+        outlineRenderer.transform.localPosition = -spriteRenderer.sprite.bounds.center * (OutlineScale - 1f);
     }
 
     private void CreateOutline()
     {
         Material material = new Material(Shader.Find("RTS/WhiteSilhouette"));
-        material.color = outlineColor;
+        material.color = OutlineColor;
 
         GameObject outlineObject = new GameObject("Outline");
         outlineObject.transform.SetParent(transform, false);
-        outlineObject.transform.localScale = new Vector3(outlineScale, outlineScale, 1f);
+        outlineObject.transform.localScale = new Vector3(OutlineScale, OutlineScale, 1f);
 
         outlineRenderer = outlineObject.AddComponent<SpriteRenderer>();
         outlineRenderer.material = material;
         outlineRenderer.sortingLayerID = spriteRenderer.sortingLayerID;
         outlineRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
         outlineRenderer.enabled = false;
-    }
-
-    // A nagyítás a sprite közepe körül történjen, ne a pivot körül.
-    private void CenterOutline()
-    {
-        Vector3 center = outlineRenderer.sprite.bounds.center;
-        outlineRenderer.transform.localPosition = -center * (outlineScale - 1f);
     }
 }

@@ -54,9 +54,11 @@ public class BaseData
     private int producingIndex = -1;
     private float productionTimeLeft;
     private int productionReward;
+    private float productionTimeTotal;
 
     private int upgradingIndex = -1;
     private float upgradeTimeLeft;
+    private float upgradeTimeTotal;
 
     public int BaseId
     {
@@ -93,6 +95,16 @@ public class BaseData
         get { return upgradeTimeLeft; }
     }
 
+    public float ProductionProgress
+    {
+        get { return GetProgress(productionTimeLeft, productionTimeTotal); }
+    }
+
+    public float UpgradeProgress
+    {
+        get { return GetProgress(upgradeTimeLeft, upgradeTimeTotal); }
+    }
+
     public BaseData(int baseId, BaseOwner owner, BaseSettings settings)
     {
         this.baseId = baseId;
@@ -123,6 +135,16 @@ public class BaseData
     public int GetLevel(int buildingIndex)
     {
         return levels[buildingIndex];
+    }
+
+    private static float GetProgress(float timeLeft, float timeTotal)
+    {
+        if (timeTotal <= 0f)
+        {
+            return 1f;
+        }
+
+        return 1f - timeLeft / timeTotal;
     }
 
     public static ResourceType GetResource(int buildingIndex)
@@ -171,6 +193,7 @@ public class BaseData
 
                 producingIndex = buildingIndex;
                 productionTimeLeft = building.productionTimeByLevel[levels[buildingIndex]];
+                productionTimeTotal = productionTimeLeft;
                 productionReward = building.productionAmountByLevel[levels[buildingIndex]];
                 return ActionInfo.Started;
 
@@ -196,6 +219,7 @@ public class BaseData
 
                 upgradingIndex = buildingIndex;
                 upgradeTimeLeft = building.upgradeTimeByLevel[targetLevel];
+                upgradeTimeTotal = upgradeTimeLeft;
                 return ActionInfo.Started;
 
             default:

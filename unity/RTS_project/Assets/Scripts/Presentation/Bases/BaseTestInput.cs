@@ -9,8 +9,6 @@ public class BaseTestInput : MonoBehaviour
     private readonly Key[] productionKeys = { Key.Digit1, Key.Digit2, Key.Digit3, Key.Digit4 };
     private readonly Key[] upgradeKeys = { Key.Digit5, Key.Digit6, Key.Digit7, Key.Digit8 };
 
-    private readonly string[] resourceNames = { "Szén", "Acél", "Olaj", "Beton" };
-
     private BaseController controller;
     private IResourceWallet wallet;
     private string lastMessage = "";
@@ -25,11 +23,6 @@ public class BaseTestInput : MonoBehaviour
     }
 
     private void Update()
-    {
-        HandleInput();
-    }
-
-    private void HandleInput()
     {
         if (Keyboard.current == null)
         {
@@ -55,7 +48,7 @@ public class BaseTestInput : MonoBehaviour
         ActionInfo info = controller.StartAction(buildingIndex, action);
         string actionName = action == BuildingAction.Produce ? "termelés" : "fejlesztés";
 
-        lastMessage = $"{resourceNames[buildingIndex]}, {actionName}: {GetInfoText(info)}";
+        lastMessage = $"{BaseController.ResourceNames[buildingIndex]}, {actionName}: {GetInfoText(info)}";
     }
 
     private void OnGUI()
@@ -71,7 +64,7 @@ public class BaseTestInput : MonoBehaviour
 
         for (int i = 0; i < data.BuildingCount; i++)
         {
-            GUILayout.Label($"{resourceNames[i]}: {wallet.GetAmount(BaseData.GetResource(i))} | {GetBuildingText(data, i)}");
+            GUILayout.Label($"{BaseController.ResourceNames[i]}: {wallet.GetAmount(BaseData.GetResource(i))} | {GetBuildingText(data, i)}");
         }
 
         GUILayout.Label("1-4: termelés, 5-8: fejlesztés");

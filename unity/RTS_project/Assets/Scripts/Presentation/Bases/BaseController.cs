@@ -2,6 +2,8 @@
 
 public class BaseController : MonoBehaviour
 {
+    public static readonly string[] ResourceNames = { "Szén", "Acél", "Olaj", "Beton" };
+
     [SerializeField] private int baseId;
     [SerializeField] private BaseOwnerType startingOwnerType;
     [SerializeField] private int startingPlayerId;
@@ -70,8 +72,7 @@ public class BaseController : MonoBehaviour
         {
             if (buildingViews[i] != null)
             {
-                buildingViews[i].SetLevel(data.GetLevel(i));
-                buildingViews[i].SetHighlighted(i == data.ProducingIndex || i == data.UpgradingIndex);
+                buildingViews[i].Show(data, i);
             }
         }
     }
