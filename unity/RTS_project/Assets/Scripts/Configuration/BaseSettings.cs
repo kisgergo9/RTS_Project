@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 [Serializable]
 public class BaseSettings
@@ -16,13 +17,14 @@ public class BaseSettings
 [Serializable]
 public class BuildingSettings
 {
-    public string name; // ez csak kiírja az inspectorba a beállításoknál hogy épp melyik épületet állítjuk, csak nekünk lényeges
+    [HideInInspector] public string name;
 
-    public int productionDurationSeconds = 60;
+    public const int LevelCount = 10;
 
-    public int[] productionPerSecondByLevel = new int[10];
-    public int[] upgradeCostConcreteByLevel = new int[10];
-    public int[] upgradeTimeByLevel = new int[10];
+    public int[] productionAmountByLevel = new int[LevelCount];
+    public int[] productionTimeByLevel = new int[LevelCount];
+    public int[] upgradeCostConcreteByLevel = new int[LevelCount];
+    public int[] upgradeTimeByLevel = new int[LevelCount];
 }
 
 [Serializable]

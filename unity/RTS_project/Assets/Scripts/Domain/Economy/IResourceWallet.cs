@@ -23,7 +23,7 @@ public class SimpleWallet : IResourceWallet
             return false;
         }
 
-        amounts[(int)resource] = amounts[(int)resource] - amount;
+        amounts[(int)resource] -= amount;
         return true;
     }
 
@@ -34,6 +34,6 @@ public class SimpleWallet : IResourceWallet
             return;
         }
 
-        amounts[(int)resource] = amounts[(int)resource] + amount;
+        amounts[(int)resource] += amount;
     }
 }

@@ -13,6 +13,7 @@ public class BaseTestInput : MonoBehaviour
 
     private BaseController controller;
     private IResourceWallet wallet;
+    private string lastMessage = "";
 
     private void Start()
     {
@@ -39,17 +40,25 @@ public class BaseTestInput : MonoBehaviour
         {
             if (Keyboard.current[productionKeys[i]].wasPressedThisFrame)
             {
-                controller.StartAction(i, BuildingAction.Produce);
+                StartAction(i, BuildingAction.Produce);
             }
 
             if (Keyboard.current[upgradeKeys[i]].wasPressedThisFrame)
             {
-                controller.StartAction(i, BuildingAction.Upgrade);
+                StartAction(i, BuildingAction.Upgrade);
             }
         }
     }
 
-    private void OnGUI() //később törölni kell, csak szebb mint logolni
+    private void StartAction(int buildingIndex, BuildingAction action)
+    {
+        ActionInfo info = controller.StartAction(buildingIndex, action);
+        string actionName = action == BuildingAction.Produce ? "termelés" : "fejlesztés";
+
+        lastMessage = $"{resourceNames[buildingIndex]}, {actionName}: {GetInfoText(info)}";
+    }
+
+    private void OnGUI()
     {
         if (wallet == null)
         {
@@ -58,14 +67,15 @@ public class BaseTestInput : MonoBehaviour
 
         BaseData data = controller.Data;
 
-        GUILayout.BeginArea(new Rect(10, 10, 380, 150), GUI.skin.box);
+        GUILayout.BeginArea(new Rect(10, 10, 380, 170), GUI.skin.box);
 
         for (int i = 0; i < data.BuildingCount; i++)
         {
-            GUILayout.Label($"{resourceNames[i]}: {wallet.GetAmount((ResourceType)i)}   |   {GetBuildingText(data, i)}");
+            GUILayout.Label($"{resourceNames[i]}: {wallet.GetAmount(BaseData.GetResource(i))} | {GetBuildingText(data, i)}");
         }
 
         GUILayout.Label("1-4: termelés, 5-8: fejlesztés");
+        GUILayout.Label(lastMessage);
         GUILayout.EndArea();
     }
 
@@ -75,14 +85,35 @@ public class BaseTestInput : MonoBehaviour
 
         if (buildingIndex == data.ProducingIndex)
         {
-            text = text + $", termel: {data.ProductionTimeLeft:F0} mp";
+            text += $", termel: {Mathf.Ceil(data.ProductionTimeLeft)} mp";
         }
 
         if (buildingIndex == data.UpgradingIndex)
         {
-            text = text + $", fejlődik: {data.UpgradeTimeLeft:F0} mp";
+            text += $", fejlődik: {Mathf.Ceil(data.UpgradeTimeLeft)} mp";
         }
 
         return text;
+    }
+
+    private string GetInfoText(ActionInfo info)
+    {
+        switch (info)
+        {
+            case ActionInfo.Started:
+                return "elindult";
+
+            case ActionInfo.ActionRunning:
+                return "ilyen művelet már megy a bázison";
+
+            case ActionInfo.MaxLevelReached:
+                return "elérte a legmagasabb szintet";
+
+            case ActionInfo.NotEnoughConcrete:
+                return "nincs elég beton";
+
+            default:
+                return info.ToString();
+        }
     }
 }
