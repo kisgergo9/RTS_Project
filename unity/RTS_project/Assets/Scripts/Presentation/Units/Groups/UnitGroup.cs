@@ -172,9 +172,7 @@ public sealed class UnitGroup : MonoBehaviour
         _movementState = GroupMovementState.Idle;
     }
 
-    private bool TryFindFormationDestination(
-    Vector2 requestedDestination,
-    out Vector2 acceptedDestination)
+    private bool TryFindFormationDestination(Vector2 requestedDestination, out Vector2 acceptedDestination)
     {
         // Elõször az eredeti célpontot próbáljuk meg.
         if (CanFormationOccupyDestination(requestedDestination))
@@ -414,9 +412,7 @@ public sealed class UnitGroup : MonoBehaviour
 
     public void MoveTo(Vector2 destination)
     {
-        if (!TryFindFormationDestination(
-        destination,
-        out Vector2 acceptedDestination))
+        if (!TryFindFormationDestination(destination, out Vector2 acceptedDestination))
         {
             return;
         }
@@ -504,7 +500,7 @@ public sealed class UnitGroup : MonoBehaviour
             ApplyMovementLimits(movement);
             movement.BeginGroupTurn(targetAngle);
         }
-
+        
         _movementState = hasMovementComponent
             ? GroupMovementState.Turning
             : GroupMovementState.Idle;
@@ -602,7 +598,10 @@ public sealed class UnitGroup : MonoBehaviour
 
             case GroupMovementState.Moving:
                 if (!_isAvoidingObstacle && AreAllMembersStopped())
+                {
                     _movementState = GroupMovementState.Idle;
+                    StopGroupMovement();
+                }
                 break;
         }
     }
@@ -954,13 +953,18 @@ public sealed class UnitGroup : MonoBehaviour
         {
             if (otherGroup != null && otherGroup != this)
             {
-                if (!otherGroup.IsMoving)
+                if (otherGroup.IsMoving)
                 {
-                    StopAtCurrentPositionsAndForgetDestination();
+                    HandleMovingGroupCollision(collidedMember, otherGroup, otherMember);
                     return;
                 }
 
-                HandleMovingGroupCollision(collidedMember, otherGroup, otherMember);
+                // Az álló csapat akadály, ezért ugyanúgy
+                // próbáljuk megkerülni, mint a tereptárgyakat.
+                if (_isAvoidingObstacle)
+                    return;
+
+                HandleStaticObstacleCollision(collidedMember);
                 return;
             }
 
@@ -973,36 +977,6 @@ public sealed class UnitGroup : MonoBehaviour
         {
             _handlingMemberCollision = false;
         }
-    }
-
-    private void StopAtCurrentPositionsAndForgetDestination()
-    {
-        _isAvoidingObstacle = false;
-        _isFollowingGroup = false;
-        _followedGroup = null;
-
-        SetGroupControlledTranslation(false);
-
-        foreach (UnitGroupMember member in _members)
-        {
-            if (member == null)
-                continue;
-
-            UnitMovement movement =
-                member.GetComponent<UnitMovement>();
-
-            if (movement == null)
-                continue;
-
-            movement.StopMovement();
-        }
-
-        UnitGroupMember leader = GetLeader();
-
-        if (leader != null)
-            _groupDestination = leader.transform.position;
-
-        _movementState = GroupMovementState.Idle;
     }
 
     private void HandleMovingGroupCollision(

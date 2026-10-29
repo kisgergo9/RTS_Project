@@ -21,9 +21,11 @@ public sealed class UnitMovement : MonoBehaviour
     private float arrivalDistance = 0.1f;
 
     [SerializeField, Min(0.01f)]
+    [Tooltip("Megadja az egység gyorsítási képességét.")]
     private float acceleration = 2f;
 
     [SerializeField, Min(0.01f)]
+    [Tooltip("Megadja az egység lassítási hatékonyságát.")]
     private float deceleration = 4f;
 
     [Header("Turning")]
