@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 280170097}
   - component: {fileID: 280170096}
   - component: {fileID: 280170095}
-  - component: {fileID: 280170100}
   - component: {fileID: 280170101}
   m_Layer: 0
   m_Name: Main Camera
@@ -258,21 +257,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &280170100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280170094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd2ef23c70fef349b0bf7b0fb180da2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 0}
-  worldCamera: {fileID: 0}
-  spawnKey: 19
 --- !u!114 &280170101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,8 +275,8 @@ MonoBehaviour:
   zoomAction: {fileID: 287530185546724651, guid: 0c64f4b1449d2234bb57f11cc2dc9452, type: 3}
   moveSpeed: 10
   minZoom: 3
-  maxZoom: 15
-  zoomSensitivity: 2
+  maxZoom: 30
+  zoomSensitivity: 20
   useWorldBounds: 1
   worldMin: {x: -50, y: -50}
   worldMax: {x: 50, y: 50}
@@ -649,6 +633,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &980532391 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5317832086334385552, guid: 1a731274baef0de4692074b22065b487, type: 3}
+  m_PrefabInstance: {fileID: 879103920699698394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1046833034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -972,6 +961,14 @@ PrefabInstance:
     - target: {fileID: 247171511438741029, guid: 1a731274baef0de4692074b22065b487, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230961909538845278, guid: 1a731274baef0de4692074b22065b487, type: 3}
+      propertyPath: clothAnimator
+      value: 
+      objectReference: {fileID: 980532391}
+    - target: {fileID: 7632838429966301062, guid: 1a731274baef0de4692074b22065b487, type: 3}
+      propertyPath: startingOwnerType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8312815208572276308, guid: 1a731274baef0de4692074b22065b487, type: 3}
       propertyPath: m_Name
