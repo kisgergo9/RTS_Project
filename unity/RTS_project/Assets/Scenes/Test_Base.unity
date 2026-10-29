@@ -275,8 +275,8 @@ MonoBehaviour:
   zoomAction: {fileID: 287530185546724651, guid: 0c64f4b1449d2234bb57f11cc2dc9452, type: 3}
   moveSpeed: 10
   minZoom: 3
-  maxZoom: 15
-  zoomSensitivity: 2
+  maxZoom: 30
+  zoomSensitivity: 20
   useWorldBounds: 1
   worldMin: {x: -50, y: -50}
   worldMax: {x: 50, y: 50}
@@ -633,6 +633,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &980532391 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5317832086334385552, guid: 1a731274baef0de4692074b22065b487, type: 3}
+  m_PrefabInstance: {fileID: 879103920699698394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1046833034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -957,9 +962,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5421143206353250695, guid: 1a731274baef0de4692074b22065b487, type: 3}
-      propertyPath: m_Name
-      value: CoalBuilding
+    - target: {fileID: 3230961909538845278, guid: 1a731274baef0de4692074b22065b487, type: 3}
+      propertyPath: clothAnimator
+      value: 
+      objectReference: {fileID: 980532391}
+    - target: {fileID: 7632838429966301062, guid: 1a731274baef0de4692074b22065b487, type: 3}
+      propertyPath: startingOwnerType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8312815208572276308, guid: 1a731274baef0de4692074b22065b487, type: 3}
       propertyPath: m_Name
