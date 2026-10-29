@@ -504,7 +504,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8929247192672884985}
   - component: {fileID: 4442109531127962747}
-  - component: {fileID: 8318942804134260960}
+  - component: {fileID: 3230961909538845278}
+  - component: {fileID: 5317832086334385552}
   m_Layer: 0
   m_Name: Cloth
   m_TagString: Untagged
@@ -582,7 +583,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8318942804134260960
+--- !u!114 &3230961909538845278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081031728888957456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb79cb28cfd11546954e0295dd86183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothAnimator: {fileID: 5317832086334385552}
+  ownFlagState: FlagClothAnim
+  enemyFlagState: FlagClothEnemy
+  yellowFlagState: FlagClothYellow
+  localPlayerId: 0
+--- !u!95 &5317832086334385552
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
