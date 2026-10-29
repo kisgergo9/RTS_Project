@@ -29,6 +29,21 @@ public class BaseTestInput : MonoBehaviour
             return;
         }
 
+        HandleCollapseKey();
+        HandleActionKeys();
+    }
+
+    private void HandleCollapseKey()
+    {
+        if (Keyboard.current[Key.K].wasPressedThisFrame)
+        {
+            controller.Data.Collapse();
+            lastMessage = "A bázis leomlott";
+        }
+    }
+
+    private void HandleActionKeys()
+    {
         for (int i = 0; i < productionKeys.Length; i++)
         {
             if (Keyboard.current[productionKeys[i]].wasPressedThisFrame)
@@ -60,14 +75,14 @@ public class BaseTestInput : MonoBehaviour
 
         BaseData data = controller.Data;
 
-        GUILayout.BeginArea(new Rect(10, 10, 380, 170), GUI.skin.box);
+        GUILayout.BeginArea(new Rect(10, 10, 380, 190), GUI.skin.box);
 
         for (int i = 0; i < data.BuildingCount; i++)
         {
             GUILayout.Label($"{BaseController.ResourceNames[i]}: {wallet.GetAmount(BaseData.GetResource(i))} | {GetBuildingText(data, i)}");
         }
 
-        GUILayout.Label("1-4: termelés, 5-8: fejlesztés");
+        GUILayout.Label("1-4: termelés, 5-8: fejlesztés, K: leomlás");
         GUILayout.Label(lastMessage);
         GUILayout.EndArea();
     }

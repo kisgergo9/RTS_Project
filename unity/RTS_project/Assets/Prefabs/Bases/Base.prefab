@@ -542,7 +542,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8929247192672884985}
   - component: {fileID: 4442109531127962747}
-  - component: {fileID: 3230961909538845278}
   - component: {fileID: 5317832086334385552}
   m_Layer: 0
   m_Name: Cloth
@@ -610,7 +609,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -4499739731306327145, guid: ff4d4754ba283024fb2a15f6d5cac62c, type: 3}
+  m_Sprite: {fileID: -3279659063089427973, guid: 35fea2c2d1c26fa48a45c872a6a4a441, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -621,23 +620,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3230961909538845278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081031728888957456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb79cb28cfd11546954e0295dd86183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clothAnimator: {fileID: 5317832086334385552}
-  ownFlagState: FlagClothAnim
-  enemyFlagState: FlagClothEnemy
-  yellowFlagState: FlagClothYellow
-  localPlayerId: 0
 --- !u!95 &5317832086334385552
 Animator:
   serializedVersion: 7
@@ -3065,7 +3047,7 @@ Animator:
   m_GameObject: {fileID: 4981019807063623926}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f9ff28f6357aa3478bc3288d1bb4af6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5186,7 +5168,6 @@ GameObject:
   - component: {fileID: 3155169798063736439}
   - component: {fileID: 8121549828401181518}
   - component: {fileID: 7171122371648524596}
-  - component: {fileID: 6794447747057091710}
   m_Layer: 0
   m_Name: PlayerInfo
   m_TagString: Untagged
@@ -5352,19 +5333,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8121549828401181518}
   m_maskType: 0
---- !u!114 &6794447747057091710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8087733031018980815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5229394142ea01848ab4681f7962360a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerText: {fileID: 7171122371648524596}
 --- !u!1 &8139238891586361231
 GameObject:
   m_ObjectHideFlags: 0
@@ -5419,6 +5387,7 @@ GameObject:
   - component: {fileID: 247171511438741029}
   - component: {fileID: 4984294598619664000}
   - component: {fileID: 7632838429966301062}
+  - component: {fileID: 4523006571104017657}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -5514,6 +5483,25 @@ MonoBehaviour:
   - {fileID: 2325654205495337317}
   - {fileID: 6711549266934066500}
   - {fileID: 374053972912227242}
+--- !u!114 &4523006571104017657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8312815208572276308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d716b4f60279eb4bb1edda9ecc437d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothAnimator: {fileID: 5317832086334385552}
+  wall: {fileID: 8332189131486892460}
+  ownerText: {fileID: 7171122371648524596}
+  ownFlagState: FlagClothAnim
+  enemyFlagState: FlagClothEnemy
+  yellowFlagState: FlagClothYellow
+  localPlayerId: 1
 --- !u!1 &8332189131486892460
 GameObject:
   m_ObjectHideFlags: 0
