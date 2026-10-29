@@ -71,6 +71,7 @@ public class BaseController : MonoBehaviour
             if (buildingViews[i] != null)
             {
                 buildingViews[i].SetLevel(data.GetLevel(i));
+                buildingViews[i].SetHighlighted(i == data.ProducingIndex || i == data.UpgradingIndex);
             }
         }
     }
