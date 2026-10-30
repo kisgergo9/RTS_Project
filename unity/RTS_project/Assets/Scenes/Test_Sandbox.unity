@@ -1589,7 +1589,16 @@ MonoBehaviour:
   - playerId: 2
     playerName: player 3
   bases: []
-  gameObjectDefinitions: []
+  gameObjectDefinitions:
+  - {fileID: 11400000, guid: f381738a04ec9e24f92fc270e8587357, type: 2}
+  - {fileID: 11400000, guid: c27b80b87d8b76f449988173381ba7f9, type: 2}
+  - {fileID: 11400000, guid: 9161b3f88f621814ea05a1ee98ed619f, type: 2}
+  - {fileID: 11400000, guid: 3ba72054c374ebb4a8c079f04949cb38, type: 2}
+  - {fileID: 11400000, guid: 8d234d5b7f27b5e45a91df7f89202361, type: 2}
+  - {fileID: 11400000, guid: 9c49ca29c4545564fbbbb96164eb5cda, type: 2}
+  - {fileID: 11400000, guid: 69c7016f65eeeb34dac11f9659246f2a, type: 2}
+  - {fileID: 11400000, guid: b2490fab85fa2c6438a2eea9eaeda65b, type: 2}
+  - {fileID: 11400000, guid: 5b98ede1508bcb448b06cb93678d729c, type: 2}
 --- !u!4 &1644841649
 Transform:
   m_ObjectHideFlags: 0
