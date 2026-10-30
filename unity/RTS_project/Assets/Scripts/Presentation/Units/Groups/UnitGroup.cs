@@ -17,9 +17,6 @@ public sealed class UnitGroup : MonoBehaviour
         ReferenceSpriteWidth / ReferencePixelsPerUnit,
         ReferenceSpriteHeight / ReferencePixelsPerUnit);
 
-    // A rombusz hegyesszögének fele.
-    private const float FormationHalfAngle = 18.62f;
-
     public IReadOnlyList<UnitGroupMember> Members => _members;
 
     public int MemberCount => _members.Count;

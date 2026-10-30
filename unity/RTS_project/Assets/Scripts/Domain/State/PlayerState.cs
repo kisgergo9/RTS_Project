@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 /*
  Fontos, hogy a játékos azonosítója és a hálózati kapcsolat azonosítója két külön dolog. 
@@ -81,5 +83,4 @@ public sealed class PlayerState : IResourceWallet
         if (!Enum.IsDefined(typeof(ResourceType), resource))
             throw new ArgumentOutOfRangeException(nameof(resource));
     }
-}
 }

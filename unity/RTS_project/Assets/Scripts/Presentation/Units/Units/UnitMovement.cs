@@ -58,10 +58,7 @@ public sealed class UnitMovement : MonoBehaviour
     {
         get
         {
-            DirectionalSpriteRenderer renderer =
-                GetComponent<DirectionalSpriteRenderer>();
-
-            return renderer != null ? renderer.BaseTurnSpeed : 0f;
+            return _directionalRenderer != null ? _directionalRenderer.BaseTurnSpeed : 0f;
         }
     }
 
