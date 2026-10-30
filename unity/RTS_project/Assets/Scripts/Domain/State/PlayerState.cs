@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 /*
- Fontos, hogy a játékos azonosítója és a hálózati kapcsolat azonosítója két külön dolog. 
-A PlayerId a mérkõzés teljes idõtartama alatt stabil marad.
+ Fontos, hogy a jÃ¡tÃ©kos azonosÃ­tÃ³ja Ã©s a hÃ¡lÃ³zati kapcsolat azonosÃ­tÃ³ja kÃ©t kÃ¼lÃ¶n dolog. 
+A PlayerId a mÃ©rkÃµzÃ©s teljes idÃµtartama alatt stabil marad.
  */
 
 public sealed class PlayerState : IResourceWallet
@@ -17,7 +19,7 @@ public sealed class PlayerState : IResourceWallet
     {
         if (string.IsNullOrWhiteSpace(playerName))
             throw new ArgumentException(
-                "A játékos neve nem lehet üres.",
+                "A jÃ¡tÃ©kos neve nem lehet Ã¼res.",
                 nameof(playerName));
 
         PlayerId = playerId;
@@ -31,7 +33,7 @@ public sealed class PlayerState : IResourceWallet
     {
         if (string.IsNullOrWhiteSpace(newName))
             throw new ArgumentException(
-                "A játékos neve nem lehet üres.",
+                "A jÃ¡tÃ©kos neve nem lehet Ã¼res.",
                 nameof(newName));
 
         PlayerName = newName;
@@ -81,5 +83,4 @@ public sealed class PlayerState : IResourceWallet
         if (!Enum.IsDefined(typeof(ResourceType), resource))
             throw new ArgumentOutOfRangeException(nameof(resource));
     }
-}
 }

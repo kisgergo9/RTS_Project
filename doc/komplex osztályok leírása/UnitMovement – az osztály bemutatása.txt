@@ -1,0 +1,113 @@
+UnitMovement – az osztály bemutatása
+
+CÉL ÉS SZEREP
+	A UnitMovement egy Unity MonoBehaviour, amely egyetlen egység mozgását és fordulását vezérli. Az egység mindig arra halad, amerre éppen néz. A célpont felé fokozatosan fordul, gyorsít és fékez, és nagy irányeltérésnél helyben fordul. Az osztály a következőkért felel:
+	- egy célpont felé történő mozgásért, gyorsítással, fékezéssel és pontos megérkezéssel,
+	- a fordulás és a sebesség összehangolásáért: minél nagyobb az irányeltérés, annál lassabban halad az egység,
+	- a csoportos forduláshoz szükséges állapotért: az egység lefékez, helyben befordul, majd jelzi, hogy kész,
+	- a csoport által megadott sebességkorlát betartásáért,
+	- a csoportvezérelt mozgás támogatásáért: ilyenkor az egység csak fordul és sebességet számol, a pozícióját a UnitGroup mozgatja.
+
+	Az egység irányát a DirectionalSpriteRenderer tárolja és forgatja (CurrentAngle, SetTargetAngle, SetAngle). A tervezett lépés járhatóságát a UnitCollisionHandler ellenőrzi (CanMoveTo, NotifyMovementBlocked). Mindkét komponens kötelező, ezért a RequireComponent attribútum automatikusan hozzáadja őket.
+
+	A szögek konvenciója ugyanaz, mint a UnitGroup osztályban: 0° a +Y irány (felfelé), és a szög az óramutató járásával egyező irányban nő. Az irányvektor (sin(szög), cos(szög)).
+
+HASZNÁLAT RÖVIDEN
+	1. Add hozzá a UnitMovement komponenst az egység GameObjectjéhez. A DirectionalSpriteRenderer és a UnitCollisionHandler automatikusan mellé kerül. Az Awake inicializálja a renderert.
+	2. Önálló mozgatás:
+		unitMovement.MoveTo(celpont);          // megérkezéskor megáll
+		unitMovement.MoveTo(koztesPont, true); // köztes pont, nem fékez le előtte
+	3. Megállítás: unitMovement.StopMovement();
+	4. Azonnali áthelyezés mozgás nélkül: unitMovement.TeleportTo(pozicio);
+	5. Csoportos használat esetén a metódusokat a UnitGroup hívja:
+		- SetMovementLimits(...) a közös sebességkorláthoz, illetve ResetMovementLimits() kilépéskor,
+		- BeginGroupTurn(szog), majd az IsGroupTurnComplete figyelése,
+		- akadálykerüléskor sorrendben: MoveTo(pont, true), SetGroupMovementDirection(szog), SetGroupControlledTranslation(true).
+	A sorrend fontos, mert a MoveTo kikapcsolja a csoportvezérelt mozgást.
+
+INSPECTORBAN ÁLLÍTHATÓ MEZŐK
+	moveSpeed (2): Az egység saját legnagyobb sebessége, egység/másodpercben.
+	arrivalDistance (0.1): Ezen a távolságon belül a célt elértnek tekinti.
+	acceleration (2): Gyorsulás, egység/másodperc².
+	deceleration (4): Lassulás. Ez az érték határozza meg a fékezési távolságot is.
+	fullSpeedTurnAngle (30°): Legfeljebb ekkora irányeltérésnél halad teljes sebességgel. A helyben fordulás is ezen a szögön belül ér véget.
+	stopForTurnAngle (150°): Ekkora vagy nagyobb irányeltérésnél megáll, és helyben fordul.
+	groupTurnTolerance (1°): A csoportos fordulás ekkora eltérésen belül tekinthető késznek.
+
+	A két fordulási szög között a sebességszorzó lineárisan csökken: 30°-nál 1, 150°-nál 0. A stopForTurnAngle értéke legyen nagyobb, mint a fullSpeedTurnAngle, különben a két szög közötti átmenet nem értelmezhető.
+
+ÁLLAPOTOK
+	Idle: Az egység áll, az Update nem csinál semmit.
+	Moving: Halad a cél felé.
+	TurningInPlace: A nagy irányeltérés miatt lefékez, és helyben fordul. A fékezés alatt a maradék sebességgel még előrecsúszik.
+	GroupTurning: Csoportos fordulás. Lefékez, a megadott szögre fordul, majd Idle állapotba lép, és az IsGroupTurnComplete értéke igaz lesz.
+
+PUBLIKUS TULAJDONSÁGOK
+	BaseMoveSpeed (float): A saját, korlátozás nélküli sebesség (moveSpeed).
+	BaseTurnSpeed (float): A renderer saját fordulási sebessége. Ha nincs renderer, 0.
+	CurrentSpeed (float): Az aktuális sebesség.
+	CurrentMovementDirection (Vector2): Az aktuális haladási irány egységvektorként. Csoportvezérelt mozgásnál a csoport által megadott irány, egyébként az egység aktuális nézési iránya.
+	Destination (Vector2): Az utoljára megadott célpont.
+	IsMoving (bool): Igaz, ha az állapot nem Idle, vagyis az egység halad, fordul vagy csoportosan fordul.
+	IsTravelling (bool): Csak Moving állapotban igaz. A helyben fordulás és a csoportos fordulás ebbe nem számít bele.
+	IsGroupTurnComplete (bool): Igaz, ha a legutóbbi BeginGroupTurn befejeződött. A MoveTo, a StopMovement, a TeleportTo és az újabb BeginGroupTurn hívás törli.
+
+PUBLIKUS METÓDUSOK
+
+	Mozgás
+		void MoveTo(Vector2 destination, bool continuousMovement = false)
+			Új célpontot ad az egységnek, és Moving állapotba teszi. Kikapcsolja a csoportvezérelt mozgást, és törli a csoportos fordulás kész jelzését. Ha a cél az arrivalDistance távolságon belül van, az egység azonnal megáll.
+			A continuousMovement paraméter jelentése: false esetén az egység a cél előtt lefékez, és pontosan megáll. A fékezési sebesség sqrt(2 · deceleration · hátralévő távolság). true esetén nem fékez a cél miatt. Ezt köztes kerülőpontokhoz kell használni.
+
+		void StopMovement()
+			Azonnal Idle állapotba teszi az egységet, nullázza a sebességet, és a jelenlegi irányban rögzíti a fordulást (a célszög az aktuális szög lesz). A csoportvezérelt mozgás jelzőjét nem kapcsolja ki.
+
+		void TeleportTo(Vector2 position)
+			Azonnal áthelyezi az egységet a megadott pozícióra. Közben megszakít minden mozgást, nullázza a sebességet, és a célpontot az új pozícióra állítja. Ütközést nem vizsgál, a z koordinátát megtartja. A UnitGroup a formáció pontos helyreállításához használja.
+
+	Csoportos fordulás
+		void BeginGroupTurn(float targetAngle)
+			GroupTurning állapotba teszi az egységet. A szöget 0–360° közé normalizálja. Ha az egység mozog, először lefékez, majd a megadott szögre fordul. Akkor jelez kész állapotot (IsGroupTurnComplete = true, állapot: Idle), ha a sebessége legfeljebb 0,01, és az eltérés legfeljebb groupTurnTolerance. A UnitGroup addig vár, amíg minden tag elkészül, és csak utána indítja a mozgást.
+
+	Sebességkorlát
+		void SetMovementLimits(float maxMoveSpeed, float maxTurnSpeed)
+			Beállítja a csoport közös felső korlátját. A tényleges sebesség a moveSpeed és a maxMoveSpeed közül a kisebb. A fordulási korlátot a renderernek adja tovább (SetTurnSpeedLimit). Negatív sebességkorlát esetén 0 értéket használ.
+
+		void ResetMovementLimits()
+			Megszünteti a csoportos korlátot, vagyis visszaáll a saját sebességre és fordulási sebességre. A UnitGroup.RemoveMember hívja meg.
+
+	Csoportvezérelt mozgás
+		void SetGroupControlledTranslation(bool enabled)
+			Bekapcsolt állapotban az egység nem mozgatja saját magát: csak fordul, és kiszámolja a CurrentSpeed értékét. A pozíciót a UnitGroup változtatja, minden tagnak azonos elmozdulással. Kikapcsoláskor a megadott csoportirány is törlődik.
+
+		void SetGroupMovementDirection(float angle)
+			Megadja a csoport közös haladási irányát (0–360°), és a renderert erre a szögre fordítja. Csoportvezérelt mozgásnál ez az irány határozza meg a CurrentMovementDirection értékét és a célszöget. Csak az Awake után hívható, mert a renderert ellenőrzés nélkül használja.
+
+BELSŐ MŰKÖDÉS (PRIVÁT METÓDUSOK)
+	Awake
+		Lekéri a két kötelező komponenst, és inicializálja a renderert.
+
+	Update
+		Az állapotgép fő ciklusa.
+		- Idle állapotban nem csinál semmit.
+		- GroupTurning állapotban az UpdateGroupTurning metódust hívja.
+		- Csoportvezérelt mozgásnál az UpdateGroupControlledMovement metódust hívja.
+		- Egyébként ellenőrzi a megérkezést, beállítja a célszöget, és szükség esetén vált a Moving és a TurningInPlace állapot között. Ezután kiszámolja a célsebességet (fordulási szorzó, illetve fékezés), a sebességet a MoveTowards segítségével gyorsítja vagy lassítja, végül a MoveForward metódussal lép.
+
+	UpdateGroupTurning
+		Fékez, és a csoportszög felé fordít. Amíg van sebesség, előrelép. A lépés után újra ellenőrzi az állapotot, mert egy ütközés hatására (NotifyMovementBlocked) a csoport közben megváltoztathatta. Teljes megállás és befejezett fordulás után kész jelzést ad.
+
+	UpdateGroupControlledMovement
+		Csoportvezérelt módban kiszámolja a célszöget (a csoportirányt, vagy ha az nincs megadva, a cél irányát) és a sebességet fékezés nélkül. Pozíciót nem változtat.
+
+	MoveForward
+		Az aktuális nézési irányban, CurrentSpeed · deltaTime távolsággal előrelép. Ha a UnitCollisionHandler.CanMoveTo szerint a következő pozíció nem járható, nem lép, hanem meghívja a NotifyMovementBlocked metódust. Ezen keresztül jut el az ütközés a UnitGroup.HandleMemberCollision metódusig.
+
+	CalculateTurnSpeedFactor
+		Az irányeltérésből sebességszorzót számol. fullSpeedTurnAngle alatt 1, stopForTurnAngle felett 0, a kettő között lineárisan csökken.
+
+	CalculateAngle
+		Irányvektorból a projekt szögkonvenciója szerinti, 0–360° közötti szöget számol.
+
+	FinishMovement
+		Megérkezéskor Idle állapotba teszi az egységet, nullázza a sebességet, és rögzíti az irányt.

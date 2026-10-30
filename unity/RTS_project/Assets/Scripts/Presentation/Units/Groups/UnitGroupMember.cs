@@ -2,10 +2,20 @@ using UnityEngine;
 
 public sealed class UnitGroupMember : MonoBehaviour
 {
+    [Header("Unit Configuration")]
+
     [SerializeField]
     private UnitType unitType = UnitType.Ground;
 
+    [SerializeField]
+    private int ownerPlayerId;
+
     public UnitType Type => unitType;
+    public int OwnerPlayerId => ownerPlayerId;
+
+    public int UnitId { get; private set; }
+
+    public bool IsInitialized { get; private set; }
 
     public UnitGroup Group { get; private set; }
 
@@ -16,10 +26,40 @@ public sealed class UnitGroupMember : MonoBehaviour
         Register();
     }
 
+    public void Initialize(int unitId)
+    {
+        if (IsInitialized)
+        {
+            Debug.LogError(
+                $"Az egység már inicializálva van: {gameObject.name}",
+                this);
+            return;
+        }
+
+        if (unitId <= 0)
+        {
+            Debug.LogError(
+                $"Érvénytelen UnitId: {unitId}",
+                this);
+            return;
+        }
+
+        UnitId = unitId;
+        IsInitialized = true;
+    }
+
     private void Register()
     {
         if (Group != null)
             return;
+
+        if (!IsInitialized)
+        {
+            Debug.LogError(
+                $"Az egység még nincs inicializálva: {gameObject.name}",
+                this);
+            return;
+        }
 
         if (UnitGroupManager.Instance == null)
         {
