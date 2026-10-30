@@ -23,6 +23,23 @@ public sealed class UnitGroupMember : MonoBehaviour
 
     private void Start()
     {
+        // Ha még nincs inicializálva, akkor runtime példány.
+        if (!IsInitialized)
+        {
+            if (GameObjectRegistrar.Instance == null)
+            {
+                Debug.LogError(
+                    "Nem található GameObjectRegistrar. " +
+                    "Az egység nem regisztrálható.",
+                    this);
+
+                return;
+            }
+
+            GameObjectRegistrar.Instance.RegisterUnit(this);
+        }
+
+        // A regisztráció után létrehozzuk az egység kezdeti csoportját.
         Register();
     }
 

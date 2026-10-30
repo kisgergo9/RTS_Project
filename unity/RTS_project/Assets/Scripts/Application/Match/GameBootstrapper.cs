@@ -8,51 +8,61 @@ public sealed class PlayerSetup
     public string playerName;
 }
 
+[RequireComponent(typeof(GameObjectRegistrar))]
 public sealed class GameBootstrapper : MonoBehaviour
 {
     [Header("Players")]
-
     [SerializeField]
     private PlayerSetup[] players;
 
     [Header("Bases")]
-
     [SerializeField]
     private BaseController[] bases;
 
-    [Header("Units")]
-
+    [Header("Game Data")]
     [SerializeField]
-    private UnitGroupMember[] units;
+    private GameObjectDefinition[] gameObjectDefinitions;
+
+    public GameDataRegistry GameData { get; private set; }
 
     public GameState State { get; private set; }
 
     private UnitIdAllocator _unitIdAllocator;
+    private GameObjectRegistrar _registrar;
 
     private bool _initialized;
 
     private void Awake()
     {
+        _registrar = GetComponent<GameObjectRegistrar>();
+
         Initialize();
+    }
+
+    private void InitializeGameData()
+    {
+        GameData = new GameDataRegistry(gameObjectDefinitions);
+
+        Debug.Log(
+            $"GameDataRegistry inicializálva. " +
+            $"Objektumdefiníciók száma: {GameData.GameObjectCount}");
     }
 
     public void Initialize()
     {
         if (_initialized)
-        {
-            Debug.LogError(
-                "A GameBootstrapper már inicializálva lett.",
-                this);
             return;
-        }
+
+        InitializeGameData();
 
         State = new GameState();
-
         _unitIdAllocator = new UnitIdAllocator();
 
         InitializePlayers();
         InitializeBases();
-        InitializeUnits();
+
+        // A jelenetben elhelyezett egységek regisztrációja.
+        _registrar.Initialize(this);
 
         _initialized = true;
     }
@@ -95,29 +105,36 @@ public sealed class GameBootstrapper : MonoBehaviour
         }
     }
 
-    private void InitializeUnits()
+    /// <summary>
+    /// Egység regisztrálása a központi játékállapotba.
+    /// A jelenetben elhelyezett és a futás közben létrehozott
+    /// egységek is ezt a metódust használják.
+    /// </summary>
+    internal void RegisterUnit(UnitGroupMember unit)
     {
-        if (units == null)
+        if (unit == null)
+            throw new ArgumentNullException(nameof(unit));
+
+        if (State == null || _unitIdAllocator == null)
+            throw new InvalidOperationException(
+                "A GameBootstrapper még nincs inicializálva.");
+
+        if (unit.IsInitialized)
             return;
 
-        foreach (UnitGroupMember unit in units)
-        {
-            if (unit == null)
-                throw new InvalidOperationException(
-                    "A UnitGroupMember tömb null elemet tartalmaz.");
+        int unitId = _unitIdAllocator.Allocate();
 
-            int unitId = _unitIdAllocator.Allocate();
+        UnitState unitState = new UnitState(
+            unitId,
+            unit.OwnerPlayerId,
+            unit.Type);
 
-            UnitState unitState = new UnitState(
-                unitId,
-                unit.OwnerPlayerId,
-                unit.Type);
+        State.RegisterUnit(unitState);
 
-            // Domainállapot regisztrációja.
-            State.RegisterUnit(unitState);
+        unit.Initialize(unitId);
 
-            // Unity komponens inicializálása.
-            unit.Initialize(unitId);
-        }
+        Debug.Log(
+            $"Egység regisztrálva: ID={unitId}, " +
+            $"Type={unit.Type}, Owner={unit.OwnerPlayerId}");
     }
 }

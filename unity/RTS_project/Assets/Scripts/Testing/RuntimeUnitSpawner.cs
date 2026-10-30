@@ -10,10 +10,21 @@ public sealed class RuntimeUnitSpawner : MonoBehaviour
     [Header("Input")]
     [SerializeField] private Key spawnKey = Key.E;
 
+    private GameObjectRegistrar _registrar;
+
     private void Awake()
     {
         if (worldCamera == null)
             worldCamera = Camera.main;
+
+        _registrar = GameObjectRegistrar.Instance;
+
+        if (_registrar == null)
+        {
+            Debug.LogError(
+                "Nem található GameObjectRegistrar a jelenetben.",
+                this);
+        }
 
         if (unitPrefab == null)
         {
@@ -29,6 +40,9 @@ public sealed class RuntimeUnitSpawner : MonoBehaviour
             return;
 
         if (worldCamera == null || unitPrefab == null)
+            return;
+
+        if (_registrar == null)
             return;
 
         if (!Keyboard.current[spawnKey].wasPressedThisFrame)
@@ -49,10 +63,36 @@ public sealed class RuntimeUnitSpawner : MonoBehaviour
             return;
         }
 
-        Instantiate(
+        SpawnStandaloneUnit(mouseWorldPosition);
+    }
+
+    private void SpawnStandaloneUnit(Vector3 position)
+    {
+        GameObject spawnedObject = Instantiate(
             unitPrefab,
-            mouseWorldPosition,
+            position,
             unitPrefab.transform.rotation);
+
+        UnitGroupMember spawnedMember =
+            spawnedObject.GetComponentInChildren<UnitGroupMember>(true);
+
+        if (spawnedMember == null)
+        {
+            Debug.LogError(
+                "A létrehozott prefab nem tartalmaz UnitGroupMember komponenst.",
+                spawnedObject);
+
+            Destroy(spawnedObject);
+            return;
+        }
+
+        if (!TryRegisterUnit(spawnedMember))
+        {
+            Destroy(spawnedObject);
+            return;
+        }
+
+        SetRandomDirection(spawnedMember);
     }
 
     private bool TrySpawnIntoGroup(UnitGroup targetGroup)
@@ -87,16 +127,25 @@ public sealed class RuntimeUnitSpawner : MonoBehaviour
 
         if (spawnedMember == null)
         {
+            Debug.LogError(
+                "A létrehozott prefab nem tartalmaz UnitGroupMember komponenst.",
+                spawnedObject);
+
             Destroy(spawnedObject);
             return false;
         }
 
-        // A Start() regisztráció elõtt beállítjuk a célcsoportot,
-        // hogy az új egység ne hozzon létre külön csoportot.
+        // Az egység regisztrációja az AddMember elõtt történik.
+        if (!TryRegisterUnit(spawnedMember))
+        {
+            Destroy(spawnedObject);
+            return false;
+        }
+
         if (spawnedMember.Group != null)
         {
             Debug.LogError(
-                "Az új egység már egy másik csoporthoz regisztrálódott.",
+                "Az új egység már egy másik csoporthoz tartozik.",
                 spawnedMember);
 
             Destroy(spawnedObject);
@@ -111,13 +160,35 @@ public sealed class RuntimeUnitSpawner : MonoBehaviour
 
         spawnedObject.transform.SetParent(targetGroup.transform, true);
 
-        DirectionalSpriteRenderer[] directionalRenderers =
-            spawnedMember.GetComponentsInChildren<DirectionalSpriteRenderer>(true);
-
-        foreach (DirectionalSpriteRenderer directional in directionalRenderers)
-            directional.SetAngle(Random.value * 123);
+        SetRandomDirection(spawnedMember);
 
         return true;
+    }
+
+    private bool TryRegisterUnit(UnitGroupMember member)
+    {
+        if (member == null)
+            return false;
+
+        try
+        {
+            _registrar.RegisterUnit(member);
+            return member.IsInitialized;
+        }
+        catch (System.Exception exception)
+        {
+            Debug.LogException(exception, member);
+            return false;
+        }
+    }
+
+    private void SetRandomDirection(UnitGroupMember member)
+    {
+        DirectionalSpriteRenderer[] directionalRenderers =
+            member.GetComponentsInChildren<DirectionalSpriteRenderer>(true);
+
+        foreach (DirectionalSpriteRenderer directional in directionalRenderers)
+            directional.SetAngle(Random.value * 123f);
     }
 
     private UnitGroup GetSingleSelectedGroup()

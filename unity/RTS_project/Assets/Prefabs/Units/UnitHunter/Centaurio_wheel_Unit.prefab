@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3893646626734813467}
   - component: {fileID: 2943649570993900766}
   m_Layer: 0
-  m_Name: Tank_Unit
+  m_Name: Centaurio_wheel_Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
