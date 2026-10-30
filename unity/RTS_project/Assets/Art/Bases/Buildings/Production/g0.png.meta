@@ -143,10 +143,10 @@ TextureImporter:
       name: g0_0
       rect:
         serializedVersion: 2
-        x: 94
-        y: 15
-        width: 66
-        height: 63
+        x: 0
+        y: 0
+        width: 235
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: g0_1
       rect:
         serializedVersion: 2
-        x: 321
-        y: 9
-        width: 74
-        height: 90
+        x: 235
+        y: 0
+        width: 235
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +187,10 @@ TextureImporter:
       name: g0_2
       rect:
         serializedVersion: 2
-        x: 532
-        y: 9
-        width: 113
-        height: 91
+        x: 470
+        y: 0
+        width: 235
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: g0_3
       rect:
         serializedVersion: 2
-        x: 742
-        y: 9
-        width: 156
-        height: 91
+        x: 705
+        y: 0
+        width: 235
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: g0_4
       rect:
         serializedVersion: 2
-        x: 977
-        y: 9
-        width: 156
-        height: 97
+        x: 940
+        y: 0
+        width: 235
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +253,10 @@ TextureImporter:
       name: g0_5
       rect:
         serializedVersion: 2
-        x: 1196
-        y: 9
-        width: 183
-        height: 97
+        x: 1175
+        y: 0
+        width: 235
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,10 +275,10 @@ TextureImporter:
       name: g0_6
       rect:
         serializedVersion: 2
-        x: 1419
-        y: 10
-        width: 207
-        height: 96
+        x: 1410
+        y: 0
+        width: 235
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +297,10 @@ TextureImporter:
       name: g0_7
       rect:
         serializedVersion: 2
-        x: 1654
-        y: 10
-        width: 207
-        height: 96
+        x: 1645
+        y: 0
+        width: 235
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,9 +319,9 @@ TextureImporter:
       name: g0_8
       rect:
         serializedVersion: 2
-        x: 1879
+        x: 1880
         y: 0
-        width: 221
+        width: 235
         height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -341,9 +341,9 @@ TextureImporter:
       name: g0_9
       rect:
         serializedVersion: 2
-        x: 2114
+        x: 2115
         y: 0
-        width: 236
+        width: 235
         height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -363,7 +363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3f4178778bbb56046bdb18090dbb0021
     internalID: 0
     vertices: []
     indices: 
@@ -371,7 +371,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":235.0,"y":106.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       g0_0: 1239716952208812555
       g0_1: 7513610671519829592

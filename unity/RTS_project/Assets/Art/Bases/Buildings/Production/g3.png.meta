@@ -146,12 +146,12 @@ TextureImporter:
       name: g3_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 7
-        width: 93
-        height: 85
+        x: 0
+        y: 0
+        width: 194
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: g3_1
       rect:
         serializedVersion: 2
-        x: 246
-        y: 8
-        width: 99
-        height: 84
+        x: 194
+        y: 0
+        width: 194
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: g3_2
       rect:
         serializedVersion: 2
-        x: 437
-        y: 8
-        width: 121
-        height: 84
+        x: 388
+        y: 0
+        width: 194
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -212,12 +212,12 @@ TextureImporter:
       name: g3_3
       rect:
         serializedVersion: 2
-        x: 610
-        y: 8
-        width: 142
-        height: 85
+        x: 582
+        y: 0
+        width: 194
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -234,12 +234,12 @@ TextureImporter:
       name: g3_4
       rect:
         serializedVersion: 2
-        x: 804
+        x: 776
         y: 0
-        width: 142
-        height: 95
+        width: 194
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -256,12 +256,12 @@ TextureImporter:
       name: g3_5
       rect:
         serializedVersion: 2
-        x: 990
+        x: 970
         y: 0
-        width: 150
-        height: 100
+        width: 194
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -278,12 +278,12 @@ TextureImporter:
       name: g3_6
       rect:
         serializedVersion: 2
-        x: 1184
+        x: 1164
         y: 0
-        width: 150
-        height: 102
+        width: 194
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -300,12 +300,12 @@ TextureImporter:
       name: g3_7
       rect:
         serializedVersion: 2
-        x: 1378
+        x: 1358
         y: 0
-        width: 172
+        width: 194
         height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -322,12 +322,12 @@ TextureImporter:
       name: g3_8
       rect:
         serializedVersion: 2
-        x: 1551
+        x: 1552
         y: 0
-        width: 193
+        width: 194
         height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -344,12 +344,12 @@ TextureImporter:
       name: g3_9
       rect:
         serializedVersion: 2
-        x: 1745
+        x: 1746
         y: 0
-        width: 193
+        width: 194
         height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -374,7 +374,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":194.0,"y":106.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       g3_0: -3681639091457262343
       g3_1: -830689509488047431
