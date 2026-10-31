@@ -58,6 +58,17 @@ public sealed class TerrainGenerationConfig
     /// </summary>
     public float DecorationsPer10000Area { get; }
 
+    /// <summary>
+    /// A dekorációk ekkora hányada kerül ligetként egy AttractsDecorations
+    /// jelölésű akadály (pl. oázis) köré, ha van ilyen a pályán. [0; 1]
+    /// </summary>
+    public float DecorationGroveFraction { get; }
+
+    /// <summary>
+    /// A liget dekorációi legfeljebb ennyire lehetnek a vonzó akadály szélétől.
+    /// </summary>
+    public float DecorationGroveRadius { get; }
+
     public TerrainGenerationConfig(
         IEnumerable<TerrainFeatureType> obstacleTypes,
         IEnumerable<TerrainFeatureType> decorationTypes,
@@ -69,7 +80,9 @@ public sealed class TerrainGenerationConfig
         float walkabilityCellSize,
         int maxPlacementAttemptsPerObstacle,
         int maxObstacleGenerationAttempts,
-        float decorationsPer10000Area)
+        float decorationsPer10000Area,
+        float decorationGroveFraction = 0f,
+        float decorationGroveRadius = 8f)
     {
         _obstacleTypes = ToArray(obstacleTypes, nameof(obstacleTypes));
         _decorationTypes = ToArray(decorationTypes, nameof(decorationTypes));
@@ -119,6 +132,21 @@ public sealed class TerrainGenerationConfig
         if (decorationsPer10000Area < 0f)
             throw new ArgumentOutOfRangeException(nameof(decorationsPer10000Area));
 
+        if (decorationGroveFraction < 0f || decorationGroveFraction > 1f)
+            throw new ArgumentOutOfRangeException(nameof(decorationGroveFraction),
+                "A ligetbe kerülő dekorációk aránya a [0; 1] tartományba kell essen.");
+
+        if (!(decorationGroveRadius > 0f))
+            throw new ArgumentOutOfRangeException(nameof(decorationGroveRadius),
+                "A liget sugarának pozitívnak kell lennie.");
+
+        foreach (TerrainFeatureType type in _decorationTypes)
+        {
+            if (type.AttractsDecorations)
+                throw new ArgumentException(
+                    $"Dekoráció nem lehet liget középpontja: {type.Id}", nameof(decorationTypes));
+        }
+
         MinObstacleBaseDistance = minObstacleBaseDistance;
         MinObstacleSpacing = minObstacleSpacing;
         MinPassageWidth = minPassageWidth;
@@ -126,6 +154,8 @@ public sealed class TerrainGenerationConfig
         MaxPlacementAttemptsPerObstacle = maxPlacementAttemptsPerObstacle;
         MaxObstacleGenerationAttempts = maxObstacleGenerationAttempts;
         DecorationsPer10000Area = decorationsPer10000Area;
+        DecorationGroveFraction = decorationGroveFraction;
+        DecorationGroveRadius = decorationGroveRadius;
     }
 
     public float MaxObstacleBoundingRadius

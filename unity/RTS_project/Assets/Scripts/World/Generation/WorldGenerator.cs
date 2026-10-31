@@ -29,9 +29,10 @@ using UnityEngine;
 ///      generálja újra (legfeljebb MaxObstacleGenerationAttempts-szer). A bázisok
 ///      ilyenkor sem mozdulnak. Ha ez sem sikerül, hibás eredményt ad vissza.
 ///   7. A dekorációkat (pl. pálmafák) újabb származtatott sorozattal helyezi el,
-///      a bázisok szabad területén és az akadályokon kívül. Nem kerülnek a
-///      járhatósági rácsba, és sosem okoznak hibát: ha egy dekoráció nem fér
-///      el, kimarad.
+///      a bázisok szabad területén és az akadályokon kívül. Egy részük
+///      (DecorationGroveFraction) ligetként a vonzó akadályok (pl. oázis) köré
+///      kerül, a többi szétszórva. Nem kerülnek a járhatósági rácsba, és sosem
+///      okoznak hibát: ha egy dekoráció nem fér el, kimarad.
 /// </summary>
 public sealed class WorldGenerator
 {
@@ -467,14 +468,25 @@ public sealed class WorldGenerator
             DeterministicRandom.DeriveSeed(request.Seed, DecorationStream));
 
         List<Footprint> obstacleFootprints = new List<Footprint>(obstacles.Count);
+        List<int> groveAnchors = new List<int>();
 
-        foreach (TerrainFeatureLayout obstacle in obstacles)
-            obstacleFootprints.Add(FindObstacleType(obstacle.TypeId).Footprint.Scaled(obstacle.Scale));
+        for (int i = 0; i < obstacles.Count; i++)
+        {
+            TerrainFeatureType obstacleType = FindObstacleType(obstacles[i].TypeId);
+            obstacleFootprints.Add(obstacleType.Footprint.Scaled(obstacles[i].Scale));
+
+            if (obstacleType.AttractsDecorations)
+                groveAnchors.Add(i);
+        }
 
         List<float> decorationRadii = new List<float>(count);
 
         for (int i = 0; i < count; i++)
         {
+            // Ligetbe kerül-e ez a dekoráció (csak ha van vonzó akadály).
+            bool inGrove = groveAnchors.Count > 0 &&
+                           random.NextDouble() < terrain.DecorationGroveFraction;
+
             for (int attempt = 0; attempt < terrain.MaxPlacementAttemptsPerObstacle; attempt++)
             {
                 TerrainFeatureType type = PickWeighted(terrain.DecorationTypes, random);
@@ -487,9 +499,23 @@ public sealed class WorldGenerator
                 if (limit.x <= 0f || limit.y <= 0f)
                     continue;
 
-                Vector2 position = new Vector2(
-                    random.NextFloat(-limit.x, limit.x),
-                    random.NextFloat(-limit.y, limit.y));
+                Vector2 position;
+
+                if (inGrove)
+                {
+                    int anchor = groveAnchors[random.NextInt(groveAnchors.Count)];
+                    position = NextGrovePosition(
+                        obstacles[anchor].Position, obstacleFootprints[anchor], footprint, random);
+
+                    if (Mathf.Abs(position.x) > limit.x || Mathf.Abs(position.y) > limit.y)
+                        continue;
+                }
+                else
+                {
+                    position = new Vector2(
+                        random.NextFloat(-limit.x, limit.x),
+                        random.NextFloat(-limit.y, limit.y));
+                }
 
                 if (!IsValidDecorationPosition(
                         footprint, position, bases, obstacles, obstacleFootprints, decorations, decorationRadii))
@@ -506,6 +532,27 @@ public sealed class WorldGenerator
         }
 
         return decorations;
+    }
+
+    /// <summary>
+    /// Véletlen pont a vonzó akadály körül: az akadály fél-kiterjedéseiből
+    /// képzett ellipszis egy pontjától kifelé, a dekoráció méretének kétszerese
+    /// és ehhez hozzáadott legfeljebb DecorationGroveRadius távolságra.
+    /// </summary>
+    private Vector2 NextGrovePosition(
+        Vector2 anchorPosition,
+        Footprint anchorFootprint,
+        Footprint decorationFootprint,
+        DeterministicRandom random)
+    {
+        double angle = random.NextDouble() * FullCircle;
+        Vector2 direction = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+        Vector2 edge = Vector2.Scale(anchorFootprint.HalfExtents, direction);
+
+        float distance = 2f * decorationFootprint.BoundingRadius +
+                         (float)random.NextDouble() * RequireTerrain().DecorationGroveRadius;
+
+        return anchorPosition + edge + direction * distance;
     }
 
     private bool IsValidDecorationPosition(

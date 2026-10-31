@@ -47,7 +47,7 @@ public sealed class WorldGenerationSettings : ScriptableObject
     private int minObstacleCount = 0;
 
     [SerializeField, Min(0)]
-    private int maxObstacleCount = 50;
+    private int maxObstacleCount = 100;
 
     [Tooltip("Egy terepakadály helyigényének sugara.")]
     [SerializeField, Min(0.1f)]
@@ -65,7 +65,7 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [Tooltip("A használható terület legfeljebb ekkora hányadát foglalják el a bázisok és akadályok. " +
              "Kisebb érték tágasabb világot és megbízhatóbb elhelyezést ad.")]
     [SerializeField, Range(0.05f, 0.5f)]
-    private float targetFillRatio = 0.3f;
+    private float targetFillRatio = 0.34f;
 
     [Header("Placement")]
     [SerializeField, Min(1)]
@@ -145,6 +145,14 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField, Min(0f)]
     private float decorationsPer10000Area = 12f;
 
+    [Tooltip("A dekorációk ekkora hányada kerül ligetként a vonzó akadályok (pl. oázis) köré.")]
+    [SerializeField, Range(0f, 1f)]
+    private float decorationGroveFraction = 0.5f;
+
+    [Tooltip("A liget dekorációi legfeljebb ennyire lehetnek a vonzó akadály szélétől.")]
+    [SerializeField, Min(0.1f)]
+    private float decorationGroveRadius = 8f;
+
     public IReadOnlyList<TerrainFeatureDefinition> ObstacleDefinitions => obstacleTypes;
     public IReadOnlyList<TerrainFeatureDefinition> DecorationDefinitions => decorationTypes;
 
@@ -190,7 +198,9 @@ public sealed class WorldGenerationSettings : ScriptableObject
             walkabilityCellSize,
             maxPlacementAttemptsPerObstacle,
             maxObstacleGenerationAttempts,
-            decorationsPer10000Area);
+            decorationsPer10000Area,
+            decorationGroveFraction,
+            decorationGroveRadius);
     }
 
     private static List<TerrainFeatureType> ToTypes(TerrainFeatureDefinition[] definitions)

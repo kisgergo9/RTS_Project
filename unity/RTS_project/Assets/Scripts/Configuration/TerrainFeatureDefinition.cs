@@ -53,6 +53,10 @@ public sealed class TerrainFeatureDefinition : ScriptableObject
     [SerializeField, Min(0.001f)]
     private float weight = 1f;
 
+    [Tooltip("Akadálynál: a dekorációk egy része e tárgy köré csoportosul (pl. pálmaliget az oázis körül).")]
+    [SerializeField]
+    private bool attractsDecorations;
+
     public string Id => id;
     public string DisplayName => displayName;
     public bool BlocksMovement => blocksMovement;
@@ -81,7 +85,8 @@ public sealed class TerrainFeatureDefinition : ScriptableObject
             minScale,
             maxScale,
             weight,
-            VariantCount);
+            VariantCount,
+            attractsDecorations);
     }
 
 #if UNITY_EDITOR

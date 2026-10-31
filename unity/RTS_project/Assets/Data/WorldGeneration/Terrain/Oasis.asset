@@ -34,3 +34,4 @@ MonoBehaviour:
   minScale: 0.9
   maxScale: 1.15
   weight: 1.5
+  attractsDecorations: 1

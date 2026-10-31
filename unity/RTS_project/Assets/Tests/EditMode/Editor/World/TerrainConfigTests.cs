@@ -298,6 +298,20 @@ public sealed class TerrainConfigTests
     }
 
     [Test]
+    public void SettingsAsset_OasisAttractsPalmGroves()
+    {
+        WorldGenerationSettings settings =
+            AssetDatabase.LoadAssetAtPath<WorldGenerationSettings>(SettingsAssetPath);
+
+        TerrainGenerationConfig terrain = settings.ToConfig().Terrain;
+
+        foreach (TerrainFeatureType type in terrain.ObstacleTypes)
+            Assert.AreEqual(type.Id == "oasis", type.AttractsDecorations, type.Id);
+
+        Assert.Greater(terrain.DecorationGroveFraction, 0f);
+    }
+
+    [Test]
     public void SettingsAsset_BaseFootprintBlocksCenterButNotExits()
     {
         WorldGenerationSettings settings =

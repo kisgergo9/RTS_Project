@@ -321,14 +321,14 @@ public sealed class WorldLayoutSnapshotTests
 
     /// <summary>
     /// Az üzenetformátum szerint: 5 egész fejléc, játékosok (darabszám + egészek),
-    /// bázisok (darabszám + 2+4+4+1+4 bájt), típustáblázat (darabszám + karakterláncok),
+    /// bázisok (darabszám + 2+4+4+1+1 bájt), típustáblázat (darabszám + karakterláncok),
     /// majd az akadályok darabszáma.
     /// </summary>
     private static int FindFirstObstacleTypeIndexOffset(WorldGenerationState state)
     {
         int offset = 5 * 4;
         offset += 4 + state.playerIds.Length * 4;
-        offset += 4 + state.bases.Length * (2 + 4 + 4 + 1 + 4);
+        offset += 4 + state.bases.Length * (2 + 4 + 4 + 1 + 1);
 
         System.Collections.Generic.List<string> table = new System.Collections.Generic.List<string>();
 

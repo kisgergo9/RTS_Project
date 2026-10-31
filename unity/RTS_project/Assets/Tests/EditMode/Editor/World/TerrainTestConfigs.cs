@@ -12,10 +12,12 @@ internal static class TerrainTestConfigs
         float halfHeight = 1.5f,
         float minScale = 1f,
         float maxScale = 1f,
-        float weight = 1f)
+        float weight = 1f,
+        bool attractsDecorations = false)
     {
         return new TerrainFeatureType(
-            id, true, Footprint.Ellipse(halfWidth, halfHeight), minScale, maxScale, weight, 1);
+            id, true, Footprint.Ellipse(halfWidth, halfHeight), minScale, maxScale, weight, 1,
+            attractsDecorations);
     }
 
     public static TerrainFeatureType Decoration(string id = "tree")
@@ -47,7 +49,9 @@ internal static class TerrainTestConfigs
         float walkabilityCellSize = 1f,
         int maxPlacementAttemptsPerObstacle = 100,
         int maxObstacleGenerationAttempts = 5,
-        float decorationsPer10000Area = 6f)
+        float decorationsPer10000Area = 6f,
+        float decorationGroveFraction = 0f,
+        float decorationGroveRadius = 8f)
     {
         return new TerrainGenerationConfig(
             obstacleTypes ?? new[] { Obstacle() },
@@ -60,6 +64,8 @@ internal static class TerrainTestConfigs
             walkabilityCellSize,
             maxPlacementAttemptsPerObstacle,
             maxObstacleGenerationAttempts,
-            decorationsPer10000Area);
+            decorationsPer10000Area,
+            decorationGroveFraction,
+            decorationGroveRadius);
     }
 }

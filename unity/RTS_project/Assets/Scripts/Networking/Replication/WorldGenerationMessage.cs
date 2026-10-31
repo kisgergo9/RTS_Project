@@ -14,7 +14,8 @@ using Unity.Netcode;
 /// A csak megjelenítést szolgáló dekorációk pozíciója 16 bites, a pályához
 /// viszonyított értékként (a legnagyobb pályán kb. 0,008 egység pontossággal),
 /// léptéke 0,01-es lépésközzel utazik; a játékmenetet befolyásoló bázisok és
-/// akadályok pontos értékkel. A legnagyobb világ (150 bázis, 50 akadály,
+/// akadályok pontos értékkel. A bázis tulajdonosa a játékoslista 1 bájtos
+/// sorszámaként utazik. A legnagyobb világ (150 bázis, 100 akadály,
 /// 337 dekoráció) így a Unity Transport alapértelmezett 6144 bájtos
 /// MaxPayloadSize értéke alatt marad. Sűrűbb dekoráció esetén a
 /// MaxPayloadSize-t növelni kell.
@@ -34,6 +35,11 @@ public struct WorldGenerationMessage : INetworkSerializable
     // A típustáblázat és a grafikai változatok bájtos indexelése miatt.
     public const int MaxTypeCount = byte.MaxValue + 1;
     public const int MaxVariant = byte.MaxValue;
+
+    // A bázistulajdonos a játékoslista sorszámaként utazik; ez jelöli a
+    // nem játékos (sárga vagy gazdátlan) tulajdonost.
+    private const byte NoPlayerIndex = byte.MaxValue;
+    public const int MaxPlayerCount = byte.MaxValue;
 
     // A dekorációk léptékének kódolása: lépték * 100, egy bájton (0,01–2,55).
     public const float DecorationScaleStep = 0.01f;
@@ -70,7 +76,10 @@ public struct WorldGenerationMessage : INetworkSerializable
     {
         int count = serializer.IsReader ? 0 : State.playerIds.Length;
         serializer.SerializeValue(ref count);
-        ValidateCount(count);
+
+        if (count < 0 || count > MaxPlayerCount)
+            throw new InvalidOperationException(
+                $"Érvénytelen játékosszám a világüzenetben: {count}");
 
         if (serializer.IsReader)
             State.playerIds = new int[count];
@@ -98,17 +107,48 @@ public struct WorldGenerationMessage : INetworkSerializable
 
             ushort baseId = (ushort)placement.baseId;
             byte ownerType = (byte)placement.ownerType;
+            byte playerIndex = serializer.IsReader ? NoPlayerIndex : ToPlayerIndex(placement);
 
             serializer.SerializeValue(ref baseId);
             serializer.SerializeValue(ref placement.x);
             serializer.SerializeValue(ref placement.y);
             serializer.SerializeValue(ref ownerType);
-            serializer.SerializeValue(ref placement.playerId);
+            serializer.SerializeValue(ref playerIndex);
 
             placement.baseId = baseId;
             placement.ownerType = (BaseOwnerType)ownerType;
+
+            if (serializer.IsReader)
+                placement.playerId = FromPlayerIndex(placement.ownerType, playerIndex);
+
             State.bases[i] = placement;
         }
+    }
+
+    private byte ToPlayerIndex(BasePlacementState placement)
+    {
+        if (placement.ownerType != BaseOwnerType.Player)
+            return NoPlayerIndex;
+
+        int index = Array.IndexOf(State.playerIds, placement.playerId);
+
+        if (index < 0)
+            throw new InvalidOperationException(
+                $"A(z) {placement.baseId}. bázis tulajdonosa nem résztvevő játékos: {placement.playerId}");
+
+        return (byte)index;
+    }
+
+    private int FromPlayerIndex(BaseOwnerType ownerType, byte playerIndex)
+    {
+        if (ownerType != BaseOwnerType.Player)
+            return 0;
+
+        if (playerIndex >= State.playerIds.Length)
+            throw new InvalidOperationException(
+                $"Érvénytelen játékoshivatkozás a világüzenetben: {playerIndex}");
+
+        return State.playerIds[playerIndex];
     }
 
     /// <summary>

@@ -30,6 +30,12 @@ public sealed class TerrainFeatureType
     public int VariantCount { get; }
 
     /// <summary>
+    /// Igaz, ha a dekorációk egy része e tereptárgy köré csoportosul
+    /// (pl. pálmaliget az oázis körül).
+    /// </summary>
+    public bool AttractsDecorations { get; }
+
+    /// <summary>
     /// A legnagyobb léptékű példány középponttól legtávolabbi pontja.
     /// </summary>
     public float MaxBoundingRadius => Footprint.BoundingRadius * MaxScale;
@@ -41,7 +47,8 @@ public sealed class TerrainFeatureType
         float minScale,
         float maxScale,
         float weight,
-        int variantCount)
+        int variantCount,
+        bool attractsDecorations = false)
     {
         if (string.IsNullOrWhiteSpace(id))
             throw new ArgumentException("A tereptárgy-típus azonosítója nem lehet üres.", nameof(id));
@@ -69,5 +76,6 @@ public sealed class TerrainFeatureType
         MaxScale = maxScale;
         Weight = weight;
         VariantCount = variantCount;
+        AttractsDecorations = attractsDecorations;
     }
 }

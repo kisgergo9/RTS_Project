@@ -202,6 +202,125 @@ public sealed class WorldGeneratorDecorationTests
         Assert.IsTrue(_generator.AreBasesReachable(layout));
     }
 
+    // Ligetek
+
+    private WorldGenerator GroveGenerator(float groveFraction, bool withAnchor = true)
+    {
+        TerrainGenerationConfig terrain = TerrainTestConfigs.Create(
+            obstacleTypes: new[]
+            {
+                TerrainTestConfigs.Obstacle("pond", 4f, 1.6f, 1f, 1f, 1f, attractsDecorations: withAnchor),
+                TerrainTestConfigs.Obstacle("rock", 4f, 1.5f, 1f, 1f, 1f)
+            },
+            decorationTypes: new[] { TerrainTestConfigs.Decoration("palm") },
+            decorationsPer10000Area: 6f,
+            decorationGroveFraction: groveFraction,
+            decorationGroveRadius: 8f);
+
+        return new WorldGenerator(WorldGenerationTestConfigs.Create(terrain: terrain));
+    }
+
+    private static int CountNearAnchors(WorldLayout layout, float maxDistance)
+    {
+        int near = 0;
+
+        foreach (TerrainFeatureLayout decoration in layout.Decorations)
+        {
+            foreach (TerrainFeatureLayout obstacle in layout.Obstacles)
+            {
+                if (obstacle.TypeId == "pond" &&
+                    Vector2.Distance(decoration.Position, obstacle.Position) <= maxDistance)
+                {
+                    near++;
+                    break;
+                }
+            }
+        }
+
+        return near;
+    }
+
+    [Test]
+    public void FullGroveFraction_PlacesDecorationsAroundAnchors()
+    {
+        WorldGenerator generator = GroveGenerator(1f);
+        WorldLayout layout = GenerateOrFail(generator, MaxRequest(generator, 3, generator.Rules.MaxWorldSize, 17));
+
+        // Az ellipszis fél-tengelye (4) + a dekoráció kétszeres mérete + a liget sugara (8).
+        float reach = 4f + 2f * 0.4f + 8f + 0.01f;
+
+        Assert.Greater(layout.Decorations.Count, 0);
+        Assert.AreEqual(layout.Decorations.Count, CountNearAnchors(layout, reach));
+    }
+
+    [Test]
+    public void HalfGroveFraction_MixesGrovesAndScatteredDecorations()
+    {
+        WorldGenerator generator = GroveGenerator(0.5f);
+        WorldLayout layout = GenerateOrFail(generator, MaxRequest(generator, 3, generator.Rules.MaxWorldSize, 17));
+
+        int near = CountNearAnchors(layout, 4f + 0.8f + 8f + 0.01f);
+
+        Assert.Greater(near, layout.Decorations.Count / 4);
+        Assert.Less(near, layout.Decorations.Count);
+    }
+
+    [Test]
+    public void GrovesWithoutAnchors_StillPlaceAllDecorations()
+    {
+        WorldGenerator generator = GroveGenerator(1f, withAnchor: false);
+        int size = generator.Rules.MaxWorldSize;
+        WorldLayout layout = GenerateOrFail(generator, MaxRequest(generator, 3, size, 17));
+
+        Assert.AreEqual(generator.GetRequestedDecorationCount(size), layout.Decorations.Count);
+    }
+
+    [Test]
+    public void GroveDecorations_StayOutsideObstaclesAndBases()
+    {
+        WorldGenerator generator = GroveGenerator(1f);
+        WorldLayout layout = GenerateOrFail(generator, MaxRequest(generator, 6, generator.Rules.MaxWorldSize, 23));
+        Footprint pond = Footprint.Ellipse(4f, 1.6f);
+        Footprint palm = Footprint.Ellipse(0.4f, 0.2f);
+
+        foreach (TerrainFeatureLayout decoration in layout.Decorations)
+        {
+            foreach (TerrainFeatureLayout obstacle in layout.Obstacles)
+            {
+                Footprint obstacleFootprint = obstacle.TypeId == "pond" ? pond : Footprint.Ellipse(4f, 1.5f);
+
+                Assert.Greater(
+                    Footprint.Distance(palm, decoration.Position, obstacleFootprint, obstacle.Position),
+                    0f,
+                    $"{decoration} fedi: {obstacle}");
+            }
+
+            foreach (BaseLayout baseLayout in layout.Bases)
+            {
+                Assert.GreaterOrEqual(
+                    Vector2.Distance(decoration.Position, baseLayout.Position),
+                    _config.BaseClearRadius - 0.001f,
+                    $"{decoration} túl közel: {baseLayout}");
+            }
+
+            Assert.IsTrue(layout.Bounds.Contains(decoration.Position), decoration.ToString());
+        }
+    }
+
+    [Test]
+    public void GroveConfig_RejectsInvalidValues()
+    {
+        Assert.Throws<System.ArgumentOutOfRangeException>(
+            () => TerrainTestConfigs.Create(decorationGroveFraction: 1.5f));
+        Assert.Throws<System.ArgumentOutOfRangeException>(
+            () => TerrainTestConfigs.Create(decorationGroveRadius: 0f));
+        Assert.Throws<System.ArgumentException>(() => TerrainTestConfigs.Create(
+            decorationTypes: new[]
+            {
+                new TerrainFeatureType("magnet", false, Footprint.Ellipse(1f, 1f), 1f, 1f, 1f, 1, true)
+            }));
+    }
+
     // Érvényesség
 
     [Test]
