@@ -200,7 +200,10 @@ public sealed class CameraController : MonoBehaviour
         worldMin = Vector2.Min(minimum, maximum);
         worldMax = Vector2.Max(minimum, maximum);
 
-        ClampCameraPosition();
+        // Awake előtt (pl. egy másik komponens Awake-jéből hívva) még nincs
+        // kamera; ilyenkor az Update végzi el a pozíció korlátozását.
+        if (_camera != null)
+            ClampCameraPosition();
     }
 
     private static void EnableAction(InputActionReference reference)

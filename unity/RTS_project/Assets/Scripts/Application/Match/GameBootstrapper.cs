@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -25,7 +26,36 @@ public sealed class GameBootstrapper : MonoBehaviour
     [SerializeField]
     private UnitGroupMember[] units;
 
+    [Header("World Generation (optional)")]
+
+    [Tooltip("Ha meg van adva, a bázisok a generált világból származnak, " +
+             "és a Bases tömbnek üresnek kell lennie.")]
+    [SerializeField]
+    private WorldGenerationSetup worldGeneration;
+
+    [SerializeField]
+    private WorldSceneBuilder worldBuilder;
+
     public GameState State { get; private set; }
+
+    // Generált világ esetén a generálás eredménye, egyébként null.
+    public WorldLayout WorldLayout { get; private set; }
+
+    // A beállított játékosok azonosítói (szerkesztõben is olvasható).
+    public IEnumerable<int> ConfiguredPlayerIds
+    {
+        get
+        {
+            if (players == null)
+                yield break;
+
+            foreach (PlayerSetup setup in players)
+            {
+                if (setup != null)
+                    yield return setup.playerId;
+            }
+        }
+    }
 
     private UnitIdAllocator _unitIdAllocator;
 
@@ -79,6 +109,12 @@ public sealed class GameBootstrapper : MonoBehaviour
 
     private void InitializeBases()
     {
+        if (worldGeneration != null)
+        {
+            InitializeGeneratedWorld();
+            return;
+        }
+
         if (bases == null)
             return;
 
@@ -93,6 +129,37 @@ public sealed class GameBootstrapper : MonoBehaviour
 
             State.RegisterBase(baseController.Data);
         }
+    }
+
+    private void InitializeGeneratedWorld()
+    {
+        if (worldBuilder == null)
+            throw new InvalidOperationException(
+                "Generált világhoz WorldSceneBuilder szükséges.");
+
+        if (bases != null && bases.Length > 0)
+            throw new InvalidOperationException(
+                "Generált világ esetén a Bases tömbnek üresnek kell lennie.");
+
+        WorldGenerationResult result =
+            worldGeneration.Generate(State.Players.Players);
+
+        if (!result.Success)
+            throw new InvalidOperationException(
+                $"A világgenerálás sikertelen ({result.Error}): {result.ErrorMessage}");
+
+        WorldLayout = result.Layout;
+
+        foreach (BaseController baseController in
+                 worldBuilder.Build(result.Layout, State.Players))
+        {
+            State.RegisterBase(baseController.Data);
+        }
+
+        Debug.Log(
+            $"Világ generálva: méret={result.Layout.WorldSize}, " +
+            $"seed={result.Layout.Seed}, bázisok={result.Layout.Bases.Count}, " +
+            $"kísérletek={result.Attempts}");
     }
 
     private void InitializeUnits()
