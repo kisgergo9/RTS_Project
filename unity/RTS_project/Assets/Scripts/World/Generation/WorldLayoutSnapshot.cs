@@ -48,7 +48,9 @@ public static class WorldLayoutSnapshot
             yellowBaseCount = request.YellowBaseCount,
             obstacleCount = request.ObstacleCount,
             playerIds = playerIds,
-            bases = bases
+            bases = bases,
+            obstacles = ToStates(layout.Obstacles),
+            decorations = ToStates(layout.Decorations)
         };
     }
 
@@ -101,7 +103,67 @@ public static class WorldLayoutSnapshot
             bases.Add(new BaseLayout(placement.baseId, position, placement.ownerType, placement.playerId));
         }
 
-        return new WorldLayout(state.generatorVersion, request, bases);
+        List<TerrainFeatureLayout> obstacles = FromStates(state.obstacles, bounds, "akadály");
+        List<TerrainFeatureLayout> decorations = FromStates(state.decorations, bounds, "dekoráció");
+
+        return new WorldLayout(state.generatorVersion, request, bases, obstacles, decorations);
+    }
+
+    private static TerrainFeatureState[] ToStates(IReadOnlyList<TerrainFeatureLayout> features)
+    {
+        TerrainFeatureState[] states = new TerrainFeatureState[features.Count];
+
+        for (int i = 0; i < states.Length; i++)
+        {
+            TerrainFeatureLayout feature = features[i];
+
+            states[i] = new TerrainFeatureState
+            {
+                typeId = feature.TypeId,
+                variant = feature.Variant,
+                x = feature.Position.x,
+                y = feature.Position.y,
+                scale = feature.Scale
+            };
+        }
+
+        return states;
+    }
+
+    /// <summary>
+    /// A tereptárgyak visszaállítása. Hiányzó tömb (régebbi mentés) üres
+    /// listának számít; érvénytelen elem kivételt dob.
+    /// </summary>
+    private static List<TerrainFeatureLayout> FromStates(
+        TerrainFeatureState[] states,
+        WorldBounds bounds,
+        string kind)
+    {
+        List<TerrainFeatureLayout> features = new List<TerrainFeatureLayout>();
+
+        if (states == null)
+            return features;
+
+        foreach (TerrainFeatureState state in states)
+        {
+            Vector2 position = new Vector2(state.x, state.y);
+
+            if (!bounds.Contains(position))
+                throw new ArgumentException(
+                    $"A(z) {state.typeId} {kind} a pályán kívül van: {position}", nameof(states));
+
+            try
+            {
+                features.Add(new TerrainFeatureLayout(state.typeId, state.variant, position, state.scale));
+            }
+            catch (ArgumentException exception)
+            {
+                throw new ArgumentException(
+                    $"Érvénytelen {kind} a pillanatképben: {exception.Message}", nameof(states), exception);
+            }
+        }
+
+        return features;
     }
 
     public static string ToJson(WorldGenerationState state, bool prettyPrint = false)
