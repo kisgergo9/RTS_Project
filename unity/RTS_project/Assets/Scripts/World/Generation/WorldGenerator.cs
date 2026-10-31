@@ -18,6 +18,16 @@ using UnityEngine;
 ///      el, a teljes generálás újraindul (legfeljebb MaxGenerationAttempts-szer),
 ///      ugyanazzal a folytatódó véletlensorozattal, így az eredmény továbbra is
 ///      determinisztikus. Ha ez sem sikerül, hibás eredményt ad vissza.
+///   5. Az akadályokat a seedből származtatott, külön véletlensorozattal helyezi
+///      el, így a bázisok helyét nem befolyásolják. Egy akadály csak akkor
+///      fogadható el, ha a pályán belül van, minden bázis szabad területétől
+///      legalább MinObstacleBaseDistance, a többi akadálytól legalább
+///      MinObstacleSpacing távolságra esik.
+///   6. Végül a járhatósági rácson ellenőrzi, hogy minden bázis minden kijárata
+///      ugyanabba az összefüggő régióba esik. Ha nem, vagy egy akadály nem
+///      helyezhető el, az akadályokat a következő származtatott sorozattal
+///      generálja újra (legfeljebb MaxObstacleGenerationAttempts-szer). A bázisok
+///      ilyenkor sem mozdulnak. Ha ez sem sikerül, hibás eredményt ad vissza.
 /// </summary>
 public sealed class WorldGenerator
 {
@@ -25,9 +35,12 @@ public sealed class WorldGenerator
     /// A generálási algoritmus verziója. Növelni kell minden olyan változtatásnál,
     /// amely ugyanabból a seedből és kérésből más világot eredményez.
     /// </summary>
-    public const int Version = 1;
+    public const int Version = 2;
 
     private const double FullCircle = 2.0 * Math.PI;
+
+    // A származtatott véletlensorozatok első sorszáma az akadályokhoz.
+    private const int ObstacleStream = 1000;
 
     private readonly WorldGenerationConfig _config;
 
@@ -54,6 +67,15 @@ public sealed class WorldGenerator
             return WorldGenerationResult.Failed(WorldGenerationError.InvalidRequest, error, 0);
         }
 
+        if (request.ObstacleCount > 0 &&
+            (_config.Terrain == null || _config.Terrain.ObstacleTypes.Count == 0))
+        {
+            return WorldGenerationResult.Failed(
+                WorldGenerationError.InvalidRequest,
+                $"{request.ObstacleCount} akadály kérve, de nincs akadálytípus konfigurálva.",
+                0);
+        }
+
         WorldBounds bounds = new WorldBounds(request.WorldSize);
         DeterministicRandom random = new DeterministicRandom(request.Seed);
 
@@ -73,8 +95,22 @@ public sealed class WorldGenerator
             if (!TryPlaceYellowBases(bounds, request.YellowBaseCount, random, positions))
                 continue;
 
+            List<BaseLayout> bases = CreateBases(playerIds, positions);
+
+            if (!TryGenerateObstacles(request, bounds, bases, out List<TerrainFeatureLayout> obstacles))
+            {
+                return WorldGenerationResult.Failed(
+                    WorldGenerationError.PlacementFailed,
+                    $"Nem sikerült {request.ObstacleCount} akadályt úgy elhelyezni a " +
+                    $"{request.WorldSize} méretű világban, hogy minden bázis elérhető maradjon " +
+                    $"({_config.Terrain.MaxObstacleGenerationAttempts} akadály-generálási kísérlet, " +
+                    $"seed: {request.Seed}). Próbálj kevesebb akadályt, nagyobb világot " +
+                    "vagy másik seedet.",
+                    attempt);
+            }
+
             return WorldGenerationResult.Succeeded(
-                CreateLayout(request, playerIds, positions),
+                new WorldLayout(Version, request, bases, obstacles),
                 attempt);
         }
 
@@ -196,8 +232,238 @@ public sealed class WorldGenerator
         return true;
     }
 
-    private static WorldLayout CreateLayout(
+    // Akadályok
+
+    /// <summary>
+    /// A layoutnak megfelelő járhatósági rács: a pálya széle mentén és az
+    /// akadályok körül MinPassageWidth / 2 szélességben megnövelve, a bázisok
+    /// tiltott területe pontosan. Az útvonaltervezés is ebből indulhat ki.
+    /// </summary>
+    public WalkabilityGrid BuildWalkabilityGrid(WorldLayout layout)
+    {
+        if (layout == null)
+            throw new ArgumentNullException(nameof(layout));
+
+        return BuildWalkabilityGrid(layout.Bounds, layout.Bases, layout.Obstacles);
+    }
+
+    /// <summary>
+    /// Igaz, ha minden bázis minden kötelező pontja (kijárat, foglalási terület)
+    /// ugyanabba az összefüggő járható régióba esik.
+    /// </summary>
+    public bool AreBasesReachable(WorldLayout layout)
+    {
+        if (layout == null)
+            throw new ArgumentNullException(nameof(layout));
+
+        return AreBasesReachable(BuildWalkabilityGrid(layout), layout.Bases);
+    }
+
+    private WalkabilityGrid BuildWalkabilityGrid(
+        WorldBounds bounds,
+        IEnumerable<BaseLayout> bases,
+        IEnumerable<TerrainFeatureLayout> obstacles)
+    {
+        TerrainGenerationConfig terrain = RequireTerrain();
+        float inflation = terrain.MinPassageWidth * 0.5f;
+
+        WalkabilityGrid grid = new WalkabilityGrid(bounds, terrain.WalkabilityCellSize);
+        grid.BlockBorder(inflation);
+
+        foreach (BaseLayout baseLayout in bases)
+            grid.BlockFootprint(terrain.BaseFootprint, baseLayout.Position);
+
+        foreach (TerrainFeatureLayout obstacle in obstacles)
+        {
+            TerrainFeatureType type = FindObstacleType(obstacle.TypeId);
+            grid.BlockFootprint(type.Footprint, obstacle.Position, obstacle.Scale, inflation);
+        }
+
+        return grid;
+    }
+
+    private bool AreBasesReachable(WalkabilityGrid grid, IReadOnlyList<BaseLayout> bases)
+    {
+        TerrainGenerationConfig terrain = RequireTerrain();
+
+        // A kijárat közvetlenül a bázis tiltott területe mellett lehet, ezért a
+        // legközelebbi járható cellát keressük, legfeljebb két cellányi távolságban.
+        float searchDistance = grid.CellSize * 2f;
+        List<Vector2Int> cells = new List<Vector2Int>(bases.Count * terrain.BaseAccessPoints.Count);
+
+        foreach (BaseLayout baseLayout in bases)
+        {
+            foreach (Vector2 accessPoint in terrain.BaseAccessPoints)
+            {
+                if (!grid.TryFindNearestWalkableCell(
+                        baseLayout.Position + accessPoint, searchDistance, out Vector2Int cell))
+                {
+                    return false;
+                }
+
+                cells.Add(cell);
+            }
+        }
+
+        return grid.AreConnected(cells);
+    }
+
+    private bool TryGenerateObstacles(
         WorldGenerationRequest request,
+        WorldBounds bounds,
+        List<BaseLayout> bases,
+        out List<TerrainFeatureLayout> obstacles)
+    {
+        obstacles = new List<TerrainFeatureLayout>(request.ObstacleCount);
+
+        if (request.ObstacleCount == 0)
+            return true;
+
+        TerrainGenerationConfig terrain = RequireTerrain();
+
+        for (int attempt = 0; attempt < terrain.MaxObstacleGenerationAttempts; attempt++)
+        {
+            DeterministicRandom random = new DeterministicRandom(
+                DeterministicRandom.DeriveSeed(request.Seed, ObstacleStream + attempt));
+
+            obstacles.Clear();
+
+            if (!TryPlaceObstacles(bounds, bases, request.ObstacleCount, random, obstacles))
+                continue;
+
+            WalkabilityGrid grid = BuildWalkabilityGrid(bounds, bases, obstacles);
+
+            if (AreBasesReachable(grid, bases))
+                return true;
+        }
+
+        obstacles = null;
+        return false;
+    }
+
+    private bool TryPlaceObstacles(
+        WorldBounds bounds,
+        List<BaseLayout> bases,
+        int count,
+        DeterministicRandom random,
+        List<TerrainFeatureLayout> obstacles)
+    {
+        TerrainGenerationConfig terrain = RequireTerrain();
+        List<Footprint> placedFootprints = new List<Footprint>(count);
+
+        for (int i = 0; i < count; i++)
+        {
+            bool placed = false;
+
+            for (int attempt = 0; attempt < terrain.MaxPlacementAttemptsPerObstacle; attempt++)
+            {
+                TerrainFeatureType type = PickWeighted(terrain.ObstacleTypes, random);
+                int variant = random.NextInt(type.VariantCount);
+                float scale = random.NextFloat(type.MinScale, type.MaxScale);
+                Footprint footprint = type.Footprint.Scaled(scale);
+
+                Vector2 limit = new Vector2(bounds.HalfSize, bounds.HalfSize) - footprint.HalfExtents;
+
+                if (limit.x <= 0f || limit.y <= 0f)
+                    continue;
+
+                Vector2 position = new Vector2(
+                    random.NextFloat(-limit.x, limit.x),
+                    random.NextFloat(-limit.y, limit.y));
+
+                if (!IsValidObstaclePosition(footprint, position, bases, obstacles, placedFootprints))
+                    continue;
+
+                obstacles.Add(new TerrainFeatureLayout(type.Id, variant, position, scale));
+                placedFootprints.Add(footprint);
+                placed = true;
+                break;
+            }
+
+            if (!placed)
+                return false;
+        }
+
+        return true;
+    }
+
+    private bool IsValidObstaclePosition(
+        Footprint footprint,
+        Vector2 position,
+        List<BaseLayout> bases,
+        List<TerrainFeatureLayout> obstacles,
+        List<Footprint> placedFootprints)
+    {
+        TerrainGenerationConfig terrain = RequireTerrain();
+        float baseDistance = _config.BaseClearRadius + terrain.MinObstacleBaseDistance;
+
+        foreach (BaseLayout baseLayout in bases)
+        {
+            Vector2 local = baseLayout.Position - position;
+
+            if (local.magnitude > footprint.BoundingRadius + baseDistance)
+                continue;
+
+            if (footprint.Contains(local) || footprint.DistanceToEdge(local) < baseDistance)
+                return false;
+        }
+
+        for (int i = 0; i < obstacles.Count; i++)
+        {
+            Footprint other = placedFootprints[i];
+            float reach = footprint.BoundingRadius + other.BoundingRadius + terrain.MinObstacleSpacing;
+
+            if ((obstacles[i].Position - position).magnitude > reach)
+                continue;
+
+            if (Footprint.Distance(footprint, position, other, obstacles[i].Position) < terrain.MinObstacleSpacing)
+                return false;
+        }
+
+        return true;
+    }
+
+    private static TerrainFeatureType PickWeighted(
+        IReadOnlyList<TerrainFeatureType> types,
+        DeterministicRandom random)
+    {
+        double total = 0.0;
+
+        foreach (TerrainFeatureType type in types)
+            total += type.Weight;
+
+        double pick = random.NextDouble() * total;
+
+        foreach (TerrainFeatureType type in types)
+        {
+            pick -= type.Weight;
+
+            if (pick < 0.0)
+                return type;
+        }
+
+        // Lebegőpontos kerekítés esetén az utolsó típus.
+        return types[types.Count - 1];
+    }
+
+    private TerrainFeatureType FindObstacleType(string typeId)
+    {
+        foreach (TerrainFeatureType type in RequireTerrain().ObstacleTypes)
+        {
+            if (string.Equals(type.Id, typeId, StringComparison.OrdinalIgnoreCase))
+                return type;
+        }
+
+        throw new ArgumentException($"Ismeretlen akadálytípus: {typeId}", nameof(typeId));
+    }
+
+    private TerrainGenerationConfig RequireTerrain()
+    {
+        return _config.Terrain ?? throw new InvalidOperationException(
+            "A művelethez tereptárgy-konfiguráció (WorldGenerationConfig.Terrain) szükséges.");
+    }
+
+    private static List<BaseLayout> CreateBases(
         List<int> sortedPlayerIds,
         List<Vector2> positions)
     {
@@ -212,6 +478,6 @@ public sealed class WorldGenerator
                 : new BaseLayout(baseId, positions[i], BaseOwnerType.Yellow, 0));
         }
 
-        return new WorldLayout(Version, request, bases);
+        return bases;
     }
 }

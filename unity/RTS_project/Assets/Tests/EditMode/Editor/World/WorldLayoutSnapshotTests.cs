@@ -7,10 +7,16 @@ public sealed class WorldLayoutSnapshotTests
 {
     private WorldLayout _layout;
 
+    // A tesztek akadályokat is kérnek, ezért akadálytípusokat tartalmazó konfiguráció kell.
+    private static WorldGenerationConfig TerrainConfig()
+    {
+        return WorldGenerationTestConfigs.Create(terrain: TerrainTestConfigs.Create());
+    }
+
     [SetUp]
     public void SetUp()
     {
-        WorldGenerator generator = new WorldGenerator(WorldGenerationTestConfigs.Default());
+        WorldGenerator generator = new WorldGenerator(TerrainConfig());
 
         WorldGenerationRequest request = new WorldGenerationRequest(
             new[] { 4, 2, 9 },
@@ -84,7 +90,7 @@ public sealed class WorldLayoutSnapshotTests
         WorldLayout restored = WorldLayoutSnapshot.FromState(state);
 
         WorldGenerationResult regenerated =
-            new WorldGenerator(WorldGenerationTestConfigs.Default()).Generate(restored.Request);
+            new WorldGenerator(TerrainConfig()).Generate(restored.Request);
 
         Assert.IsTrue(regenerated.Success, regenerated.ErrorMessage);
         AssertSameLayout(_layout, regenerated.Layout);
@@ -165,7 +171,7 @@ public sealed class WorldLayoutSnapshotTests
     [Test]
     public void NetworkMessage_MaxWorldFitsInFewKilobytes()
     {
-        WorldGenerator generator = new WorldGenerator(WorldGenerationTestConfigs.Default());
+        WorldGenerator generator = new WorldGenerator(TerrainConfig());
         int size = generator.Rules.MaxWorldSize;
 
         WorldGenerationResult result = generator.Generate(new WorldGenerationRequest(

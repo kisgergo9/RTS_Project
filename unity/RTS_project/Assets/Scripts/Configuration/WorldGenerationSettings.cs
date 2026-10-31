@@ -122,7 +122,7 @@ public sealed class WorldGenerationSettings : ScriptableObject
 
     [Tooltip("Két akadály közötti minimális távolság.")]
     [SerializeField, Min(0f)]
-    private float minObstacleSpacing = 3f;
+    private float minObstacleSpacing = 4f;
 
     [Tooltip("A legkeskenyebb átjáró, amelyet az elérhetőségi ellenőrzés még átjárhatónak tekint.")]
     [SerializeField, Min(0.1f)]

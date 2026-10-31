@@ -42,7 +42,7 @@ internal static class TerrainTestConfigs
         Footprint baseFootprint = null,
         IEnumerable<Vector2> baseAccessPoints = null,
         float minObstacleBaseDistance = 2f,
-        float minObstacleSpacing = 3f,
+        float minObstacleSpacing = 4f,
         float minPassageWidth = 4f,
         float walkabilityCellSize = 1f,
         int maxPlacementAttemptsPerObstacle = 100,

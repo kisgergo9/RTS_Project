@@ -80,6 +80,42 @@ public sealed class TerrainConfigTests
         Assert.AreEqual(1f, square.DistanceToEdge(Vector2.zero), 0.001f);
     }
 
+    [Test]
+    public void Distance_SeparatedShapes()
+    {
+        Footprint circle = Footprint.Ellipse(1f, 1f, 64);
+
+        Assert.AreEqual(3f, Footprint.Distance(circle, Vector2.zero, circle, new Vector2(5f, 0f)), 0.01f);
+    }
+
+    [Test]
+    public void Distance_OverlappingOrContainedShapesIsZero()
+    {
+        Footprint big = Footprint.Ellipse(5f, 5f);
+        Footprint small = Footprint.Ellipse(1f, 1f);
+
+        Assert.AreEqual(0f, Footprint.Distance(big, Vector2.zero, big, new Vector2(6f, 0f)));
+        Assert.AreEqual(0f, Footprint.Distance(big, Vector2.zero, small, Vector2.zero));
+        Assert.AreEqual(0f, Footprint.Distance(small, Vector2.zero, big, Vector2.zero));
+    }
+
+    [Test]
+    public void Distance_CrossingWithoutContainedVertexIsZero()
+    {
+        // Két keskeny téglalap kereszt alakban: egyik csúcs sincs a másikban.
+        Footprint horizontal = new Footprint(new[]
+        {
+            new Vector2(-5f, -0.5f), new Vector2(5f, -0.5f), new Vector2(5f, 0.5f), new Vector2(-5f, 0.5f)
+        });
+
+        Footprint vertical = new Footprint(new[]
+        {
+            new Vector2(-0.5f, -5f), new Vector2(0.5f, -5f), new Vector2(0.5f, 5f), new Vector2(-0.5f, 5f)
+        });
+
+        Assert.AreEqual(0f, Footprint.Distance(horizontal, Vector2.zero, vertical, Vector2.zero));
+    }
+
     // TerrainFeatureType
 
     [Test]

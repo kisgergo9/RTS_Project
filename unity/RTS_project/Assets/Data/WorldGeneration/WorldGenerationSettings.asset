@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: -3.98, y: -1.97}
   - {x: -3.83, y: -1.8}
   minObstacleBaseDistance: 2
-  minObstacleSpacing: 3
+  minObstacleSpacing: 4
   minPassageWidth: 4
   walkabilityCellSize: 1
   maxPlacementAttemptsPerObstacle: 100

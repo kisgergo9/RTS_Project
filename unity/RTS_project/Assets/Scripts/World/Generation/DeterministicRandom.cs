@@ -126,6 +126,18 @@ public sealed class DeterministicRandom
     }
 
     /// <summary>
+    /// A seedből és egy sorozatszámból származtatott, független seed. Így a
+    /// generálás egyes lépései (pl. akadályok, dekorációk) saját véletlen-
+    /// sorozatot kapnak, és egy lépés módosítása nem változtatja meg a többit.
+    /// </summary>
+    public static int DeriveSeed(int seed, int stream)
+    {
+        ulong mixer = unchecked(((ulong)(uint)seed << 32) | (uint)stream);
+
+        return unchecked((int)SplitMix64(ref mixer));
+    }
+
+    /// <summary>
     /// Új, véletlenszerű seed a host számára, ha a lobbyban nincs megadva.
     /// Nem determinisztikus; csak a generálás kezdetén használandó.
     /// </summary>

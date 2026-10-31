@@ -133,6 +133,71 @@ public sealed class Footprint
         return best;
     }
 
+    /// <summary>
+    /// Két elhelyezett alapterület legkisebb távolsága. Átfedés vagy érintés
+    /// esetén 0.
+    /// </summary>
+    public static float Distance(Footprint a, Vector2 positionA, Footprint b, Vector2 positionB)
+    {
+        if (a == null)
+            throw new ArgumentNullException(nameof(a));
+
+        if (b == null)
+            throw new ArgumentNullException(nameof(b));
+
+        Vector2 offset = positionB - positionA;
+        float best = float.MaxValue;
+
+        // A csúcsainak távolsága B-től (B saját koordinátáiban), és fordítva.
+        foreach (Vector2 point in a._points)
+        {
+            Vector2 local = point - offset;
+
+            if (b.Contains(local))
+                return 0f;
+
+            best = Mathf.Min(best, b.DistanceToEdge(local));
+        }
+
+        foreach (Vector2 point in b._points)
+        {
+            Vector2 local = point + offset;
+
+            if (a.Contains(local))
+                return 0f;
+
+            best = Mathf.Min(best, a.DistanceToEdge(local));
+        }
+
+        // Csúcs nélküli metszés (két él keresztezi egymást).
+        for (int i = 0, j = a._points.Length - 1; i < a._points.Length; j = i++)
+        {
+            for (int k = 0, l = b._points.Length - 1; k < b._points.Length; l = k++)
+            {
+                if (SegmentsIntersect(a._points[j], a._points[i], b._points[l] + offset, b._points[k] + offset))
+                    return 0f;
+            }
+        }
+
+        return best;
+    }
+
+    private static bool SegmentsIntersect(Vector2 p1, Vector2 p2, Vector2 q1, Vector2 q2)
+    {
+        float d1 = Cross(q2 - q1, p1 - q1);
+        float d2 = Cross(q2 - q1, p2 - q1);
+        float d3 = Cross(p2 - p1, q1 - p1);
+        float d4 = Cross(p2 - p1, q2 - p1);
+
+        return ((d1 > 0f && d2 < 0f) || (d1 < 0f && d2 > 0f)) &&
+               ((d3 > 0f && d4 < 0f) || (d3 < 0f && d4 > 0f));
+    }
+
+    private static float Cross(Vector2 a, Vector2 b)
+    {
+        return a.x * b.y - a.y * b.x;
+    }
+
     private static float DistanceToSegment(Vector2 point, Vector2 a, Vector2 b)
     {
         Vector2 ab = b - a;
