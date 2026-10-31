@@ -63,4 +63,4 @@ MonoBehaviour:
   walkabilityCellSize: 1
   maxPlacementAttemptsPerObstacle: 100
   maxObstacleGenerationAttempts: 5
-  decorationsPer10000Area: 6
+  decorationsPer10000Area: 12

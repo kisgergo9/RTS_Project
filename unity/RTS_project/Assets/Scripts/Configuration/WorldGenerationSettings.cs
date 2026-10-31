@@ -143,7 +143,7 @@ public sealed class WorldGenerationSettings : ScriptableObject
 
     [Tooltip("Dekorációk száma 10 000 négyzetegységnyi pályaterületenként.")]
     [SerializeField, Min(0f)]
-    private float decorationsPer10000Area = 6f;
+    private float decorationsPer10000Area = 12f;
 
     public IReadOnlyList<TerrainFeatureDefinition> ObstacleDefinitions => obstacleTypes;
     public IReadOnlyList<TerrainFeatureDefinition> DecorationDefinitions => decorationTypes;

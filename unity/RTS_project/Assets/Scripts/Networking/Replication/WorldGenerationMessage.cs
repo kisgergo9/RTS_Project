@@ -11,9 +11,13 @@ using Unity.Netcode;
 /// Tömör formátum: a tereptárgy-típusazonosítók egyszer, egy táblázatban
 /// szerepelnek, az egyes tárgyak csak a sorszámukra hivatkoznak; a kis
 /// értékkészletű mezők (változat, tulajdonostípus, bázisazonosító) 1–2 bájtosak.
-/// A legnagyobb világ (150 bázis, 50 akadály, 169 dekoráció) így a Unity
-/// Transport alapértelmezett 6144 bájtos MaxPayloadSize értéke alatt marad.
-/// Sűrűbb dekoráció esetén a MaxPayloadSize-t növelni kell.
+/// A csak megjelenítést szolgáló dekorációk pozíciója 16 bites, a pályához
+/// viszonyított értékként (a legnagyobb pályán kb. 0,008 egység pontossággal),
+/// léptéke 0,01-es lépésközzel utazik; a játékmenetet befolyásoló bázisok és
+/// akadályok pontos értékkel. A legnagyobb világ (150 bázis, 50 akadály,
+/// 337 dekoráció) így a Unity Transport alapértelmezett 6144 bájtos
+/// MaxPayloadSize értéke alatt marad. Sűrűbb dekoráció esetén a
+/// MaxPayloadSize-t növelni kell.
 ///
 /// Megbízható (fragmentált) csatornán kell küldeni. A tényleges küldést a
 /// hálózati session elkészülte után kell bekötni.
@@ -30,6 +34,10 @@ public struct WorldGenerationMessage : INetworkSerializable
     // A típustáblázat és a grafikai változatok bájtos indexelése miatt.
     public const int MaxTypeCount = byte.MaxValue + 1;
     public const int MaxVariant = byte.MaxValue;
+
+    // A dekorációk léptékének kódolása: lépték * 100, egy bájton (0,01–2,55).
+    public const float DecorationScaleStep = 0.01f;
+    public const float MaxDecorationScale = byte.MaxValue * DecorationScaleStep;
 
     public WorldGenerationState State;
 
@@ -55,7 +63,7 @@ public struct WorldGenerationMessage : INetworkSerializable
         List<string> typeTable = SerializeTypeTable(serializer);
 
         State.obstacles = SerializeFeatures(serializer, State.obstacles, typeTable);
-        State.decorations = SerializeFeatures(serializer, State.decorations, typeTable);
+        State.decorations = SerializeDecorations(serializer, State.decorations, typeTable, State.worldSize);
     }
 
     private void SerializePlayerIds<T>(BufferSerializer<T> serializer) where T : IReaderWriter
@@ -206,6 +214,99 @@ public struct WorldGenerationMessage : INetworkSerializable
         }
 
         return features ?? Array.Empty<TerrainFeatureState>();
+    }
+
+    /// <summary>
+    /// A dekorációk tömör kódolása: típus- és változatsorszám 1-1 bájt, a pozíció
+    /// tengelyenként 16 bites, a pályán belüli relatív érték, a lépték 1 bájt.
+    /// Csak megjelenítést befolyásol, ezért a kerekítés megengedett.
+    /// </summary>
+    private static TerrainFeatureState[] SerializeDecorations<T>(
+        BufferSerializer<T> serializer,
+        TerrainFeatureState[] decorations,
+        List<string> typeTable,
+        int worldSize) where T : IReaderWriter
+    {
+        if (worldSize <= 0)
+            throw new InvalidOperationException(
+                $"Érvénytelen világméret a világüzenetben: {worldSize}");
+
+        int count = serializer.IsReader ? 0 : (decorations?.Length ?? 0);
+        serializer.SerializeValue(ref count);
+        ValidateCount(count);
+
+        if (serializer.IsReader)
+            decorations = new TerrainFeatureState[count];
+
+        float half = worldSize * 0.5f;
+
+        for (int i = 0; i < count; i++)
+        {
+            TerrainFeatureState decoration = decorations[i];
+
+            if (!serializer.IsReader)
+            {
+                if (decoration.variant < 0 || decoration.variant > MaxVariant)
+                    throw new InvalidOperationException(
+                        $"A grafikai változat nem fér el a világüzenetben: {decoration.variant}");
+
+                if (!(decoration.scale >= DecorationScaleStep) || decoration.scale > MaxDecorationScale)
+                    throw new InvalidOperationException(
+                        $"A dekoráció léptéke nem fér el a világüzenetben: {decoration.scale}");
+            }
+
+            byte typeIndex = serializer.IsReader
+                ? (byte)0
+                : (byte)typeTable.IndexOf(decoration.typeId ?? string.Empty);
+            byte variant = (byte)decoration.variant;
+            ushort x = serializer.IsReader ? (ushort)0 : Quantize(decoration.x, half, worldSize);
+            ushort y = serializer.IsReader ? (ushort)0 : Quantize(decoration.y, half, worldSize);
+            byte scale = serializer.IsReader
+                ? (byte)0
+                : (byte)Math.Round(decoration.scale / DecorationScaleStep);
+
+            serializer.SerializeValue(ref typeIndex);
+            serializer.SerializeValue(ref variant);
+            serializer.SerializeValue(ref x);
+            serializer.SerializeValue(ref y);
+            serializer.SerializeValue(ref scale);
+
+            if (serializer.IsReader)
+            {
+                if (typeIndex >= typeTable.Count)
+                    throw new InvalidOperationException(
+                        $"Érvénytelen típushivatkozás a világüzenetben: {typeIndex}");
+
+                if (scale == 0)
+                    throw new InvalidOperationException("Nulla léptékű dekoráció a világüzenetben.");
+
+                decoration.typeId = typeTable[typeIndex];
+                decoration.variant = variant;
+                decoration.x = Dequantize(x, half, worldSize);
+                decoration.y = Dequantize(y, half, worldSize);
+                decoration.scale = scale * DecorationScaleStep;
+            }
+
+            decorations[i] = decoration;
+        }
+
+        return decorations ?? Array.Empty<TerrainFeatureState>();
+    }
+
+    private static ushort Quantize(float value, float half, int worldSize)
+    {
+        double relative = (value + half) / worldSize;
+
+        if (relative < 0.0 || relative > 1.0)
+            throw new InvalidOperationException(
+                $"A dekoráció a pályán kívül van: {value}");
+
+        return (ushort)Math.Round(relative * ushort.MaxValue);
+    }
+
+    private static float Dequantize(ushort value, float half, int worldSize)
+    {
+        return (float)((double)value / ushort.MaxValue * worldSize - half);
     }
 
     private static void ValidateCount(int count)

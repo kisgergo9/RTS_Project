@@ -31,7 +31,11 @@ public sealed class WorldLayoutSnapshotTests
         _layout = result.Layout;
     }
 
-    private void AssertSameLayout(WorldLayout expected, WorldLayout actual)
+    /// <param name="decorationTolerance">
+    /// A dekorációk pozíciójának és léptékének megengedett eltérése. A hálózati
+    /// üzenet a dekorációkat kerekítve viszi, a mentés pontosan.
+    /// </param>
+    private void AssertSameLayout(WorldLayout expected, WorldLayout actual, float decorationTolerance = 0f)
     {
         Assert.AreEqual(expected.GeneratorVersion, actual.GeneratorVersion);
         Assert.AreEqual(expected.Seed, actual.Seed);
@@ -49,13 +53,14 @@ public sealed class WorldLayoutSnapshotTests
             Assert.AreEqual(expected.Bases[i].PlayerId, actual.Bases[i].PlayerId);
         }
 
-        AssertSameFeatures(expected.Obstacles, actual.Obstacles);
-        AssertSameFeatures(expected.Decorations, actual.Decorations);
+        AssertSameFeatures(expected.Obstacles, actual.Obstacles, 0f);
+        AssertSameFeatures(expected.Decorations, actual.Decorations, decorationTolerance);
     }
 
     private static void AssertSameFeatures(
         System.Collections.Generic.IReadOnlyList<TerrainFeatureLayout> expected,
-        System.Collections.Generic.IReadOnlyList<TerrainFeatureLayout> actual)
+        System.Collections.Generic.IReadOnlyList<TerrainFeatureLayout> actual,
+        float tolerance)
     {
         Assert.AreEqual(expected.Count, actual.Count);
 
@@ -63,8 +68,18 @@ public sealed class WorldLayoutSnapshotTests
         {
             Assert.AreEqual(expected[i].TypeId, actual[i].TypeId);
             Assert.AreEqual(expected[i].Variant, actual[i].Variant);
-            Assert.AreEqual(expected[i].Position, actual[i].Position);
-            Assert.AreEqual(expected[i].Scale, actual[i].Scale);
+
+            if (tolerance <= 0f)
+            {
+                Assert.AreEqual(expected[i].Position, actual[i].Position);
+                Assert.AreEqual(expected[i].Scale, actual[i].Scale);
+            }
+            else
+            {
+                Assert.AreEqual(expected[i].Position.x, actual[i].Position.x, tolerance);
+                Assert.AreEqual(expected[i].Position.y, actual[i].Position.y, tolerance);
+                Assert.AreEqual(expected[i].Scale, actual[i].Scale, tolerance);
+            }
         }
     }
 
@@ -242,7 +257,7 @@ public sealed class WorldLayoutSnapshotTests
     // Hálózati üzenet
 
     [Test]
-    public void NetworkMessageRoundTrip_PreservesLayoutExactly()
+    public void NetworkMessageRoundTrip_PreservesLayout()
     {
         WorldGenerationMessage sent = new WorldGenerationMessage(WorldLayoutSnapshot.ToState(_layout));
 
@@ -252,7 +267,11 @@ public sealed class WorldLayoutSnapshotTests
         using FastBufferReader reader = new FastBufferReader(writer, Allocator.Temp);
         reader.ReadNetworkSerializable(out WorldGenerationMessage received);
 
-        AssertSameLayout(_layout, WorldLayoutSnapshot.FromState(received.State));
+        // Bázisok és akadályok pontosan; dekorációk a kerekítés pontosságán belül
+        // (pozíció: pályaméret / 65535 / 2, lépték: 0,005).
+        float decorationTolerance = _layout.WorldSize / 65535f;
+
+        AssertSameLayout(_layout, WorldLayoutSnapshot.FromState(received.State), decorationTolerance);
     }
 
     [Test]
@@ -261,7 +280,10 @@ public sealed class WorldLayoutSnapshotTests
         // A Unity Transport alapértelmezett MaxPayloadSize értéke.
         const int defaultMaxPayloadSize = 6144;
 
-        WorldGenerator generator = new WorldGenerator(TerrainConfig());
+        // A projekt valódi beállításai (dekorációsűrűség, típusok).
+        WorldGenerationSettings settings = UnityEditor.AssetDatabase.LoadAssetAtPath<WorldGenerationSettings>(
+            "Assets/Data/WorldGeneration/WorldGenerationSettings.asset");
+        WorldGenerator generator = new WorldGenerator(settings.ToConfig());
         int size = generator.Rules.MaxWorldSize;
 
         WorldGenerationResult result = generator.Generate(new WorldGenerationRequest(
@@ -329,6 +351,38 @@ public sealed class WorldLayoutSnapshotTests
             offset += 4 + typeId.Length;
 
         return offset + 4;
+    }
+
+    [Test]
+    public void NetworkMessage_RejectsDecorationScaleOutOfRange()
+    {
+        WorldGenerationState state = WorldLayoutSnapshot.ToState(_layout);
+        state.decorations[0].scale = WorldGenerationMessage.MaxDecorationScale + 0.1f;
+
+        using FastBufferWriter writer = new FastBufferWriter(1024, Allocator.Temp, 1024 * 1024);
+
+        Assert.Throws<InvalidOperationException>(
+            () => writer.WriteNetworkSerializable(new WorldGenerationMessage(state)));
+    }
+
+    [Test]
+    public void NetworkMessage_KeepsDecorationsAtWorldEdges()
+    {
+        WorldGenerationState state = WorldLayoutSnapshot.ToState(_layout);
+        float half = state.worldSize * 0.5f;
+
+        state.decorations[0].x = -half;
+        state.decorations[0].y = half;
+
+        using FastBufferWriter writer = new FastBufferWriter(1024, Allocator.Temp, 1024 * 1024);
+        writer.WriteNetworkSerializable(new WorldGenerationMessage(state));
+
+        using FastBufferReader reader = new FastBufferReader(writer, Allocator.Temp);
+        reader.ReadNetworkSerializable(out WorldGenerationMessage received);
+
+        Assert.AreEqual(-half, received.State.decorations[0].x, 0.001f);
+        Assert.AreEqual(half, received.State.decorations[0].y, 0.001f);
+        Assert.DoesNotThrow(() => WorldLayoutSnapshot.FromState(received.State));
     }
 
     [Test]
