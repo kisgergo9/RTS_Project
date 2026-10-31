@@ -38,6 +38,9 @@ public sealed class WorldGenerationConfig
     public float PlayerRingRadiusFraction { get; }
     public float StartPositionJitter { get; }
 
+    // Tereptárgyak (opcionális; null esetén nincs akadály és dekoráció)
+    public TerrainGenerationConfig Terrain { get; }
+
     public WorldGenerationConfig(
         int minPlayerCount,
         int maxPlayerCount,
@@ -55,7 +58,8 @@ public sealed class WorldGenerationConfig
         int maxPlacementAttemptsPerBase,
         int maxGenerationAttempts,
         float playerRingRadiusFraction,
-        float startPositionJitter)
+        float startPositionJitter,
+        TerrainGenerationConfig terrain = null)
     {
         if (minPlayerCount < 1)
             throw new ArgumentOutOfRangeException(nameof(minPlayerCount),
@@ -145,5 +149,35 @@ public sealed class WorldGenerationConfig
         MaxGenerationAttempts = maxGenerationAttempts;
         PlayerRingRadiusFraction = playerRingRadiusFraction;
         StartPositionJitter = startPositionJitter;
+
+        if (terrain != null)
+            ValidateTerrain(terrain);
+
+        Terrain = terrain;
+    }
+
+    /// <summary>
+    /// A tereptárgy-konfiguráció összevetése a világ méretezési adataival.
+    /// </summary>
+    private void ValidateTerrain(TerrainGenerationConfig terrain)
+    {
+        if (terrain.BaseFootprint.BoundingRadius > BaseClearRadius)
+            throw new ArgumentException(
+                $"A bázis tiltott területe ({terrain.BaseFootprint.BoundingRadius:0.##}) " +
+                $"nem fér el a bázis szabad területén (BaseClearRadius = {BaseClearRadius}).");
+
+        foreach (UnityEngine.Vector2 point in terrain.BaseAccessPoints)
+        {
+            if (point.magnitude > BaseClearRadius)
+                throw new ArgumentException(
+                    $"A bázispont ({point}) a bázis szabad területén kívül esik " +
+                    $"(BaseClearRadius = {BaseClearRadius}).");
+        }
+
+        if (terrain.ObstacleTypes.Count > 0 &&
+            terrain.MaxObstacleBoundingRadius > ObstacleClearRadius)
+            throw new ArgumentException(
+                $"A legnagyobb akadály ({terrain.MaxObstacleBoundingRadius:0.##}) nagyobb a " +
+                $"méretezésben neki fenntartott helynél (ObstacleClearRadius = {ObstacleClearRadius}).");
     }
 }

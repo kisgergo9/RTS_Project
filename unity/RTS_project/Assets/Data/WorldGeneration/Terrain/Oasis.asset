@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5df21f41e7cd7445a60160c6831f350, type: 3}
+  m_Name: Oasis
+  m_EditorClassIdentifier: 
+  id: oasis
+  displayName: "O\xE1zis"
+  blocksMovement: 1
+  sprites:
+  - {fileID: -4238099645182357630, guid: a2e3379888709f640871cce842e70c80, type: 3}
+  sortingOrder: -200
+  footprintHalfSize: {x: 1, y: 1}
+  footprintPolygon:
+  - {x: 3.411655, y: 1.6678088}
+  - {x: 1.6394801, y: 1.6029189}
+  - {x: -1.4858356, y: 1.6022847}
+  - {x: -3.916091, y: 1.3885269}
+  - {x: -4.461594, y: -0.013459444}
+  - {x: -4.054661, y: -0.95474327}
+  - {x: -1.6615667, y: -1.7585381}
+  - {x: 2.8412578, y: -1.3483714}
+  - {x: 4.425127, y: -0.36325002}
+  - {x: 4.409706, y: 0.6901591}
+  - {x: 3.5591536, y: 0.8845}
+  minScale: 0.9
+  maxScale: 1.15
+  weight: 0.5
