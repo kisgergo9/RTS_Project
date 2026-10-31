@@ -72,6 +72,16 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField, Min(1)]
     private int maxGenerationAttempts = 10;
 
+    [Header("Starting Bases")]
+    [Tooltip("A kezdőbázisok köre sugarának aránya a játszható fél-szélességhez képest. " +
+             "1 = a kezdőbázisok a pálya széle mentén, kisebb érték = közelebb a középhez.")]
+    [SerializeField, Range(0.1f, 1f)]
+    private float playerRingRadiusFraction = 0.7f;
+
+    [Tooltip("A kezdőbázisok legfeljebb ennyivel térhetnek el a körön kijelölt helyüktől.")]
+    [SerializeField, Min(0f)]
+    private float startPositionJitter = 2f;
+
     public WorldGenerationConfig ToConfig()
     {
         return new WorldGenerationConfig(
@@ -89,7 +99,9 @@ public sealed class WorldGenerationSettings : ScriptableObject
             worldSizeStep,
             targetFillRatio,
             maxPlacementAttemptsPerBase,
-            maxGenerationAttempts);
+            maxGenerationAttempts,
+            playerRingRadiusFraction,
+            startPositionJitter);
     }
 
 #if UNITY_EDITOR

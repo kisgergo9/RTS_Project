@@ -34,6 +34,10 @@ public sealed class WorldGenerationConfig
     public int MaxPlacementAttemptsPerBase { get; }
     public int MaxGenerationAttempts { get; }
 
+    // Kezdőbázisok
+    public float PlayerRingRadiusFraction { get; }
+    public float StartPositionJitter { get; }
+
     public WorldGenerationConfig(
         int minPlayerCount,
         int maxPlayerCount,
@@ -49,7 +53,9 @@ public sealed class WorldGenerationConfig
         int worldSizeStep,
         float targetFillRatio,
         int maxPlacementAttemptsPerBase,
-        int maxGenerationAttempts)
+        int maxGenerationAttempts,
+        float playerRingRadiusFraction,
+        float startPositionJitter)
     {
         if (minPlayerCount < 1)
             throw new ArgumentOutOfRangeException(nameof(minPlayerCount),
@@ -114,6 +120,14 @@ public sealed class WorldGenerationConfig
         if (maxGenerationAttempts < 1)
             throw new ArgumentOutOfRangeException(nameof(maxGenerationAttempts));
 
+        if (playerRingRadiusFraction <= 0f || playerRingRadiusFraction > 1f)
+            throw new ArgumentOutOfRangeException(nameof(playerRingRadiusFraction),
+                "A kezdőbázisok körének relatív sugara a (0; 1] tartományba kell essen.");
+
+        if (startPositionJitter < 0f)
+            throw new ArgumentOutOfRangeException(nameof(startPositionJitter),
+                "A kezdőpozíciók szórása nem lehet negatív.");
+
         MinPlayerCount = minPlayerCount;
         MaxPlayerCount = maxPlayerCount;
         MaxBaseCount = maxBaseCount;
@@ -129,5 +143,7 @@ public sealed class WorldGenerationConfig
         TargetFillRatio = targetFillRatio;
         MaxPlacementAttemptsPerBase = maxPlacementAttemptsPerBase;
         MaxGenerationAttempts = maxGenerationAttempts;
+        PlayerRingRadiusFraction = playerRingRadiusFraction;
+        StartPositionJitter = startPositionJitter;
     }
 }

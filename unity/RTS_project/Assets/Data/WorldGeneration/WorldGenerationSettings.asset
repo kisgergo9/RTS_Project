@@ -27,3 +27,5 @@ MonoBehaviour:
   targetFillRatio: 0.3
   maxPlacementAttemptsPerBase: 200
   maxGenerationAttempts: 10
+  playerRingRadiusFraction: 0.7
+  startPositionJitter: 2

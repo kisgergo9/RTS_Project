@@ -38,7 +38,9 @@ internal static class WorldGenerationTestConfigs
         int worldSizeStep = 10,
         float targetFillRatio = 0.3f,
         int maxPlacementAttemptsPerBase = 200,
-        int maxGenerationAttempts = 10)
+        int maxGenerationAttempts = 10,
+        float playerRingRadiusFraction = 0.7f,
+        float startPositionJitter = 2f)
     {
         return new WorldGenerationConfig(
             minPlayerCount,
@@ -55,6 +57,8 @@ internal static class WorldGenerationTestConfigs
             worldSizeStep,
             targetFillRatio,
             maxPlacementAttemptsPerBase,
-            maxGenerationAttempts);
+            maxGenerationAttempts,
+            playerRingRadiusFraction,
+            startPositionJitter);
     }
 }

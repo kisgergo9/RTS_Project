@@ -69,12 +69,16 @@ public sealed class WorldSizingRulesTests
     public void MinWorldSize_LeavesRoomForEvenlySpacedStartingBases()
     {
         WorldSizingRules rules = new WorldSizingRules(
-            WorldGenerationTestConfigs.Create(minBaseDistance: 40f));
+            WorldGenerationTestConfigs.Create(
+                minBaseDistance: 40f,
+                playerRingRadiusFraction: 0.5f,
+                startPositionJitter: 3f));
 
         int players = 10;
-        double ringRadius = 40.0 / (2.0 * Math.Sin(Math.PI / players));
+        double ringRadius = (40.0 + 2.0 * 3.0) / (2.0 * Math.Sin(Math.PI / players));
+        double halfSize = ringRadius / 0.5 + 9.0 + 3.0;
 
-        Assert.GreaterOrEqual(rules.GetMinWorldSize(players), 2.0 * (ringRadius + 9.0));
+        Assert.GreaterOrEqual(rules.GetMinWorldSize(players), 2.0 * halfSize);
     }
 
     [Test]

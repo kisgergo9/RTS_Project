@@ -184,19 +184,26 @@ public sealed class WorldSizingRules
     }
 
     /// <summary>
-    /// A kezdőbázisok egy kör mentén, egyenletesen helyezkednek el. Ez a
-    /// világméret, amelyben a szomszédos kezdőbázisok között legalább
-    /// MinBaseDistance távolság marad.
+    /// A kezdőbázisok egy kör mentén, egyenletesen helyezkednek el, és
+    /// legfeljebb StartPositionJitter távolsággal térhetnek el a körtől.
+    /// Ez az a világméret, amelyben a szomszédos kezdőbázisok között a
+    /// legrosszabb esetben is legalább MinBaseDistance távolság marad.
+    /// A kör sugarát a WorldGenerator.GetPlayerRingRadius számolja.
     /// </summary>
     private double GetPlayerRingSideLength(int playerCount)
     {
         if (playerCount < 2)
             return 0.0;
 
-        double ringRadius =
-            _config.MinBaseDistance / (2.0 * Math.Sin(Math.PI / playerCount));
+        double jitter = _config.StartPositionJitter;
+        double requiredRingRadius =
+            (_config.MinBaseDistance + 2.0 * jitter) / (2.0 * Math.Sin(Math.PI / playerCount));
 
-        return 2.0 * (ringRadius + _config.BaseClearRadius);
+        double halfSize = requiredRingRadius / _config.PlayerRingRadiusFraction
+                          + _config.BaseClearRadius
+                          + jitter;
+
+        return 2.0 * halfSize;
     }
 
     private int RoundUpToStep(double value)
