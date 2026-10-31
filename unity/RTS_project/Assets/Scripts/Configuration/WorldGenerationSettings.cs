@@ -132,6 +132,7 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField, Min(0.1f)]
     private float walkabilityCellSize = 1f;
 
+    [Tooltip("Egy akadály vagy dekoráció elhelyezésére tett próbálkozások száma.")]
     [SerializeField, Min(1)]
     private int maxPlacementAttemptsPerObstacle = 100;
 

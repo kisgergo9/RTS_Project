@@ -46,6 +46,10 @@ public sealed class TerrainGenerationConfig
     public float MinPassageWidth { get; }
 
     public float WalkabilityCellSize { get; }
+
+    /// <summary>
+    /// Egy akadály vagy dekoráció elhelyezésére tett próbálkozások száma.
+    /// </summary>
     public int MaxPlacementAttemptsPerObstacle { get; }
     public int MaxObstacleGenerationAttempts { get; }
 

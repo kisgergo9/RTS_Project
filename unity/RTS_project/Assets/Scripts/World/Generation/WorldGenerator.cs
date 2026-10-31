@@ -28,6 +28,10 @@ using UnityEngine;
 ///      helyezhető el, az akadályokat a következő származtatott sorozattal
 ///      generálja újra (legfeljebb MaxObstacleGenerationAttempts-szer). A bázisok
 ///      ilyenkor sem mozdulnak. Ha ez sem sikerül, hibás eredményt ad vissza.
+///   7. A dekorációkat (pl. pálmafák) újabb származtatott sorozattal helyezi el,
+///      a bázisok szabad területén és az akadályokon kívül. Nem kerülnek a
+///      járhatósági rácsba, és sosem okoznak hibát: ha egy dekoráció nem fér
+///      el, kimarad.
 /// </summary>
 public sealed class WorldGenerator
 {
@@ -41,6 +45,9 @@ public sealed class WorldGenerator
 
     // A származtatott véletlensorozatok első sorszáma az akadályokhoz.
     private const int ObstacleStream = 1000;
+
+    // A dekorációk származtatott véletlensorozatának sorszáma.
+    private const int DecorationStream = 2000;
 
     private readonly WorldGenerationConfig _config;
 
@@ -109,8 +116,10 @@ public sealed class WorldGenerator
                     attempt);
             }
 
+            List<TerrainFeatureLayout> decorations = GenerateDecorations(request, bounds, bases, obstacles);
+
             return WorldGenerationResult.Succeeded(
-                new WorldLayout(Version, request, bases, obstacles),
+                new WorldLayout(Version, request, bases, obstacles, decorations),
                 attempt);
         }
 
@@ -417,6 +426,127 @@ public sealed class WorldGenerator
                 continue;
 
             if (Footprint.Distance(footprint, position, other, obstacles[i].Position) < terrain.MinObstacleSpacing)
+                return false;
+        }
+
+        return true;
+    }
+
+    // Dekorációk
+
+    /// <summary>
+    /// A pálya méretéhez tartozó dekorációszám (DecorationsPer10000Area alapján).
+    /// Zsúfolt pályán ennél kevesebb is elhelyezhető.
+    /// </summary>
+    public int GetRequestedDecorationCount(int worldSize)
+    {
+        TerrainGenerationConfig terrain = _config.Terrain;
+
+        if (terrain == null || terrain.DecorationTypes.Count == 0)
+            return 0;
+
+        double count = terrain.DecorationsPer10000Area * (double)worldSize * worldSize / 10000.0;
+
+        return (int)Math.Floor(count + 0.5);
+    }
+
+    private List<TerrainFeatureLayout> GenerateDecorations(
+        WorldGenerationRequest request,
+        WorldBounds bounds,
+        List<BaseLayout> bases,
+        List<TerrainFeatureLayout> obstacles)
+    {
+        int count = GetRequestedDecorationCount(request.WorldSize);
+        List<TerrainFeatureLayout> decorations = new List<TerrainFeatureLayout>(count);
+
+        if (count == 0)
+            return decorations;
+
+        TerrainGenerationConfig terrain = RequireTerrain();
+        DeterministicRandom random = new DeterministicRandom(
+            DeterministicRandom.DeriveSeed(request.Seed, DecorationStream));
+
+        List<Footprint> obstacleFootprints = new List<Footprint>(obstacles.Count);
+
+        foreach (TerrainFeatureLayout obstacle in obstacles)
+            obstacleFootprints.Add(FindObstacleType(obstacle.TypeId).Footprint.Scaled(obstacle.Scale));
+
+        List<float> decorationRadii = new List<float>(count);
+
+        for (int i = 0; i < count; i++)
+        {
+            for (int attempt = 0; attempt < terrain.MaxPlacementAttemptsPerObstacle; attempt++)
+            {
+                TerrainFeatureType type = PickWeighted(terrain.DecorationTypes, random);
+                int variant = random.NextInt(type.VariantCount);
+                float scale = random.NextFloat(type.MinScale, type.MaxScale);
+                Footprint footprint = type.Footprint.Scaled(scale);
+
+                Vector2 limit = new Vector2(bounds.HalfSize, bounds.HalfSize) - footprint.HalfExtents;
+
+                if (limit.x <= 0f || limit.y <= 0f)
+                    continue;
+
+                Vector2 position = new Vector2(
+                    random.NextFloat(-limit.x, limit.x),
+                    random.NextFloat(-limit.y, limit.y));
+
+                if (!IsValidDecorationPosition(
+                        footprint, position, bases, obstacles, obstacleFootprints, decorations, decorationRadii))
+                {
+                    continue;
+                }
+
+                decorations.Add(new TerrainFeatureLayout(type.Id, variant, position, scale));
+                decorationRadii.Add(footprint.BoundingRadius);
+                break;
+            }
+
+            // Ha nem sikerült elhelyezni, a dekoráció kimarad: ez nem hiba.
+        }
+
+        return decorations;
+    }
+
+    private bool IsValidDecorationPosition(
+        Footprint footprint,
+        Vector2 position,
+        List<BaseLayout> bases,
+        List<TerrainFeatureLayout> obstacles,
+        List<Footprint> obstacleFootprints,
+        List<TerrainFeatureLayout> decorations,
+        List<float> decorationRadii)
+    {
+        // A dekoráció a saját méretével megegyező távolságot tart az
+        // akadályoktól, hogy ne lógjon bele a grafikájukba.
+        float margin = footprint.BoundingRadius;
+
+        foreach (BaseLayout baseLayout in bases)
+        {
+            Vector2 local = baseLayout.Position - position;
+
+            if (local.magnitude > footprint.BoundingRadius + _config.BaseClearRadius)
+                continue;
+
+            if (footprint.Contains(local) || footprint.DistanceToEdge(local) < _config.BaseClearRadius)
+                return false;
+        }
+
+        for (int i = 0; i < obstacles.Count; i++)
+        {
+            Footprint other = obstacleFootprints[i];
+            float reach = footprint.BoundingRadius + other.BoundingRadius + margin;
+
+            if ((obstacles[i].Position - position).magnitude > reach)
+                continue;
+
+            if (Footprint.Distance(footprint, position, other, obstacles[i].Position) < margin)
+                return false;
+        }
+
+        for (int i = 0; i < decorations.Count; i++)
+        {
+            if ((decorations[i].Position - position).magnitude < footprint.BoundingRadius + decorationRadii[i])
                 return false;
         }
 

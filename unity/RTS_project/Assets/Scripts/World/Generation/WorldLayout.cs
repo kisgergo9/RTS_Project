@@ -77,12 +77,18 @@ public sealed class WorldLayout
 {
     private readonly BaseLayout[] _bases;
     private readonly TerrainFeatureLayout[] _obstacles;
+    private readonly TerrainFeatureLayout[] _decorations;
 
     public int GeneratorVersion { get; }
     public WorldGenerationRequest Request { get; }
     public WorldBounds Bounds { get; }
     public IReadOnlyList<BaseLayout> Bases => _bases;
     public IReadOnlyList<TerrainFeatureLayout> Obstacles => _obstacles;
+
+    /// <summary>
+    /// Dekoratív, mozgást nem akadályozó elemek (pl. pálmafák).
+    /// </summary>
+    public IReadOnlyList<TerrainFeatureLayout> Decorations => _decorations;
 
     public int Seed => Request.Seed;
     public int WorldSize => Request.WorldSize;
@@ -91,7 +97,8 @@ public sealed class WorldLayout
         int generatorVersion,
         WorldGenerationRequest request,
         IEnumerable<BaseLayout> bases,
-        IEnumerable<TerrainFeatureLayout> obstacles = null)
+        IEnumerable<TerrainFeatureLayout> obstacles = null,
+        IEnumerable<TerrainFeatureLayout> decorations = null)
     {
         if (bases == null)
             throw new ArgumentNullException(nameof(bases));
@@ -103,5 +110,8 @@ public sealed class WorldLayout
         _obstacles = obstacles == null
             ? Array.Empty<TerrainFeatureLayout>()
             : new List<TerrainFeatureLayout>(obstacles).ToArray();
+        _decorations = decorations == null
+            ? Array.Empty<TerrainFeatureLayout>()
+            : new List<TerrainFeatureLayout>(decorations).ToArray();
     }
 }
