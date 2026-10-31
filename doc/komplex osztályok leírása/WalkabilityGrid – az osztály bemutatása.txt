@@ -1,0 +1,74 @@
+WalkabilityGrid – az osztály bemutatása
+
+CÉL ÉS SZEREP
+	A WalkabilityGrid a pálya járhatósági rácsa: négyzetes cellák a teljes pályán, cellánként járható vagy tiltott. Unity-független (csak Vector2 és Vector2Int típusokat használ), GameObjectet nem kezel. Az osztály a következőkért felel:
+	- alapterületek (bázis, akadály) tiltottá jelöléséért, opcionális megnöveléssel,
+	- a pálya széle menti sáv tiltottá jelöléséért,
+	- az összefüggő járható régiók meghatározásáért (flood fill),
+	- annak eldöntéséért, hogy megadott pontok egymásból elérhetők-e.
+
+	A projekt felépítésében az osztály a Scripts/World/Pathfinding mappába tartozik. Jelenleg a WorldGenerator használja az elérhetőség ellenőrzésére és a debug-megjelenítésre. A későbbi útvonaltervezés (A*) erre a rácsra épülhet, így nem jön létre párhuzamos járhatósági rendszer. Csak járhatósági adatot tartalmaz; tulajdonjogról, harcról vagy mozgási parancsról nem dönt.
+
+KOORDINÁTÁK
+	A rács a WorldBounds által megadott, origó középpontú négyzetes pályát fedi. A cellák száma tengelyenként felfelé kerekítve pályaméret / cellaméret.
+	Az (x, y) cella a [Min + x · CellSize; Min + (x + 1) · CellSize) tartományt fedi mindkét tengelyen, ahol Min a pálya bal alsó sarka. A (0, 0) cella a bal alsó sarokban van, az y felfelé nő.
+	Egy cella akkor tiltott, ha a középpontja egy tiltott területre esik.
+
+HASZNÁLAT RÖVIDEN
+	1. Létrehozás:
+		WalkabilityGrid grid = new WalkabilityGrid(new WorldBounds(530f), 1f);
+	2. Tiltott területek:
+		grid.BlockBorder(2f);                                        // 2 egység széles sáv a pálya szélén
+		grid.BlockFootprint(alapterulet, pozicio);                     // pontosan
+		grid.BlockFootprint(alapterulet, pozicio, leptek, 2f);         // 2 egységgel megnövelve
+	3. Lekérdezés:
+		grid.IsWalkable(pozicio);
+		grid.GetRegion(pozicio);                                       // NoRegion, ha tiltott
+		grid.AreConnected(cellak);                                      // mind járható és egy régióban van
+	4. A generált világ rácsa közvetlenül is elkészíthető:
+		WalkabilityGrid grid = generator.BuildWalkabilityGrid(layout);
+
+PUBLIKUS TULAJDONSÁGOK
+	Bounds (WorldBounds): a lefedett pálya.
+	CellSize (float): a cellák oldalhossza világegységben.
+	Width, Height (int): a cellák száma tengelyenként.
+	CellCount (int): az összes cella száma.
+	RegionCount (int): az összefüggő járható régiók száma. Első lekérdezéskor számolódik, és minden tiltás után újraszámolódik.
+	NoRegion (const int, -1): a tiltott vagy pályán kívüli cella régióazonosítója.
+
+PUBLIKUS METÓDUSOK
+	Koordináták
+		Vector2Int WorldToCell(Vector2 position): a pontot tartalmazó cella. Pályán kívüli pontra is ad értéket; az IsInside dönti el, érvényes-e.
+		Vector2 CellToWorld(int x, int y): a cella középpontja világkoordinátában.
+		bool IsInside(int x, int y): a cella a rácson belül van-e.
+
+	Járhatóság
+		bool IsWalkable(int x, int y), bool IsWalkable(Vector2 position): a cella járható-e. Pályán kívül mindig hamis.
+		int CountBlocked(): a tiltott cellák száma.
+		void Block(int x, int y): egy cella tiltása.
+		void BlockFootprint(Footprint footprint, Vector2 position, float scale = 1, float inflation = 0): tiltja azokat a cellákat, amelyek középpontja a megadott helyre és léptékre transzformált alapterületen belül van, vagy annak határától legfeljebb inflation távolságra esik. A pálya szélén túlnyúló rész egyszerűen kimarad.
+		void BlockBorder(float thickness): tiltja azokat a cellákat, amelyek középpontja a pálya szélétől legfeljebb thickness távolságra van.
+		WalkabilityGrid Clone(): független másolat, például egy próbaelhelyezéshez.
+
+	Összefüggőség
+		int GetRegion(int x, int y), int GetRegion(Vector2 position): a cella régiójának azonosítója (0-tól), tiltott cellára NoRegion.
+		bool AreConnected(IEnumerable<Vector2Int> cells): igaz, ha minden megadott cella járható és ugyanabba a régióba tartozik. Üres listára igaz.
+		bool TryFindNearestWalkableCell(Vector2 position, float maxDistance, out Vector2Int cell): a ponthoz legközelebbi járható cella maxDistance távolságon belül. Egyenlő távolságnál a legkisebb (y, x) indexű cella nyer, így az eredmény determinisztikus. Akkor hasznos, ha egy pont (pl. a bázis kijárata) közvetlenül egy tiltott terület mellett van, és a saját cellájának középpontja még a tiltott területre esik.
+
+SZOMSZÉDSÁG
+	8-szomszédság: a négy egyenes és a négy átlós szomszéd. Átlós lépés csak akkor megengedett, ha mindkét érintett egyenes szomszéd is járható. Így két, csak a sarkuknál érintkező tiltott cella között nem lehet átcsúszni („nincs sarokvágás”). Az útvonaltervezésnek ugyanezt a szabályt érdemes használnia, különben olyan útvonalat találhat, amelyet az elérhetőségi ellenőrzés zártnak tekintett.
+
+A VILÁGGENERÁTOR RÁCSA (WorldGenerator.BuildWalkabilityGrid)
+	- Cellaméret: walkabilityCellSize (alapból 1 egység; a legnagyobb pályán 530 × 530 cella).
+	- Pályaszél: minPassageWidth / 2 széles tiltott sáv.
+	- Bázisok: a tiltott terület pontosan (megnövelés nélkül), mert a kijáratok közvetlenül mellette vannak.
+	- Akadályok: minPassageWidth / 2-vel megnövelve. Így minden minPassageWidth-nél (alapból 4 egység) keskenyebb rés zártnak számít, vagyis az elérhetőségi ellenőrzés óvatos: amit elérhetőnek talál, az egy egységcsoport számára is elérhető.
+	- Dekorációk: nem kerülnek a rácsba.
+	Ha az útvonaltervezésnek egyetlen egység méretéhez igazított rács kell (kisebb megnöveléssel), ugyanígy felépíthető a BlockFootprint más inflation értékével.
+
+TELJESÍTMÉNY
+	A legnagyobb (530 × 530-as) rács felépítése 50 akadállyal és 150 bázissal, a régiókra bontással együtt kb. 50 ms (WalkabilityGridTests.LargestWorld_BuildsAndLabelsQuickly).
+	A régiók kiszámítása lusta: csak lekérdezéskor fut, és csak tiltás után kell újraszámolni.
+
+TESZTEK
+	Assets/Tests/EditMode/Editor/World/WalkabilityGridTests.cs: méretek, koordináták, alapterület-tiltás pozícióval, léptékkel és megnöveléssel, pályaszél, régiók (fal, rés, lépcsőzetes fal sarokvágás nélkül), összekötöttség, legközelebbi járható cella, másolat, teljesítmény.
