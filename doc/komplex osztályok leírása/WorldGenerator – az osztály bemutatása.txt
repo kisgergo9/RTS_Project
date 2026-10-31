@@ -1,0 +1,149 @@
+WorldGenerator – az osztály bemutatása
+
+CÉL ÉS SZEREP
+	A WorldGenerator a procedurális világgenerálás Unity-független magja. Egy seed és a host által választott beállítások (játékosok, világméret, sárga bázisok száma) alapján elkészíti a négyzetes pálya elrendezését: a játékosok kezdőbázisait és a semleges sárga bázisokat. Az osztály a következőkért felel:
+	- a host beállításainak ellenőrzéséért (a WorldSizingRules segítségével),
+	- a kezdőbázisok méltányos, egyenletes elhelyezéséért,
+	- a sárga bázisok véletlenszerű, de szabályos elhelyezéséért,
+	- a minimális távolságok betartásáért, korlátozott újrapróbálkozással,
+	- egyértelmű hibaeredményért, ha a generálás nem sikerül.
+
+	A generátor csak a hoston fut. A kliensek nem generálnak újra, hanem a kész elrendezést kapják meg a hosttól. A generátor GameObjecteket nem hoz létre, azt a WorldSceneBuilder végzi.
+
+	A kapcsolódó osztályok:
+	- WorldGenerationSettings (Scripts/Configuration): ScriptableObject, a szerkeszthető beállítások. Asset: Assets/Data/WorldGeneration/WorldGenerationSettings.asset.
+	- WorldGenerationConfig (Scripts/World/Generation): a beállítások Unity-független, ellenőrzött másolata. A generátor és a tesztek ezt használják.
+	- WorldSizingRules (Scripts/World/Generation): a méretezési szabályok (játékosszám -> világméret -> bázis- és akadályszám).
+	- DeterministicRandom (Scripts/World/Generation): seed-alapú véletlenszám-generátor.
+	- WorldBounds (Scripts/World/Bounds): a négyzetes pálya kemény határa.
+	- WorldGenerationRequest, WorldGenerationResult, WorldLayout, BaseLayout (Scripts/World/Generation): a generálás bemenete és kimenete.
+	- WorldLayoutSnapshot (Scripts/World/Generation) és WorldGenerationState (Scripts/Domain/State): a mentéshez és a hálózathoz használt pillanatkép.
+	- WorldGenerationMessage (Scripts/Networking/Replication): a hálózati üzenet.
+	- WorldSceneBuilder (Scripts/World/Placement) és WorldGenerationSetup (Scripts/Application/Match): Unity-integráció.
+
+HASZNÁLAT RÖVIDEN
+	1. Konfiguráció betöltése:
+		WorldGenerator generator = new WorldGenerator(settings.ToConfig());
+	2. Az érvényes tartományok lekérdezése (pl. a lobby felületéhez):
+		generator.Rules.GetWorldSizeRange(jatekosSzam);
+		generator.Rules.GetYellowBaseCountRange(jatekosSzam, vilagMeret);
+		generator.Rules.GetObstacleCountRange(vilagMeret);
+	3. Generálás:
+		WorldGenerationRequest request = new WorldGenerationRequest(jatekosIdk, vilagMeret, sargaBazisok, akadalyok, seed);
+		WorldGenerationResult result = generator.Generate(request);
+	4. Eredmény:
+		if (result.Success) { WorldLayout layout = result.Layout; }
+		else { Debug.LogError(result.ErrorMessage); }
+
+	A generálás érvénytelen beállítás vagy sikertelen elhelyezés esetén nem dob kivételt. Kivételt csak programozási hiba (pl. null kérés) okoz.
+
+A BEÁLLÍTÁSOK KIVÁLASZTÁSÁNAK SORRENDJE
+	1. Játékosszám: [1; 10].
+	2. A játékosszámtól függő világméret: [minimális méret; 530]. A világ négyzet, a méret az oldalhossza világegységben.
+	3. A világmérettől függő sárga bázis- és akadályszám.
+
+	A sárga bázisok minimuma a játékosszámtól függ: max(minYellowBaseCount, felfelé kerekítve(játékosszám · yellowBasesPerPlayer)). Az alapértékekkel ez a játékosszámmal egyenlő, de legalább 1.
+
+MÉRETEZÉSI MODELL (WorldSizingRules)
+	Helyigény: minden bázis egy minBaseDistance átmérőjű, minden akadály egy obstacleClearRadius sugarú kört foglal el.
+	Használható terület: (világméret - 2 · baseClearRadius)², mert a bázisok középpontja legalább baseClearRadius távolságra van a pálya szélétől.
+	Kitöltés: a használható területnek legfeljebb targetFillRatio hányadát foglalhatják el a bázisok és az akadályok együtt. Ettől lesz kényelmes az elhelyezés. A véletlenszerű, átfedésmentes elhelyezés elméleti határa kb. 0,547, ezért a konfiguráció legfeljebb 0,5-öt enged.
+	Maximális világ: a legkisebb, worldSizeStep többszörösére kerekített méret, amelyben a maxBaseCount (150) bázis és a maxObstacleCount (50) akadály ezzel a kitöltéssel elfér.
+	Kisebb világ: a bázisok és az akadályok a maximális világban érvényes arányban osztoznak a területen.
+	Minimális világ adott játékosszámra: a legnagyobb a következők közül:
+		- absoluteMinWorldSize,
+		- a játékosok és a minimális sárga bázisok helyigénye,
+		- az a méret, amelyben a kezdőbázisok köre a szórással együtt is legalább minBaseDistance távolságot hagy a szomszédos kezdőbázisok között.
+
+	Alapértelmezett beállításokkal számolt értékek:
+		Játékosok | Min. világ | Sárga bázis a min. világban | Sárga bázis a max. (530) világban
+		1         | 80         | 1                           | 1–149
+		2         | 110        | 2                           | 2–148
+		4         | 140        | 4                           | 4–146
+		6         | 170        | 6–7                         | 6–144
+		8         | 190        | 8–9                         | 8–142
+		10        | 210        | 10–11                       | 10–140
+
+INSPECTORBAN ÁLLÍTHATÓ MEZŐK (WorldGenerationSettings)
+	Az alapértékek javaslatok, nem véglegesített játékszabályok. A Base prefab kb. 12 × 4,2 egység, a kijáratai legfeljebb kb. 5,5 egységre vannak a középponttól, a tornyok felderítési területe 18 × 10 egység.
+
+	minPlayerCount (1), maxPlayerCount (10): a játékosszám tartománya.
+	maxBaseCount (150): az összes bázis maximális száma a legnagyobb világban.
+	minBaseDistance (24): két bázis középpontja közötti minimális távolság. Így a tornyok felderítési területei nem fedik egymást, és az egységek elférnek a bázisok között.
+	baseClearRadius (9): a bázis körüli szabad terület sugara (megjelenési pontok, APC-foglalási terület). A bázisok középpontja legalább ennyire van a pálya szélétől.
+	minYellowBaseCount (1), yellowBasesPerPlayer (1): a sárga bázisok minimuma.
+	minObstacleCount (0), maxObstacleCount (50), obstacleClearRadius (8): az akadályok helyigénye. A generátor még nem helyez el akadályokat, de a világméret számításában már helyet foglalnak.
+	absoluteMinWorldSize (80): a legkisebb világ oldalhossza.
+	worldSizeStep (10): a számított minimális és maximális méretet ennek többszörösére kerekítjük felfelé.
+	targetFillRatio (0,3): a kitöltési arány. Kisebb érték tágasabb világot ad.
+	maxPlacementAttemptsPerBase (200): egy bázis elhelyezésére tett próbálkozások száma.
+	maxGenerationAttempts (10): a teljes generálás újrakezdéseinek száma.
+	playerRingRadiusFraction (0,7): a kezdőbázisok köre sugarának aránya a játszható fél-szélességhez képest. 1 = a pálya széle mentén, kisebb érték = közelebb a középhez.
+	startPositionJitter (2): a kezdőbázisok legfeljebb ennyivel térhetnek el a körön kijelölt helyüktől.
+
+A GENERÁLÁS LÉPÉSEI (Generate)
+	1. Ellenőrzés: a WorldSizingRules.TryValidate megvizsgálja a játékosszámot, a világméretet, a sárga bázisok és az akadályok számát. Hiba esetén InvalidRequest eredményt ad, és a kísérletek száma 0.
+	2. Kezdőbázisok: a játékosazonosítók növekvő sorrendjében, egy középpontos körre kerülnek egyenletes szögközzel. A kör elforgatását és a pozíciók legfeljebb startPositionJitter mértékű eltérését a seed határozza meg. Így minden játékos azonos távolságra van a középponttól és a pálya szélétől.
+	3. Sárga bázisok: a pálya peremtávolságon belüli részéből véletlen jelölteket sorsol. Egy jelölt akkor fogadható el, ha minden eddigi bázistól legalább minBaseDistance, a pálya szélétől legalább baseClearRadius távolságra van.
+	4. Újrapróbálkozás: ha egy bázis maxPlacementAttemptsPerBase próbálkozásból sem helyezhető el, a teljes generálás újraindul, legfeljebb maxGenerationAttempts alkalommal. Az újrakezdés ugyanazt a folytatódó véletlensorozatot használja, így az eredmény továbbra is determinisztikus.
+	5. Eredmény: siker esetén WorldLayout, egyébként PlacementFailed hiba. A hibaüzenet tartalmazza a seedet és a javaslatot (nagyobb világ, kevesebb sárga bázis vagy másik seed).
+
+	A bázisazonosítók sorrendje: előbb a kezdőbázisok (1..játékosszám, növekvő játékosazonosító szerint), utána a sárga bázisok.
+
+DETERMINIZMUS ÉS VERZIÓKEZELÉS
+	A DeterministicRandom a PCG32 algoritmust használja, a referencia-implementációval egyező kimenettel. A System.Random és a UnityEngine.Random nem használható, mert azok nem garantálnak azonos sorozatot minden gépen és verzión.
+	Ugyanaz a seed és ugyanaz a kérés ugyanazzal a generátorverzióval mindig ugyanazt a világot adja.
+	A WorldGenerator.Version értékét növelni kell minden olyan módosításnál, amely ugyanabból a seedből más világot eredményez. Ezt két regressziós teszt jelzi: DeterministicRandomTests.KnownSeed_ProducesKnownSequence és WorldGeneratorTests.KnownRequest_ProducesKnownLayout.
+
+SZINKRONIZÁCIÓ A KLIENSEKKEL (DÖNTÉS)
+	A host a teljes generált elrendezést küldi el a klienseknek, nem csak a seedet és a beállításokat.
+	Indoklás:
+	- Megfelel a host-authoritative elvnek: a világot egyedül a host határozza meg.
+	- A kliensek világa nem függ a generátor verziójától és a lebegőpontos számítások gépenkénti eltérésétől.
+	- Az üzenet kicsi: a legnagyobb világ (150 bázis) is 4 KB alatt marad.
+	Megvalósítás: a WorldGenerationMessage (Netcode INetworkSerializable) a WorldGenerationState pillanatképet viszi. A kliens a WorldLayoutSnapshot.FromState hívással állítja vissza az elrendezést, majd a WorldSceneBuilder.Build hívással építi fel a jelenetet. A beolvasott elemszámok legfeljebb MaxEntries (4096) értékűek lehetnek, hogy egy hibás üzenet ne okozhasson túlzott memóriafoglalást.
+	Nyitott: a tényleges küldést a hálózati session elkészülte után kell bekötni.
+
+MENTÉS
+	A GameBootstrapper generáláskor eltárolja a pillanatképet a GameState.World.Generation tulajdonságban (egyszer állítható be).
+	A WorldGenerationState tartalmazza a generátorverziót, a seedet, a generálási beállításokat, a játékosazonosítókat, valamint a bázisok azonosítóját, pozícióját és kezdeti tulajdonosát.
+	JSON: WorldLayoutSnapshot.ToJson és FromJson. A visszatöltés nem generál újra, hanem a mentett pozíciókat használja, és ellenőrzi az adatokat (duplikált azonosító, pályán kívüli bázis, ismeretlen játékos).
+	Megjegyzés: a BaseData jelenleg nem tárolja a bázis pozícióját. A pozíció a pillanatképben és a GameObjecten van. Mivel a bázisok nem mozognak, ez elegendő, de a mentés megvalósításakor figyelembe kell venni.
+
+UNITY-INTEGRÁCIÓ
+	WorldGenerationSetup (a GameBootstrapperrel azonos GameObjecten):
+		A host generálási beállításai. Amíg nincs lobby, az Inspectorban adhatók meg (világméret, sárga bázisok, akadályok, seed, véletlen seed kapcsoló). A "Valid Ranges" mező mutatja az aktuális játékosszámhoz tartozó érvényes tartományokat és az esetleges hibát. A Scene nézetben Play mód nélkül is előnézetet rajzol (kék: kezdőbázis, sárga: sárga bázis, kör: szabad terület). A komponens jobb klikkes menüje: Use Minimum Values, Use Maximum Values, New Random Seed.
+	WorldSceneBuilder:
+		A WorldLayout alapján létrehozza és inicializálja a bázisokat (BaseController.Initialize). Elkészíti a csempézett talajt, a pálya széle mentén a négy, mozgást tiltó falat (MovementObstacle), és beállítja a kamera határait (CameraController.SetWorldBounds).
+	GameBootstrapper:
+		Ha a World Generation mezői ki vannak töltve, a bázisok a generált világból származnak (a Bases tömbnek ilyenkor üresnek kell lennie), és regisztrálódnak a játékállapotba. Ha nincsenek kitöltve, a korábbi, jelenetben elhelyezett bázisok működnek változatlanul.
+
+	Ideiglenes megoldások:
+	- A Base prefabon lévő BaseTestInput tesztkomponenst a WorldSceneBuilder kikapcsolja a generált bázisokon, mert az saját pénztárcát állítana be, és minden bázison saját GUI-t rajzolna. Ha a komponens lekerül a prefabról, a DisableTestInput metódus törölhető.
+	- A BaseFlagView localPlayerId mezője ideiglenesen rögzített (0), ezért a 0 azonosítójú játékos bázisa jelenik meg saját zászlóval.
+
+TESZTJELENET ÖSSZEÁLLÍTÁSA
+	A *.unity fájlokat a .gitignore kizárja, ezért a tesztjelenet nincs a repóban. Összeállítása:
+	1. Új, üres jelenet.
+	2. Main Camera: orthographic kamera, MainCamera tag, CameraController komponens a Settings/Camera.inputactions műveleteivel (Move, Pan, PointerPosition, Zoom). A teljes pálya áttekintéséhez a maxZoom értéke legyen nagyobb (pl. 60).
+	3. Global Light 2D (Light 2D komponens, Global típus).
+	4. "World" GameObject a következő komponensekkel:
+		- WorldSceneBuilder: Base Prefab = Prefabs/Bases/Base, Ground Sprite = Art/Terrain/boden1 (boden1_0), Camera Controller = a fenti kamera.
+		- WorldGenerationSetup: Settings = Data/WorldGeneration/WorldGenerationSettings, valamint a világméret, a sárga bázisok száma és a seed.
+		- GameBootstrapper: Players = pl. 0–3 azonosítójú játékosok, Bases = üres, World Generation = a fenti két komponens.
+	5. Play módban a konzol kiírja a generált világ adatait (méret, seed, bázisok száma, kísérletek).
+
+TESZTEK
+	Assets/Tests/EditMode/Editor/World:
+	- WorldSizingRulesTests: méretezési szabályok és beállítás-ellenőrzés.
+	- DeterministicRandomTests: determinizmus, tartományok, egyenletesség, regressziós sorozat.
+	- WorldBoundsTests: pályahatár, peremtávolság, Clamp.
+	- WorldGeneratorTests: determinizmus, regressziós elrendezés, határok, távolságok, tulajdonosok, sorrend, egyenletes kör, hibakezelés.
+	- WorldLayoutSnapshotTests: pillanatkép, JSON- és hálózati oda-vissza alakítás, újragenerálás a mentett seedből, sérült adatok elutasítása.
+	A tesztek az Editor mappában vannak, mert a projekt nem használ assembly definitionöket. Futtatás: Window → General → Test Runner → EditMode → Run All.
+
+NYITOTT KÉRDÉSEK ÉS KÖVETKEZŐ LÉPÉSEK
+	- Terepakadályok elhelyezése: a konfiguráció és a méretezés már helyet foglal nekik, az elhelyezés külön feladat.
+	- A WorldGenerationMessage tényleges küldése a hálózati session elkészülte után.
+	- A lobby felülete a WorldGenerationSetup mezőit és a WorldSizingRules tartományait használja majd.
+	- A konfiguráció alapértékei (pl. minBaseDistance, targetFillRatio) javaslatok. A legnagyobb világ jelenleg 530 × 530 egység; a jelenlegi egységsebességgel (2 egység/mp) ennek átszelése több mint 4 percig tart. Ha ez túl nagy, a minBaseDistance csökkentésével vagy a targetFillRatio növelésével kisebb lesz.
