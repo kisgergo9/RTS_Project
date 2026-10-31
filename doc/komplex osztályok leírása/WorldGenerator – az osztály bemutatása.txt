@@ -188,10 +188,10 @@ TESZTEK
 	A tesztek az Editor mappában vannak, mert a projekt nem használ assembly definitionöket. Futtatás: Window → General → Test Runner → EditMode → Run All.
 
 TELJESÍTMÉNY (mérve, Unity Editorban)
-	Legnagyobb világ (530 × 530, 10 játékos, 150 bázis, 50 akadály, 169 dekoráció), 50 különböző seed: átlag 47–48 ms, medián 45–47 ms, leglassabb 69–73 ms. Az elfogadási küszöb 500 ms.
-	520 vegyes világ (1–10 játékos, kis, közepes és legnagyobb pálya, maximális bázis- és akadályszám): átlag 22–35 ms, leglassabb 69–110 ms.
+	Legnagyobb világ (530 × 530, 10 játékos, 150 bázis, 50 akadály, 169 dekoráció), 50 különböző seed: átlag 47–49 ms, medián 45–48 ms, leglassabb 67–73 ms. Az elfogadási küszöb 500 ms.
+	520 vegyes világ (1–10 játékos, kis, közepes és legnagyobb pálya, maximális bázis- és akadályszám): átlag 22–35 ms, leglassabb 69–213 ms.
 	Ebből a járhatósági rács felépítése és régiókra bontása a legnagyobb pályán kb. 50 ms.
-	A tartományok két mérés eredményét mutatják; az eltérés az Editor terheltségéből adódik. Egy generálás egyszeri, a mérkőzés indításakor fut a hoston.
+	A tartományok három mérés eredményét mutatják; az eltérés az Editor terheltségéből adódik. Egy generálás egyszeri, a mérkőzés indításakor fut a hoston.
 
 NYITOTT KÉRDÉSEK ÉS KÖVETKEZŐ LÉPÉSEK
 	- A WorldGenerationMessage tényleges küldése a hálózati session elkészülte után.
