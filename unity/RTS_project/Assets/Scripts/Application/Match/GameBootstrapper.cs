@@ -149,6 +149,7 @@ public sealed class GameBootstrapper : MonoBehaviour
                 $"A világgenerálás sikertelen ({result.Error}): {result.ErrorMessage}");
 
         WorldLayout = result.Layout;
+        State.World.SetGeneration(WorldLayoutSnapshot.ToState(result.Layout));
 
         foreach (BaseController baseController in
                  worldBuilder.Build(result.Layout, State.Players))
