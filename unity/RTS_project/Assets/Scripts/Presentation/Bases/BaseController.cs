@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
-    public static readonly string[] ResourceNames =
-{
-        "Szén",
-        "Acél",
-        "Olaj",
-        "Beton"
-    };
-
+    public static readonly string[] ResourceNames = { "Szén", "Acél", "Olaj", "Beton" };
 
     [SerializeField] private int baseId;
     [SerializeField] private BaseOwnerType startingOwnerType;
@@ -140,7 +133,7 @@ public class BaseController : MonoBehaviour
         {
             if (buildingViews[i] != null)
             {
-                buildingViews[i].SetLevel(data.GetLevel(i));
+                buildingViews[i].Show(data, i);
             }
         }
     }

@@ -9,8 +9,6 @@ public class BaseTestInput : MonoBehaviour
     private readonly Key[] productionKeys = { Key.Digit1, Key.Digit2, Key.Digit3, Key.Digit4 };
     private readonly Key[] upgradeKeys = { Key.Digit5, Key.Digit6, Key.Digit7, Key.Digit8 };
 
-    private readonly string[] resourceNames = { "Szén", "Acél", "Olaj", "Beton" };
-
     private BaseController controller;
     private IResourceWallet wallet;
     private string lastMessage = "";
@@ -26,16 +24,26 @@ public class BaseTestInput : MonoBehaviour
 
     private void Update()
     {
-        HandleInput();
-    }
-
-    private void HandleInput()
-    {
         if (Keyboard.current == null)
         {
             return;
         }
 
+        HandleCollapseKey();
+        HandleActionKeys();
+    }
+
+    private void HandleCollapseKey()
+    {
+        if (Keyboard.current[Key.K].wasPressedThisFrame)
+        {
+            controller.Data.Collapse();
+            lastMessage = "A bázis leomlott";
+        }
+    }
+
+    private void HandleActionKeys()
+    {
         for (int i = 0; i < productionKeys.Length; i++)
         {
             if (Keyboard.current[productionKeys[i]].wasPressedThisFrame)
@@ -55,7 +63,7 @@ public class BaseTestInput : MonoBehaviour
         ActionInfo info = controller.StartAction(buildingIndex, action);
         string actionName = action == BuildingAction.Produce ? "termelés" : "fejlesztés";
 
-        lastMessage = $"{resourceNames[buildingIndex]}, {actionName}: {GetInfoText(info)}";
+        lastMessage = $"{BaseController.ResourceNames[buildingIndex]}, {actionName}: {GetInfoText(info)}";
     }
 
     private void OnGUI()
@@ -67,14 +75,14 @@ public class BaseTestInput : MonoBehaviour
 
         BaseData data = controller.Data;
 
-        GUILayout.BeginArea(new Rect(10, 10, 380, 170), GUI.skin.box);
+        GUILayout.BeginArea(new Rect(10, 10, 380, 190), GUI.skin.box);
 
         for (int i = 0; i < data.BuildingCount; i++)
         {
-            GUILayout.Label($"{resourceNames[i]}: {wallet.GetAmount(BaseData.GetResource(i))} | {GetBuildingText(data, i)}");
+            GUILayout.Label($"{BaseController.ResourceNames[i]}: {wallet.GetAmount(BaseData.GetResource(i))} | {GetBuildingText(data, i)}");
         }
 
-        GUILayout.Label("1-4: termelés, 5-8: fejlesztés");
+        GUILayout.Label("1-4: termelés, 5-8: fejlesztés, K: leomlás");
         GUILayout.Label(lastMessage);
         GUILayout.EndArea();
     }
