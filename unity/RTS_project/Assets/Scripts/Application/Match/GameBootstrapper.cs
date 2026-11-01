@@ -28,8 +28,8 @@ public sealed class GameBootstrapper : MonoBehaviour
 
     [Header("World Generation (optional)")]
 
-    [Tooltip("Ha meg van adva, a b·zisok a gener·lt vil·gbÛl sz·rmaznak, " +
-             "Ès a Bases tˆmbnek ¸resnek kell lennie.")]
+    [Tooltip("Ha meg van adva, a b√°zisok a gener√°lt vil√°gb√≥l sz√°rmaznak, " +
+             "√©s a Bases t√∂mbnek √ºresnek kell lennie.")]
     [SerializeField]
     private WorldGenerationSetup worldGeneration;
 
@@ -38,10 +38,10 @@ public sealed class GameBootstrapper : MonoBehaviour
 
     public GameState State { get; private set; }
 
-    // Gener·lt vil·g esetÈn a gener·l·s eredmÈnye, egyÈbkÈnt null.
+    // Gener√°lt vil√°g eset√©n a gener√°l√°s eredm√©nye, egy√©bk√©nt null.
     public WorldLayout WorldLayout { get; private set; }
 
-    // A be·llÌtott j·tÈkosok azonosÌtÛi (szerkesztıben is olvashatÛ).
+    // A be√°ll√≠tott j√°t√©kosok azonos√≠t√≥i (szerkeszt√µben is olvashat√≥).
     public IEnumerable<int> ConfiguredPlayerIds
     {
         get
@@ -71,7 +71,7 @@ public sealed class GameBootstrapper : MonoBehaviour
         if (_initialized)
         {
             Debug.LogError(
-                "A GameBootstrapper m·r inicializ·lva lett.",
+                "A GameBootstrapper m√°r inicializ√°lva lett.",
                 this);
             return;
         }
@@ -91,13 +91,13 @@ public sealed class GameBootstrapper : MonoBehaviour
     {
         if (players == null)
             throw new InvalidOperationException(
-                "A PlayerSetup tˆmb nincs be·llÌtva.");
+                "A PlayerSetup t√∂mb nincs be√°ll√≠tva.");
 
         foreach (PlayerSetup setup in players)
         {
             if (setup == null)
                 throw new InvalidOperationException(
-                    "A PlayerSetup tˆmb null elemet tartalmaz.");
+                    "A PlayerSetup t√∂mb null elemet tartalmaz.");
 
             PlayerState player = new PlayerState(
                 setup.playerId,
@@ -122,7 +122,7 @@ public sealed class GameBootstrapper : MonoBehaviour
         {
             if (baseController == null)
                 throw new InvalidOperationException(
-                    "A BaseController tˆmb null elemet tartalmaz.");
+                    "A BaseController t√∂mb null elemet tartalmaz.");
 
             baseController.InitializeFromSceneConfiguration(
                 State.Players);
@@ -135,18 +135,18 @@ public sealed class GameBootstrapper : MonoBehaviour
     {
         if (worldBuilder == null)
             throw new InvalidOperationException(
-                "Gener·lt vil·ghoz WorldSceneBuilder sz¸ksÈges.");
+                "Gener√°lt vil√°ghoz WorldSceneBuilder sz√ºks√©ges.");
 
         if (bases != null && bases.Length > 0)
             throw new InvalidOperationException(
-                "Gener·lt vil·g esetÈn a Bases tˆmbnek ¸resnek kell lennie.");
+                "Gener√°lt vil√°g eset√©n a Bases t√∂mbnek √ºresnek kell lennie.");
 
         WorldGenerationResult result =
             worldGeneration.Generate(State.Players.Players);
 
         if (!result.Success)
             throw new InvalidOperationException(
-                $"A vil·ggener·l·s sikertelen ({result.Error}): {result.ErrorMessage}");
+                $"A vil√°ggener√°l√°s sikertelen ({result.Error}): {result.ErrorMessage}");
 
         WorldLayout = result.Layout;
         State.World.SetGeneration(WorldLayoutSnapshot.ToState(result.Layout));
@@ -158,9 +158,9 @@ public sealed class GameBootstrapper : MonoBehaviour
         }
 
         Debug.Log(
-            $"Vil·g gener·lva: mÈret={result.Layout.WorldSize}, " +
-            $"seed={result.Layout.Seed}, b·zisok={result.Layout.Bases.Count}, " +
-            $"kÌsÈrletek={result.Attempts}");
+            $"Vil√°g gener√°lva: m√©ret={result.Layout.WorldSize}, " +
+            $"seed={result.Layout.Seed}, b√°zisok={result.Layout.Bases.Count}, " +
+            $"k√≠s√©rletek={result.Attempts}");
     }
 
     private void InitializeUnits()
@@ -172,7 +172,7 @@ public sealed class GameBootstrapper : MonoBehaviour
         {
             if (unit == null)
                 throw new InvalidOperationException(
-                    "A UnitGroupMember tˆmb null elemet tartalmaz.");
+                    "A UnitGroupMember t√∂mb null elemet tartalmaz.");
 
             int unitId = _unitIdAllocator.Allocate();
 
@@ -181,10 +181,10 @@ public sealed class GameBootstrapper : MonoBehaviour
                 unit.OwnerPlayerId,
                 unit.Type);
 
-            // Domain·llapot regisztr·ciÛja.
+            // Domain√°llapot regisztr√°ci√≥ja.
             State.RegisterUnit(unitState);
 
-            // Unity komponens inicializ·l·sa.
+            // Unity komponens inicializ√°l√°sa.
             unit.Initialize(unitId);
         }
     }

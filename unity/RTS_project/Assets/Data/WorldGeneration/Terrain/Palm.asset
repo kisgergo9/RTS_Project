@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5df21f41e7cd7445a60160c6831f350, type: 3}
+  m_Name: Palm
+  m_EditorClassIdentifier: 
+  id: palm
+  displayName: "P\xE1lmafa"
+  blocksMovement: 0
+  sprites:
+  - {fileID: -1673732733077124514, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: 3611188691014843535, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: 2249915519335348110, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: 5223556475179290604, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: 384058854656272681, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: 3818217323743452925, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: -7523560045513598774, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: -271311362049036883, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: -497406288967409369, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: 7915683653226457324, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: -8841855405480785529, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: 6531415816565926178, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: 2802346070031776116, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: 3116032067696762471, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  - {fileID: -8539622112099020976, guid: b77075183f80f414db04629e2e224d34, type: 3}
+  sortingOrder: 0
+  footprintHalfSize: {x: 0.35, y: 0.2}
+  footprintPolygon: []
+  minScale: 0.9
+  maxScale: 1.1
+  weight: 1
