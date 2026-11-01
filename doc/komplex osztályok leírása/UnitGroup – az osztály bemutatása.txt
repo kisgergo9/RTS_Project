@@ -1,0 +1,88 @@
+Cél és szerep
+	A UnitGroup egy Unity MonoBehaviour, amely azonos típusú egységeket (UnitGroupMember) fog össze egyetlen, együtt mozgó csoporttá. A csoport legfeljebb 49 tagból áll, és a tagok egy 7×7-es, rombusz alakú formációban helyezkednek el. Az osztály a következőkért felel:
+		- a tagság kezeléséért (felvétel, eltávolítás, formációs helyek kiosztása),
+		- a közös mozgásért: a csoport először egy irányba fordul, majd együtt elindul a cél felé,
+		- a közös sebességkorlátért: a csoport a leglassabb tag mozgási és fordulási sebességével halad,
+		- az akadályok és más csoportok megkerüléséért, illetve egy azonos irányba haladó csoport követéséért,
+		- a kijelölés megjelenítéséért, vagyis a csoport köré rajzolt rombusz alakú keretért.
+	A projekt felépítésében az osztály a Scripts/Presentation/Units/Groups mappába tartozik. A tagok tényleges mozgását a UnitMovement, a járhatóság vizsgálatát pedig a UnitCollisionHandler komponens végzi. A UnitGroup ezeket a komponenseket hangolja össze.
+
+Publikus tulajdonságok
+	Members (IReadOnlyList<UnitGroupMember>): a tagok csak olvasható listája.
+	MemberCount (int): a tagok száma.
+	GroupType (UnitType?): a csoport egységtípusa, vagyis az első tag típusa. Üres csoportnál null.
+	IsFull (bool): igaz, ha a csoportban már 49 tag van.
+	IsMoving (bool): igaz, ha a csoport fordul vagy halad, vagy ha bármelyik tagja mozog.
+	IsSelected (bool): igaz, ha a csoport ki van jelölve.
+	GroupMaxSpeed, GroupMaxTurnSpeed (float): a közös sebességkorlát, a tagok BaseMoveSpeed és BaseTurnSpeed értékeinek minimuma.
+
+Publikus metódusok
+Tagság és formáció
+	bool CanAccept(UnitGroupMember member)
+	Megadja, hogy a tag felvehető-e. Feltételek: a tag nem null, a csoport nincs tele, és a típusa kompatibilis az első tagéval. Üres csoport bármilyen típusú tagot elfogad.
+
+	static bool AreCompatible(UnitType a, UnitType b)
+	Két egységtípus kompatibilitását vizsgálja. Jelenleg csak az azonos típusok kompatibilisek. Ha később vegyes csoportokat szeretnél, ezt a metódust kell módosítani.
+
+	bool TryGetJoinSlot(UnitGroupMember member, out int slot, out Vector3 worldPosition)
+	Csatlakozás előtt ezt érdemes hívni. Ha a tag felvehető és a csoport áll, visszaadja a következő szabad helyet és annak világkoordinátáját. Mozgó csoportnál false értéket ad.
+
+	bool AddMember(UnitGroupMember member, int slot)
+	Felveszi a tagot a megadott formációs helyre. Ehhez beállítja a tag csoportját a member.SetGroup(this, slot) hívással, majd újraszámolja a közös sebességkorlátot. false értéket ad, ha a tag már tag, nem fogadható el, vagy ha a hely foglalt.
+
+	bool RemoveMember(UnitGroupMember member)
+	Eltávolítja a tagot, visszaállítja a tag saját sebességkorlátját (ResetMovementLimits), törli a csoporthoz tartozását (SetGroup(null)), majd újraszámolja a közös korlátot.
+
+	bool IsSlotOccupied(int slot)
+	Megadja, hogy egy formációs helyet foglal-e már valamelyik tag.
+
+	int FindNextFreeSlot()
+	Visszaadja a legkisebb sorszámú szabad helyet (1–49), vagy -1 értéket, ha nincs szabad hely. A sorszámok a FormationOrder mátrix alapján spirálisan haladnak a középponttól kifelé, így a csoport mindig a közepéről indulva töltődik fel.
+
+	UnitGroupMember GetLeader()
+	Visszaadja a vezetőt, vagyis az 1-es helyen álló tagot. Ha ilyen nincs, az első tagot, üres csoportnál pedig null értéket ad. A csoport minden pozícióját a vezetőhöz viszonyítva számolja.
+
+	UnitGroupMember GetNewestMember()
+	Visszaadja a legutoljára felvett, még létező tagot.
+
+	Vector3 GetSlotWorldPosition(int slot)
+	Visszaadja egy formációs hely világkoordinátáját a vezető aktuális helyzetéhez képest. Ha nincs vezető, a csoport GameObjectjének pozícióját adja.
+
+Mozgás
+	void MoveTo(Vector2 destination)
+	A csoport fő mozgási parancsa. Működése:
+		1. Ellenőrzi, hogy a teljes formáció elfér-e a célon. Ha nem, a cél körüli egyre nagyobb körökön helyettesítő célpontot keres. Ha a keresési sugáron belül sem talál ilyet, a parancsot csendben figyelmen kívül hagyja.
+		2. Megszünteti a korábbi kerülési vagy követési állapotot.
+		3. Ha a csoport már halad, és minden tagja úton van, a tagok célpontját menet közben, fordulás nélkül frissíti.
+		4. Egyébként minden tag a cél irányába fordul (BeginGroupTurn). Amikor mindenki befordult, a tagok a vezetőhöz viszonyított aktuális helyzetük megtartásával indulnak el.
+	A szögek konvenciója: 0° a +Y irány, a szög az óramutató járásával egyező irányban nő.
+
+	void StopGroupMovement()
+	Megállítja az összes tagot, és megszünteti a kerülést és a követést. Ezután a tagokat azonnal a pontos formációs helyükre teszi (TeleportTo), a vezető helyzetét alapul véve.
+
+Ütközéskezelés
+	void HandleMemberCollision(UnitGroupMember collidedMember)
+	Ezt kell hívni, ha egy tag statikus akadálynak ütközött. A rövid változat az otherGroup és otherMember paramétert null értékkel adja át.
+
+	void HandleMemberCollision(UnitGroupMember collidedMember, UnitGroup otherGroup, UnitGroupMember otherMember)
+	Másik csoporttal történt ütközéskor kell hívni. A metódus védett a rekurzív újrahívás ellen.
+		- Ha a másik csoport áll, akadályként kezeli, és megpróbálja megkerülni.
+		- Ha a másik csoport mozog, és nagyjából azonos irányba halad (az irányvektorok skaláris szorzata legalább 0,85), csak az egyik csoport reagál. A gyorsabb tér ki, azonos sebességnél a nagyobb InstanceID-jű. Ha a kitérés nem sikerül, és az irány szinte azonos (legalább 0,98), a csoport követni kezdi a másikat, és megtartja az eredeti célját.
+		- Eltérő vagy ellentétes iránynál mindkét csoport kitér.
+
+Kijelölés
+	void SetSelected(bool selected)
+	Be- vagy kikapcsolja a kijelölő rombuszt. A keret kijelölt állapotban a LateUpdate metódusban minden képkockán követi a csoport geometriai középpontját. A keret mérete a SelectionScaleRules táblázat szerint lépcsőzetesen nő a létszámmal.
+
+
+Belső működés (privát metódusok)
+	Életciklus: az Awake létrehozza a keretet (InitializeSelectionOutline). Az Update vezérli az állapotgépet (Idle → Turning → Moving → Idle), a kerülést és a követést. A LateUpdate frissíti a keretet.
+	Formáció: a GetSpiralOffset a helyszámból rácskoordinátát számol. A GetSlotOffset ebből a ferde, 40°-os rácson és a 20°-os elforgatással világbeli eltolást képez. A cellaméret 60×40 px, 100 PPU mellett.
+	Célkeresés: a TryFindFormationDestination és a CanFormationOccupyDestination a UnitCollisionHandler.CanOccupyPosition segítségével ellenőrzi, hogy minden tag elfér-e a célon.
+	Sebességkorlát: a RecalculateMovementLimits, az ApplyMovementLimitsToMembers és az ApplyMovementLimits adja át a közös maximumot a tagoknak.
+	Mozgásfázisok: az AreAllMembersTurned, az AreAllMembersTravelling és az AreAllMembersStopped figyeli a fázisokat. A StartGroupMovement indítja el a mozgást a fordulás után, a MoveFormationTo pedig a formációs helyekre küldi a tagokat.
+	Kerülés: a TryFindGroupAvoidanceAngle az avoidanceAngleStep lépésekben balra vagy jobbra keres járható irányt. A SetAvoidanceWaypoint kerülőpontot jelöl ki, és a tagok elmozdítását a csoportra bízza (SetGroupControlledTranslation(true)). Az UpdateGroupAvoidanceMovement minden képkockán azonos elmozdulással viszi a tagokat, így a formáció pontosan megmarad. Az UpdateGroupAvoidance a kerülőpont elérésekor megvizsgálja, hogy folytatható-e az út közvetlenül a cél felé.
+	Csoportütközés: a HandleMovingGroupCollision, a TryBeginCollisionAvoidance, a TryGetBlockingMovingGroup és a GetGroupCurrentSpeed (a tagok aktuális sebességének minimuma) végzi a döntést. A GetGroupMovementDirection adja vissza a csoport haladási irányát.
+	Követés: a BeginFollowingGroup, az UpdateGroupFollowing és a ResumeFollowingMovement megállítja a csoportot, majd újraindítja a mozgást, amikor a követett csoport megállt, vagy az út szabaddá vált.
+	
+	
