@@ -12,6 +12,23 @@ public sealed class WorldState
     public IReadOnlyCollection<BaseData> Bases => _bases.Values;
     public IReadOnlyCollection<UnitState> Units => _units.Values;
 
+    // A generált világ pillanatképe (seed, beállítások, bázispozíciók) a
+    // mentéshez és a kliensek szinkronizálásához. Kézzel összeállított,
+    // nem generált jelenet esetén null.
+    public WorldGenerationState Generation { get; private set; }
+
+    public void SetGeneration(WorldGenerationState generation)
+    {
+        if (generation == null)
+            throw new ArgumentNullException(nameof(generation));
+
+        if (Generation != null)
+            throw new InvalidOperationException(
+                "A világ generálási állapota már be van állítva.");
+
+        Generation = generation;
+    }
+
     // Bázisok
 
     public void RegisterBase(BaseData data)

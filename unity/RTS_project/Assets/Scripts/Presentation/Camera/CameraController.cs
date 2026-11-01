@@ -18,7 +18,8 @@ public sealed class CameraController : MonoBehaviour
     [Header("Zoom")]
     [SerializeField, Min(0.01f)] private float minZoom = 3f;
     [SerializeField, Min(0.01f)] private float maxZoom = 15f;
-    [SerializeField, Min(0f)] private float zoomSensitivity = 2f;
+    [Tooltip("Egy görgőkattanás ekkora arányban változtatja a nagyítást (0,15 = 15%).")]
+    [SerializeField, Range(0.01f, 0.5f)] private float zoomStepPerNotch = 0.15f;
 
     [Header("World Bounds")]
     [SerializeField] private bool useWorldBounds = true;
@@ -147,11 +148,14 @@ public sealed class CameraController : MonoBehaviour
         if (Mathf.Approximately(scroll.y, 0f))
             return;
 
-        float newZoom = _camera.orthographicSize
-            - scroll.y * zoomSensitivity * Time.deltaTime;
+        // A görgetés diszkrét esemény (egy kattanás = 1, mert az Input System
+        // UniformAcrossAllPlatforms görgetési módot használ), ezért nem
+        // szorozzuk Time.deltaTime-mal. A nagyítás arányos, így kis és nagy
+        // pályán is egyformán gyorsnak érződik.
+        float factor = Mathf.Pow(1f - zoomStepPerNotch, scroll.y);
 
         _camera.orthographicSize = Mathf.Clamp(
-            newZoom,
+            _camera.orthographicSize * factor,
             minZoom,
             maxZoom);
     }
@@ -200,7 +204,10 @@ public sealed class CameraController : MonoBehaviour
         worldMin = Vector2.Min(minimum, maximum);
         worldMax = Vector2.Max(minimum, maximum);
 
-        ClampCameraPosition();
+        // Awake előtt (pl. egy másik komponens Awake-jéből hívva) még nincs
+        // kamera; ilyenkor az Update végzi el a pozíció korlátozását.
+        if (_camera != null)
+            ClampCameraPosition();
     }
 
     private static void EnableAction(InputActionReference reference)
@@ -220,7 +227,6 @@ public sealed class CameraController : MonoBehaviour
         minZoom = Mathf.Max(0.01f, minZoom);
         maxZoom = Mathf.Max(0.01f, maxZoom);
         moveSpeed = Mathf.Max(0f, moveSpeed);
-        zoomSensitivity = Mathf.Max(0f, zoomSensitivity);
 
         if (minZoom > maxZoom)
             maxZoom = minZoom;
