@@ -19,7 +19,9 @@ using UnityEngine;
 ///      ugyanazzal a folytatódó véletlensorozattal, így az eredmény továbbra is
 ///      determinisztikus. Ha ez sem sikerül, hibás eredményt ad vissza.
 ///   5. Az akadályokat a seedből származtatott, külön véletlensorozattal helyezi
-///      el, így a bázisok helyét nem befolyásolják. Egy akadály csak akkor
+///      el, így a bázisok helyét nem befolyásolják. Akadályonként
+///      ObstacleCandidateCount érvényes jelölt közül a legtávolabbit választja
+///      (best-candidate mintavétel), így az akadályok egyenletesen oszlanak el. Egy akadály csak akkor
 ///      fogadható el, ha a pályán belül van, minden bázis szabad területétől
 ///      legalább MinObstacleBaseDistance, a többi akadálytól legalább
 ///      MinObstacleSpacing távolságra esik.
@@ -45,7 +47,7 @@ public sealed class WorldGenerator
     /// A generálási algoritmus verziója. Növelni kell minden olyan változtatásnál,
     /// amely ugyanabból a seedből és kérésből más világot eredményez.
     /// </summary>
-    public const int Version = 3;
+    public const int Version = 4;
 
     private const double FullCircle = 2.0 * Math.PI;
 
@@ -372,20 +374,28 @@ public sealed class WorldGenerator
 
         for (int i = 0; i < count; i++)
         {
-            bool placed = false;
+            TerrainFeatureType type = PickWeighted(terrain.ObstacleTypes, random);
+            int variant = random.NextInt(type.VariantCount);
+            float scale = random.NextFloat(type.MinScale, type.MaxScale);
+            Footprint footprint = type.Footprint.Scaled(scale);
 
-            for (int attempt = 0; attempt < terrain.MaxPlacementAttemptsPerObstacle; attempt++)
+            Vector2 limit = new Vector2(bounds.HalfSize, bounds.HalfSize) - footprint.HalfExtents;
+
+            if (limit.x <= 0f || limit.y <= 0f)
+                return false;
+
+            // Best-candidate mintavétel: legfeljebb ObstacleCandidateCount érvényes
+            // jelölt közül a legnagyobb szabad távolságú nyer.
+            bool found = false;
+            Vector2 bestPosition = Vector2.zero;
+            float bestScore = float.MinValue;
+            int validCandidates = 0;
+
+            for (int attempt = 0;
+                 attempt < terrain.MaxPlacementAttemptsPerObstacle &&
+                 validCandidates < terrain.ObstacleCandidateCount;
+                 attempt++)
             {
-                TerrainFeatureType type = PickWeighted(terrain.ObstacleTypes, random);
-                int variant = random.NextInt(type.VariantCount);
-                float scale = random.NextFloat(type.MinScale, type.MaxScale);
-                Footprint footprint = type.Footprint.Scaled(scale);
-
-                Vector2 limit = new Vector2(bounds.HalfSize, bounds.HalfSize) - footprint.HalfExtents;
-
-                if (limit.x <= 0f || limit.y <= 0f)
-                    continue;
-
                 Vector2 position = new Vector2(
                     random.NextFloat(-limit.x, limit.x),
                     random.NextFloat(-limit.y, limit.y));
@@ -393,17 +403,49 @@ public sealed class WorldGenerator
                 if (!IsValidObstaclePosition(footprint, position, bases, obstacles, placedFootprints))
                     continue;
 
-                obstacles.Add(new TerrainFeatureLayout(type.Id, variant, position, scale));
-                placedFootprints.Add(footprint);
-                placed = true;
-                break;
+                validCandidates++;
+                float score = GetFreeSpaceScore(position, bounds, bases, obstacles);
+
+                if (score > bestScore)
+                {
+                    bestScore = score;
+                    bestPosition = position;
+                    found = true;
+                }
             }
 
-            if (!placed)
+            if (!found)
                 return false;
+
+            obstacles.Add(new TerrainFeatureLayout(type.Id, variant, bestPosition, scale));
+            placedFootprints.Add(footprint);
         }
 
         return true;
+    }
+
+    /// <summary>
+    /// Mennyi szabad hely van a jelölt körül: a legközelebbi akadály vagy bázis
+    /// középpontjának távolsága. A pálya széle is szomszédnak számít (a szél
+    /// távolságának kétszeresével), hogy az akadályok ne a pálya szélére
+    /// tömörüljenek.
+    /// </summary>
+    private static float GetFreeSpaceScore(
+        Vector2 position,
+        WorldBounds bounds,
+        List<BaseLayout> bases,
+        List<TerrainFeatureLayout> obstacles)
+    {
+        float edgeDistance = bounds.HalfSize - Mathf.Max(Mathf.Abs(position.x), Mathf.Abs(position.y));
+        float score = 2f * edgeDistance;
+
+        foreach (BaseLayout baseLayout in bases)
+            score = Mathf.Min(score, Vector2.Distance(position, baseLayout.Position));
+
+        foreach (TerrainFeatureLayout obstacle in obstacles)
+            score = Mathf.Min(score, Vector2.Distance(position, obstacle.Position));
+
+        return score;
     }
 
     private bool IsValidObstaclePosition(

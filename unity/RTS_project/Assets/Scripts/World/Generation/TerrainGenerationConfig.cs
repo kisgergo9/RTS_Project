@@ -69,6 +69,14 @@ public sealed class TerrainGenerationConfig
     /// </summary>
     public float DecorationGroveRadius { get; }
 
+    /// <summary>
+    /// Egy akadály ennyi érvényes jelölt hely közül választja azt, amelyik a
+    /// legtávolabb esik a már elhelyezett akadályoktól, a bázisoktól és a
+    /// pálya szélétől (best-candidate mintavétel). Így az akadályok
+    /// egyenletesen oszlanak el a pályán. 1 = az első érvényes hely.
+    /// </summary>
+    public int ObstacleCandidateCount { get; }
+
     public TerrainGenerationConfig(
         IEnumerable<TerrainFeatureType> obstacleTypes,
         IEnumerable<TerrainFeatureType> decorationTypes,
@@ -82,7 +90,8 @@ public sealed class TerrainGenerationConfig
         int maxObstacleGenerationAttempts,
         float decorationsPer10000Area,
         float decorationGroveFraction = 0f,
-        float decorationGroveRadius = 8f)
+        float decorationGroveRadius = 8f,
+        int obstacleCandidateCount = 1)
     {
         _obstacleTypes = ToArray(obstacleTypes, nameof(obstacleTypes));
         _decorationTypes = ToArray(decorationTypes, nameof(decorationTypes));
@@ -136,6 +145,10 @@ public sealed class TerrainGenerationConfig
             throw new ArgumentOutOfRangeException(nameof(decorationGroveFraction),
                 "A ligetbe kerülő dekorációk aránya a [0; 1] tartományba kell essen.");
 
+        if (obstacleCandidateCount < 1)
+            throw new ArgumentOutOfRangeException(nameof(obstacleCandidateCount),
+                "Legalább egy jelölt hely szükséges.");
+
         if (!(decorationGroveRadius > 0f))
             throw new ArgumentOutOfRangeException(nameof(decorationGroveRadius),
                 "A liget sugarának pozitívnak kell lennie.");
@@ -156,6 +169,7 @@ public sealed class TerrainGenerationConfig
         DecorationsPer10000Area = decorationsPer10000Area;
         DecorationGroveFraction = decorationGroveFraction;
         DecorationGroveRadius = decorationGroveRadius;
+        ObstacleCandidateCount = obstacleCandidateCount;
     }
 
     public float MaxObstacleBoundingRadius

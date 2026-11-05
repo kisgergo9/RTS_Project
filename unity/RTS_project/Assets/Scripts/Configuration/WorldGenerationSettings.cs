@@ -141,6 +141,11 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField, Min(1)]
     private int maxPlacementAttemptsPerObstacle = 100;
 
+    [Tooltip("Egy akadály ennyi érvényes jelölt hely közül a legtávolabbit választja a többi " +
+             "akadálytól, a bázisoktól és a pálya szélétől, így egyenletesen oszlanak el. 1 = véletlen hely.")]
+    [SerializeField, Min(1)]
+    private int obstacleCandidateCount = 20;
+
     [Tooltip("Ha az akadályok nem helyezhetők el érvényesen, ennyiszer generálja újra őket " +
              "új, a seedből származtatott sorozattal.")]
     [SerializeField, Min(1)]
@@ -262,7 +267,8 @@ public sealed class WorldGenerationSettings : ScriptableObject
             maxObstacleGenerationAttempts,
             decorationsPer10000Area,
             decorationGroveFraction,
-            decorationGroveRadius);
+            decorationGroveRadius,
+            obstacleCandidateCount);
     }
 
     private static List<TerrainFeatureType> ToTypes(TerrainFeatureDefinition[] definitions)

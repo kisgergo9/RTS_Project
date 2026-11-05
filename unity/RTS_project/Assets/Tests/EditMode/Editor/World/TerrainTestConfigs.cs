@@ -51,7 +51,8 @@ internal static class TerrainTestConfigs
         int maxObstacleGenerationAttempts = 5,
         float decorationsPer10000Area = 6f,
         float decorationGroveFraction = 0f,
-        float decorationGroveRadius = 8f)
+        float decorationGroveRadius = 8f,
+        int obstacleCandidateCount = 1)
     {
         return new TerrainGenerationConfig(
             obstacleTypes ?? new[] { Obstacle() },
@@ -66,6 +67,7 @@ internal static class TerrainTestConfigs
             maxObstacleGenerationAttempts,
             decorationsPer10000Area,
             decorationGroveFraction,
-            decorationGroveRadius);
+            decorationGroveRadius,
+            obstacleCandidateCount);
     }
 }
