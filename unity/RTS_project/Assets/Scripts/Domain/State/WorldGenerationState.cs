@@ -20,6 +20,11 @@ public sealed class WorldGenerationState
     public int obstacleCount;
     public int[] playerIds = Array.Empty<int>();
     public BasePlacementState[] bases = Array.Empty<BasePlacementState>();
+
+    // A 2-es generátorverziótól: terepakadályok és dekorációk.
+    // Régebbi mentésben hiányozhatnak; ilyenkor üresnek tekintendők.
+    public TerrainFeatureState[] obstacles = Array.Empty<TerrainFeatureState>();
+    public TerrainFeatureState[] decorations = Array.Empty<TerrainFeatureState>();
 }
 
 [Serializable]
@@ -30,4 +35,14 @@ public struct BasePlacementState
     public float y;
     public BaseOwnerType ownerType;
     public int playerId;
+}
+
+[Serializable]
+public struct TerrainFeatureState
+{
+    public string typeId;
+    public int variant;
+    public float x;
+    public float y;
+    public float scale;
 }

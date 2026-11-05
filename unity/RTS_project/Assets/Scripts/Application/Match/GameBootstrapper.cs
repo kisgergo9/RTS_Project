@@ -41,7 +41,7 @@ public sealed class GameBootstrapper : MonoBehaviour
     // Generált világ esetén a generálás eredménye, egyébként null.
     public WorldLayout WorldLayout { get; private set; }
 
-    // A beállított játékosok azonosítói (szerkesztõben is olvasható).
+    // A beállított játékosok azonosítói (szerkesztőben is olvasható).
     public IEnumerable<int> ConfiguredPlayerIds
     {
         get
@@ -152,7 +152,7 @@ public sealed class GameBootstrapper : MonoBehaviour
         State.World.SetGeneration(WorldLayoutSnapshot.ToState(result.Layout));
 
         foreach (BaseController baseController in
-                 worldBuilder.Build(result.Layout, State.Players))
+                 worldBuilder.Build(result.Layout, State.Players, worldGeneration.Settings))
         {
             State.RegisterBase(baseController.Data);
         }
@@ -160,6 +160,7 @@ public sealed class GameBootstrapper : MonoBehaviour
         Debug.Log(
             $"Világ generálva: méret={result.Layout.WorldSize}, " +
             $"seed={result.Layout.Seed}, bázisok={result.Layout.Bases.Count}, " +
+            $"akadályok={result.Layout.Obstacles.Count}, dekorációk={result.Layout.Decorations.Count}, " +
             $"kísérletek={result.Attempts}");
     }
 

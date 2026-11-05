@@ -4,7 +4,8 @@ using UnityEngine;
 
 /// <summary>
 /// A generált WorldLayout alapján felépíti a jelenet objektumait:
-/// bázisok, talaj, kemény pályahatár és a kamera határai.
+/// bázisok, terepakadályok, dekorációk, talaj, kemény pályahatár és a kamera
+/// határai.
 /// Játékszabályt nem tartalmaz; a layoutot a host generálja, a kliensek
 /// ugyanezt a layoutot építik fel.
 /// </summary>
@@ -20,8 +21,9 @@ public sealed class WorldSceneBuilder : MonoBehaviour
     [SerializeField]
     private Sprite groundSprite;
 
+    [Tooltip("A Base prefab legalsó rétege -100-as sorrendű, ezért a talajnak ennél lejjebb kell lennie.")]
     [SerializeField]
-    private int groundSortingOrder = -100;
+    private int groundSortingOrder = -1000;
 
     [Header("Boundary")]
     [Tooltip("A pálya széle mentén elhelyezett, mozgást tiltó falak vastagsága.")]
@@ -42,7 +44,14 @@ public sealed class WorldSceneBuilder : MonoBehaviour
     /// Felépíti a világot. A bázisok inicializálva térnek vissza, a
     /// játékállapotba regisztrálásuk a hívó (GameBootstrapper) feladata.
     /// </summary>
-    public IReadOnlyList<BaseController> Build(WorldLayout layout, PlayerRegistry players)
+    /// <param name="terrainSettings">
+    /// A tereptárgyak grafikai változatai. Csak akkor kötelező, ha a layout
+    /// akadályokat vagy dekorációkat tartalmaz.
+    /// </param>
+    public IReadOnlyList<BaseController> Build(
+        WorldLayout layout,
+        PlayerRegistry players,
+        WorldGenerationSettings terrainSettings = null)
     {
         if (layout == null)
             throw new ArgumentNullException(nameof(layout));
@@ -62,6 +71,7 @@ public sealed class WorldSceneBuilder : MonoBehaviour
         CreateGround(layout.Bounds);
         CreateBoundary(layout.Bounds);
         CreateBases(layout, players);
+        CreateTerrainFeatures(layout, terrainSettings);
         ApplyCameraBounds(layout.Bounds);
 
         return _builtBases;
@@ -120,6 +130,88 @@ public sealed class WorldSceneBuilder : MonoBehaviour
     {
         if (baseController.TryGetComponent(out BaseTestInput testInput))
             testInput.enabled = false;
+    }
+
+    private void CreateTerrainFeatures(WorldLayout layout, WorldGenerationSettings terrainSettings)
+    {
+        if (layout.Obstacles.Count == 0 && layout.Decorations.Count == 0)
+            return;
+
+        if (terrainSettings == null)
+            throw new InvalidOperationException(
+                "A layout tereptárgyakat tartalmaz, de nincs WorldGenerationSettings megadva " +
+                "a grafikájukhoz.");
+
+        Dictionary<string, TerrainFeatureDefinition> definitions =
+            new Dictionary<string, TerrainFeatureDefinition>(StringComparer.OrdinalIgnoreCase);
+
+        foreach (TerrainFeatureDefinition definition in terrainSettings.ObstacleDefinitions)
+            definitions[definition.Id] = definition;
+
+        foreach (TerrainFeatureDefinition definition in terrainSettings.DecorationDefinitions)
+            definitions[definition.Id] = definition;
+
+        Transform obstacleParent = new GameObject("Obstacles").transform;
+        obstacleParent.SetParent(_root, false);
+
+        foreach (TerrainFeatureLayout obstacle in layout.Obstacles)
+        {
+            TerrainFeatureDefinition definition = GetDefinition(definitions, obstacle.TypeId);
+            GameObject instance = CreateFeature(definition, obstacle, obstacleParent);
+
+            // Ugyanaz az alapterület, amellyel a generátor és a járhatósági rács
+            // számolt; a lépték a transformból érvényesül.
+            PolygonCollider2D collider = instance.AddComponent<PolygonCollider2D>();
+            collider.points = ToArray(definition.ToType().Footprint.Points);
+            instance.AddComponent<MovementObstacle>();
+        }
+
+        Transform decorationParent = new GameObject("Decorations").transform;
+        decorationParent.SetParent(_root, false);
+
+        foreach (TerrainFeatureLayout decoration in layout.Decorations)
+        {
+            TerrainFeatureDefinition definition = GetDefinition(definitions, decoration.TypeId);
+            CreateFeature(definition, decoration, decorationParent);
+        }
+    }
+
+    private static GameObject CreateFeature(
+        TerrainFeatureDefinition definition,
+        TerrainFeatureLayout feature,
+        Transform parent)
+    {
+        GameObject instance = new GameObject($"{feature.TypeId}_{feature.Variant}");
+        instance.transform.SetParent(parent, false);
+        instance.transform.position = feature.Position;
+        instance.transform.localScale = new Vector3(feature.Scale, feature.Scale, 1f);
+
+        SpriteRenderer spriteRenderer = instance.AddComponent<SpriteRenderer>();
+        spriteRenderer.sprite = definition.GetSprite(feature.Variant);
+        spriteRenderer.sortingOrder = definition.SortingOrder;
+
+        return instance;
+    }
+
+    private static TerrainFeatureDefinition GetDefinition(
+        Dictionary<string, TerrainFeatureDefinition> definitions,
+        string typeId)
+    {
+        if (!definitions.TryGetValue(typeId, out TerrainFeatureDefinition definition))
+            throw new InvalidOperationException(
+                $"Ismeretlen tereptárgy-típus a layoutban: {typeId}");
+
+        return definition;
+    }
+
+    private static Vector2[] ToArray(IReadOnlyList<Vector2> points)
+    {
+        Vector2[] array = new Vector2[points.Count];
+
+        for (int i = 0; i < array.Length; i++)
+            array[i] = points[i];
+
+        return array;
     }
 
     private void CreateGround(WorldBounds bounds)
