@@ -6,6 +6,7 @@ CÉL ÉS SZEREP
 	- a kezdőbázisok méltányos, egyenletes elhelyezéséért,
 	- a sárga bázisok véletlenszerű, de szabályos elhelyezéséért,
 	- a terepakadályok és a dekorációk elhelyezéséért, a bázisok helyének megváltoztatása nélkül,
+	- a sárga bázisok előtti védőcsapatok összeállításáért (nehézségi keret alapján),
 	- annak ellenőrzéséért, hogy minden bázis minden kijárata elérhető maradjon (WalkabilityGrid),
 	- a minimális távolságok betartásáért, korlátozott újrapróbálkozással,
 	- egyértelmű hibaeredményért, ha a generálás nem sikerül.
@@ -21,6 +22,7 @@ CÉL ÉS SZEREP
 	- Footprint, TerrainFeatureType, TerrainGenerationConfig (Scripts/World/Generation): az alapterületek és a tereptárgyak Unity-független leírása.
 	- TerrainFeatureDefinition (Scripts/Configuration): ScriptableObject egy tereptárgy-típushoz, a grafikai változatokkal. Assetek: Assets/Data/WorldGeneration/Terrain.
 	- WalkabilityGrid (Scripts/World/Pathfinding): járhatósági rács és összefüggőségi vizsgálat. Külön leírása: WalkabilityGrid – az osztály bemutatása.txt.
+	- YellowDefenderConfig, DefenderUnitType (Scripts/World/Generation) és DefenderUnitEntry (Scripts/Configuration): a sárga védőcsapatok beállításai.
 	- WorldGenerationRequest, WorldGenerationResult, WorldLayout, BaseLayout, TerrainFeatureLayout (Scripts/World/Generation): a generálás bemenete és kimenete.
 	- WorldLayoutSnapshot (Scripts/World/Generation) és WorldGenerationState (Scripts/Domain/State): a mentéshez és a hálózathoz használt pillanatkép.
 	- WorldGenerationMessage (Scripts/Networking/Replication): a hálózati üzenet.
@@ -81,6 +83,7 @@ INSPECTORBAN ÁLLÍTHATÓ MEZŐK (WorldGenerationSettings)
 	minBaseDistance (24): két bázis középpontja közötti minimális távolság. Így a tornyok felderítési területei nem fedik egymást, és az egységek elférnek a bázisok között.
 	baseClearRadius (9): a bázis körüli szabad terület sugara (megjelenési pontok, APC-foglalási terület). A bázisok középpontja legalább ennyire van a pálya szélétől.
 	minYellowBaseCount (1), yellowBasesPerPlayer (1): a sárga bázisok minimuma.
+	obstaclesPer10000Area (8): az akadályok legnagyobb száma 10 000 négyzetegységnyi használható pályaterületenként, maxObstacleCount felső korláttal. Így a kis pályákon is jut elég akadály (120-as pályán 8, 140-esen 11, a legnagyobb pályán 100). 0 esetén az akadályok a bázisokkal arányosan osztoznak a területen (a korábbi viselkedés).
 	minObstacleCount (0), maxObstacleCount (100), obstacleClearRadius (8): az akadályok száma és helyigénye a méretezésben. Az akadályok tényleges alakját a tereptárgy-típusok adják; a legnagyobb akadálynak bele kell férnie az obstacleClearRadius sugarú körbe (a konfiguráció ezt ellenőrzi).
 	absoluteMinWorldSize (80): a legkisebb világ oldalhossza.
 	worldSizeStep (10): a számított minimális és maximális méretet ennek többszörösére kerekítjük felfelé.
@@ -110,10 +113,22 @@ TEREPTÁRGY-BEÁLLÍTÁSOK (WorldGenerationSettings, Terrain szakasz)
 
 	A projekt tereptárgy-típusai (Data/WorldGeneration/Terrain):
 		Típus     | Grafika          | Alapterület                         | Lépték      | Súly
-		Hill      | hinder0, hinder4 | ellipszis, 5,5 × 1,6 fél-tengely    | 0,9–1,15    | 1
+		Hill      | hinder0, hinder4 | ellipszis, 5,5 × 1,6 fél-tengely    | 0,9–1,15    | 2
 		Chasm     | hinder2, hinder3 | ellipszis, 5,0 × 1,6 fél-tengely    | 0,9–1,15    | 1
 		Oasis     | hinder1          | a hinder1_0 prefab collider-sokszöge | 0,9–1,15    | 1,5 (pálmaligetet vonz)
 		Palm      | trees_0–14       | ellipszis, 0,35 × 0,2 (dekoráció)   | 0,9–1,1     | 1
+
+SÁRGA VÉDŐCSAPATOK (WorldGenerationSettings, Yellow Defenders szakasz)
+	defenderUnits: a védőcsapatban szerepelhető egységek (azonosító, prefab, nehézségi érték). Jelenleg: tank = Tank_Unit (5), bigtank = BigTank_Unit (10). APC nem lehet védőegység. Újabb típus (pl. a #28 egységei) egy új elemmel adható hozzá.
+	minSquadDifficulty (20), maxSquadDifficulty (40): a csapat nehézségi kerete bázisonként véletlen érték e tartományból.
+	defendedYellowBaseFraction (1): a sárga bázisok ekkora hányada kap védőcsapatot.
+	defenderSlots: a védőegységek rögzített helyei a bázis középpontjához viszonyítva: két sorban öt-öt hely az elülső fal előtt (x = -2,4 … 1,6, y = -3,0 és -3,9), a kijáratoktól és a foglalási területtől jobbra. Egy csapat legfeljebb ennyi egységből áll.
+
+	Összeállítás bázisonként: véletlen keret a [min; max] tartományból, majd amíg van szabad hely, a még beleférő típusok közül egy véletlen kerül a következő helyre, és a keret csökken az értékével. Az egységek értékeinek összege sosem lépi túl a keretet, és így minden sárga bázis csapata más. Példa (keret 35): tank, tank, tank, bigtank, bigtank = 35.
+
+	Tulajdonos: a védőegységek a semleges sárga frakcióhoz tartoznak (UnitState.OwnerType = Yellow), nincs játékos tulajdonosuk. A GameState csak a játékos tulajdonú egységeknél követeli meg a regisztrált játékost. A sárga bázisokat a játékosok foglalják el; a zászló színét a BaseOwnerView a tulajdonos alapján állítja (saját: zöld, ellenfél: piros, sárga: sárga).
+	Viselkedés: a specifikáció szerint helyben maradnak, nem járőröznek és nem üldöznek; a hatótávon belüli ellenfelet a harci rendszer elkészülte után támadják majd.
+	Mentés és szinkron: a védőegységek a WorldLayout.Defenders listában jönnek létre, de a világ pillanatképe és hálózati üzenete nem tartalmazza őket. Létrehozásuk után közönséges egységek, mentésük és szinkronizálásuk az egységekével együtt történik.
 
 A GENERÁLÁS LÉPÉSEI (Generate)
 	1. Ellenőrzés: a WorldSizingRules.TryValidate megvizsgálja a játékosszámot, a világméretet, a sárga bázisok és az akadályok számát. Hiba esetén InvalidRequest eredményt ad, és a kísérletek száma 0.
@@ -123,7 +138,8 @@ A GENERÁLÁS LÉPÉSEI (Generate)
 	5. Akadályok: a seedből származtatott, külön véletlensorozattal. Akadályonként: súlyozott típusválasztás, grafikai változat, lépték és teljesen a pályán belüli pozíció. Egy jelölt akkor fogadható el, ha minden bázis szabad területétől legalább minObstacleBaseDistance, minden más akadálytól legalább minObstacleSpacing távolságra van.
 	6. Elérhetőség: a járhatósági rácson (bázisok pontosan, akadályok és pályaszél minPassageWidth / 2-vel megnövelve) minden bázis minden kötelező pontjának ugyanabba az összefüggő régióba kell esnie. Ha nem, vagy egy akadály nem helyezhető el, az akadályok a következő származtatott sorozattal újragenerálódnak, legfeljebb maxObstacleGenerationAttempts alkalommal. A bázisok ilyenkor sem mozdulnak.
 	7. Dekorációk: újabb származtatott sorozattal, a bázisok szabad területén és az akadályokon kívül, egymást nem fedve. Egy részük (decorationGroveFraction) ligetként a vonzó akadályok (oázis) köré kerül: a pozíció az akadály fél-kiterjedéseiből képzett ellipszis egy pontjától kifelé esik, legfeljebb decorationGroveRadius távolságra. Nem kerülnek a járhatósági rácsba, és sosem okoznak hibát: ha egy dekoráció nem fér el, kimarad.
-	8. Eredmény: siker esetén WorldLayout, egyébként PlacementFailed hiba. A hibaüzenet tartalmazza a seedet és a javaslatot (nagyobb világ, kevesebb sárga bázis vagy akadály, vagy másik seed).
+	8. Védőcsapatok: újabb származtatott sorozattal, a sárga bázisok egy része elé (lásd fent).
+	9. Eredmény: siker esetén WorldLayout, egyébként PlacementFailed hiba. A hibaüzenet tartalmazza a seedet és a javaslatot (nagyobb világ, kevesebb sárga bázis vagy akadály, vagy másik seed).
 
 	A bázisazonosítók sorrendje: előbb a kezdőbázisok (1..játékosszám, növekvő játékosazonosító szerint), utána a sárga bázisok.
 
@@ -131,7 +147,7 @@ DETERMINIZMUS ÉS VERZIÓKEZELÉS
 	A DeterministicRandom a PCG32 algoritmust használja, a referencia-implementációval egyező kimenettel. A System.Random és a UnityEngine.Random nem használható, mert azok nem garantálnak azonos sorozatot minden gépen és verzión.
 	Ugyanaz a seed és ugyanaz a kérés ugyanazzal a generátorverzióval mindig ugyanazt a világot adja.
 	A generálás egyes lépései (bázisok, akadályok, dekorációk) külön véletlensorozatot használnak: az akadályok és a dekorációk seedje a DeterministicRandom.DeriveSeed(seed, sorszám) hívással származik a fő seedből. Így egy lépés módosítása nem változtatja meg a korábbi lépések eredményét; a bázisok helye például független az akadályoktól.
-	A WorldGenerator.Version értékét növelni kell minden olyan módosításnál, amely ugyanabból a seedből más világot eredményez. A jelenlegi verzió: 2 (az 1-es csak bázisokat helyezett el). Ezt három regressziós teszt jelzi: DeterministicRandomTests.KnownSeed_ProducesKnownSequence, DeterministicRandomTests.DeriveSeed_KnownValue és WorldGeneratorTests.KnownRequest_ProducesKnownLayout.
+	A WorldGenerator.Version értékét növelni kell minden olyan módosításnál, amely ugyanabból a seedből más világot eredményez. A jelenlegi verzió: 3 (az 1-es csak bázisokat, a 2-es bázisokat, akadályokat és dekorációkat helyezett el; a 3-as védőcsapatokat is). A bázisok, akadályok és dekorációk helye a 2-es és a 3-as verzióban azonos. Ezt három regressziós teszt jelzi: DeterministicRandomTests.KnownSeed_ProducesKnownSequence, DeterministicRandomTests.DeriveSeed_KnownValue és WorldGeneratorTests.KnownRequest_ProducesKnownLayout.
 
 SZINKRONIZÁCIÓ A KLIENSEKKEL (DÖNTÉS)
 	A host a teljes generált elrendezést küldi el a klienseknek, nem csak a seedet és a beállításokat.
@@ -157,24 +173,28 @@ UNITY-INTEGRÁCIÓ
 		A host generálási beállításai. Amíg nincs lobby, az Inspectorban adhatók meg (világméret, sárga bázisok, akadályok, seed, véletlen seed kapcsoló). A "Valid Ranges" mező mutatja az aktuális játékosszámhoz tartozó érvényes tartományokat, a dekorációk számát, a járható régiók számát, azt, hogy minden bázis elérhető-e, és az esetleges hibát. A Scene nézetben Play mód nélkül is előnézetet rajzol (kék: kezdőbázis, sárga: sárga bázis, kör: szabad terület, narancs körvonal: akadály alapterülete, zöld pont: dekoráció). A komponens jobb klikkes menüje: Use Minimum Values, Use Maximum Values, New Random Seed.
 		Draw Walkability: a járhatósági rács megjelenítése (sötétvörös: tiltott cella, zöld: a fő járható régió, lila: a fő régióból elérhetetlen járható terület). Elzárt terület így ránézésre látszik.
 	WorldSceneBuilder:
+		A SpawnDefenders a sárga védőegységeket hozza létre a rögzített helyeken, sárga tulajdonossal, a bázistól kifelé nézve; az azonosítót és a játékállapotba regisztrálást a GameBootstrapper végzi.
 		A WorldLayout alapján létrehozza és inicializálja a bázisokat (BaseController.Initialize). Létrehozza az akadályokat (sprite, a generátorral azonos alapterületű PolygonCollider2D, MovementObstacle) és a dekorációkat (csak sprite). Elkészíti a csempézett talajt (rétegsorrend: -1000, a Base prefab legalsó rétege alatt), a pálya széle mentén a négy, mozgást tiltó falat (MovementObstacle), és beállítja a kamera határait (CameraController.SetWorldBounds). A tereptárgyak grafikáját a WorldGenerationSettings adja, amelyet a GameBootstrapper a WorldGenerationSetup-ból ad át.
 	GameBootstrapper:
 		Ha a World Generation mezői ki vannak töltve, a bázisok a generált világból származnak (a Bases tömbnek ilyenkor üresnek kell lennie), és regisztrálódnak a játékállapotba. Ha nincsenek kitöltve, a korábbi, jelenetben elhelyezett bázisok működnek változatlanul.
 
 	Ideiglenes megoldások:
 	- A Base prefabon lévő BaseTestInput tesztkomponenst a WorldSceneBuilder kikapcsolja a generált bázisokon, mert az saját pénztárcát állítana be, és minden bázison saját GUI-t rajzolna. Ha a komponens lekerül a prefabról, a DisableTestInput metódus törölhető.
-	- A BaseFlagView localPlayerId mezője ideiglenesen rögzített (0), ezért a 0 azonosítójú játékos bázisa jelenik meg saját zászlóval.
+	- A BaseOwnerView localPlayerId mezője ideiglenesen rögzített (0), ezért a 0 azonosítójú játékos bázisa jelenik meg saját zászlóval. A sárga bázis fölött „Sárga” felirat látszik.
+	- A falakat, tornyokat és épületeket a Base prefab tartalmazza; a generátor a prefabot változtatás nélkül helyezi el.
+	- Az egységkijelölés jelenleg nem vizsgálja a tulajdonost, így a sárga védőegységek is kijelölhetők. A specifikáció szerint a játékos csak a saját egységeit irányíthatja; ezt a kijelölésnél kell majd pótolni.
 
 TESZTJELENET ÖSSZEÁLLÍTÁSA
-	A *.unity fájlokat a .gitignore kizárja, ezért a tesztjelenet nincs a repóban. Összeállítása:
+	A tesztjelenet: Assets/Scenes/Test_WorldGeneration.unity (a .gitignore *.unity szabálya miatt kifejezetten hozzáadva). Beállítása: 1 játékos (0), 120 × 120-as pálya, 5 sárga bázis, 8 akadály, seed 12345. Kézi összeállítása:
 	1. Új, üres jelenet.
 	2. Main Camera: orthographic kamera, MainCamera tag, CameraController komponens a Settings/Camera.inputactions műveleteivel (Move, Pan, PointerPosition, Zoom). A teljes pálya áttekintéséhez a maxZoom értéke legyen nagyobb (pl. 60).
 	3. Global Light 2D (Light 2D komponens, Global típus).
 	4. "World" GameObject a következő komponensekkel:
 		- WorldSceneBuilder: Base Prefab = Prefabs/Bases/Base, Ground Sprite = Art/Terrain/boden1 (boden1_0), Camera Controller = a fenti kamera.
 		- WorldGenerationSetup: Settings = Data/WorldGeneration/WorldGenerationSettings, valamint a világméret, a sárga bázisok és az akadályok száma és a seed. Az elérhetőség ellenőrzéséhez kapcsold be a Draw Walkability mezőt.
-		- GameBootstrapper: Players = pl. 0–3 azonosítójú játékosok, Bases = üres, World Generation = a fenti két komponens.
-	5. Play módban a konzol kiírja a generált világ adatait (méret, seed, bázisok, akadályok és dekorációk száma, kísérletek).
+		- GameBootstrapper: Players = pl. a 0 azonosítójú játékos, Bases = üres, World Generation = a fenti két komponens.
+	5. "UnitGroupManager" GameObject a UnitGroupManager komponenssel (a védőegységekhez szükséges).
+	6. Play módban a konzol kiírja a generált világ adatait (méret, seed, bázisok, akadályok, dekorációk és sárga védőegységek száma, kísérletek).
 
 TESZTEK
 	Assets/Tests/EditMode/Editor/World:
@@ -187,6 +207,7 @@ TESZTEK
 	- WalkabilityGridTests: rács, alapterületek és megnövelés, pályaszél, régiók, sarokvágás, teljesítmény.
 	- WorldGeneratorObstacleTests: akadályok determinizmusa, a bázisok változatlansága, távolságok, elérhetőség, fal és keskeny átjáró felismerése, hibakezelés.
 	- WorldGeneratorDecorationTests: dekorációk száma, determinizmusa, érvényessége, a járhatóságra gyakorolt hatás hiánya.
+	- YellowDefenderTests: egységtulajdon (sárga és játékos egységek), védőcsapat-konfiguráció, nehézségi keret, rögzített helyek, determinizmus, a beállítás-asset.
 	- WorldGenerationAcceptanceTests ("Slow" kategória): a projekt valódi beállításaival 520 seed, minden játékosszám (1–10), kis, közepes és legnagyobb pálya, maximális bázis- és akadályszám. Egyik világban sem lehet elérhetetlen bázis, akadállyal fedett bázis vagy kijárat, egymást átfedő kritikus objektum, illetve pályán kívüli objektum. Futási ideje kb. 15–20 másodperc, ezért kategória szerint kihagyható.
 	A tesztek az Editor mappában vannak, mert a projekt nem használ assembly definitionöket. Futtatás: Window → General → Test Runner → EditMode → Run All.
 

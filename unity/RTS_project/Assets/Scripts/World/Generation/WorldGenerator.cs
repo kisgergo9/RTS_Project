@@ -33,6 +33,11 @@ using UnityEngine;
 ///      (DecorationGroveFraction) ligetként a vonzó akadályok (pl. oázis) köré
 ///      kerül, a többi szétszórva. Nem kerülnek a járhatósági rácsba, és sosem
 ///      okoznak hibát: ha egy dekoráció nem fér el, kimarad.
+///   8. A sárga bázisok egy része (DefendedBaseFraction) védőcsapatot kap: egy
+///      véletlen nehézségi keretből ([MinSquadDifficulty; MaxSquadDifficulty])
+///      véletlenszerűen választott, még beleférő egységek kerülnek a rögzített
+///      védőhelyekre, amíg egy sem fér bele vagy elfogynak a helyek. Az egységek
+///      nehézségi értékeinek összege sosem lépi túl a keretet.
 /// </summary>
 public sealed class WorldGenerator
 {
@@ -40,7 +45,7 @@ public sealed class WorldGenerator
     /// A generálási algoritmus verziója. Növelni kell minden olyan változtatásnál,
     /// amely ugyanabból a seedből és kérésből más világot eredményez.
     /// </summary>
-    public const int Version = 2;
+    public const int Version = 3;
 
     private const double FullCircle = 2.0 * Math.PI;
 
@@ -49,6 +54,9 @@ public sealed class WorldGenerator
 
     // A dekorációk származtatott véletlensorozatának sorszáma.
     private const int DecorationStream = 2000;
+
+    // A sárga védőcsapatok származtatott véletlensorozatának sorszáma.
+    private const int DefenderStream = 3000;
 
     private readonly WorldGenerationConfig _config;
 
@@ -118,9 +126,10 @@ public sealed class WorldGenerator
             }
 
             List<TerrainFeatureLayout> decorations = GenerateDecorations(request, bounds, bases, obstacles);
+            List<DefenderLayout> defenders = GenerateDefenders(request, bases);
 
             return WorldGenerationResult.Succeeded(
-                new WorldLayout(Version, request, bases, obstacles, decorations),
+                new WorldLayout(Version, request, bases, obstacles, decorations, defenders),
                 attempt);
         }
 
@@ -598,6 +607,58 @@ public sealed class WorldGenerator
         }
 
         return true;
+    }
+
+    // Sárga védőcsapatok
+
+    private List<DefenderLayout> GenerateDefenders(WorldGenerationRequest request, List<BaseLayout> bases)
+    {
+        List<DefenderLayout> defenders = new List<DefenderLayout>();
+        YellowDefenderConfig config = _config.Defenders;
+
+        if (config == null)
+            return defenders;
+
+        DeterministicRandom random = new DeterministicRandom(
+            DeterministicRandom.DeriveSeed(request.Seed, DefenderStream));
+
+        List<DefenderUnitType> affordable = new List<DefenderUnitType>(config.UnitTypes.Count);
+
+        foreach (BaseLayout baseLayout in bases)
+        {
+            if (baseLayout.OwnerType != BaseOwnerType.Yellow)
+                continue;
+
+            if (random.NextDouble() >= config.DefendedBaseFraction)
+                continue;
+
+            int remaining = random.NextInt(config.MinSquadDifficulty, config.MaxSquadDifficulty + 1);
+
+            for (int slot = 0; slot < config.Slots.Count; slot++)
+            {
+                affordable.Clear();
+
+                foreach (DefenderUnitType type in config.UnitTypes)
+                {
+                    if (type.DifficultyCost <= remaining)
+                        affordable.Add(type);
+                }
+
+                if (affordable.Count == 0)
+                    break;
+
+                DefenderUnitType chosen = affordable[random.NextInt(affordable.Count)];
+                remaining -= chosen.DifficultyCost;
+
+                defenders.Add(new DefenderLayout(
+                    baseLayout.BaseId,
+                    chosen.Id,
+                    slot,
+                    baseLayout.Position + config.Slots[slot]));
+            }
+        }
+
+        return defenders;
     }
 
     private static TerrainFeatureType PickWeighted(

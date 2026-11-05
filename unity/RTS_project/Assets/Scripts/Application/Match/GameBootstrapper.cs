@@ -157,10 +157,21 @@ public sealed class GameBootstrapper : MonoBehaviour
             State.RegisterBase(baseController.Data);
         }
 
+        // A sárga védőegységek a sárga frakcióhoz tartoznak, nincs játékos tulajdonosuk.
+        foreach (UnitGroupMember defender in
+                 worldBuilder.SpawnDefenders(result.Layout, worldGeneration.Settings))
+        {
+            int unitId = _unitIdAllocator.Allocate();
+
+            State.RegisterUnit(new UnitState(unitId, BaseOwnerType.Yellow, 0, defender.Type));
+            defender.Initialize(unitId);
+        }
+
         Debug.Log(
             $"Világ generálva: méret={result.Layout.WorldSize}, " +
             $"seed={result.Layout.Seed}, bázisok={result.Layout.Bases.Count}, " +
             $"akadályok={result.Layout.Obstacles.Count}, dekorációk={result.Layout.Decorations.Count}, " +
+            $"sárga védőegységek={result.Layout.Defenders.Count}, " +
             $"kísérletek={result.Attempts}");
     }
 

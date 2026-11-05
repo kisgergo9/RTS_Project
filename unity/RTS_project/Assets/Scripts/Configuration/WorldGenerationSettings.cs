@@ -158,6 +158,37 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField, Min(0.1f)]
     private float decorationGroveRadius = 8f;
 
+    [Header("Yellow Defenders")]
+    [Tooltip("A sárga bázisok előtti védőcsapatokban szerepelhető egységek és nehézségi értékük. " +
+             "Ha üres, nincsenek védőcsapatok.")]
+    [SerializeField]
+    private DefenderUnitEntry[] defenderUnits = Array.Empty<DefenderUnitEntry>();
+
+    [Tooltip("Egy védőcsapat nehézségi keretének legkisebb értéke (bázisonként véletlen).")]
+    [SerializeField, Min(1)]
+    private int minSquadDifficulty = 20;
+
+    [Tooltip("Egy védőcsapat nehézségi keretének legnagyobb értéke (bázisonként véletlen).")]
+    [SerializeField, Min(1)]
+    private int maxSquadDifficulty = 40;
+
+    [Tooltip("A sárga bázisok ekkora hányada kap védőcsapatot.")]
+    [SerializeField, Range(0f, 1f)]
+    private float defendedYellowBaseFraction = 1f;
+
+    [Tooltip("A védőegységek rögzített helyei a bázis középpontjához viszonyítva, a bázis " +
+             "elülső fala előtt, a kijáratoktól jobbra.")]
+    [SerializeField]
+    private Vector2[] defenderSlots =
+    {
+        new Vector2(-2.4f, -3.0f), new Vector2(-1.4f, -3.0f), new Vector2(-0.4f, -3.0f),
+        new Vector2(0.6f, -3.0f), new Vector2(1.6f, -3.0f),
+        new Vector2(-2.4f, -3.9f), new Vector2(-1.4f, -3.9f), new Vector2(-0.4f, -3.9f),
+        new Vector2(0.6f, -3.9f), new Vector2(1.6f, -3.9f)
+    };
+
+    public IReadOnlyList<DefenderUnitEntry> DefenderUnits => defenderUnits;
+
     public IReadOnlyList<TerrainFeatureDefinition> ObstacleDefinitions => obstacleTypes;
     public IReadOnlyList<TerrainFeatureDefinition> DecorationDefinitions => decorationTypes;
 
@@ -182,7 +213,32 @@ public sealed class WorldGenerationSettings : ScriptableObject
             playerRingRadiusFraction,
             startPositionJitter,
             CreateTerrainConfig(),
-            obstaclesPer10000Area);
+            obstaclesPer10000Area,
+            CreateDefenderConfig());
+    }
+
+    private YellowDefenderConfig CreateDefenderConfig()
+    {
+        if (defenderUnits == null || defenderUnits.Length == 0)
+            return null;
+
+        List<DefenderUnitType> types = new List<DefenderUnitType>(defenderUnits.Length);
+
+        foreach (DefenderUnitEntry entry in defenderUnits)
+        {
+            if (entry == null)
+                throw new InvalidOperationException(
+                    "A WorldGenerationSettings védőegység-listájában üres elem van.");
+
+            types.Add(entry.ToType());
+        }
+
+        return new YellowDefenderConfig(
+            types,
+            minSquadDifficulty,
+            maxSquadDifficulty,
+            defendedYellowBaseFraction,
+            defenderSlots);
     }
 
     private TerrainGenerationConfig CreateTerrainConfig()

@@ -69,6 +69,40 @@ public readonly struct TerrainFeatureLayout
 }
 
 /// <summary>
+/// Egy sárga bázis előtti védőegység: melyik bázist védi, milyen típusú,
+/// hányadik rögzített helyen áll, és hol (világkoordinátában).
+/// </summary>
+public readonly struct DefenderLayout
+{
+    public int BaseId { get; }
+    public string UnitTypeId { get; }
+    public int SlotIndex { get; }
+    public Vector2 Position { get; }
+
+    public DefenderLayout(int baseId, string unitTypeId, int slotIndex, Vector2 position)
+    {
+        if (baseId <= 0)
+            throw new ArgumentOutOfRangeException(nameof(baseId));
+
+        if (string.IsNullOrWhiteSpace(unitTypeId))
+            throw new ArgumentException("A védőegység típusa nem lehet üres.", nameof(unitTypeId));
+
+        if (slotIndex < 0)
+            throw new ArgumentOutOfRangeException(nameof(slotIndex));
+
+        BaseId = baseId;
+        UnitTypeId = unitTypeId;
+        SlotIndex = slotIndex;
+        Position = position;
+    }
+
+    public override string ToString()
+    {
+        return $"{UnitTypeId} @ base {BaseId}, slot {SlotIndex}";
+    }
+}
+
+/// <summary>
 /// A világgenerálás teljes eredménye. A host ezt építi fel, és ezt küldi el
 /// a klienseknek is (a kliensek nem generálnak újra). A seed és a kérés a
 /// mentéshez és a reprodukálhatósághoz tartozik.
@@ -78,6 +112,7 @@ public sealed class WorldLayout
     private readonly BaseLayout[] _bases;
     private readonly TerrainFeatureLayout[] _obstacles;
     private readonly TerrainFeatureLayout[] _decorations;
+    private readonly DefenderLayout[] _defenders;
 
     public int GeneratorVersion { get; }
     public WorldGenerationRequest Request { get; }
@@ -90,6 +125,14 @@ public sealed class WorldLayout
     /// </summary>
     public IReadOnlyList<TerrainFeatureLayout> Decorations => _decorations;
 
+    /// <summary>
+    /// A sárga bázisok előtti védőegységek kezdeti elhelyezése. Létrehozásuk
+    /// után közönséges (sárga tulajdonú) egységek, ezért a világ pillanatképe
+    /// és hálózati üzenete nem tartalmazza őket; mentésük és szinkronizálásuk
+    /// az egységekével együtt történik.
+    /// </summary>
+    public IReadOnlyList<DefenderLayout> Defenders => _defenders;
+
     public int Seed => Request.Seed;
     public int WorldSize => Request.WorldSize;
 
@@ -98,7 +141,8 @@ public sealed class WorldLayout
         WorldGenerationRequest request,
         IEnumerable<BaseLayout> bases,
         IEnumerable<TerrainFeatureLayout> obstacles = null,
-        IEnumerable<TerrainFeatureLayout> decorations = null)
+        IEnumerable<TerrainFeatureLayout> decorations = null,
+        IEnumerable<DefenderLayout> defenders = null)
     {
         if (bases == null)
             throw new ArgumentNullException(nameof(bases));
@@ -113,5 +157,8 @@ public sealed class WorldLayout
         _decorations = decorations == null
             ? Array.Empty<TerrainFeatureLayout>()
             : new List<TerrainFeatureLayout>(decorations).ToArray();
+        _defenders = defenders == null
+            ? Array.Empty<DefenderLayout>()
+            : new List<DefenderLayout>(defenders).ToArray();
     }
 }

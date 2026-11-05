@@ -32,6 +32,9 @@ public sealed class WorldGenerationConfig
     /// </summary>
     public float ObstaclesPer10000Area { get; }
 
+    // Sárga védőcsapatok (opcionális; null esetén nincsenek)
+    public YellowDefenderConfig Defenders { get; }
+
     // Világméret
     public int AbsoluteMinWorldSize { get; }
     public int WorldSizeStep { get; }
@@ -67,7 +70,8 @@ public sealed class WorldGenerationConfig
         float playerRingRadiusFraction,
         float startPositionJitter,
         TerrainGenerationConfig terrain = null,
-        float obstaclesPer10000Area = 0f)
+        float obstaclesPer10000Area = 0f,
+        YellowDefenderConfig defenders = null)
     {
         if (minPlayerCount < 1)
             throw new ArgumentOutOfRangeException(nameof(minPlayerCount),
@@ -167,6 +171,30 @@ public sealed class WorldGenerationConfig
             ValidateTerrain(terrain);
 
         Terrain = terrain;
+
+        if (defenders != null)
+            ValidateDefenders(defenders, terrain);
+
+        Defenders = defenders;
+    }
+
+    /// <summary>
+    /// A védőhelyeknek a bázis szabad területén belül, de a bázis tiltott
+    /// területén kívül kell lenniük.
+    /// </summary>
+    private void ValidateDefenders(YellowDefenderConfig defenders, TerrainGenerationConfig terrain)
+    {
+        foreach (UnityEngine.Vector2 slot in defenders.Slots)
+        {
+            if (slot.magnitude > BaseClearRadius)
+                throw new ArgumentException(
+                    $"A védőhely ({slot}) a bázis szabad területén kívül esik " +
+                    $"(BaseClearRadius = {BaseClearRadius}).");
+
+            if (terrain != null && terrain.BaseFootprint.Contains(slot))
+                throw new ArgumentException(
+                    $"A védőhely ({slot}) a bázis tiltott területén belül van.");
+        }
     }
 
     /// <summary>

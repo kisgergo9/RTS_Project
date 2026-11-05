@@ -132,6 +132,66 @@ public sealed class WorldSceneBuilder : MonoBehaviour
             testInput.enabled = false;
     }
 
+    /// <summary>
+    /// A sárga bázisok előtti védőegységek létrehozása a rögzített helyeken,
+    /// a bázistól kifelé (lefelé) nézve, sárga tulajdonossal. Az egységek még
+    /// nincsenek inicializálva: az azonosító kiosztása és a játékállapotba
+    /// regisztrálás a hívó (GameBootstrapper) feladata.
+    /// </summary>
+    public IReadOnlyList<UnitGroupMember> SpawnDefenders(WorldLayout layout, WorldGenerationSettings settings)
+    {
+        if (layout == null)
+            throw new ArgumentNullException(nameof(layout));
+
+        List<UnitGroupMember> spawned = new List<UnitGroupMember>(layout.Defenders.Count);
+
+        if (layout.Defenders.Count == 0)
+            return spawned;
+
+        if (settings == null)
+            throw new InvalidOperationException(
+                "A layout védőegységeket tartalmaz, de nincs WorldGenerationSettings megadva.");
+
+        if (_root == null)
+            throw new InvalidOperationException("A védőegységek előtt a világot fel kell építeni (Build).");
+
+        Dictionary<string, UnitGroupMember> prefabs =
+            new Dictionary<string, UnitGroupMember>(StringComparer.OrdinalIgnoreCase);
+
+        foreach (DefenderUnitEntry entry in settings.DefenderUnits)
+        {
+            if (entry != null && entry.prefab != null)
+                prefabs[entry.id] = entry.prefab;
+        }
+
+        Transform parent = new GameObject("Defenders").transform;
+        parent.SetParent(_root, false);
+
+        foreach (DefenderLayout defender in layout.Defenders)
+        {
+            if (!prefabs.TryGetValue(defender.UnitTypeId, out UnitGroupMember prefab))
+                throw new InvalidOperationException(
+                    $"Nincs prefab a védőegység-típushoz: {defender.UnitTypeId}");
+
+            UnitGroupMember unit = Instantiate(
+                prefab,
+                new Vector3(defender.Position.x, defender.Position.y, prefab.transform.position.z),
+                prefab.transform.rotation,
+                parent);
+
+            unit.name = $"Defender_{defender.BaseId}_{defender.SlotIndex}_{defender.UnitTypeId}";
+            unit.SetOwner(BaseOwnerType.Yellow, 0);
+
+            // A bázistól kifelé, a pálya „lefelé” iránya felé néz (0° = fel).
+            if (unit.TryGetComponent(out DirectionalSpriteRenderer spriteRenderer))
+                spriteRenderer.SetAngle(180f);
+
+            spawned.Add(unit);
+        }
+
+        return spawned;
+    }
+
     private void CreateTerrainFeatures(WorldLayout layout, WorldGenerationSettings terrainSettings)
     {
         if (layout.Obstacles.Count == 0 && layout.Decorations.Count == 0)

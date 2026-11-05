@@ -42,7 +42,8 @@ internal static class WorldGenerationTestConfigs
         float playerRingRadiusFraction = 0.7f,
         float startPositionJitter = 2f,
         TerrainGenerationConfig terrain = null,
-        float obstaclesPer10000Area = 0f)
+        float obstaclesPer10000Area = 0f,
+        YellowDefenderConfig defenders = null)
     {
         return new WorldGenerationConfig(
             minPlayerCount,
@@ -63,6 +64,7 @@ internal static class WorldGenerationTestConfigs
             playerRingRadiusFraction,
             startPositionJitter,
             terrain,
-            obstaclesPer10000Area);
+            obstaclesPer10000Area,
+            defenders);
     }
 }

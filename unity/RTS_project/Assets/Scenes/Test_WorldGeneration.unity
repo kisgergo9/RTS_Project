@@ -412,8 +412,8 @@ MonoBehaviour:
   obstacleCount: 8
   seed: 12345
   randomizeSeed: 0
-  validRanges: "J\xE1t\xE9kosok: 4\nVil\xE1gm\xE9ret: [140; 530]\nS\xE1rga b\xE1zisok:
-    [4; 4]\nAkad\xE1lyok: [0; 5]\nDekor\xE1ci\xF3k: 24\nJ\xE1rhat\xF3 r\xE9gi\xF3k:
+  validRanges: "J\xE1t\xE9kosok: 1\nVil\xE1gm\xE9ret: [80; 530]\nS\xE1rga b\xE1zisok:
+    [1; 5]\nAkad\xE1lyok: [0; 8]\nDekor\xE1ci\xF3k: 17\nJ\xE1rhat\xF3 r\xE9gi\xF3k:
     1, minden b\xE1zis el\xE9rhet\u0151: igen"
   drawPreview: 1
   drawWalkability: 0
@@ -449,6 +449,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1876863292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1876863294}
+  - component: {fileID: 1876863293}
+  m_Layer: 0
+  m_Name: UnitGroupManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1876863293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876863292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfed7916847cda34eb2d44379c1cab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1876863294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876863292}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -456,3 +500,4 @@ SceneRoots:
   - {fileID: 918403423}
   - {fileID: 698956642}
   - {fileID: 1252502137}
+  - {fileID: 1876863294}
