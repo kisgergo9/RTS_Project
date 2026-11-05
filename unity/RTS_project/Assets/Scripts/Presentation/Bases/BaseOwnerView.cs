@@ -19,6 +19,15 @@ public class BaseOwnerView : MonoBehaviour
     private BaseController controller;
     private BaseOwner shownOwner;
 
+    // A helyi játékos beállítása futás közben (generált világban a
+    // GameBootstrapper adja meg, amíg nincs hálózat). A zászló a következő
+    // Update-ben frissül.
+    public void SetLocalPlayer(int playerId)
+    {
+        localPlayerId = playerId;
+        shownOwner = null;
+    }
+
     private void Awake()
     {
         controller = GetComponent<BaseController>();

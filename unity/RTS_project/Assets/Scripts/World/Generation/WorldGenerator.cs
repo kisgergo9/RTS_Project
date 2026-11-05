@@ -47,7 +47,7 @@ public sealed class WorldGenerator
     /// A generálási algoritmus verziója. Növelni kell minden olyan változtatásnál,
     /// amely ugyanabból a seedből és kérésből más világot eredményez.
     /// </summary>
-    public const int Version = 4;
+    public const int Version = 5;
 
     private const double FullCircle = 2.0 * Math.PI;
 
@@ -434,7 +434,8 @@ public sealed class WorldGenerator
         Vector2 position,
         WorldBounds bounds,
         List<BaseLayout> bases,
-        List<TerrainFeatureLayout> obstacles)
+        List<TerrainFeatureLayout> obstacles,
+        List<TerrainFeatureLayout> decorations = null)
     {
         float edgeDistance = bounds.HalfSize - Mathf.Max(Mathf.Abs(position.x), Mathf.Abs(position.y));
         float score = 2f * edgeDistance;
@@ -444,6 +445,12 @@ public sealed class WorldGenerator
 
         foreach (TerrainFeatureLayout obstacle in obstacles)
             score = Mathf.Min(score, Vector2.Distance(position, obstacle.Position));
+
+        if (decorations != null)
+        {
+            foreach (TerrainFeatureLayout decoration in decorations)
+                score = Mathf.Min(score, Vector2.Distance(position, decoration.Position));
+        }
 
         return score;
     }
@@ -498,8 +505,9 @@ public sealed class WorldGenerator
             return 0;
 
         double count = terrain.DecorationsPer10000Area * (double)worldSize * worldSize / 10000.0;
+        int rounded = (int)Math.Floor(count + 0.5);
 
-        return (int)Math.Floor(count + 0.5);
+        return terrain.MaxDecorationCount > 0 ? Math.Min(rounded, terrain.MaxDecorationCount) : rounded;
     }
 
     private List<TerrainFeatureLayout> GenerateDecorations(
@@ -538,6 +546,13 @@ public sealed class WorldGenerator
             bool inGrove = groveAnchors.Count > 0 &&
                            random.NextDouble() < terrain.DecorationGroveFraction;
 
+            if (!inGrove)
+            {
+                TryPlaceScatteredDecoration(
+                    bounds, bases, obstacles, obstacleFootprints, decorations, decorationRadii, random);
+                continue;
+            }
+
             for (int attempt = 0; attempt < terrain.MaxPlacementAttemptsPerObstacle; attempt++)
             {
                 TerrainFeatureType type = PickWeighted(terrain.DecorationTypes, random);
@@ -550,23 +565,12 @@ public sealed class WorldGenerator
                 if (limit.x <= 0f || limit.y <= 0f)
                     continue;
 
-                Vector2 position;
+                int anchor = groveAnchors[random.NextInt(groveAnchors.Count)];
+                Vector2 position = NextGrovePosition(
+                    obstacles[anchor].Position, obstacleFootprints[anchor], footprint, random);
 
-                if (inGrove)
-                {
-                    int anchor = groveAnchors[random.NextInt(groveAnchors.Count)];
-                    position = NextGrovePosition(
-                        obstacles[anchor].Position, obstacleFootprints[anchor], footprint, random);
-
-                    if (Mathf.Abs(position.x) > limit.x || Mathf.Abs(position.y) > limit.y)
-                        continue;
-                }
-                else
-                {
-                    position = new Vector2(
-                        random.NextFloat(-limit.x, limit.x),
-                        random.NextFloat(-limit.y, limit.y));
-                }
+                if (Mathf.Abs(position.x) > limit.x || Mathf.Abs(position.y) > limit.y)
+                    continue;
 
                 if (!IsValidDecorationPosition(
                         footprint, position, bases, obstacles, obstacleFootprints, decorations, decorationRadii))
@@ -583,6 +587,71 @@ public sealed class WorldGenerator
         }
 
         return decorations;
+    }
+
+    /// <summary>
+    /// Egy szétszórt dekoráció elhelyezése best-candidate mintavétellel:
+    /// legfeljebb DecorationCandidateCount érvényes jelölt közül az nyer, amelyik
+    /// a legtávolabb esik a dekorációktól, akadályoktól, bázisoktól és a pálya
+    /// szélétől. Ha nincs érvényes jelölt, a dekoráció kimarad.
+    /// </summary>
+    private void TryPlaceScatteredDecoration(
+        WorldBounds bounds,
+        List<BaseLayout> bases,
+        List<TerrainFeatureLayout> obstacles,
+        List<Footprint> obstacleFootprints,
+        List<TerrainFeatureLayout> decorations,
+        List<float> decorationRadii,
+        DeterministicRandom random)
+    {
+        TerrainGenerationConfig terrain = RequireTerrain();
+
+        TerrainFeatureType type = PickWeighted(terrain.DecorationTypes, random);
+        int variant = random.NextInt(type.VariantCount);
+        float scale = random.NextFloat(type.MinScale, type.MaxScale);
+        Footprint footprint = type.Footprint.Scaled(scale);
+
+        Vector2 limit = new Vector2(bounds.HalfSize, bounds.HalfSize) - footprint.HalfExtents;
+
+        if (limit.x <= 0f || limit.y <= 0f)
+            return;
+
+        bool found = false;
+        Vector2 bestPosition = Vector2.zero;
+        float bestScore = float.MinValue;
+        int validCandidates = 0;
+
+        for (int attempt = 0;
+             attempt < terrain.MaxPlacementAttemptsPerObstacle &&
+             validCandidates < terrain.DecorationCandidateCount;
+             attempt++)
+        {
+            Vector2 position = new Vector2(
+                random.NextFloat(-limit.x, limit.x),
+                random.NextFloat(-limit.y, limit.y));
+
+            if (!IsValidDecorationPosition(
+                    footprint, position, bases, obstacles, obstacleFootprints, decorations, decorationRadii))
+            {
+                continue;
+            }
+
+            validCandidates++;
+            float score = GetFreeSpaceScore(position, bounds, bases, obstacles, decorations);
+
+            if (score > bestScore)
+            {
+                bestScore = score;
+                bestPosition = position;
+                found = true;
+            }
+        }
+
+        if (!found)
+            return;
+
+        decorations.Add(new TerrainFeatureLayout(type.Id, variant, bestPosition, scale));
+        decorationRadii.Add(footprint.BoundingRadius);
     }
 
     /// <summary>

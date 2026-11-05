@@ -202,6 +202,63 @@ public sealed class WorldGeneratorDecorationTests
         Assert.IsTrue(_generator.AreBasesReachable(layout));
     }
 
+    // Egyenletes eloszlás és korlát
+
+    [Test]
+    public void MaxDecorationCount_CapsLargeMaps()
+    {
+        WorldGenerator generator = new WorldGenerator(WorldGenerationTestConfigs.Create(
+            terrain: TerrainTestConfigs.Create(decorationsPer10000Area: 26f, maxDecorationCount: 400)));
+
+        Assert.AreEqual(37, generator.GetRequestedDecorationCount(120));
+        Assert.AreEqual(400, generator.GetRequestedDecorationCount(530));
+    }
+
+    private static float LargestTreeGap(WorldLayout layout)
+    {
+        float limit = layout.Bounds.HalfSize - 6f;
+        float largest = 0f;
+
+        for (float x = -limit; x <= limit; x += 3f)
+        {
+            for (float y = -limit; y <= limit; y += 3f)
+            {
+                float nearest = float.MaxValue;
+
+                foreach (TerrainFeatureLayout decoration in layout.Decorations)
+                    nearest = Mathf.Min(nearest, Vector2.Distance(new Vector2(x, y), decoration.Position));
+
+                largest = Mathf.Max(largest, nearest);
+            }
+        }
+
+        return largest;
+    }
+
+    [Test]
+    public void BestCandidate_SpreadsScatteredDecorationsEvenly()
+    {
+        WorldGenerator random = new WorldGenerator(WorldGenerationTestConfigs.Create(
+            terrain: TerrainTestConfigs.Create(decorationsPer10000Area: 26f, decorationCandidateCount: 1)));
+        WorldGenerator spread = new WorldGenerator(WorldGenerationTestConfigs.Create(
+            terrain: TerrainTestConfigs.Create(decorationsPer10000Area: 26f, decorationCandidateCount: 10)));
+
+        float randomTotal = 0f;
+        float spreadTotal = 0f;
+
+        for (int seed = 0; seed < 20; seed++)
+        {
+            WorldGenerationRequest request = new WorldGenerationRequest(new[] { 0 }, 120, 5, 0, seed);
+
+            randomTotal += LargestTreeGap(GenerateOrFail(random, request));
+            spreadTotal += LargestTreeGap(GenerateOrFail(spread, request));
+        }
+
+        Assert.Less(spreadTotal, randomTotal * 0.9f,
+            $"átlagos legnagyobb fátlan terület sugara: véletlen {randomTotal / 20f:0.0}, " +
+            $"best-candidate {spreadTotal / 20f:0.0}");
+    }
+
     // Ligetek
 
     private WorldGenerator GroveGenerator(float groveFraction, bool withAnchor = true)

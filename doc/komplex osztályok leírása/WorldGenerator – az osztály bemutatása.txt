@@ -106,7 +106,9 @@ TEREPTÁRGY-BEÁLLÍTÁSOK (WorldGenerationSettings, Terrain szakasz)
 	maxPlacementAttemptsPerObstacle (100): egy akadály vagy dekoráció elhelyezésére tett próbálkozások száma.
 	obstacleCandidateCount (20): egy akadály ennyi érvényes jelölt hely közül azt választja, amelyik a legtávolabb esik a már elhelyezett akadályoktól, a bázisoktól és a pálya szélétől (best-candidate mintavétel). Így az akadályok egyenletesen töltik ki a bázisok közötti teret, és nem marad üres pályarész. 1 = az első érvényes hely (a korábbi, tisztán véletlen elhelyezés). Mérve (120-as pálya, 1 játékos, 5 sárga bázis, 8 akadály, 60 seed): a legnagyobb üres terület sugara átlagosan 40,6 helyett kb. 31 egység.
 	maxObstacleGenerationAttempts (5): ennyiszer generálja újra az akadályokat, ha nem sikerül érvényesen elhelyezni őket.
-	decorationsPer10000Area (12): dekorációk száma 10 000 négyzetegységnyi pályaterületenként (140-es pályán 24, 530-asban 337).
+	decorationsPer10000Area (26): dekorációk száma 10 000 négyzetegységnyi pályaterületenként (120-as pályán 37).
+	maxDecorationCount (350): a dekorációk legnagyobb száma pályától függetlenül, hogy a világ hálózati üzenete a Unity Transport alapértelmezett 6144 bájtos korlátja alatt maradjon (a legrosszabb eset, 150 bázis + 100 akadály + 350 dekoráció: kb. 5,8 KB).
+	decorationCandidateCount (10): a szétszórt (nem ligetbe kerülő) dekorációk ennyi érvényes jelölt hely közül a legtávolabbit választják a többi dekorációtól, akadálytól, bázistól és a pálya szélétől, így egyenletesen oszlanak el. 1 = véletlen hely.
 	decorationGroveFraction (0,5): a dekorációk ekkora hányada kerül ligetként a vonzó akadályok (az oázis) köré, ha van ilyen a pályán; a többi szétszórva.
 	decorationGroveRadius (8): a liget dekorációi legfeljebb ennyire lehetnek a vonzó akadály szélétől. Kisebb érték szorosabb ligetet ad.
 
@@ -148,7 +150,7 @@ DETERMINIZMUS ÉS VERZIÓKEZELÉS
 	A DeterministicRandom a PCG32 algoritmust használja, a referencia-implementációval egyező kimenettel. A System.Random és a UnityEngine.Random nem használható, mert azok nem garantálnak azonos sorozatot minden gépen és verzión.
 	Ugyanaz a seed és ugyanaz a kérés ugyanazzal a generátorverzióval mindig ugyanazt a világot adja.
 	A generálás egyes lépései (bázisok, akadályok, dekorációk) külön véletlensorozatot használnak: az akadályok és a dekorációk seedje a DeterministicRandom.DeriveSeed(seed, sorszám) hívással származik a fő seedből. Így egy lépés módosítása nem változtatja meg a korábbi lépések eredményét; a bázisok helye például független az akadályoktól.
-	A WorldGenerator.Version értékét növelni kell minden olyan módosításnál, amely ugyanabból a seedből más világot eredményez. A jelenlegi verzió: 4 (az 1-es csak bázisokat, a 2-es bázisokat, akadályokat és dekorációkat helyezett el; a 3-as védőcsapatokat is; a 4-es az akadályokat egyenletesen, best-candidate mintavétellel helyezi el). A bázisok helye minden verzióban azonos. Ezt három regressziós teszt jelzi: DeterministicRandomTests.KnownSeed_ProducesKnownSequence, DeterministicRandomTests.DeriveSeed_KnownValue és WorldGeneratorTests.KnownRequest_ProducesKnownLayout.
+	A WorldGenerator.Version értékét növelni kell minden olyan módosításnál, amely ugyanabból a seedből más világot eredményez. A jelenlegi verzió: 5 (az 1-es csak bázisokat, a 2-es bázisokat, akadályokat és dekorációkat helyezett el; a 3-as védőcsapatokat is; a 4-es az akadályokat, az 5-ös a szétszórt dekorációkat is egyenletesen, best-candidate mintavétellel helyezi el). A bázisok helye minden verzióban azonos. Ezt három regressziós teszt jelzi: DeterministicRandomTests.KnownSeed_ProducesKnownSequence, DeterministicRandomTests.DeriveSeed_KnownValue és WorldGeneratorTests.KnownRequest_ProducesKnownLayout.
 
 SZINKRONIZÁCIÓ A KLIENSEKKEL (DÖNTÉS)
 	A host a teljes generált elrendezést küldi el a klienseknek, nem csak a seedet és a beállításokat.
@@ -181,7 +183,7 @@ UNITY-INTEGRÁCIÓ
 
 	Ideiglenes megoldások:
 	- A Base prefabon lévő BaseTestInput tesztkomponenst a WorldSceneBuilder kikapcsolja a generált bázisokon, mert az saját pénztárcát állítana be, és minden bázison saját GUI-t rajzolna. Ha a komponens lekerül a prefabról, a DisableTestInput metódus törölhető.
-	- A BaseOwnerView localPlayerId mezője ideiglenesen rögzített (0), ezért a 0 azonosítójú játékos bázisa jelenik meg saját zászlóval. A sárga bázis fölött „Sárga” felirat látszik.
+	- A helyi játékost (akinek a bázisai saját, zöld zászlót kapnak; a többi játékosé piros) generált világban a GameBootstrapper localPlayerId mezője adja meg (alapértelmezés: 0), és a WorldSceneBuilder minden bázis BaseOwnerView-jának átadja. Ez ideiglenes, amíg a hálózat meg nem adja a helyi játékost. A Base prefab saját localPlayerId értéke (1) a kézzel összeállított jelenetekre (pl. Test_Base) vonatkozik. A sárga bázis fölött „Sárga” felirat látszik.
 	- A falakat, tornyokat és épületeket a Base prefab tartalmazza; a generátor a prefabot változtatás nélkül helyezi el. Fal csak játékos tulajdonú bázison látszik (BaseOwnerView): a kezdőbázison, illetve elfoglaláskor épül fel. A világgenerálás csak a kezdőbázisokon hagyja meg a tornyokat: a WorldSceneBuilder a többi bázison kikapcsolja a prefab Turrets csoportját (a tornyok nem törlődnek, csak inaktívak). A tornyok megjelenítése (pl. elfoglaláskor 2 kezdőtorony) a bázis feladata; ha az a csoportot vagy egyes tornyait bekapcsolja, a WorldSceneBuilder HideTurrets hívása ennek megfelelően igazítható vagy törölhető.
 	- Az egységkijelölés jelenleg nem vizsgálja a tulajdonost, így a sárga védőegységek is kijelölhetők. A specifikáció szerint a játékos csak a saját egységeit irányíthatja; ezt a kijelölésnél kell majd pótolni.
 

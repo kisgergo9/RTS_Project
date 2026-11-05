@@ -48,10 +48,15 @@ public sealed class WorldSceneBuilder : MonoBehaviour
     /// A tereptárgyak grafikai változatai. Csak akkor kötelező, ha a layout
     /// akadályokat vagy dekorációkat tartalmaz.
     /// </param>
+    /// <param name="localPlayerId">
+    /// A helyi játékos azonosítója: az ő bázisai saját (zöld) zászlót kapnak,
+    /// a többi játékosé ellenséges (piros) zászlót.
+    /// </param>
     public IReadOnlyList<BaseController> Build(
         WorldLayout layout,
         PlayerRegistry players,
-        WorldGenerationSettings terrainSettings = null)
+        WorldGenerationSettings terrainSettings = null,
+        int localPlayerId = 0)
     {
         if (layout == null)
             throw new ArgumentNullException(nameof(layout));
@@ -70,7 +75,7 @@ public sealed class WorldSceneBuilder : MonoBehaviour
 
         CreateGround(layout.Bounds);
         CreateBoundary(layout.Bounds);
-        CreateBases(layout, players);
+        CreateBases(layout, players, localPlayerId);
         CreateTerrainFeatures(layout, terrainSettings);
         ApplyCameraBounds(layout.Bounds);
 
@@ -88,7 +93,7 @@ public sealed class WorldSceneBuilder : MonoBehaviour
         }
     }
 
-    private void CreateBases(WorldLayout layout, PlayerRegistry players)
+    private void CreateBases(WorldLayout layout, PlayerRegistry players, int localPlayerId)
     {
         Transform parent = new GameObject("Bases").transform;
         parent.SetParent(_root, false);
@@ -107,6 +112,9 @@ public sealed class WorldSceneBuilder : MonoBehaviour
 
             if (baseLayout.OwnerType != BaseOwnerType.Player)
                 HideTurrets(baseController);
+
+            if (baseController.TryGetComponent(out BaseOwnerView ownerView))
+                ownerView.SetLocalPlayer(localPlayerId);
 
             IResourceWallet wallet = null;
 

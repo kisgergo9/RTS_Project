@@ -65,7 +65,9 @@ MonoBehaviour:
   maxPlacementAttemptsPerObstacle: 100
   maxObstacleGenerationAttempts: 5
   obstacleCandidateCount: 20
-  decorationsPer10000Area: 12
+  decorationsPer10000Area: 26
+  maxDecorationCount: 350
+  decorationCandidateCount: 10
   decorationGroveFraction: 0.5
   decorationGroveRadius: 8
   defenderUnits:

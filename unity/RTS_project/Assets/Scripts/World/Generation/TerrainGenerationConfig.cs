@@ -77,6 +77,18 @@ public sealed class TerrainGenerationConfig
     /// </summary>
     public int ObstacleCandidateCount { get; }
 
+    /// <summary>
+    /// A szétszórt (nem ligetbe kerülő) dekorációk ennyi érvényes jelölt közül
+    /// a legtávolabbit választják (best-candidate mintavétel). 1 = véletlen hely.
+    /// </summary>
+    public int DecorationCandidateCount { get; }
+
+    /// <summary>
+    /// A dekorációk legnagyobb száma pályától függetlenül (a hálózati üzenet
+    /// mérete miatt). 0 = nincs korlát.
+    /// </summary>
+    public int MaxDecorationCount { get; }
+
     public TerrainGenerationConfig(
         IEnumerable<TerrainFeatureType> obstacleTypes,
         IEnumerable<TerrainFeatureType> decorationTypes,
@@ -91,7 +103,9 @@ public sealed class TerrainGenerationConfig
         float decorationsPer10000Area,
         float decorationGroveFraction = 0f,
         float decorationGroveRadius = 8f,
-        int obstacleCandidateCount = 1)
+        int obstacleCandidateCount = 1,
+        int decorationCandidateCount = 1,
+        int maxDecorationCount = 0)
     {
         _obstacleTypes = ToArray(obstacleTypes, nameof(obstacleTypes));
         _decorationTypes = ToArray(decorationTypes, nameof(decorationTypes));
@@ -145,6 +159,13 @@ public sealed class TerrainGenerationConfig
             throw new ArgumentOutOfRangeException(nameof(decorationGroveFraction),
                 "A ligetbe kerülő dekorációk aránya a [0; 1] tartományba kell essen.");
 
+        if (decorationCandidateCount < 1)
+            throw new ArgumentOutOfRangeException(nameof(decorationCandidateCount),
+                "Legalább egy jelölt hely szükséges.");
+
+        if (maxDecorationCount < 0)
+            throw new ArgumentOutOfRangeException(nameof(maxDecorationCount));
+
         if (obstacleCandidateCount < 1)
             throw new ArgumentOutOfRangeException(nameof(obstacleCandidateCount),
                 "Legalább egy jelölt hely szükséges.");
@@ -170,6 +191,8 @@ public sealed class TerrainGenerationConfig
         DecorationGroveFraction = decorationGroveFraction;
         DecorationGroveRadius = decorationGroveRadius;
         ObstacleCandidateCount = obstacleCandidateCount;
+        DecorationCandidateCount = decorationCandidateCount;
+        MaxDecorationCount = maxDecorationCount;
     }
 
     public float MaxObstacleBoundingRadius

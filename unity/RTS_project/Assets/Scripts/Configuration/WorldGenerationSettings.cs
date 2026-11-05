@@ -153,7 +153,17 @@ public sealed class WorldGenerationSettings : ScriptableObject
 
     [Tooltip("Dekorációk száma 10 000 négyzetegységnyi pályaterületenként.")]
     [SerializeField, Min(0f)]
-    private float decorationsPer10000Area = 12f;
+    private float decorationsPer10000Area = 26f;
+
+    [Tooltip("A dekorációk legnagyobb száma pályától függetlenül, hogy a világ hálózati " +
+             "üzenete a Unity Transport alapértelmezett méretkorlátja alatt maradjon. 0 = nincs korlát.")]
+    [SerializeField, Min(0)]
+    private int maxDecorationCount = 350;
+
+    [Tooltip("A szétszórt dekorációk ennyi érvényes jelölt hely közül a legtávolabbit választják, " +
+             "így egyenletesen oszlanak el. 1 = véletlen hely.")]
+    [SerializeField, Min(1)]
+    private int decorationCandidateCount = 10;
 
     [Tooltip("A dekorációk ekkora hányada kerül ligetként a vonzó akadályok (pl. oázis) köré.")]
     [SerializeField, Range(0f, 1f)]
@@ -268,7 +278,9 @@ public sealed class WorldGenerationSettings : ScriptableObject
             decorationsPer10000Area,
             decorationGroveFraction,
             decorationGroveRadius,
-            obstacleCandidateCount);
+            obstacleCandidateCount,
+            decorationCandidateCount,
+            maxDecorationCount);
     }
 
     private static List<TerrainFeatureType> ToTypes(TerrainFeatureDefinition[] definitions)

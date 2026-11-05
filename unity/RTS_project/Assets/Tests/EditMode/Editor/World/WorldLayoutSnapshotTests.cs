@@ -287,10 +287,13 @@ public sealed class WorldLayoutSnapshotTests
         int size = generator.Rules.MaxWorldSize;
 
         WorldGenerationResult result = generator.Generate(new WorldGenerationRequest(
-            new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, size, 140, 50, 1));
+            new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, size, 140,
+            generator.Rules.GetObstacleCountRange(size).Max, 1));
 
+        // A legrosszabb eset: legtöbb bázis, akadály és dekoráció.
         Assert.IsTrue(result.Success, result.ErrorMessage);
-        Assert.AreEqual(50, result.Layout.Obstacles.Count);
+        Assert.AreEqual(150, result.Layout.Bases.Count);
+        Assert.AreEqual(100, result.Layout.Obstacles.Count);
         Assert.AreEqual(generator.GetRequestedDecorationCount(size), result.Layout.Decorations.Count);
 
         using FastBufferWriter writer = new FastBufferWriter(1024, Allocator.Temp, 1024 * 1024);

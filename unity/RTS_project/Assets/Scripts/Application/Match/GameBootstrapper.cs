@@ -36,6 +36,11 @@ public sealed class GameBootstrapper : MonoBehaviour
     [SerializeField]
     private WorldSceneBuilder worldBuilder;
 
+    [Tooltip("IDEIGLENES: a helyi játékos azonosítója, amíg nincs hálózat. " +
+             "Az ő bázisai saját (zöld), a többi játékosé ellenséges (piros) zászlót kapnak.")]
+    [SerializeField]
+    private int localPlayerId;
+
     public GameState State { get; private set; }
 
     // Generált világ esetén a generálás eredménye, egyébként null.
@@ -152,7 +157,7 @@ public sealed class GameBootstrapper : MonoBehaviour
         State.World.SetGeneration(WorldLayoutSnapshot.ToState(result.Layout));
 
         foreach (BaseController baseController in
-                 worldBuilder.Build(result.Layout, State.Players, worldGeneration.Settings))
+                 worldBuilder.Build(result.Layout, State.Players, worldGeneration.Settings, localPlayerId))
         {
             State.RegisterBase(baseController.Data);
         }
