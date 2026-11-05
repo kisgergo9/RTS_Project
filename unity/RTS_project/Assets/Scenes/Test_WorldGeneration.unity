@@ -387,18 +387,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players:
-  - playerId: 0
-    playerName: Player 0
   - playerId: 1
     playerName: Player 1
-  - playerId: 2
-    playerName: Player 2
-  - playerId: 3
-    playerName: Player 3
   bases: []
   units: []
   worldGeneration: {fileID: 1252502135}
   worldBuilder: {fileID: 1252502136}
+  localPlayerId: 1
 --- !u!114 &1252502135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,9 +407,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: e4ae9a241644a2d499ee359a311f5ab6, type: 2}
-  worldSize: 140
-  yellowBaseCount: 4
-  obstacleCount: 5
+  worldSize: 120
+  yellowBaseCount: 5
+  obstacleCount: 4
   seed: 12345
   randomizeSeed: 0
   validRanges: "J\xE1t\xE9kosok: 4\nVil\xE1gm\xE9ret: [140; 530]\nS\xE1rga b\xE1zisok:
