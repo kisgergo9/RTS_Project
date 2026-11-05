@@ -105,6 +105,9 @@ public sealed class WorldSceneBuilder : MonoBehaviour
 
             DisableTestInput(baseController);
 
+            if (baseLayout.OwnerType != BaseOwnerType.Player)
+                HideTurrets(baseController);
+
             IResourceWallet wallet = null;
 
             if (baseLayout.OwnerType == BaseOwnerType.Player)
@@ -130,6 +133,21 @@ public sealed class WorldSceneBuilder : MonoBehaviour
     {
         if (baseController.TryGetComponent(out BaseTestInput testInput))
             testInput.enabled = false;
+    }
+
+    /// <summary>
+    /// A világgenerálás csak a kezdőbázisokon hagyja meg a tornyokat: a többi
+    /// bázison a Base prefab Turrets csoportját (12 torony) kikapcsoljuk.
+    /// A tornyok megjelenítése (pl. elfoglaláskor 2 kezdőtorony) a bázis
+    /// feladata, amely a csoportot vagy annak egyes tornyait bekapcsolja.
+    /// A tornyok nem törlődnek, csak inaktívak.
+    /// </summary>
+    private static void HideTurrets(BaseController baseController)
+    {
+        Transform turrets = baseController.transform.Find("Turrets");
+
+        if (turrets != null)
+            turrets.gameObject.SetActive(false);
     }
 
     /// <summary>

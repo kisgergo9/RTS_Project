@@ -181,7 +181,7 @@ UNITY-INTEGRÁCIÓ
 	Ideiglenes megoldások:
 	- A Base prefabon lévő BaseTestInput tesztkomponenst a WorldSceneBuilder kikapcsolja a generált bázisokon, mert az saját pénztárcát állítana be, és minden bázison saját GUI-t rajzolna. Ha a komponens lekerül a prefabról, a DisableTestInput metódus törölhető.
 	- A BaseOwnerView localPlayerId mezője ideiglenesen rögzített (0), ezért a 0 azonosítójú játékos bázisa jelenik meg saját zászlóval. A sárga bázis fölött „Sárga” felirat látszik.
-	- A falakat, tornyokat és épületeket a Base prefab tartalmazza; a generátor a prefabot változtatás nélkül helyezi el.
+	- A falakat, tornyokat és épületeket a Base prefab tartalmazza; a generátor a prefabot változtatás nélkül helyezi el. Fal csak játékos tulajdonú bázison látszik (BaseOwnerView): a kezdőbázison, illetve elfoglaláskor épül fel. A világgenerálás csak a kezdőbázisokon hagyja meg a tornyokat: a WorldSceneBuilder a többi bázison kikapcsolja a prefab Turrets csoportját (a tornyok nem törlődnek, csak inaktívak). A tornyok megjelenítése (pl. elfoglaláskor 2 kezdőtorony) a bázis feladata; ha az a csoportot vagy egyes tornyait bekapcsolja, a WorldSceneBuilder HideTurrets hívása ennek megfelelően igazítható vagy törölhető.
 	- Az egységkijelölés jelenleg nem vizsgálja a tulajdonost, így a sárga védőegységek is kijelölhetők. A specifikáció szerint a játékos csak a saját egységeit irányíthatja; ezt a kijelölésnél kell majd pótolni.
 
 TESZTJELENET ÖSSZEÁLLÍTÁSA
