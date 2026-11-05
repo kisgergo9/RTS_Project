@@ -22,6 +22,7 @@ MonoBehaviour:
   minObstacleCount: 0
   maxObstacleCount: 100
   obstacleClearRadius: 8
+  obstaclesPer10000Area: 8
   absoluteMinWorldSize: 80
   worldSizeStep: 10
   targetFillRatio: 0.34

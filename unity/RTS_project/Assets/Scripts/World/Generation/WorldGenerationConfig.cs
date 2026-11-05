@@ -25,6 +25,13 @@ public sealed class WorldGenerationConfig
     public int MaxObstacleCount { get; }
     public float ObstacleClearRadius { get; }
 
+    /// <summary>
+    /// Akadályok legnagyobb száma 10 000 négyzetegységnyi használható
+    /// pályaterületenként (MaxObstacleCount felső korláttal). 0 esetén az
+    /// akadályok a bázisokkal arányosan osztoznak a területen.
+    /// </summary>
+    public float ObstaclesPer10000Area { get; }
+
     // Világméret
     public int AbsoluteMinWorldSize { get; }
     public int WorldSizeStep { get; }
@@ -59,7 +66,8 @@ public sealed class WorldGenerationConfig
         int maxGenerationAttempts,
         float playerRingRadiusFraction,
         float startPositionJitter,
-        TerrainGenerationConfig terrain = null)
+        TerrainGenerationConfig terrain = null,
+        float obstaclesPer10000Area = 0f)
     {
         if (minPlayerCount < 1)
             throw new ArgumentOutOfRangeException(nameof(minPlayerCount),
@@ -124,6 +132,10 @@ public sealed class WorldGenerationConfig
         if (maxGenerationAttempts < 1)
             throw new ArgumentOutOfRangeException(nameof(maxGenerationAttempts));
 
+        if (obstaclesPer10000Area < 0f)
+            throw new ArgumentOutOfRangeException(nameof(obstaclesPer10000Area),
+                "Az akadálysűrűség nem lehet negatív.");
+
         if (playerRingRadiusFraction <= 0f || playerRingRadiusFraction > 1f)
             throw new ArgumentOutOfRangeException(nameof(playerRingRadiusFraction),
                 "A kezdőbázisok körének relatív sugara a (0; 1] tartományba kell essen.");
@@ -149,6 +161,7 @@ public sealed class WorldGenerationConfig
         MaxGenerationAttempts = maxGenerationAttempts;
         PlayerRingRadiusFraction = playerRingRadiusFraction;
         StartPositionJitter = startPositionJitter;
+        ObstaclesPer10000Area = obstaclesPer10000Area;
 
         if (terrain != null)
             ValidateTerrain(terrain);

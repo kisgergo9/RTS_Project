@@ -409,7 +409,7 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: e4ae9a241644a2d499ee359a311f5ab6, type: 2}
   worldSize: 120
   yellowBaseCount: 5
-  obstacleCount: 4
+  obstacleCount: 8
   seed: 12345
   randomizeSeed: 0
   validRanges: "J\xE1t\xE9kosok: 4\nVil\xE1gm\xE9ret: [140; 530]\nS\xE1rga b\xE1zisok:

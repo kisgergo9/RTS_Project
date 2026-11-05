@@ -41,7 +41,8 @@ internal static class WorldGenerationTestConfigs
         int maxGenerationAttempts = 10,
         float playerRingRadiusFraction = 0.7f,
         float startPositionJitter = 2f,
-        TerrainGenerationConfig terrain = null)
+        TerrainGenerationConfig terrain = null,
+        float obstaclesPer10000Area = 0f)
     {
         return new WorldGenerationConfig(
             minPlayerCount,
@@ -61,6 +62,7 @@ internal static class WorldGenerationTestConfigs
             maxGenerationAttempts,
             playerRingRadiusFraction,
             startPositionJitter,
-            terrain);
+            terrain,
+            obstaclesPer10000Area);
     }
 }

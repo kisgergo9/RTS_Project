@@ -49,6 +49,11 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField, Min(0)]
     private int maxObstacleCount = 100;
 
+    [Tooltip("Akadályok legnagyobb száma 10 000 négyzetegységnyi használható pályaterületenként " +
+             "(maxObstacleCount felső korláttal). 0 = a bázisokkal arányos elosztás.")]
+    [SerializeField, Min(0f)]
+    private float obstaclesPer10000Area = 8f;
+
     [Tooltip("Egy terepakadály helyigényének sugara.")]
     [SerializeField, Min(0.1f)]
     private float obstacleClearRadius = 8f;
@@ -176,7 +181,8 @@ public sealed class WorldGenerationSettings : ScriptableObject
             maxGenerationAttempts,
             playerRingRadiusFraction,
             startPositionJitter,
-            CreateTerrainConfig());
+            CreateTerrainConfig(),
+            obstaclesPer10000Area);
     }
 
     private TerrainGenerationConfig CreateTerrainConfig()
