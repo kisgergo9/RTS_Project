@@ -43,7 +43,16 @@ public static class NetworkSession
         NetworkManager manager = EnsureManager();
 
         if (manager.IsListening)
-            return manager.IsHost;
+        {
+            // Az előző kapcsolat leállítása (pl. Vissza, majd gyorsan újra
+            // Host) még folyamatban van: most nem indítható új host.
+            if (manager.ShutdownInProgress || !manager.IsHost)
+                return false;
+
+            // Már futó host: a lobbykezelésnek is hozzá kell lennie kötve.
+            manager.GetComponent<LobbyNetwork>().EnsureStartedAsHost(manager);
+            return true;
+        }
 
         // 0.0.0.0: a host minden hálózati csatolón fogadja a kapcsolatokat.
         manager.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", port, "0.0.0.0");

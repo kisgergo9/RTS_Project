@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
@@ -132,10 +133,17 @@ public sealed class MatchLobbyController : MonoBehaviour
     // A hálózati host a Start-ban indul: a Netcode az üzenettípusait az első
     // jelenet Awake hívásai után regisztrálja, így ha a lobby az első
     // jelenet (pl. szerkesztőben közvetlenül indítva), az Awake még túl korai.
-    private void Start()
+    // Ha az előző kapcsolat leállítása még tart (Vissza, majd gyorsan újra
+    // Host), megvárja a végét.
+    private IEnumerator Start()
     {
-        if (State != null)
-            SetupHost();
+        if (State == null)
+            yield break;
+
+        while (NetworkSession.Manager != null && NetworkSession.Manager.ShutdownInProgress)
+            yield return null;
+
+        SetupHost();
     }
 
     private void SetupHost()

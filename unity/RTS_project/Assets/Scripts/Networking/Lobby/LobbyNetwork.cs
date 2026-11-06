@@ -81,6 +81,18 @@ public sealed class LobbyNetwork : MonoBehaviour
             manager.ConnectionApprovalCallback = ApproveConnection;
     }
 
+    /// <summary>
+    /// Már futó hosthoz köti a lobbykezelést, ha még nincs hozzákötve.
+    /// </summary>
+    internal void EnsureStartedAsHost(NetworkManager manager)
+    {
+        if (_manager == manager)
+            return;
+
+        manager.ConnectionApprovalCallback = ApproveConnection;
+        OnStarted(manager);
+    }
+
     internal void OnStopping()
     {
         if (_manager == null)
