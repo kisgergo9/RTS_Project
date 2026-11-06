@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// A főmenü gombjainak kezelése: Host, Join, Exit.
 ///
 ///   - Host: a hostSceneName jelenetet (a lobbyt) tölti be,
-///   - Join: rövid tájékoztató üzenetet jelenít meg (amíg nincs hálózat),
+///   - Join: a joinSceneName jelenetet (a csatlakozási képernyőt) tölti be,
 ///   - Exit: kilép a játékból (szerkesztőben leállítja a Play módot).
 /// </summary>
 [DisallowMultipleComponent]
@@ -31,14 +31,16 @@ public sealed class MainMenuController : MonoBehaviour
     private string hostSceneName = "MatchLobby";
 
     [Header("Join")]
-    [Tooltip("A Join gomb megnyomásakor megjelenő üzenet helye. Kezdetben üres.")]
+    [Tooltip("A Join gombbal betöltött jelenet neve (csatlakozás a hosthoz).")]
+    [SerializeField]
+    private string joinSceneName = "MatchJoin";
+
+    [Tooltip("Hibaüzenetek helye. Kezdetben üres.")]
     [SerializeField]
     private TMP_Text statusText;
 
-    [SerializeField]
-    private string joinUnavailableMessage = "A lobby még nem elérhető.";
-
     public string HostSceneName => hostSceneName;
+    public string JoinSceneName => joinSceneName;
 
     private void Awake()
     {
@@ -62,28 +64,12 @@ public sealed class MainMenuController : MonoBehaviour
 
     public void OnHostClicked()
     {
-        if (string.IsNullOrWhiteSpace(hostSceneName))
-        {
-            Debug.LogError("A Host gombhoz nincs jelenet megadva.", this);
-            return;
-        }
-
-        if (!Application.CanStreamedLevelBeLoaded(hostSceneName))
-        {
-            Debug.LogError(
-                $"A(z) '{hostSceneName}' jelenet nem tölthető be: nincs a Build Settings " +
-                "jelenetlistájában.",
-                this);
-            return;
-        }
-
-        SceneManager.LoadScene(hostSceneName);
+        LoadScene(hostSceneName, "Host");
     }
 
     public void OnJoinClicked()
     {
-        if (statusText != null)
-            statusText.text = joinUnavailableMessage;
+        LoadScene(joinSceneName, "Join");
     }
 
     public void OnExitClicked()
@@ -93,6 +79,30 @@ public sealed class MainMenuController : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    private void LoadScene(string sceneName, string buttonName)
+    {
+        if (string.IsNullOrWhiteSpace(sceneName))
+        {
+            Debug.LogError($"A {buttonName} gombhoz nincs jelenet megadva.", this);
+            return;
+        }
+
+        if (!Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            string message = $"A(z) '{sceneName}' jelenet nem tölthető be: nincs a Build Settings " +
+                             "jelenetlistájában.";
+
+            Debug.LogError(message, this);
+
+            if (statusText != null)
+                statusText.text = message;
+
+            return;
+        }
+
+        SceneManager.LoadScene(sceneName);
     }
 
     private static void AddListener(Button button, UnityEngine.Events.UnityAction action)

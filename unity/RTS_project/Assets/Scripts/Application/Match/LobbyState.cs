@@ -152,12 +152,31 @@ public sealed class LobbyState
         if (string.IsNullOrWhiteSpace(playerName))
             throw new ArgumentException("A játékos nevét meg kell adni.", nameof(playerName));
 
+        return TryOccupyFreeSlot(_ => playerName, out playerId);
+    }
+
+    /// <summary>
+    /// Az első szabad helyet foglalja le a hely azonosítójából képzett
+    /// néven („Játékos 3”). Ha nincs szabad hely, false.
+    /// </summary>
+    public bool TryOccupyFreeSlot(out int playerId)
+    {
+        return TryOccupyFreeSlot(GetDefaultPlayerName, out playerId);
+    }
+
+    public static string GetDefaultPlayerName(int playerId)
+    {
+        return $"Játékos {playerId}";
+    }
+
+    private bool TryOccupyFreeSlot(Func<int, string> playerName, out int playerId)
+    {
         foreach (LobbySlot slot in _slots)
         {
             if (slot.IsOccupied)
                 continue;
 
-            slot.Occupy(playerName);
+            slot.Occupy(playerName(slot.PlayerId));
             playerId = slot.PlayerId;
             RaiseChanged();
             return true;

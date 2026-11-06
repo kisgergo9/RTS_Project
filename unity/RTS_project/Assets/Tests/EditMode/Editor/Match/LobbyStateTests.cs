@@ -208,9 +208,9 @@ public sealed class LobbyStateTests
     [Test]
     public void SlotList_ShowsHostAndWaitingSlots()
     {
-        string text = MatchLobbyController.BuildSlotList(_lobby);
+        string text = MatchLobbyController.BuildSlotList(LobbySnapshot.FromState(_lobby, 1));
 
-        StringAssert.Contains("1. hely: Host (host)", text);
+        StringAssert.Contains("1. hely: Host (host) – te", text);
         StringAssert.Contains("2. hely: várakozás játékosra", text);
         StringAssert.Contains("1 / 2 játékos csatlakozott", text);
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -6,22 +7,24 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
-/// A lobby felülete a hoston: játékosszám, világméret és sárga bázisok
-/// beállítása, a játékoshelyek listája, valamint a Vissza, az
-/// „1 játékos teszt” és az Indítás gomb.
+/// A lobby felülete: játékosszám, világméret és sárga bázisok beállítása,
+/// a játékoshelyek listája, valamint a Vissza, az „1 játékos teszt” és az
+/// Indítás gomb.
 ///
-/// Az állapotot a LobbyState tárolja; ez a komponens csak megjeleníti és a
-/// csúszkák változását továbbítja. Amíg nincs hálózat, csak a host helye
-/// foglalt, ezért az Indítás gomb inaktív.
+/// Host: létrehozza a LobbyState-et, elindítja a hálózati hostot, és a
+/// csúszkák változását a LobbyState-nek továbbítja. Kiírja a gép IP-címét,
+/// amelyre a többiek csatlakozhatnak.
+/// Kliens: a hosttól kapott pillanatképet jeleníti meg; a beállítások nem
+/// módosíthatók, az „1 játékos teszt” és az Indítás gomb rejtett. Ha a
+/// kapcsolat megszakad, visszatér a csatlakozási képernyőre.
+///
+/// Mindkét esetben a megjelenítés a LobbySnapshot-ból történik.
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class MatchLobbyController : MonoBehaviour
 {
     [SerializeField]
     private WorldGenerationSettings settings;
-
-    [SerializeField]
-    private string hostName = "Játékos 1";
 
     [Header("Settings")]
     [SerializeField]
@@ -52,6 +55,10 @@ public sealed class MatchLobbyController : MonoBehaviour
     [SerializeField]
     private TMP_Text slotsText;
 
+    [Tooltip("A hoston a gép IP-címe, amelyre a többiek csatlakozhatnak.")]
+    [SerializeField]
+    private TMP_Text addressText;
+
     [Header("Buttons")]
     [SerializeField]
     private Button backButton;
@@ -74,15 +81,38 @@ public sealed class MatchLobbyController : MonoBehaviour
     [SerializeField]
     private string onePlayerTestSceneName = "Test_WorldGeneration";
 
+    [Tooltip("A kliens ide tér vissza, ha a kapcsolat megszakad.")]
+    [SerializeField]
+    private string joinSceneName = "MatchJoin";
+
     [SerializeField]
     private string startUnavailableMessage = "A mérkőzés indítása még nem elérhető.";
 
     private bool _refreshing;
+    private bool _isClient;
 
+    /// <summary>
+    /// A host lobbyja (a kliensen null).
+    /// </summary>
     public LobbyState State { get; private set; }
 
     private void Awake()
     {
+        if (statusText != null)
+            statusText.text = string.Empty;
+
+        SetupSlider(playerCountSlider);
+        SetupSlider(worldSizeSlider);
+        SetupSlider(yellowBaseSlider);
+
+        _isClient = NetworkSession.IsClientOnly;
+
+        if (_isClient)
+        {
+            SetupClient();
+            return;
+        }
+
         if (settings == null)
         {
             Debug.LogError("A lobbyhoz nincs WorldGenerationSettings rendelve.", this);
@@ -90,22 +120,58 @@ public sealed class MatchLobbyController : MonoBehaviour
             return;
         }
 
-        State = new LobbyState(new WorldSizingRules(settings.ToConfig()), hostName);
+        State = new LobbyState(
+            new WorldSizingRules(settings.ToConfig()),
+            LobbyState.GetDefaultPlayerName(LobbyState.HostPlayerId));
+    }
 
-        SetupSlider(playerCountSlider);
-        SetupSlider(worldSizeSlider);
-        SetupSlider(yellowBaseSlider);
+    // A hálózati host a Start-ban indul: a Netcode az üzenettípusait az első
+    // jelenet Awake hívásai után regisztrálja, így ha a lobby az első
+    // jelenet (pl. szerkesztőben közvetlenül indítva), az Awake még túl korai.
+    private void Start()
+    {
+        if (State != null)
+            SetupHost();
+    }
 
-        if (statusText != null)
-            statusText.text = string.Empty;
+    private void SetupHost()
+    {
+        if (!NetworkSession.StartHost())
+        {
+            SetText(statusText, $"A hálózati host nem indult el (a {NetworkSession.DefaultPort}-es " +
+                                "port foglalt lehet). Más nem tud csatlakozni.");
+            SetText(addressText, string.Empty);
+            return;
+        }
+
+        NetworkSession.Lobby.AttachHostLobby(State);
+
+        List<string> addresses = NetworkSession.GetLocalIPv4Addresses();
+        SetText(addressText, addresses.Count == 0
+            ? "Csatlakozás: ezen a gépen 127.0.0.1"
+            : $"Csatlakozási cím: {string.Join(", ", addresses)}");
+    }
+
+    private void SetupClient()
+    {
+        SetActive(recommendedButton, false);
+        SetActive(onePlayerTestButton, false);
+        SetActive(startButton, false);
+        SetText(addressText, string.Empty);
     }
 
     private void OnEnable()
     {
-        if (State == null)
-            return;
+        if (State != null)
+            State.Changed += Refresh;
 
-        State.Changed += Refresh;
+        LobbyNetwork lobby = NetworkSession.Lobby;
+
+        if (_isClient && lobby != null)
+        {
+            lobby.SnapshotReceived += Refresh;
+            lobby.Disconnected += OnDisconnected;
+        }
 
         AddListener(playerCountSlider, OnPlayerCountChanged);
         AddListener(worldSizeSlider, OnWorldSizeChanged);
@@ -120,10 +186,16 @@ public sealed class MatchLobbyController : MonoBehaviour
 
     private void OnDisable()
     {
-        if (State == null)
-            return;
+        if (State != null)
+            State.Changed -= Refresh;
 
-        State.Changed -= Refresh;
+        LobbyNetwork lobby = NetworkSession.Lobby;
+
+        if (lobby != null)
+        {
+            lobby.SnapshotReceived -= Refresh;
+            lobby.Disconnected -= OnDisconnected;
+        }
 
         RemoveListener(playerCountSlider, OnPlayerCountChanged);
         RemoveListener(worldSizeSlider, OnWorldSizeChanged);
@@ -134,30 +206,44 @@ public sealed class MatchLobbyController : MonoBehaviour
         RemoveListener(startButton, OnStartClicked);
     }
 
+    private void OnDestroy()
+    {
+        if (State != null && NetworkSession.Lobby != null)
+            NetworkSession.Lobby.DetachHostLobby(State);
+    }
+
     public void OnBackClicked()
     {
+        NetworkSession.Shutdown();
         LoadScene(mainMenuSceneName);
     }
 
     public void OnOnePlayerTestClicked()
     {
+        NetworkSession.Shutdown();
         LoadScene(onePlayerTestSceneName);
     }
 
     public void OnStartClicked()
     {
-        if (statusText != null)
-            statusText.text = startUnavailableMessage;
+        SetText(statusText, startUnavailableMessage);
+    }
+
+    private void OnDisconnected(string reason)
+    {
+        NetworkSession.LastDisconnectReason = reason;
+        NetworkSession.Shutdown();
+        LoadScene(joinSceneName);
     }
 
     private void OnRecommendedClicked()
     {
-        State.ApplyRecommendedSettings();
+        State?.ApplyRecommendedSettings();
     }
 
     private void OnPlayerCountChanged(float value)
     {
-        if (!_refreshing)
+        if (!_refreshing && State != null)
             State.SetPlayerCount(Mathf.RoundToInt(value));
     }
 
@@ -165,38 +251,57 @@ public sealed class MatchLobbyController : MonoBehaviour
     // a minimális mérettől.
     private void OnWorldSizeChanged(float value)
     {
-        if (!_refreshing)
+        if (!_refreshing && State != null)
             State.SetWorldSize(State.WorldSizeRange.Min + Mathf.RoundToInt(value) * State.WorldSizeStep);
     }
 
     private void OnYellowBaseCountChanged(float value)
     {
-        if (!_refreshing)
+        if (!_refreshing && State != null)
             State.SetYellowBaseCount(Mathf.RoundToInt(value));
+    }
+
+    private LobbySnapshot CurrentSnapshot()
+    {
+        if (State != null)
+            return LobbySnapshot.FromState(State, LobbyState.HostPlayerId);
+
+        LobbyNetwork lobby = NetworkSession.Lobby;
+        return lobby != null ? lobby.LatestSnapshot : null;
     }
 
     private void Refresh()
     {
+        LobbySnapshot snapshot = CurrentSnapshot();
+
+        if (snapshot == null)
+        {
+            SetText(slotsText, "Kapcsolódás a lobbyhoz…");
+            return;
+        }
+
         _refreshing = true;
 
         try
         {
-            IntRange sizeRange = State.WorldSizeRange;
-            IntRange yellowRange = State.YellowBaseCountRange;
+            bool editable = State != null;
+            int sizeStep = Math.Max(1, snapshot.WorldSizeStep);
 
-            SetSlider(playerCountSlider, State.MinSelectablePlayerCount, State.MaxPlayerCount, State.PlayerCount);
-            SetSlider(worldSizeSlider, 0, (sizeRange.Max - sizeRange.Min) / State.WorldSizeStep,
-                (State.WorldSize - sizeRange.Min) / State.WorldSizeStep);
-            SetSlider(yellowBaseSlider, yellowRange.Min, yellowRange.Max, State.YellowBaseCount);
+            SetSlider(playerCountSlider, snapshot.MinPlayerCount, snapshot.MaxPlayerCount,
+                snapshot.PlayerCount, editable);
+            SetSlider(worldSizeSlider, 0, (snapshot.WorldSizeMax - snapshot.WorldSizeMin) / sizeStep,
+                (snapshot.WorldSize - snapshot.WorldSizeMin) / sizeStep, editable);
+            SetSlider(yellowBaseSlider, snapshot.YellowBaseMin, snapshot.YellowBaseMax,
+                snapshot.YellowBaseCount, editable);
 
-            SetText(playerCountText, State.PlayerCount.ToString());
-            SetText(worldSizeText, $"{State.WorldSize} × {State.WorldSize}");
-            SetText(yellowBaseText, State.YellowBaseCount.ToString());
-            SetText(obstacleText, $"Akadályok: {State.ObstacleCount}");
-            SetText(slotsText, BuildSlotList(State));
+            SetText(playerCountText, snapshot.PlayerCount.ToString());
+            SetText(worldSizeText, $"{snapshot.WorldSize} × {snapshot.WorldSize}");
+            SetText(yellowBaseText, snapshot.YellowBaseCount.ToString());
+            SetText(obstacleText, $"Akadályok: {snapshot.ObstacleCount}");
+            SetText(slotsText, BuildSlotList(snapshot));
 
             if (startButton != null)
-                startButton.interactable = State.CanStart;
+                startButton.interactable = snapshot.CanStart;
         }
         finally
         {
@@ -204,24 +309,30 @@ public sealed class MatchLobbyController : MonoBehaviour
         }
     }
 
-    public static string BuildSlotList(LobbyState state)
+    public static string BuildSlotList(LobbySnapshot snapshot)
     {
         StringBuilder builder = new StringBuilder();
 
-        foreach (LobbySlot slot in state.Slots)
+        for (int i = 0; i < snapshot.SlotNames.Length; i++)
         {
+            int playerId = i + 1;
+            string name = snapshot.SlotNames[i];
+
             if (builder.Length > 0)
                 builder.Append('\n');
 
-            builder.Append(slot.PlayerId).Append(". hely: ");
-            builder.Append(slot.IsOccupied ? slot.PlayerName : "várakozás játékosra…");
+            builder.Append(playerId).Append(". hely: ");
+            builder.Append(string.IsNullOrEmpty(name) ? "várakozás játékosra…" : name);
 
-            if (slot.PlayerId == LobbyState.HostPlayerId)
+            if (playerId == LobbyState.HostPlayerId)
                 builder.Append(" (host)");
+
+            if (playerId == snapshot.LocalPlayerId)
+                builder.Append(" – te");
         }
 
         builder.Append("\n\n")
-            .Append(state.OccupiedSlotCount).Append(" / ").Append(state.PlayerCount)
+            .Append(snapshot.OccupiedSlotCount).Append(" / ").Append(snapshot.PlayerCount)
             .Append(" játékos csatlakozott");
 
         return builder.ToString();
@@ -246,7 +357,7 @@ public sealed class MatchLobbyController : MonoBehaviour
             slider.wholeNumbers = true;
     }
 
-    private static void SetSlider(Slider slider, int min, int max, int value)
+    private static void SetSlider(Slider slider, int min, int max, int value, bool editable)
     {
         if (slider == null)
             return;
@@ -254,13 +365,19 @@ public sealed class MatchLobbyController : MonoBehaviour
         slider.minValue = min;
         slider.maxValue = Math.Max(min, max);
         slider.SetValueWithoutNotify(value);
-        slider.interactable = max > min;
+        slider.interactable = editable && max > min;
     }
 
     private static void SetText(TMP_Text text, string value)
     {
         if (text != null)
             text.text = value;
+    }
+
+    private static void SetActive(Component component, bool active)
+    {
+        if (component != null)
+            component.gameObject.SetActive(active);
     }
 
     private static void AddListener(Slider slider, UnityEngine.Events.UnityAction<float> action)

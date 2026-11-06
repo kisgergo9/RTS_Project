@@ -70,13 +70,19 @@ public sealed class MainMenuTests
     }
 
     [Test]
-    public void Join_ShowsLobbyNotAvailableMessage()
+    public void JoinScene_IsInBuildSettings()
     {
-        MainMenuController controller = CreateMenu(out TMP_Text statusText);
+        MainMenuController controller = CreateMenu(out _);
+        bool found = false;
 
-        controller.OnJoinClicked();
+        foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
+        {
+            if (scene.enabled && Path.GetFileNameWithoutExtension(scene.path) == controller.JoinSceneName)
+                found = true;
+        }
 
-        Assert.AreEqual("A lobby még nem elérhető.", statusText.text);
+        Assert.AreEqual("MatchJoin", controller.JoinSceneName);
+        Assert.IsTrue(found, $"A Join-jelenet ({controller.JoinSceneName}) nincs a Build Settings jelenetlistájában.");
     }
 
     [Test]
