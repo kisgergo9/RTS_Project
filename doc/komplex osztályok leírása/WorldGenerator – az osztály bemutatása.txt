@@ -178,7 +178,7 @@ SZINKRONIZÁCIÓ A KLIENSEKKEL (DÖNTÉS)
 	Tömör formátum: a tereptárgy-típusazonosítók egyszer, egy táblázatban szerepelnek (legfeljebb 256 típus, ASCII, legfeljebb 64 karakter), az egyes tárgyak 1 bájtos sorszámmal hivatkoznak rájuk; a grafikai változat és a tulajdonostípus 1 bájtos, a bázisazonosító 2 bájtos, a bázis tulajdonosa a játékoslista 1 bájtos sorszáma. A bázisok és az akadályok pozíciója és léptéke pontos. A csak megjelenítést szolgáló dekorációk pozíciója 16 bites, a pályához viszonyított érték (a legnagyobb pályán kb. 0,008 egység pontosság), léptéke 0,01-es lépésközzel utazik.
 	Védelem: a beolvasott elemszámok legfeljebb MaxEntries (4096) értékűek lehetnek, és az érvénytelen típushivatkozást is elutasítja, hogy egy hibás üzenet ne okozhasson túlzott memóriafoglalást vagy hibás állapotot.
 	Ha a dekorációsűrűséget jelentősen növelik, az üzenet meghaladhatja a 6144 bájtot; ilyenkor a Unity Transport MaxPayloadSize értékét növelni kell.
-	Nyitott: a tényleges küldést a hálózati session elkészülte után kell bekötni.
+	A küldést a lobby végzi a mérkőzés indításakor (MatchStartMessage, lásd: Lobby és mérkőzésindítás – az osztályok bemutatása.txt). A sárga védőcsapatok nem utaznak: a WorldGenerator.WithDefenders a seedből és a bázisokból pontosan ugyanazokat számolja ki.
 
 MENTÉS
 	A GameBootstrapper generáláskor eltárolja a pillanatképet a GameState.World.Generation tulajdonságban (egyszer állítható be).
@@ -196,6 +196,7 @@ UNITY-INTEGRÁCIÓ
 		A WorldLayout alapján létrehozza és inicializálja a bázisokat (BaseController.Initialize). Létrehozza az akadályokat (sprite, a generátorral azonos alapterületű PolygonCollider2D, MovementObstacle) és a dekorációkat (csak sprite). Elkészíti a csempézett talajt (rétegsorrend: -1000, a Base prefab legalsó rétege alatt), a pálya széle mentén a négy, mozgást tiltó falat (MovementObstacle), és beállítja a kamera határait (CameraController.SetWorldBounds). A tereptárgyak grafikáját a WorldGenerationSettings adja, amelyet a GameBootstrapper a WorldGenerationSetup-ból ad át.
 	GameBootstrapper:
 		Ha a World Generation mezői ki vannak töltve, a bázisok a generált világból származnak (a Bases tömbnek ilyenkor üresnek kell lennie), és regisztrálódnak a játékállapotba. Ha nincsenek kitöltve, a korábbi, jelenetben elhelyezett bázisok működnek változatlanul.
+		Lobbyból indított mérkőzésnél a MatchStarter a ConfigureMatch hívással adja meg a játékosokat és a helyi játékost, a WorldGenerationSetup.UsePresetLayout hívással pedig a host által generált világot (ilyenkor a WorldGenerationSetup nem generál).
 
 	Ideiglenes megoldások:
 	- A Base prefabon lévő BaseTestInput tesztkomponenst a WorldSceneBuilder kikapcsolja a generált bázisokon, mert az saját pénztárcát állítana be, és minden bázison saját GUI-t rajzolna. Ha a komponens lekerül a prefabról, a DisableTestInput metódus törölhető.
@@ -238,7 +239,6 @@ TELJESÍTMÉNY (mérve, Unity Editorban)
 	A tartományok több mérés eredményét mutatják; az eltérés az Editor terheltségéből adódik. Egy generálás egyszeri, a mérkőzés indításakor fut a hoston.
 
 NYITOTT KÉRDÉSEK ÉS KÖVETKEZŐ LÉPÉSEK
-	- A WorldGenerationMessage tényleges küldése a hálózati session elkészülte után.
 	- Az útvonaltervezés (A*) a WorldGenerator.BuildWalkabilityGrid által adott rácsra épülhet. Ez a rács az akadályokat a minimális átjáró-szélesség felével megnövelve tartalmazza; ha az útvonaltervezés kisebb (pl. egységméretű) megnövelést igényel, a WalkabilityGrid ugyanígy felépíthető más értékkel.
 	- Az egységek ütközéskezelése (UnitCollisionHandler) a pálya szélén és az akadályoknál kb. 0,2 egységnyi átfedéssel áll meg. Ez a meglévő ütközéskezelés viselkedése, nem a generátoré.
 	- A lobby felülete a WorldSizingRules tartományait és ajánlott értékeit használja.
