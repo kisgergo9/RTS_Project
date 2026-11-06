@@ -86,6 +86,48 @@ public sealed class WorldGenerationAcceptanceTests
     }
 
     [Test]
+    public void RecommendedSettings_ProducePlayableWorldsForEveryPlayerCount()
+    {
+        const int seedsPerPlayerCount = 30;
+
+        WorldSizingRules rules = _generator.Rules;
+        List<string> problems = new List<string>();
+
+        for (int players = rules.MinPlayerCount; players <= rules.MaxPlayerCount; players++)
+        {
+            int size = rules.GetRecommendedWorldSize(players);
+            int yellow = rules.GetRecommendedYellowBaseCount(players, size);
+            int obstacles = rules.GetRecommendedObstacleCount(size);
+            int[] playerIds = new int[players];
+
+            for (int i = 0; i < players; i++)
+                playerIds[i] = i + 1;
+
+            for (int seed = 0; seed < seedsPerPlayerCount; seed++)
+            {
+                WorldGenerationResult result = _generator.Generate(
+                    new WorldGenerationRequest(playerIds, size, yellow, obstacles, 20000 + seed));
+
+                string context = $"játékosok={players}, méret={size}, sárga={yellow}, " +
+                                 $"akadályok={obstacles}, seed={20000 + seed}";
+
+                if (!result.Success)
+                {
+                    problems.Add($"{context}: sikertelen generálás: {result.ErrorMessage}");
+                    continue;
+                }
+
+                CheckLayout(result.Layout, context, problems);
+            }
+
+            if (problems.Count > 20)
+                break;
+        }
+
+        Assert.IsEmpty(problems, string.Join("\n", problems));
+    }
+
+    [Test]
     public void LargestWorld_GenerationTimeIsAcceptable()
     {
         const int runs = 50;
@@ -237,6 +279,12 @@ public sealed class WorldGenerationAcceptanceTests
 
     private void CheckDecorations(WorldLayout layout, string context, List<string> problems)
     {
+        IReadOnlyList<TerrainFeatureLayout> obstacles = layout.Obstacles;
+        Footprint[] obstacleFootprints = new Footprint[obstacles.Count];
+
+        for (int i = 0; i < obstacles.Count; i++)
+            obstacleFootprints[i] = Footprint(obstacles[i]);
+
         foreach (TerrainFeatureLayout decoration in layout.Decorations)
         {
             Footprint footprint = Footprint(decoration);
@@ -247,10 +295,18 @@ public sealed class WorldGenerationAcceptanceTests
                     problems.Add($"{context}: {decoration} a bázis szabad területén: {baseLayout}");
             }
 
-            foreach (TerrainFeatureLayout obstacle in layout.Obstacles)
+            for (int i = 0; i < obstacles.Count; i++)
             {
-                if (global::Footprint.Distance(footprint, decoration.Position, Footprint(obstacle), obstacle.Position) <= 0f)
-                    problems.Add($"{context}: {decoration} fedi: {obstacle}");
+                // A pontos sokszögtávolság drága; a befoglaló körök alapján
+                // biztosan távoli párokat kihagyjuk.
+                float reach = footprint.BoundingRadius + obstacleFootprints[i].BoundingRadius;
+
+                if ((decoration.Position - obstacles[i].Position).sqrMagnitude > reach * reach)
+                    continue;
+
+                if (global::Footprint.Distance(footprint, decoration.Position,
+                        obstacleFootprints[i], obstacles[i].Position) <= 0f)
+                    problems.Add($"{context}: {decoration} fedi: {obstacles[i]}");
             }
         }
     }

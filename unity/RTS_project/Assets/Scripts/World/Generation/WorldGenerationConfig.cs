@@ -40,6 +40,22 @@ public sealed class WorldGenerationConfig
     public int WorldSizeStep { get; }
     public float TargetFillRatio { get; }
 
+    // Ajánlott (lobby-alapértelmezett) beállítások
+
+    /// <summary>
+    /// Az ajánlott világméret a legkisebb játékosszámnál. A legnagyobb
+    /// játékosszámnál az ajánlott méret a maximális világméret, közte
+    /// egyenletesen nő. 0 = a legkisebb játékosszám minimális világmérete.
+    /// </summary>
+    public int RecommendedWorldSizeAtMinPlayers { get; }
+
+    /// <summary>
+    /// Az ajánlott akadályszám a legkisebb ajánlott világban. A maximális
+    /// világméretnél az ajánlott akadályszám MaxObstacleCount, közte a
+    /// világmérettel egyenletesen nő.
+    /// </summary>
+    public int RecommendedObstacleCountAtMinPlayers { get; }
+
     // Elhelyezés
     public int MaxPlacementAttemptsPerBase { get; }
     public int MaxGenerationAttempts { get; }
@@ -71,7 +87,9 @@ public sealed class WorldGenerationConfig
         float startPositionJitter,
         TerrainGenerationConfig terrain = null,
         float obstaclesPer10000Area = 0f,
-        YellowDefenderConfig defenders = null)
+        YellowDefenderConfig defenders = null,
+        int recommendedWorldSizeAtMinPlayers = 0,
+        int recommendedObstacleCountAtMinPlayers = 0)
     {
         if (minPlayerCount < 1)
             throw new ArgumentOutOfRangeException(nameof(minPlayerCount),
@@ -148,6 +166,15 @@ public sealed class WorldGenerationConfig
             throw new ArgumentOutOfRangeException(nameof(startPositionJitter),
                 "A kezdőpozíciók szórása nem lehet negatív.");
 
+        if (recommendedWorldSizeAtMinPlayers < 0)
+            throw new ArgumentOutOfRangeException(nameof(recommendedWorldSizeAtMinPlayers),
+                "Az ajánlott világméret nem lehet negatív.");
+
+        if (recommendedObstacleCountAtMinPlayers < 0 ||
+            recommendedObstacleCountAtMinPlayers > maxObstacleCount)
+            throw new ArgumentOutOfRangeException(nameof(recommendedObstacleCountAtMinPlayers),
+                "Az ajánlott akadályszámnak a [0; maxObstacleCount] tartományba kell esnie.");
+
         MinPlayerCount = minPlayerCount;
         MaxPlayerCount = maxPlayerCount;
         MaxBaseCount = maxBaseCount;
@@ -166,6 +193,8 @@ public sealed class WorldGenerationConfig
         PlayerRingRadiusFraction = playerRingRadiusFraction;
         StartPositionJitter = startPositionJitter;
         ObstaclesPer10000Area = obstaclesPer10000Area;
+        RecommendedWorldSizeAtMinPlayers = recommendedWorldSizeAtMinPlayers;
+        RecommendedObstacleCountAtMinPlayers = recommendedObstacleCountAtMinPlayers;
 
         if (terrain != null)
             ValidateTerrain(terrain);

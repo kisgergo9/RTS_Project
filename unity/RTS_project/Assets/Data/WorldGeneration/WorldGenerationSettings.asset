@@ -20,12 +20,14 @@ MonoBehaviour:
   minYellowBaseCount: 1
   yellowBasesPerPlayer: 1
   minObstacleCount: 0
-  maxObstacleCount: 100
+  maxObstacleCount: 50
   obstaclesPer10000Area: 8
   obstacleClearRadius: 8
   absoluteMinWorldSize: 80
   worldSizeStep: 10
   targetFillRatio: 0.34
+  recommendedWorldSizeAtMinPlayers: 120
+  recommendedObstacleCountAtMinPlayers: 8
   maxPlacementAttemptsPerBase: 200
   maxGenerationAttempts: 10
   playerRingRadiusFraction: 0.7

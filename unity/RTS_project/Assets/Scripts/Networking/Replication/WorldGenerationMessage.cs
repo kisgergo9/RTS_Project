@@ -15,8 +15,8 @@ using Unity.Netcode;
 /// viszonyított értékként (a legnagyobb pályán kb. 0,008 egység pontossággal),
 /// léptéke 0,01-es lépésközzel utazik; a játékmenetet befolyásoló bázisok és
 /// akadályok pontos értékkel. A bázis tulajdonosa a játékoslista 1 bájtos
-/// sorszámaként utazik. A legnagyobb világ (150 bázis, 100 akadály,
-/// 337 dekoráció) így a Unity Transport alapértelmezett 6144 bájtos
+/// sorszámaként utazik. A legnagyobb világ (150 bázis, 50 akadály,
+/// 350 dekoráció) így a Unity Transport alapértelmezett 6144 bájtos
 /// MaxPayloadSize értéke alatt marad. Sűrűbb dekoráció esetén a
 /// MaxPayloadSize-t növelni kell.
 ///

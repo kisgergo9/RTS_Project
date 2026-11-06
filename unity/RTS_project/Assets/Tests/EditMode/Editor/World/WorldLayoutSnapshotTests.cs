@@ -293,7 +293,7 @@ public sealed class WorldLayoutSnapshotTests
         // A legrosszabb eset: legtöbb bázis, akadály és dekoráció.
         Assert.IsTrue(result.Success, result.ErrorMessage);
         Assert.AreEqual(150, result.Layout.Bases.Count);
-        Assert.AreEqual(100, result.Layout.Obstacles.Count);
+        Assert.AreEqual(50, result.Layout.Obstacles.Count);
         Assert.AreEqual(generator.GetRequestedDecorationCount(size), result.Layout.Decorations.Count);
 
         using FastBufferWriter writer = new FastBufferWriter(1024, Allocator.Temp, 1024 * 1024);

@@ -118,6 +118,19 @@ public sealed class WorldGenerationSetup : MonoBehaviour
         OnValidate();
     }
 
+    [ContextMenu("Use Recommended Values")]
+    private void UseRecommendedValues()
+    {
+        if (!TryGetEditorContext(out WorldSizingRules rules, out List<int> playerIds))
+            return;
+
+        UnityEditor.Undo.RecordObject(this, "Use Recommended World Values");
+        worldSize = rules.GetRecommendedWorldSize(playerIds.Count);
+        yellowBaseCount = rules.GetRecommendedYellowBaseCount(playerIds.Count, worldSize);
+        obstacleCount = rules.GetRecommendedObstacleCount(worldSize);
+        OnValidate();
+    }
+
     [ContextMenu("New Random Seed")]
     private void NewRandomSeed()
     {

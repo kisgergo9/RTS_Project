@@ -35,6 +35,10 @@ HASZNÁLAT RÖVIDEN
 		generator.Rules.GetWorldSizeRange(jatekosSzam);
 		generator.Rules.GetYellowBaseCountRange(jatekosSzam, vilagMeret);
 		generator.Rules.GetObstacleCountRange(vilagMeret);
+	   Az ajánlott (lobby-alapértelmezett) értékek:
+		generator.Rules.GetRecommendedWorldSize(jatekosSzam);
+		generator.Rules.GetRecommendedYellowBaseCount(jatekosSzam, vilagMeret);
+		generator.Rules.GetRecommendedObstacleCount(vilagMeret);
 	3. Generálás:
 		WorldGenerationRequest request = new WorldGenerationRequest(jatekosIdk, vilagMeret, sargaBazisok, akadalyok, seed);
 		WorldGenerationResult result = generator.Generate(request);
@@ -49,7 +53,7 @@ HASZNÁLAT RÖVIDEN
 
 A BEÁLLÍTÁSOK KIVÁLASZTÁSÁNAK SORRENDJE
 	1. Játékosszám: [1; 10].
-	2. A játékosszámtól függő világméret: [minimális méret; 530]. A világ négyzet, a méret az oldalhossza világegységben.
+	2. A játékosszámtól függő világméret: [minimális méret; 500]. A világ négyzet, a méret az oldalhossza világegységben.
 	3. A világmérettől függő sárga bázis- és akadályszám.
 
 	A sárga bázisok minimuma a játékosszámtól függ: max(minYellowBaseCount, felfelé kerekítve(játékosszám · yellowBasesPerPlayer)). Az alapértékekkel ez a játékosszámmal egyenlő, de legalább 1.
@@ -58,22 +62,34 @@ MÉRETEZÉSI MODELL (WorldSizingRules)
 	Helyigény: minden bázis egy minBaseDistance átmérőjű, minden akadály egy obstacleClearRadius sugarú kört foglal el.
 	Használható terület: (világméret - 2 · baseClearRadius)², mert a bázisok középpontja legalább baseClearRadius távolságra van a pálya szélétől.
 	Kitöltés: a használható területnek legfeljebb targetFillRatio hányadát foglalhatják el a bázisok és az akadályok együtt. Ettől lesz kényelmes az elhelyezés. A véletlenszerű, átfedésmentes elhelyezés elméleti határa kb. 0,547, ezért a konfiguráció legfeljebb 0,5-öt enged.
-	Maximális világ: a legkisebb, worldSizeStep többszörösére kerekített méret, amelyben a maxBaseCount (150) bázis és a maxObstacleCount (100) akadály ezzel a kitöltéssel elfér.
+	Maximális világ: a legkisebb, worldSizeStep többszörösére kerekített méret, amelyben a maxBaseCount (150) bázis és a maxObstacleCount (50) akadály ezzel a kitöltéssel elfér.
 	Kisebb világ: a bázisok és az akadályok a maximális világban érvényes arányban osztoznak a területen.
 	Minimális világ adott játékosszámra: a legnagyobb a következők közül:
 		- absoluteMinWorldSize,
 		- a játékosok és a minimális sárga bázisok helyigénye,
 		- az a méret, amelyben a kezdőbázisok köre a szórással együtt is legalább minBaseDistance távolságot hagy a szomszédos kezdőbázisok között.
 
-	Alapértelmezett beállításokkal számolt értékek:
-		Játékosok | Min. világ | Sárga bázis a min. világban | Sárga bázis a max. (530) világban | Akadály a min. világban | Pálmafa a min. világban
-		1         | 80         | 1                           | 1–149                             | 0–1                     | 8
-		2         | 110        | 2                           | 2–148                             | 0–3                     | 15
-		4         | 140        | 4                           | 4–146                             | 0–5                     | 24
-		6         | 170        | 6–7                         | 6–144                             | 0–8                     | 35
-		8         | 190        | 8–9                         | 8–142                             | 0–11                    | 43
-		10        | 210        | 10–11                       | 10–140                            | 0–14                    | 53
-		A legnagyobb (530-as) világban legfeljebb 100 akadály és 337 pálmafa van.
+	Alapértelmezett beállításokkal számolt minimális világ:
+		Játékosok | 1  | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10
+		Min. világ| 80 | 100 | 120 | 130 | 150 | 160 | 170 | 180 | 190 | 200
+		A legnagyobb (500-as) világban legfeljebb 150 bázis, 50 akadály és 350 pálmafa van.
+
+AJÁNLOTT BEÁLLÍTÁSOK (a lobby alapértékei)
+	A host a lobbyban a fenti tartományokon belül bármit választhat; ezek az alapértékek (WorldSizingRules.GetRecommended...).
+	- Világméret: 1 játékosnál recommendedWorldSizeAtMinPlayers (120), 10 játékosnál a legnagyobb világ (500), közte a játékosszámmal egyenletesen nő (worldSizeStep többszörösére felfelé kerekítve, legalább a minimális világ).
+	- Sárga bázisok: a világba férő összes bázishely betöltése, a kezdőbázisokon kívül minden bázis sárga (a 120-as tesztpályán 5, a legnagyobb világban 140).
+	- Akadályok: a világmérettel egyenletesen nő recommendedObstacleCountAtMinPlayers-től (8) maxObstacleCount-ig (50).
+		Játékosok | Világ     | Összes bázis | Sárga bázis | Akadály | Pálmafa
+		1         | 120 × 120 | 6            | 5           | 8       | 27
+		2         | 170 × 170 | 15           | 13          | 14      | 60
+		3         | 210 × 210 | 24           | 21          | 18      | 95
+		4         | 250 × 250 | 35           | 31          | 22      | 139
+		5         | 290 × 290 | 48           | 43          | 27      | 192
+		6         | 340 × 340 | 67           | 61          | 32      | 269
+		7         | 380 × 380 | 85           | 78          | 37      | 340
+		8         | 420 × 420 | 105          | 97          | 41      | 350
+		9         | 460 × 460 | 127          | 118         | 46      | 350
+		10        | 500 × 500 | 150          | 140         | 50      | 350
 
 INSPECTORBAN ÁLLÍTHATÓ MEZŐK (WorldGenerationSettings)
 	Az alapértékek javaslatok, nem véglegesített játékszabályok. A Base prefab kb. 12 × 4,2 egység, a kijáratai legfeljebb kb. 5,5 egységre vannak a középponttól, a tornyok felderítési területe 18 × 10 egység.
@@ -83,11 +99,11 @@ INSPECTORBAN ÁLLÍTHATÓ MEZŐK (WorldGenerationSettings)
 	minBaseDistance (24): két bázis középpontja közötti minimális távolság. Így a tornyok felderítési területei nem fedik egymást, és az egységek elférnek a bázisok között.
 	baseClearRadius (9): a bázis körüli szabad terület sugara (megjelenési pontok, APC-foglalási terület). A bázisok középpontja legalább ennyire van a pálya szélétől.
 	minYellowBaseCount (1), yellowBasesPerPlayer (1): a sárga bázisok minimuma.
-	obstaclesPer10000Area (8): az akadályok legnagyobb száma 10 000 négyzetegységnyi használható pályaterületenként, maxObstacleCount felső korláttal. Így a kis pályákon is jut elég akadály (120-as pályán 8, 140-esen 11, a legnagyobb pályán 100). 0 esetén az akadályok a bázisokkal arányosan osztoznak a területen (a korábbi viselkedés).
-	minObstacleCount (0), maxObstacleCount (100), obstacleClearRadius (8): az akadályok száma és helyigénye a méretezésben. Az akadályok tényleges alakját a tereptárgy-típusok adják; a legnagyobb akadálynak bele kell férnie az obstacleClearRadius sugarú körbe (a konfiguráció ezt ellenőrzi).
+	obstaclesPer10000Area (8): az akadályok legnagyobb száma 10 000 négyzetegységnyi használható pályaterületenként, maxObstacleCount felső korláttal. Így a kis pályákon is jut elég akadály (120-as pályán 8, 140-esen 11, a legnagyobb pályán a korlát, 50). 0 esetén az akadályok a bázisokkal arányosan osztoznak a területen (a korábbi viselkedés).
+	minObstacleCount (0), maxObstacleCount (50), obstacleClearRadius (8): az akadályok száma és helyigénye a méretezésben. Az akadályok tényleges alakját a tereptárgy-típusok adják; a legnagyobb akadálynak bele kell férnie az obstacleClearRadius sugarú körbe (a konfiguráció ezt ellenőrzi).
 	absoluteMinWorldSize (80): a legkisebb világ oldalhossza.
 	worldSizeStep (10): a számított minimális és maximális méretet ennek többszörösére kerekítjük felfelé.
-	targetFillRatio (0,34): a kitöltési arány. Kisebb érték tágasabb világot ad. A 100 akadályhoz tartozó 0,34-es érték mellett a legnagyobb világ ugyanúgy 530 egység, mint az eredeti 50 akadály és 0,3 mellett, a kis pályákon viszont kb. kétszer annyi akadály fér el (pl. 140-es pályán 2 helyett 5).
+	targetFillRatio (0,34): a kitöltési arány. Kisebb érték tágasabb világot ad. 50 akadály és 0,34 mellett a legnagyobb világ 500 egység, amelyben a 150 bázis kényelmesen elfér.
 	maxPlacementAttemptsPerBase (200): egy bázis elhelyezésére tett próbálkozások száma.
 	maxGenerationAttempts (10): a teljes generálás újrakezdéseinek száma.
 	playerRingRadiusFraction (0,7): a kezdőbázisok köre sugarának aránya a játszható fél-szélességhez képest. 1 = a pálya széle mentén, kisebb érték = közelebb a középhez.
@@ -157,7 +173,7 @@ SZINKRONIZÁCIÓ A KLIENSEKKEL (DÖNTÉS)
 	Indoklás:
 	- Megfelel a host-authoritative elvnek: a világot egyedül a host határozza meg.
 	- A kliensek világa nem függ a generátor verziójától és a lebegőpontos számítások gépenkénti eltérésétől.
-	- Az üzenet kicsi: a legnagyobb világ (150 bázis, 100 akadály, 337 dekoráció) kb. 5,0 KB, ami a Unity Transport alapértelmezett 6144 bájtos MaxPayloadSize értéke alatt marad.
+	- Az üzenet kicsi: a legnagyobb világ (150 bázis, 50 akadály, 350 dekoráció) kb. 5 KB, ami a Unity Transport alapértelmezett 6144 bájtos MaxPayloadSize értéke alatt marad.
 	Megvalósítás: a WorldGenerationMessage (Netcode INetworkSerializable) a WorldGenerationState pillanatképet viszi. A kliens a WorldLayoutSnapshot.FromState hívással állítja vissza az elrendezést, majd a WorldSceneBuilder.Build hívással építi fel a jelenetet.
 	Tömör formátum: a tereptárgy-típusazonosítók egyszer, egy táblázatban szerepelnek (legfeljebb 256 típus, ASCII, legfeljebb 64 karakter), az egyes tárgyak 1 bájtos sorszámmal hivatkoznak rájuk; a grafikai változat és a tulajdonostípus 1 bájtos, a bázisazonosító 2 bájtos, a bázis tulajdonosa a játékoslista 1 bájtos sorszáma. A bázisok és az akadályok pozíciója és léptéke pontos. A csak megjelenítést szolgáló dekorációk pozíciója 16 bites, a pályához viszonyított érték (a legnagyobb pályán kb. 0,008 egység pontosság), léptéke 0,01-es lépésközzel utazik.
 	Védelem: a beolvasott elemszámok legfeljebb MaxEntries (4096) értékűek lehetnek, és az érvénytelen típushivatkozást is elutasítja, hogy egy hibás üzenet ne okozhasson túlzott memóriafoglalást vagy hibás állapotot.
@@ -173,7 +189,7 @@ MENTÉS
 
 UNITY-INTEGRÁCIÓ
 	WorldGenerationSetup (a GameBootstrapperrel azonos GameObjecten):
-		A host generálási beállításai. Amíg nincs lobby, az Inspectorban adhatók meg (világméret, sárga bázisok, akadályok, seed, véletlen seed kapcsoló). A "Valid Ranges" mező mutatja az aktuális játékosszámhoz tartozó érvényes tartományokat, a dekorációk számát, a járható régiók számát, azt, hogy minden bázis elérhető-e, és az esetleges hibát. A Scene nézetben Play mód nélkül is előnézetet rajzol (kék: kezdőbázis, sárga: sárga bázis, kör: szabad terület, narancs körvonal: akadály alapterülete, zöld pont: dekoráció). A komponens jobb klikkes menüje: Use Minimum Values, Use Maximum Values, New Random Seed.
+		A host generálási beállításai. Amíg nincs lobby, az Inspectorban adhatók meg (világméret, sárga bázisok, akadályok, seed, véletlen seed kapcsoló). A "Valid Ranges" mező mutatja az aktuális játékosszámhoz tartozó érvényes tartományokat, a dekorációk számát, a járható régiók számát, azt, hogy minden bázis elérhető-e, és az esetleges hibát. A Scene nézetben Play mód nélkül is előnézetet rajzol (kék: kezdőbázis, sárga: sárga bázis, kör: szabad terület, narancs körvonal: akadály alapterülete, zöld pont: dekoráció). A komponens jobb klikkes menüje: Use Minimum Values, Use Maximum Values, Use Recommended Values (az ajánlott beállítások az aktuális játékosszámra), New Random Seed.
 		Draw Walkability: a járhatósági rács megjelenítése (sötétvörös: tiltott cella, zöld: a fő járható régió, lila: a fő régióból elérhetetlen járható terület). Elzárt terület így ránézésre látszik.
 	WorldSceneBuilder:
 		A SpawnDefenders a sárga védőegységeket hozza létre a rögzített helyeken, sárga tulajdonossal, a bázistól kifelé nézve; az azonosítót és a játékállapotba regisztrálást a GameBootstrapper végzi.
@@ -188,14 +204,14 @@ UNITY-INTEGRÁCIÓ
 	- Az egységkijelölés jelenleg nem vizsgálja a tulajdonost, így a sárga védőegységek is kijelölhetők. A specifikáció szerint a játékos csak a saját egységeit irányíthatja; ezt a kijelölésnél kell majd pótolni.
 
 TESZTJELENET ÖSSZEÁLLÍTÁSA
-	A tesztjelenet: Assets/Scenes/Test_WorldGeneration.unity (a .gitignore *.unity szabálya miatt kifejezetten hozzáadva). Beállítása: 1 játékos (0), 120 × 120-as pálya, 5 sárga bázis, 8 akadály, seed 12345. Kézi összeállítása:
+	A tesztjelenet: Assets/Scenes/Test_WorldGeneration.unity (a .gitignore *.unity szabálya miatt kifejezetten hozzáadva). Beállítása: 1 játékos (azonosító: 1, helyi játékos: 1), 120 × 120-as pálya, 5 sárga bázis, 8 akadály, seed 12345. Kézi összeállítása:
 	1. Új, üres jelenet.
 	2. Main Camera: orthographic kamera, MainCamera tag, CameraController komponens a Settings/Camera.inputactions műveleteivel (Move, Pan, PointerPosition, Zoom). A teljes pálya áttekintéséhez a maxZoom értéke legyen nagyobb (pl. 60).
 	3. Global Light 2D (Light 2D komponens, Global típus).
 	4. "World" GameObject a következő komponensekkel:
 		- WorldSceneBuilder: Base Prefab = Prefabs/Bases/Base, Ground Sprite = Art/Terrain/boden1 (boden1_0), Camera Controller = a fenti kamera.
 		- WorldGenerationSetup: Settings = Data/WorldGeneration/WorldGenerationSettings, valamint a világméret, a sárga bázisok és az akadályok száma és a seed. Az elérhetőség ellenőrzéséhez kapcsold be a Draw Walkability mezőt.
-		- GameBootstrapper: Players = pl. a 0 azonosítójú játékos, Bases = üres, World Generation = a fenti két komponens.
+		- GameBootstrapper: Players = pl. az 1 azonosítójú játékos, Local Player Id = 1, Bases = üres, World Generation = a fenti két komponens.
 	5. "UnitGroupManager" GameObject a UnitGroupManager komponenssel (a védőegységekhez szükséges).
 	6. Play módban a konzol kiírja a generált világ adatait (méret, seed, bázisok, akadályok, dekorációk és sárga védőegységek száma, kísérletek).
 
@@ -211,18 +227,19 @@ TESZTEK
 	- WorldGeneratorObstacleTests: akadályok determinizmusa, a bázisok változatlansága, távolságok, elérhetőség, fal és keskeny átjáró felismerése, hibakezelés.
 	- WorldGeneratorDecorationTests: dekorációk száma, determinizmusa, érvényessége, a járhatóságra gyakorolt hatás hiánya.
 	- YellowDefenderTests: egységtulajdon (sárga és játékos egységek), védőcsapat-konfiguráció, nehézségi keret, rögzített helyek, determinizmus, a beállítás-asset.
-	- WorldGenerationAcceptanceTests ("Slow" kategória): a projekt valódi beállításaival 520 seed, minden játékosszám (1–10), kis, közepes és legnagyobb pálya, maximális bázis- és akadályszám. Egyik világban sem lehet elérhetetlen bázis, akadállyal fedett bázis vagy kijárat, egymást átfedő kritikus objektum, illetve pályán kívüli objektum. Futási ideje kb. 15–20 másodperc, ezért kategória szerint kihagyható.
+	- WorldGenerationAcceptanceTests ("Slow" kategória): a projekt valódi beállításaival 520 seed, minden játékosszám (1–10), kis, közepes és legnagyobb pálya, maximális bázis- és akadályszám, valamint minden játékosszám az ajánlott beállításokkal (30-30 seed). Egyik világban sem lehet elérhetetlen bázis, akadállyal fedett bázis vagy kijárat, egymást átfedő kritikus objektum, illetve pályán kívüli objektum. Futási ideje kb. 2 perc, ezért kategória szerint kihagyható.
 	A tesztek az Editor mappában vannak, mert a projekt nem használ assembly definitionöket. Futtatás: Window → General → Test Runner → EditMode → Run All.
 
 TELJESÍTMÉNY (mérve, Unity Editorban)
-	Legnagyobb világ (530 × 530, 10 játékos, 150 bázis, 50 akadály, 169 dekoráció), 50 különböző seed: átlag 47–49 ms, medián 45–48 ms, leglassabb 67–73 ms. Az elfogadási küszöb 500 ms.
-	520 vegyes világ (1–10 játékos, kis, közepes és legnagyobb pálya, maximális bázis- és akadályszám): átlag 22–35 ms, leglassabb 69–213 ms.
-	Ebből a járhatósági rács felépítése és régiókra bontása a legnagyobb pályán kb. 50 ms.
-	A tartományok három mérés eredményét mutatják; az eltérés az Editor terheltségéből adódik. Egy generálás egyszeri, a mérkőzés indításakor fut a hoston.
+	Legnagyobb világ (500 × 500, 10 játékos, 150 bázis, 50 akadály, 350 dekoráció), 50 különböző seed: átlag 112–117 ms, medián 111–117 ms, leglassabb 134–136 ms. Az elfogadási küszöb 500 ms.
+	520 vegyes világ (1–10 játékos, kis, közepes és legnagyobb pálya, maximális bázis- és akadályszám): átlag 69–70 ms, leglassabb 135–140 ms.
+	Ajánlott beállítások, 10 játékosnál (500 × 500, 140 sárga bázis): generálás kb. 120 ms, az elérhetőség ellenőrzése kb. 40 ms.
+	Ebből a járhatósági rács felépítése és régiókra bontása a legnagyobb pályán kb. 40–50 ms.
+	A tartományok több mérés eredményét mutatják; az eltérés az Editor terheltségéből adódik. Egy generálás egyszeri, a mérkőzés indításakor fut a hoston.
 
 NYITOTT KÉRDÉSEK ÉS KÖVETKEZŐ LÉPÉSEK
 	- A WorldGenerationMessage tényleges küldése a hálózati session elkészülte után.
 	- Az útvonaltervezés (A*) a WorldGenerator.BuildWalkabilityGrid által adott rácsra épülhet. Ez a rács az akadályokat a minimális átjáró-szélesség felével megnövelve tartalmazza; ha az útvonaltervezés kisebb (pl. egységméretű) megnövelést igényel, a WalkabilityGrid ugyanígy felépíthető más értékkel.
 	- Az egységek ütközéskezelése (UnitCollisionHandler) a pálya szélén és az akadályoknál kb. 0,2 egységnyi átfedéssel áll meg. Ez a meglévő ütközéskezelés viselkedése, nem a generátoré.
-	- A lobby felülete a WorldGenerationSetup mezőit és a WorldSizingRules tartományait használja majd.
-	- A konfiguráció alapértékei (pl. minBaseDistance, targetFillRatio) javaslatok. A legnagyobb világ jelenleg 530 × 530 egység; a jelenlegi egységsebességgel (2 egység/mp) ennek átszelése több mint 4 percig tart. Ha ez túl nagy, a minBaseDistance csökkentésével vagy a targetFillRatio növelésével kisebb lesz.
+	- A lobby felülete a WorldSizingRules tartományait és ajánlott értékeit használja.
+	- A konfiguráció alapértékei (pl. minBaseDistance, targetFillRatio) javaslatok. A legnagyobb világ jelenleg 500 × 500 egység (10 játékos ajánlott mérete); a jelenlegi egységsebességgel (2 egység/mp) ennek átszelése kb. 4 percig tart. Ha ez túl nagy, a minBaseDistance csökkentésével vagy a targetFillRatio növelésével kisebb lesz.
