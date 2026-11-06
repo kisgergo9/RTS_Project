@@ -47,6 +47,7 @@ public sealed class WorldGenerationSetup : MonoBehaviour
     [SerializeField]
     private bool drawWalkability;
 
+    private WorldLayout _presetLayout;
     private WorldLayout _previewLayout;
     private float _previewClearRadius;
     private readonly Dictionary<string, Footprint> _previewFootprints =
@@ -59,6 +60,24 @@ public sealed class WorldGenerationSetup : MonoBehaviour
     /// A legutóbbi generáláshoz használt seed (véletlen seed esetén is).
     /// </summary>
     public int LastUsedSeed { get; private set; }
+
+    /// <summary>
+    /// Lobbyból indított mérkőzésnél a host által generált világ. Ilyenkor a
+    /// Generate nem generál, hanem ezt adja vissza (a hoston és a klienseken
+    /// is), így mindenki ugyanazt a pályát építi fel. A pillanatképben nem
+    /// utazó sárga védőcsapatokat a seedből számolja újra.
+    /// </summary>
+    public void UsePresetLayout(WorldLayout layout)
+    {
+        if (layout == null)
+            throw new ArgumentNullException(nameof(layout));
+
+        if (settings == null)
+            throw new InvalidOperationException(
+                $"A WorldGenerationSetup-hoz nincs WorldGenerationSettings rendelve: {name}");
+
+        _presetLayout = new WorldGenerator(settings.ToConfig()).WithDefenders(layout);
+    }
 
     public WorldGenerationResult Generate(IEnumerable<PlayerState> players)
     {
@@ -74,11 +93,27 @@ public sealed class WorldGenerationSetup : MonoBehaviour
         foreach (PlayerState player in players)
             playerIds.Add(player.PlayerId);
 
+        if (_presetLayout != null)
+            return UsePreset(playerIds);
+
         LastUsedSeed = randomizeSeed ? DeterministicRandom.CreateRandomSeed() : seed;
 
         WorldGenerator generator = new WorldGenerator(settings.ToConfig());
 
         return generator.Generate(CreateRequest(playerIds, LastUsedSeed));
+    }
+
+    private WorldGenerationResult UsePreset(List<int> playerIds)
+    {
+        HashSet<int> expected = new HashSet<int>(_presetLayout.Request.PlayerIds);
+
+        if (!expected.SetEquals(playerIds))
+            throw new InvalidOperationException(
+                "A kapott világ játékosai nem egyeznek a mérkőzés játékosaival.");
+
+        LastUsedSeed = _presetLayout.Seed;
+
+        return WorldGenerationResult.Succeeded(_presetLayout, 0);
     }
 
     private WorldGenerationRequest CreateRequest(IEnumerable<int> playerIds, int usedSeed)

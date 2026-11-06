@@ -20,7 +20,11 @@ using UnityEngine;
 public sealed class LobbyNetwork : MonoBehaviour
 {
     private const string StateMessageName = "RTS.Lobby.State";
+    private const string MatchStartMessageName = "RTS.Match.Start";
     private const int MaxMessageSize = 16 * 1024;
+
+    // A világüzenet a legnagyobb pályán kb. 6 KB, ezért tördelhető csatornán megy.
+    private const int MaxMatchStartMessageSize = 64 * 1024;
 
     public const string LobbyFullReason = "A lobby megtelt.";
     public const string NoLobbyReason = "Nincs nyitott lobby, vagy a mérkőzés már elindult.";
@@ -69,6 +73,7 @@ public sealed class LobbyNetwork : MonoBehaviour
         LatestSnapshot = null;
 
         manager.CustomMessagingManager.RegisterNamedMessageHandler(StateMessageName, OnStateMessage);
+        manager.CustomMessagingManager.RegisterNamedMessageHandler(MatchStartMessageName, OnMatchStartMessage);
         manager.OnClientConnectedCallback += OnClientConnected;
         manager.OnClientDisconnectCallback += OnClientDisconnected;
 
@@ -82,6 +87,7 @@ public sealed class LobbyNetwork : MonoBehaviour
             return;
 
         _manager.CustomMessagingManager?.UnregisterNamedMessageHandler(StateMessageName);
+        _manager.CustomMessagingManager?.UnregisterNamedMessageHandler(MatchStartMessageName);
         _manager.OnClientConnectedCallback -= OnClientConnected;
         _manager.OnClientDisconnectCallback -= OnClientDisconnected;
         _manager.ConnectionApprovalCallback = null;
@@ -114,6 +120,57 @@ public sealed class LobbyNetwork : MonoBehaviour
 
         _hostLobby.Changed -= BroadcastState;
         _hostLobby = null;
+    }
+
+    /// <summary>
+    /// A hoston: a mérkőzés indítása. Minden kliens megkapja az indítóüzenetet
+    /// a saját játékosazonosítójával, a lobby lezárul (újabb csatlakozást a
+    /// host elutasít), majd a host a kliensekkel együtt betölti a mérkőzés
+    /// jelenetét. A hoston a MatchSetup.Current-et a hívó állítja be.
+    /// </summary>
+    public bool TryStartMatch(MatchSetup setup, string matchSceneName, out string error)
+    {
+        if (setup == null)
+            throw new ArgumentNullException(nameof(setup));
+
+        if (_manager == null || !_manager.IsServer)
+        {
+            error = "A mérkőzést csak a futó host indíthatja.";
+            return false;
+        }
+
+        if (_clientPlayers.Count != setup.Players.Count - 1)
+        {
+            error = "A csatlakozott játékosok száma nem egyezik a játékoshelyekével.";
+            return false;
+        }
+
+        foreach (KeyValuePair<ulong, int> client in _clientPlayers)
+            SendMatchStart(client.Key, setup, client.Value);
+
+        DetachHostLobby(_hostLobby);
+
+        SceneEventProgressStatus status = _manager.SceneManager.LoadScene(
+            matchSceneName, UnityEngine.SceneManagement.LoadSceneMode.Single);
+
+        if (status != SceneEventProgressStatus.Started)
+        {
+            error = $"A mérkőzés jelenete nem tölthető be ({status}).";
+            return false;
+        }
+
+        error = null;
+        return true;
+    }
+
+    private void SendMatchStart(ulong clientId, MatchSetup setup, int playerId)
+    {
+        MatchStartMessage message = MatchStartMessage.FromSetup(setup, playerId);
+
+        using FastBufferWriter writer = new FastBufferWriter(8 * 1024, Allocator.Temp, MaxMatchStartMessageSize);
+        writer.WriteNetworkSerializable(message);
+        _manager.CustomMessagingManager.SendNamedMessage(
+            MatchStartMessageName, clientId, writer, NetworkDelivery.ReliableFragmentedSequenced);
     }
 
     // Host
@@ -247,5 +304,21 @@ public sealed class LobbyNetwork : MonoBehaviour
         }
 
         SnapshotReceived?.Invoke();
+    }
+
+    private void OnMatchStartMessage(ulong senderClientId, FastBufferReader reader)
+    {
+        if (_manager == null || _manager.IsServer || senderClientId != NetworkManager.ServerClientId)
+            return;
+
+        try
+        {
+            reader.ReadNetworkSerializable(out MatchStartMessage message);
+            MatchSetup.Current = message.ToSetup();
+        }
+        catch (Exception exception)
+        {
+            Debug.LogError($"Hibás mérkőzésindító üzenet: {exception.Message}", this);
+        }
     }
 }

@@ -19,6 +19,9 @@ using UnityEngine.UI;
 /// kapcsolat megszakad, visszatér a csatlakozási képernyőre.
 ///
 /// Mindkét esetben a megjelenítés a LobbySnapshot-ból történik.
+///
+/// Indítás (csak a hoston, ha minden hely foglalt): a host legenerálja a
+/// világot, és mindenkivel együtt betölti a mérkőzés jelenetét.
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class MatchLobbyController : MonoBehaviour
@@ -85,8 +88,9 @@ public sealed class MatchLobbyController : MonoBehaviour
     [SerializeField]
     private string joinSceneName = "MatchJoin";
 
+    [Tooltip("Az Indítás gombbal (a hoston és a klienseken is) betöltött mérkőzés-jelenet.")]
     [SerializeField]
-    private string startUnavailableMessage = "A mérkőzés indítása még nem elérhető.";
+    private string matchSceneName = "Match";
 
     private bool _refreshing;
     private bool _isClient;
@@ -224,9 +228,39 @@ public sealed class MatchLobbyController : MonoBehaviour
         LoadScene(onePlayerTestSceneName);
     }
 
+    /// <summary>
+    /// A host legenerálja a világot (új, véletlen seeddel), majd a
+    /// klienseknek elküldi, és mindenkivel együtt betölti a mérkőzést.
+    /// </summary>
     public void OnStartClicked()
     {
-        SetText(statusText, startUnavailableMessage);
+        if (State == null || !State.CanStart)
+            return;
+
+        if (!NetworkSession.IsHost)
+        {
+            SetText(statusText, "A mérkőzés csak futó hálózati hosttal indítható.");
+            return;
+        }
+
+        WorldGenerationResult result = new WorldGenerator(settings.ToConfig())
+            .Generate(State.CreateRequest(DeterministicRandom.CreateRandomSeed()));
+
+        if (!result.Success)
+        {
+            SetText(statusText, $"A világ generálása nem sikerült: {result.ErrorMessage}");
+            return;
+        }
+
+        MatchSetup setup = MatchSetup.FromLobby(State, result.Layout, LobbyState.HostPlayerId);
+        MatchSetup.Current = setup;
+
+        if (!NetworkSession.Lobby.TryStartMatch(setup, matchSceneName, out string error))
+        {
+            MatchSetup.Current = null;
+            NetworkSession.Lobby.AttachHostLobby(State);
+            SetText(statusText, error);
+        }
     }
 
     private void OnDisconnected(string reason)
