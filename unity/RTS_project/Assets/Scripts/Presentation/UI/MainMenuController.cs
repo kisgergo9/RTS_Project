@@ -7,10 +7,8 @@ using UnityEngine.UI;
 /// <summary>
 /// A főmenü gombjainak kezelése: Host, Join, Exit.
 ///
-/// Amíg a lobby nem készül el:
-///   - Host: a hostSceneName jelenetet tölti be (jelenleg a világgenerálás
-///     tesztjelenete; a lobby elkészülte után a lobby jelenet neve kerül ide),
-///   - Join: rövid tájékoztató üzenetet jelenít meg,
+///   - Host: a hostSceneName jelenetet (a lobbyt) tölti be,
+///   - Join: rövid tájékoztató üzenetet jelenít meg (amíg nincs hálózat),
 ///   - Exit: kilép a játékból (szerkesztőben leállítja a Play módot).
 /// </summary>
 [DisallowMultipleComponent]
@@ -30,7 +28,7 @@ public sealed class MainMenuController : MonoBehaviour
     [Tooltip("A Host gombbal betöltött jelenet neve. A jelenetnek szerepelnie kell a " +
              "Build Settings jelenetlistájában.")]
     [SerializeField]
-    private string hostSceneName = "Test_WorldGeneration";
+    private string hostSceneName = "MatchLobby";
 
     [Header("Join")]
     [Tooltip("A Join gomb megnyomásakor megjelenő üzenet helye. Kezdetben üres.")]

@@ -867,7 +867,7 @@ MonoBehaviour:
   hostButton: {fileID: 341267866}
   joinButton: {fileID: 869551796}
   exitButton: {fileID: 1724930368}
-  hostSceneName: Test_WorldGeneration
+  hostSceneName: MatchLobby
   statusText: {fileID: 423897658}
   joinUnavailableMessage: "A lobby m\xE9g nem el\xE9rhet\u0151."
 --- !u!114 &944419285

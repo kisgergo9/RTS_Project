@@ -35,6 +35,7 @@ public sealed class WorldSizingRules
     public int MinPlayerCount => _config.MinPlayerCount;
     public int MaxPlayerCount => _config.MaxPlayerCount;
     public int MaxWorldSize { get; }
+    public int WorldSizeStep => _config.WorldSizeStep;
 
     public WorldSizingRules(WorldGenerationConfig config)
     {
