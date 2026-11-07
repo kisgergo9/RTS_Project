@@ -10,8 +10,13 @@ public sealed class UnitGroupMember : MonoBehaviour
     [SerializeField]
     private int ownerPlayerId;
 
+    [Tooltip("Játékos vagy a semleges sárga frakció egysége.")]
+    [SerializeField]
+    private BaseOwnerType ownerType = BaseOwnerType.Player;
+
     public UnitType Type => unitType;
     public int OwnerPlayerId => ownerPlayerId;
+    public BaseOwnerType OwnerType => ownerType;
 
     public int UnitId { get; private set; }
 
@@ -24,6 +29,24 @@ public sealed class UnitGroupMember : MonoBehaviour
     private void Start()
     {
         Register();
+    }
+
+    /// <summary>
+    /// A tulajdonos beállítása futás közben létrehozott egységnél (pl. sárga
+    /// védõegység). Csak az Initialize elõtt hívható.
+    /// </summary>
+    public void SetOwner(BaseOwnerType type, int playerId)
+    {
+        if (IsInitialized)
+        {
+            Debug.LogError(
+                $"Inicializált egység tulajdonosa nem módosítható: {gameObject.name}",
+                this);
+            return;
+        }
+
+        ownerType = type;
+        ownerPlayerId = type == BaseOwnerType.Player ? playerId : 0;
     }
 
     public void Initialize(int unitId)

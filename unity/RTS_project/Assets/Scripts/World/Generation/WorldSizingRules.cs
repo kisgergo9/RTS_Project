@@ -87,12 +87,29 @@ public sealed class WorldSizingRules
         return Math.Min(_config.MaxBaseCount, FloorWithTolerance(capacity));
     }
 
+    /// <summary>
+    /// A világmérethez tartozó legnagyobb akadályszám. Ha ObstaclesPer10000Area
+    /// meg van adva, a használható területtel arányos sűrűség határozza meg
+    /// (így a kis pályákon is jut elég akadály); egyébként az akadályok a
+    /// bázisokkal a maximális világban érvényes arányban osztoznak a területen.
+    /// Mindkét esetben legfeljebb MaxObstacleCount.
+    /// </summary>
     public int GetMaxObstacleCount(int worldSize)
     {
         if (_config.MaxObstacleCount == 0)
             return 0;
 
-        double capacity = GetFillableArea(worldSize) * (1.0 - _baseAreaShare) / _obstacleArea;
+        double capacity;
+
+        if (_config.ObstaclesPer10000Area > 0f)
+        {
+            double usableSide = Math.Max(0.0, worldSize - 2.0 * _config.BaseClearRadius);
+            capacity = usableSide * usableSide * _config.ObstaclesPer10000Area / 10000.0;
+        }
+        else
+        {
+            capacity = GetFillableArea(worldSize) * (1.0 - _baseAreaShare) / _obstacleArea;
+        }
 
         return Math.Min(_config.MaxObstacleCount, FloorWithTolerance(capacity));
     }

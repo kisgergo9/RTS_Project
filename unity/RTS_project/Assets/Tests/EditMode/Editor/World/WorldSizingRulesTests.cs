@@ -128,6 +128,37 @@ public sealed class WorldSizingRulesTests
         Assert.AreEqual(40, rules.GetObstacleCountRange(rules.MaxWorldSize).Min);
     }
 
+    [Test]
+    public void ObstacleDensity_ScalesWithUsableAreaUpToMaximum()
+    {
+        WorldSizingRules rules = new WorldSizingRules(WorldGenerationTestConfigs.Create(
+            maxObstacleCount: 100, targetFillRatio: 0.34f, obstaclesPer10000Area: 8f));
+
+        // Használható oldal: méret - 2 * 9.
+        Assert.AreEqual(8, rules.GetMaxObstacleCount(120));    // 102^2 * 8 / 10000 = 8,3
+        Assert.AreEqual(11, rules.GetMaxObstacleCount(140));   // 122^2 * 8 / 10000 = 11,9
+        Assert.AreEqual(100, rules.GetMaxObstacleCount(rules.MaxWorldSize));
+    }
+
+    [Test]
+    public void ObstacleDensity_GivesMoreObstaclesOnSmallMapsThanProportionalSharing()
+    {
+        WorldSizingRules proportional = new WorldSizingRules(WorldGenerationTestConfigs.Create(
+            maxObstacleCount: 100, targetFillRatio: 0.34f));
+        WorldSizingRules dense = new WorldSizingRules(WorldGenerationTestConfigs.Create(
+            maxObstacleCount: 100, targetFillRatio: 0.34f, obstaclesPer10000Area: 8f));
+
+        Assert.AreEqual(proportional.MaxWorldSize, dense.MaxWorldSize);
+        Assert.Greater(dense.GetMaxObstacleCount(120), proportional.GetMaxObstacleCount(120));
+    }
+
+    [Test]
+    public void Config_RejectsNegativeObstacleDensity()
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(
+            () => WorldGenerationTestConfigs.Create(obstaclesPer10000Area: -1f));
+    }
+
     [TestCase(0)]
     [TestCase(11)]
     public void GetMinWorldSize_InvalidPlayerCount_Throws(int players)

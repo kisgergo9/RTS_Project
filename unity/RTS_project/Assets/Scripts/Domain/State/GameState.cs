@@ -40,7 +40,9 @@ public sealed class GameState
         if (unit == null)
             throw new ArgumentNullException(nameof(unit));
 
-        if (!Players.ContainsPlayer(unit.OwnerPlayerId))
+        // A sárga (semleges) egységeknek nincs játékos tulajdonosa.
+        if (unit.OwnerType == BaseOwnerType.Player &&
+            !Players.ContainsPlayer(unit.OwnerPlayerId))
         {
             throw new InvalidOperationException(
                 $"Az egység tulajdonosa nincs regisztrálva: {unit.OwnerPlayerId}");

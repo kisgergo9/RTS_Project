@@ -19,6 +19,15 @@ public class BaseOwnerView : MonoBehaviour
     private BaseController controller;
     private BaseOwner shownOwner;
 
+    // A helyi játékos beállítása futás közben (generált világban a
+    // GameBootstrapper adja meg, amíg nincs hálózat). A zászló a következő
+    // Update-ben frissül.
+    public void SetLocalPlayer(int playerId)
+    {
+        localPlayerId = playerId;
+        shownOwner = null;
+    }
+
     private void Awake()
     {
         controller = GetComponent<BaseController>();
@@ -64,10 +73,11 @@ public class BaseOwnerView : MonoBehaviour
         }
     }
 
-    // Gazdátlan bázison nincs fal.
+    // Fal csak játékos tulajdonú bázison van (a kezdőbázison, illetve
+    // elfoglaláskor épül fel). Sárga és gazdátlan bázison nincs fal.
     private void ShowWall(BaseOwner owner)
     {
-        wall.SetActive(owner.Type != BaseOwnerType.None);
+        wall.SetActive(owner.Type == BaseOwnerType.Player);
     }
 
     private void ShowOwnerText(BaseOwner owner)

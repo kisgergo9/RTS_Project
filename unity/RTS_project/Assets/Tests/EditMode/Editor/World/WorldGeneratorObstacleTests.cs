@@ -262,6 +262,105 @@ public sealed class WorldGeneratorObstacleTests
         Assert.GreaterOrEqual(common, layout.Obstacles.Count - 1);
     }
 
+    // Egyenletes eloszlás
+
+    /// <summary>
+    /// A pálya legnagyobb üres területe: a pálya belsejében az a pont, amelyik a
+    /// legtávolabb esik minden bázistól és akadálytól; ennek a távolságnak az értéke.
+    /// Minél kisebb, annál egyenletesebb az eloszlás.
+    /// </summary>
+    private static float LargestEmptyRadius(WorldLayout layout)
+    {
+        List<Vector2> objects = new List<Vector2>();
+
+        foreach (TerrainFeatureLayout obstacle in layout.Obstacles)
+            objects.Add(obstacle.Position);
+
+        foreach (BaseLayout baseLayout in layout.Bases)
+            objects.Add(baseLayout.Position);
+
+        float limit = layout.Bounds.HalfSize - 6f;
+        float largest = 0f;
+
+        for (float x = -limit; x <= limit; x += 3f)
+        {
+            for (float y = -limit; y <= limit; y += 3f)
+            {
+                float nearest = float.MaxValue;
+
+                foreach (Vector2 position in objects)
+                    nearest = Mathf.Min(nearest, Vector2.Distance(new Vector2(x, y), position));
+
+                largest = Mathf.Max(largest, nearest);
+            }
+        }
+
+        return largest;
+    }
+
+    private WorldGenerator CandidateGenerator(int candidates)
+    {
+        TerrainGenerationConfig terrain = TerrainTestConfigs.Create(
+            obstacleTypes: _terrain.ObstacleTypes,
+            obstacleCandidateCount: candidates);
+
+        return new WorldGenerator(WorldGenerationTestConfigs.Create(
+            maxObstacleCount: 100, targetFillRatio: 0.34f, obstaclesPer10000Area: 8f, terrain: terrain));
+    }
+
+    [Test]
+    public void BestCandidate_LeavesSmallerEmptyAreas()
+    {
+        WorldGenerator random = CandidateGenerator(1);
+        WorldGenerator spread = CandidateGenerator(20);
+
+        float randomTotal = 0f;
+        float spreadTotal = 0f;
+
+        for (int seed = 0; seed < 30; seed++)
+        {
+            WorldGenerationRequest request = new WorldGenerationRequest(new[] { 0 }, 120, 5, 8, seed);
+
+            randomTotal += LargestEmptyRadius(GenerateOrFail(random, request));
+            spreadTotal += LargestEmptyRadius(GenerateOrFail(spread, request));
+        }
+
+        Assert.Less(spreadTotal, randomTotal * 0.9f,
+            $"átlagos legnagyobb üres terület sugara: véletlen {randomTotal / 30f:0.0}, " +
+            $"best-candidate {spreadTotal / 30f:0.0}");
+    }
+
+    [Test]
+    public void BestCandidate_UsesEveryHalfOfTheMap()
+    {
+        WorldGenerator generator = CandidateGenerator(20);
+        int worldsWithEmptyHalf = 0;
+
+        for (int seed = 0; seed < 30; seed++)
+        {
+            WorldLayout layout = GenerateOrFail(generator, new WorldGenerationRequest(new[] { 0 }, 120, 5, 8, seed));
+            int left = 0, right = 0, top = 0, bottom = 0;
+
+            foreach (TerrainFeatureLayout obstacle in layout.Obstacles)
+            {
+                if (obstacle.Position.x < 0f) left++; else right++;
+                if (obstacle.Position.y < 0f) bottom++; else top++;
+            }
+
+            if (left == 0 || right == 0 || top == 0 || bottom == 0)
+                worldsWithEmptyHalf++;
+        }
+
+        Assert.AreEqual(0, worldsWithEmptyHalf, "Egyik világban sem maradhat akadály nélküli pályafél.");
+    }
+
+    [Test]
+    public void Config_RejectsZeroCandidates()
+    {
+        Assert.Throws<System.ArgumentOutOfRangeException>(
+            () => TerrainTestConfigs.Create(obstacleCandidateCount: 0));
+    }
+
     // Elérhetőség
 
     [Test]

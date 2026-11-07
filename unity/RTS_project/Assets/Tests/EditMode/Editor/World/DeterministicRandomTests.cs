@@ -58,6 +58,24 @@ public sealed class DeterministicRandomTests
     }
 
     [Test]
+    public void DeriveSeed_IsDeterministicAndSeparatesStreams()
+    {
+        Assert.AreEqual(DeterministicRandom.DeriveSeed(5, 1000), DeterministicRandom.DeriveSeed(5, 1000));
+        Assert.AreNotEqual(DeterministicRandom.DeriveSeed(5, 1000), DeterministicRandom.DeriveSeed(5, 1001));
+        Assert.AreNotEqual(DeterministicRandom.DeriveSeed(5, 1000), DeterministicRandom.DeriveSeed(6, 1000));
+        Assert.AreNotEqual(5, DeterministicRandom.DeriveSeed(5, 0));
+    }
+
+    /// <summary>
+    /// Regressziós teszt: a származtatott seed is a mentett világ része.
+    /// </summary>
+    [Test]
+    public void DeriveSeed_KnownValue()
+    {
+        Assert.AreEqual(2031414482, DeterministicRandom.DeriveSeed(12345, 1000));
+    }
+
+    [Test]
     public void Seed_IsPreserved()
     {
         Assert.AreEqual(-42, new DeterministicRandom(-42).Seed);

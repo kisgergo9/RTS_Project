@@ -36,12 +36,17 @@ public sealed class GameBootstrapper : MonoBehaviour
     [SerializeField]
     private WorldSceneBuilder worldBuilder;
 
+    [Tooltip("IDEIGLENES: a helyi játékos azonosítója, amíg nincs hálózat. " +
+             "Az ő bázisai saját (zöld), a többi játékosé ellenséges (piros) zászlót kapnak.")]
+    [SerializeField]
+    private int localPlayerId;
+
     public GameState State { get; private set; }
 
     // Generált világ esetén a generálás eredménye, egyébként null.
     public WorldLayout WorldLayout { get; private set; }
 
-    // A beállított játékosok azonosítói (szerkesztõben is olvasható).
+    // A beállított játékosok azonosítói (szerkesztőben is olvasható).
     public IEnumerable<int> ConfiguredPlayerIds
     {
         get
@@ -152,14 +157,26 @@ public sealed class GameBootstrapper : MonoBehaviour
         State.World.SetGeneration(WorldLayoutSnapshot.ToState(result.Layout));
 
         foreach (BaseController baseController in
-                 worldBuilder.Build(result.Layout, State.Players))
+                 worldBuilder.Build(result.Layout, State.Players, worldGeneration.Settings, localPlayerId))
         {
             State.RegisterBase(baseController.Data);
+        }
+
+        // A sárga védőegységek a sárga frakcióhoz tartoznak, nincs játékos tulajdonosuk.
+        foreach (UnitGroupMember defender in
+                 worldBuilder.SpawnDefenders(result.Layout, worldGeneration.Settings))
+        {
+            int unitId = _unitIdAllocator.Allocate();
+
+            State.RegisterUnit(new UnitState(unitId, BaseOwnerType.Yellow, 0, defender.Type));
+            defender.Initialize(unitId);
         }
 
         Debug.Log(
             $"Világ generálva: méret={result.Layout.WorldSize}, " +
             $"seed={result.Layout.Seed}, bázisok={result.Layout.Bases.Count}, " +
+            $"akadályok={result.Layout.Obstacles.Count}, dekorációk={result.Layout.Decorations.Count}, " +
+            $"sárga védőegységek={result.Layout.Defenders.Count}, " +
             $"kísérletek={result.Attempts}");
     }
 

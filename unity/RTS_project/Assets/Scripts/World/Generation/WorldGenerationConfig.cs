@@ -25,6 +25,16 @@ public sealed class WorldGenerationConfig
     public int MaxObstacleCount { get; }
     public float ObstacleClearRadius { get; }
 
+    /// <summary>
+    /// Akadályok legnagyobb száma 10 000 négyzetegységnyi használható
+    /// pályaterületenként (MaxObstacleCount felső korláttal). 0 esetén az
+    /// akadályok a bázisokkal arányosan osztoznak a területen.
+    /// </summary>
+    public float ObstaclesPer10000Area { get; }
+
+    // Sárga védőcsapatok (opcionális; null esetén nincsenek)
+    public YellowDefenderConfig Defenders { get; }
+
     // Világméret
     public int AbsoluteMinWorldSize { get; }
     public int WorldSizeStep { get; }
@@ -37,6 +47,9 @@ public sealed class WorldGenerationConfig
     // Kezdőbázisok
     public float PlayerRingRadiusFraction { get; }
     public float StartPositionJitter { get; }
+
+    // Tereptárgyak (opcionális; null esetén nincs akadály és dekoráció)
+    public TerrainGenerationConfig Terrain { get; }
 
     public WorldGenerationConfig(
         int minPlayerCount,
@@ -55,7 +68,10 @@ public sealed class WorldGenerationConfig
         int maxPlacementAttemptsPerBase,
         int maxGenerationAttempts,
         float playerRingRadiusFraction,
-        float startPositionJitter)
+        float startPositionJitter,
+        TerrainGenerationConfig terrain = null,
+        float obstaclesPer10000Area = 0f,
+        YellowDefenderConfig defenders = null)
     {
         if (minPlayerCount < 1)
             throw new ArgumentOutOfRangeException(nameof(minPlayerCount),
@@ -120,6 +136,10 @@ public sealed class WorldGenerationConfig
         if (maxGenerationAttempts < 1)
             throw new ArgumentOutOfRangeException(nameof(maxGenerationAttempts));
 
+        if (obstaclesPer10000Area < 0f)
+            throw new ArgumentOutOfRangeException(nameof(obstaclesPer10000Area),
+                "Az akadálysűrűség nem lehet negatív.");
+
         if (playerRingRadiusFraction <= 0f || playerRingRadiusFraction > 1f)
             throw new ArgumentOutOfRangeException(nameof(playerRingRadiusFraction),
                 "A kezdőbázisok körének relatív sugara a (0; 1] tartományba kell essen.");
@@ -145,5 +165,60 @@ public sealed class WorldGenerationConfig
         MaxGenerationAttempts = maxGenerationAttempts;
         PlayerRingRadiusFraction = playerRingRadiusFraction;
         StartPositionJitter = startPositionJitter;
+        ObstaclesPer10000Area = obstaclesPer10000Area;
+
+        if (terrain != null)
+            ValidateTerrain(terrain);
+
+        Terrain = terrain;
+
+        if (defenders != null)
+            ValidateDefenders(defenders, terrain);
+
+        Defenders = defenders;
+    }
+
+    /// <summary>
+    /// A védőhelyeknek a bázis szabad területén belül, de a bázis tiltott
+    /// területén kívül kell lenniük.
+    /// </summary>
+    private void ValidateDefenders(YellowDefenderConfig defenders, TerrainGenerationConfig terrain)
+    {
+        foreach (UnityEngine.Vector2 slot in defenders.Slots)
+        {
+            if (slot.magnitude > BaseClearRadius)
+                throw new ArgumentException(
+                    $"A védőhely ({slot}) a bázis szabad területén kívül esik " +
+                    $"(BaseClearRadius = {BaseClearRadius}).");
+
+            if (terrain != null && terrain.BaseFootprint.Contains(slot))
+                throw new ArgumentException(
+                    $"A védőhely ({slot}) a bázis tiltott területén belül van.");
+        }
+    }
+
+    /// <summary>
+    /// A tereptárgy-konfiguráció összevetése a világ méretezési adataival.
+    /// </summary>
+    private void ValidateTerrain(TerrainGenerationConfig terrain)
+    {
+        if (terrain.BaseFootprint.BoundingRadius > BaseClearRadius)
+            throw new ArgumentException(
+                $"A bázis tiltott területe ({terrain.BaseFootprint.BoundingRadius:0.##}) " +
+                $"nem fér el a bázis szabad területén (BaseClearRadius = {BaseClearRadius}).");
+
+        foreach (UnityEngine.Vector2 point in terrain.BaseAccessPoints)
+        {
+            if (point.magnitude > BaseClearRadius)
+                throw new ArgumentException(
+                    $"A bázispont ({point}) a bázis szabad területén kívül esik " +
+                    $"(BaseClearRadius = {BaseClearRadius}).");
+        }
+
+        if (terrain.ObstacleTypes.Count > 0 &&
+            terrain.MaxObstacleBoundingRadius > ObstacleClearRadius)
+            throw new ArgumentException(
+                $"A legnagyobb akadály ({terrain.MaxObstacleBoundingRadius:0.##}) nagyobb a " +
+                $"méretezésben neki fenntartott helynél (ObstacleClearRadius = {ObstacleClearRadius}).");
     }
 }
