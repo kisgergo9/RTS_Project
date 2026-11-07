@@ -47,7 +47,7 @@ public sealed class WorldGenerationSettings : ScriptableObject
     private int minObstacleCount = 0;
 
     [SerializeField, Min(0)]
-    private int maxObstacleCount = 100;
+    private int maxObstacleCount = 50;
 
     [Tooltip("Akadályok legnagyobb száma 10 000 négyzetegységnyi használható pályaterületenként " +
              "(maxObstacleCount felső korláttal). 0 = a bázisokkal arányos elosztás.")]
@@ -71,6 +71,18 @@ public sealed class WorldGenerationSettings : ScriptableObject
              "Kisebb érték tágasabb világot és megbízhatóbb elhelyezést ad.")]
     [SerializeField, Range(0.05f, 0.5f)]
     private float targetFillRatio = 0.34f;
+
+    [Header("Recommended (lobby defaults)")]
+    [Tooltip("Az ajánlott világméret a legkisebb játékosszámnál. A legnagyobb játékosszámnál " +
+             "a maximális világméret az ajánlott, közte egyenletesen nő. " +
+             "0 = a legkisebb játékosszám minimális világmérete.")]
+    [SerializeField, Min(0)]
+    private int recommendedWorldSizeAtMinPlayers = 120;
+
+    [Tooltip("Az ajánlott akadályszám a legkisebb ajánlott világban. A maximális világméretnél " +
+             "maxObstacleCount, közte a világmérettel egyenletesen nő.")]
+    [SerializeField, Min(0)]
+    private int recommendedObstacleCountAtMinPlayers = 8;
 
     [Header("Placement")]
     [SerializeField, Min(1)]
@@ -229,7 +241,9 @@ public sealed class WorldGenerationSettings : ScriptableObject
             startPositionJitter,
             CreateTerrainConfig(),
             obstaclesPer10000Area,
-            CreateDefenderConfig());
+            CreateDefenderConfig(),
+            recommendedWorldSizeAtMinPlayers,
+            recommendedObstacleCountAtMinPlayers);
     }
 
     private YellowDefenderConfig CreateDefenderConfig()
@@ -310,6 +324,9 @@ public sealed class WorldGenerationSettings : ScriptableObject
 
         if (maxObstacleCount < minObstacleCount)
             maxObstacleCount = minObstacleCount;
+
+        if (recommendedObstacleCountAtMinPlayers > maxObstacleCount)
+            recommendedObstacleCountAtMinPlayers = maxObstacleCount;
     }
 #endif
 }

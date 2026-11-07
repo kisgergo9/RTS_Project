@@ -159,6 +159,119 @@ public sealed class WorldSizingRulesTests
             () => WorldGenerationTestConfigs.Create(obstaclesPer10000Area: -1f));
     }
 
+    // Ajánlott beállítások (a projekt alapértékeivel: 1 játékos = 120,
+    // 10 játékos = a legnagyobb, 150 bázisos és 50 akadályos világ)
+
+    [Test]
+    public void MaxWorldSize_WithDefaultSettings_Is500()
+    {
+        Assert.AreEqual(500, _rules.MaxWorldSize);
+        Assert.AreEqual(150, _rules.GetMaxBaseCount(_rules.MaxWorldSize));
+        Assert.AreEqual(50, _rules.GetMaxObstacleCount(_rules.MaxWorldSize));
+    }
+
+    [Test]
+    public void RecommendedWorldSize_GrowsEvenlyFrom120ToMaxWorldSize()
+    {
+        int[] expected = { 120, 170, 210, 250, 290, 340, 380, 420, 460, 500 };
+
+        for (int players = 1; players <= 10; players++)
+            Assert.AreEqual(expected[players - 1], _rules.GetRecommendedWorldSize(players), $"players={players}");
+    }
+
+    [Test]
+    public void RecommendedWorldSize_IsValidForEveryPlayerCount()
+    {
+        for (int players = _rules.MinPlayerCount; players <= _rules.MaxPlayerCount; players++)
+        {
+            int size = _rules.GetRecommendedWorldSize(players);
+
+            Assert.IsTrue(_rules.GetWorldSizeRange(players).Contains(size), $"players={players}");
+            Assert.AreEqual(0, size % _config.WorldSizeStep, $"players={players}");
+        }
+    }
+
+    [Test]
+    public void RecommendedYellowBaseCount_FillsEveryBaseSlot()
+    {
+        for (int players = _rules.MinPlayerCount; players <= _rules.MaxPlayerCount; players++)
+        {
+            int size = _rules.GetRecommendedWorldSize(players);
+            int yellow = _rules.GetRecommendedYellowBaseCount(players, size);
+
+            Assert.AreEqual(_rules.GetMaxBaseCount(size), players + yellow, $"players={players}");
+            Assert.GreaterOrEqual(yellow, _rules.GetMinYellowBaseCount(players), $"players={players}");
+        }
+
+        Assert.AreEqual(5, _rules.GetRecommendedYellowBaseCount(1, 120));
+        Assert.AreEqual(140, _rules.GetRecommendedYellowBaseCount(10, 500));
+    }
+
+    [Test]
+    public void RecommendedObstacleCount_GrowsFrom8To50()
+    {
+        int previous = 0;
+
+        for (int players = _rules.MinPlayerCount; players <= _rules.MaxPlayerCount; players++)
+        {
+            int size = _rules.GetRecommendedWorldSize(players);
+            int obstacles = _rules.GetRecommendedObstacleCount(size);
+
+            Assert.IsTrue(_rules.GetObstacleCountRange(size).Contains(obstacles), $"players={players}");
+            Assert.GreaterOrEqual(obstacles, previous, $"players={players}");
+            previous = obstacles;
+        }
+
+        Assert.AreEqual(8, _rules.GetRecommendedObstacleCount(120));
+        Assert.AreEqual(50, _rules.GetRecommendedObstacleCount(500));
+    }
+
+    [Test]
+    public void RecommendedSettings_PassValidation()
+    {
+        for (int players = _rules.MinPlayerCount; players <= _rules.MaxPlayerCount; players++)
+        {
+            int size = _rules.GetRecommendedWorldSize(players);
+
+            bool valid = _rules.TryValidate(
+                players,
+                size,
+                _rules.GetRecommendedYellowBaseCount(players, size),
+                _rules.GetRecommendedObstacleCount(size),
+                out string error);
+
+            Assert.IsTrue(valid, $"players={players}: {error}");
+        }
+    }
+
+    [Test]
+    public void RecommendedWorldSize_WithoutConfiguredStart_StartsAtMinimum()
+    {
+        WorldSizingRules rules = new WorldSizingRules(WorldGenerationTestConfigs.Create());
+
+        Assert.AreEqual(rules.GetMinWorldSize(1), rules.GetRecommendedWorldSize(1));
+        Assert.AreEqual(rules.MaxWorldSize, rules.GetRecommendedWorldSize(10));
+    }
+
+    [Test]
+    public void RecommendedWorldSize_NeverBelowPlayerMinimum()
+    {
+        WorldSizingRules rules = new WorldSizingRules(WorldGenerationTestConfigs.Create(
+            recommendedWorldSizeAtMinPlayers: 1));
+
+        for (int players = rules.MinPlayerCount; players <= rules.MaxPlayerCount; players++)
+            Assert.GreaterOrEqual(rules.GetRecommendedWorldSize(players), rules.GetMinWorldSize(players));
+    }
+
+    [Test]
+    public void Config_RejectsInvalidRecommendedValues()
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(
+            () => WorldGenerationTestConfigs.Create(recommendedWorldSizeAtMinPlayers: -1));
+        Assert.Throws<ArgumentOutOfRangeException>(
+            () => WorldGenerationTestConfigs.Create(maxObstacleCount: 50, recommendedObstacleCountAtMinPlayers: 51));
+    }
+
     [TestCase(0)]
     [TestCase(11)]
     public void GetMinWorldSize_InvalidPlayerCount_Throws(int players)

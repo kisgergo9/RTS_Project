@@ -722,6 +722,32 @@ public sealed class WorldGenerator
 
     // Sárga védőcsapatok
 
+    /// <summary>
+    /// A pillanatképből (hálózati üzenet, mentés) visszaállított világban
+    /// nincsenek védőcsapatok, mert nem utaznak: a seedből és a bázisokból
+    /// determinisztikusan újraszámolhatók. Ez a metódus pontosan azokat a
+    /// védőcsapatokat adja hozzá, amelyeket a generálás is létrehozott (azonos
+    /// konfiguráció mellett). Ha a világban már vannak, változatlanul adja vissza.
+    /// </summary>
+    public WorldLayout WithDefenders(WorldLayout layout)
+    {
+        if (layout == null)
+            throw new ArgumentNullException(nameof(layout));
+
+        if (layout.Defenders.Count > 0 || _config.Defenders == null)
+            return layout;
+
+        List<DefenderLayout> defenders = GenerateDefenders(layout.Request, new List<BaseLayout>(layout.Bases));
+
+        return new WorldLayout(
+            layout.GeneratorVersion,
+            layout.Request,
+            layout.Bases,
+            layout.Obstacles,
+            layout.Decorations,
+            defenders);
+    }
+
     private List<DefenderLayout> GenerateDefenders(WorldGenerationRequest request, List<BaseLayout> bases)
     {
         List<DefenderLayout> defenders = new List<DefenderLayout>();
