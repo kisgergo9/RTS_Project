@@ -44,7 +44,9 @@ internal static class WorldGenerationTestConfigs
         TerrainGenerationConfig terrain = null,
         float obstaclesPer10000Area = 0f,
         YellowDefenderConfig defenders = null,
-        float yellowStrengthJitter = 0.2f)
+        float yellowStrengthJitter = 0.2f,
+        int minYellowTurretCount = 2,
+        int maxYellowTurretCount = 12)
     {
         return new WorldGenerationConfig(
             minPlayerCount,
@@ -67,6 +69,8 @@ internal static class WorldGenerationTestConfigs
             terrain,
             obstaclesPer10000Area,
             defenders,
-            yellowStrengthJitter);
+            yellowStrengthJitter,
+            minYellowTurretCount,
+            maxYellowTurretCount);
     }
 }

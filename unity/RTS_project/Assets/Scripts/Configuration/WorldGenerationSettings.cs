@@ -96,6 +96,15 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField, Range(0f, 1f)]
     private float yellowStrengthJitter = 0.2f;
 
+    [Tooltip("A leggyengébb (1-es erősségű) sárga bázis turretjeinek száma.")]
+    [SerializeField, Min(0)]
+    private int minYellowTurretCount = 2;
+
+    [Tooltip("A legerősebb (10-es erősségű) sárga bázis turretjeinek száma. Közte az erősséggel " +
+             "egyenletesen nő. A Base prefabon 12 turret van.")]
+    [SerializeField, Min(0)]
+    private int maxYellowTurretCount = 12;
+
     [Header("Terrain")]
     [Tooltip("Akadálytípusok (hegy, szakadék, oázis). Ha nincs megadva akadály- és " +
              "dekorációtípus, a generátor nem helyez el tereptárgyakat.")]
@@ -237,7 +246,9 @@ public sealed class WorldGenerationSettings : ScriptableObject
             CreateTerrainConfig(),
             obstaclesPer10000Area,
             CreateDefenderConfig(),
-            yellowStrengthJitter);
+            yellowStrengthJitter,
+            minYellowTurretCount,
+            maxYellowTurretCount);
     }
 
     private YellowDefenderConfig CreateDefenderConfig()
@@ -318,6 +329,9 @@ public sealed class WorldGenerationSettings : ScriptableObject
 
         if (maxObstacleCount < minObstacleCount)
             maxObstacleCount = minObstacleCount;
+
+        if (maxYellowTurretCount < minYellowTurretCount)
+            maxYellowTurretCount = minYellowTurretCount;
     }
 #endif
 }

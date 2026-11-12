@@ -41,6 +41,13 @@ public sealed class WorldGenerationConfig
     /// </summary>
     public float YellowStrengthJitter { get; }
 
+    /// <summary>
+    /// A sárga bázisok turretjeinek száma az 1-es, illetve a 10-es
+    /// erősségnél; közte az erősséggel egyenletesen nő.
+    /// </summary>
+    public int MinYellowTurretCount { get; }
+    public int MaxYellowTurretCount { get; }
+
     // Világméret
     public int AbsoluteMinWorldSize { get; }
     public int WorldSizeStep { get; }
@@ -78,7 +85,9 @@ public sealed class WorldGenerationConfig
         TerrainGenerationConfig terrain = null,
         float obstaclesPer10000Area = 0f,
         YellowDefenderConfig defenders = null,
-        float yellowStrengthJitter = 0.2f)
+        float yellowStrengthJitter = 0.2f,
+        int minYellowTurretCount = 2,
+        int maxYellowTurretCount = 12)
     {
         if (minPlayerCount < 1)
             throw new ArgumentOutOfRangeException(nameof(minPlayerCount),
@@ -159,6 +168,14 @@ public sealed class WorldGenerationConfig
             throw new ArgumentOutOfRangeException(nameof(yellowStrengthJitter),
                 "A sárga bázisok erősségi zajának a [0; 1] tartományba kell esnie.");
 
+        if (minYellowTurretCount < 0)
+            throw new ArgumentOutOfRangeException(nameof(minYellowTurretCount),
+                "A turretek száma nem lehet negatív.");
+
+        if (maxYellowTurretCount < minYellowTurretCount)
+            throw new ArgumentOutOfRangeException(nameof(maxYellowTurretCount),
+                "A turretek legnagyobb száma nem lehet kisebb a legkisebbnél.");
+
         MinPlayerCount = minPlayerCount;
         MaxPlayerCount = maxPlayerCount;
         MaxBaseCount = maxBaseCount;
@@ -178,6 +195,8 @@ public sealed class WorldGenerationConfig
         StartPositionJitter = startPositionJitter;
         ObstaclesPer10000Area = obstaclesPer10000Area;
         YellowStrengthJitter = yellowStrengthJitter;
+        MinYellowTurretCount = minYellowTurretCount;
+        MaxYellowTurretCount = maxYellowTurretCount;
 
         if (terrain != null)
             ValidateTerrain(terrain);
@@ -188,6 +207,23 @@ public sealed class WorldGenerationConfig
             ValidateDefenders(defenders, terrain);
 
         Defenders = defenders;
+    }
+
+    /// <summary>
+    /// Egy adott erősségű sárga bázis turretjeinek száma: 1-es erősségnél
+    /// MinYellowTurretCount, 10-esnél MaxYellowTurretCount, közte egyenletesen
+    /// (alapértékekkel: 2, 3, 4, 5, 6, 8, 9, 10, 11, 12). Ismeretlen (0)
+    /// erősségnél a legkisebb érték.
+    /// </summary>
+    public int GetYellowTurretCount(int strength)
+    {
+        int clamped = Math.Max(YellowBaseStrength.Min, Math.Min(strength, YellowBaseStrength.Max));
+        double progress = (clamped - YellowBaseStrength.Min) /
+                          (double)(YellowBaseStrength.Max - YellowBaseStrength.Min);
+
+        return MinYellowTurretCount + (int)Math.Round(
+            (MaxYellowTurretCount - MinYellowTurretCount) * progress,
+            MidpointRounding.AwayFromZero);
     }
 
     /// <summary>

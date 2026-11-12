@@ -151,6 +151,70 @@ public sealed class YellowBaseStrengthTests
             Assert.AreEqual(calm.Bases[i].Position, mixed.Bases[i].Position);
     }
 
+    // Turretek
+
+    [Test]
+    public void TurretCount_GrowsFrom2To12WithStrength()
+    {
+        WorldGenerationConfig config = WorldGenerationTestConfigs.Create();
+        int[] expected = { 2, 3, 4, 5, 6, 8, 9, 10, 11, 12 };
+
+        for (int strength = 1; strength <= 10; strength++)
+            Assert.AreEqual(expected[strength - 1], config.GetYellowTurretCount(strength), $"strength={strength}");
+
+        Assert.AreEqual(2, config.GetYellowTurretCount(0), "Ismeretlen erősség: a legkisebb érték.");
+    }
+
+    [Test]
+    public void TurretCount_UsesConfiguredRange()
+    {
+        WorldGenerationConfig config = WorldGenerationTestConfigs.Create(minYellowTurretCount: 4, maxYellowTurretCount: 4);
+
+        Assert.AreEqual(4, config.GetYellowTurretCount(1));
+        Assert.AreEqual(4, config.GetYellowTurretCount(10));
+        Assert.Throws<ArgumentOutOfRangeException>(
+            () => WorldGenerationTestConfigs.Create(minYellowTurretCount: 5, maxYellowTurretCount: 4));
+        Assert.Throws<ArgumentOutOfRangeException>(
+            () => WorldGenerationTestConfigs.Create(minYellowTurretCount: -1));
+    }
+
+    [Test]
+    public void SettingsAsset_Uses2To12Turrets()
+    {
+        WorldGenerationConfig config = UnityEditor.AssetDatabase.LoadAssetAtPath<WorldGenerationSettings>(
+            "Assets/Data/WorldGeneration/WorldGenerationSettings.asset").ToConfig();
+
+        Assert.AreEqual(2, config.MinYellowTurretCount);
+        Assert.AreEqual(12, config.MaxYellowTurretCount);
+    }
+
+    [TestCase(0)]
+    [TestCase(2)]
+    [TestCase(7)]
+    [TestCase(12)]
+    public void ShowTurrets_EnablesTheFirstTurretsOfTheBasePrefab(int count)
+    {
+        BaseController prefab = UnityEditor.AssetDatabase.LoadAssetAtPath<BaseController>("Assets/Prefabs/Bases/Base.prefab");
+        BaseController instance = UnityEngine.Object.Instantiate(prefab);
+
+        try
+        {
+            typeof(WorldSceneBuilder)
+                .GetMethod("ShowTurrets", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)
+                .Invoke(null, new object[] { instance, count });
+
+            Transform turrets = instance.transform.Find("Turrets");
+            Assert.AreEqual(count > 0, turrets.gameObject.activeSelf);
+
+            for (int number = 1; number <= 12; number++)
+                Assert.AreEqual(number <= count, turrets.Find($"Turret_{number}").gameObject.activeSelf, $"Turret_{number}");
+        }
+        finally
+        {
+            UnityEngine.Object.DestroyImmediate(instance.gameObject);
+        }
+    }
+
     [Test]
     public void Config_RejectsInvalidJitter()
     {

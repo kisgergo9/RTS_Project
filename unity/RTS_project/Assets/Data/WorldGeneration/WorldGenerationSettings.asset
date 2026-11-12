@@ -31,6 +31,8 @@ MonoBehaviour:
   playerRingRadiusFraction: 0.7
   startPositionJitter: 2
   yellowStrengthJitter: 0.2
+  minYellowTurretCount: 2
+  maxYellowTurretCount: 12
   obstacleTypes:
   - {fileID: 11400000, guid: 29f41d3cd6af7dc44965a77114397580, type: 2}
   - {fileID: 11400000, guid: cd02418665d2f264caeb405bfcfedd67, type: 2}

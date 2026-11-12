@@ -75,7 +75,7 @@ public sealed class WorldSceneBuilder : MonoBehaviour
 
         CreateGround(layout.Bounds);
         CreateBoundary(layout.Bounds);
-        CreateBases(layout, players, localPlayerId);
+        CreateBases(layout, players, localPlayerId, terrainSettings != null ? terrainSettings.ToConfig() : null);
         CreateTerrainFeatures(layout, terrainSettings);
         ApplyCameraBounds(layout.Bounds);
 
@@ -93,7 +93,11 @@ public sealed class WorldSceneBuilder : MonoBehaviour
         }
     }
 
-    private void CreateBases(WorldLayout layout, PlayerRegistry players, int localPlayerId)
+    private void CreateBases(
+        WorldLayout layout,
+        PlayerRegistry players,
+        int localPlayerId,
+        WorldGenerationConfig config)
     {
         Transform parent = new GameObject("Bases").transform;
         parent.SetParent(_root, false);
@@ -111,7 +115,7 @@ public sealed class WorldSceneBuilder : MonoBehaviour
             DisableTestInput(baseController);
 
             if (baseLayout.OwnerType != BaseOwnerType.Player)
-                HideTurrets(baseController);
+                ShowTurrets(baseController, config != null ? config.GetYellowTurretCount(baseLayout.Strength) : 0);
 
             if (baseController.TryGetComponent(out BaseOwnerView ownerView))
                 ownerView.SetLocalPlayer(localPlayerId);
@@ -144,18 +148,32 @@ public sealed class WorldSceneBuilder : MonoBehaviour
     }
 
     /// <summary>
-    /// A világgenerálás csak a kezdőbázisokon hagyja meg a tornyokat: a többi
-    /// bázison a Base prefab Turrets csoportját (12 torony) kikapcsoljuk.
-    /// A tornyok megjelenítése (pl. elfoglaláskor 2 kezdőtorony) a bázis
-    /// feladata, amely a csoportot vagy annak egyes tornyait bekapcsolja.
-    /// A tornyok nem törlődnek, csak inaktívak.
+    /// IDEIGLENES, amíg a Base prefab nem példányosítható turretszámmal: a
+    /// sárga bázison a prefab 12 turretjéből (Turrets/Turret_1–Turret_12) az
+    /// első count darabot kapcsolja be, a többit ki. A számozás a saroktól
+    /// kifelé, felváltva tölti meg a két sort. A kezdőbázis nem változik.
+    /// Ha a prefab maga kezeli a turretszámot, ez a metódus a hívásával együtt
+    /// törölhető, és a számot a prefabnak kell átadni.
     /// </summary>
-    private static void HideTurrets(BaseController baseController)
+    private static void ShowTurrets(BaseController baseController, int count)
     {
         Transform turrets = baseController.transform.Find("Turrets");
 
-        if (turrets != null)
-            turrets.gameObject.SetActive(false);
+        if (turrets == null)
+            return;
+
+        turrets.gameObject.SetActive(count > 0);
+
+        foreach (Transform turret in turrets)
+        {
+            const string prefix = "Turret_";
+            int number = 0;
+
+            bool numbered = turret.name.StartsWith(prefix, StringComparison.Ordinal) &&
+                            int.TryParse(turret.name.Substring(prefix.Length), out number);
+
+            turret.gameObject.SetActive(numbered && number <= count);
+        }
     }
 
     /// <summary>
