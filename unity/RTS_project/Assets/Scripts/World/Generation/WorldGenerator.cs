@@ -18,6 +18,9 @@ using UnityEngine;
 ///      el, a teljes generálás újraindul (legfeljebb MaxGenerationAttempts-szer),
 ///      ugyanazzal a folytatódó véletlensorozattal, így az eredmény továbbra is
 ///      determinisztikus. Ha ez sem sikerül, hibás eredményt ad vissza.
+///      Ezután a sárga bázisok erősséget kapnak (1–10, YellowBaseStrength): a
+///      kezdőbázisokhoz közeliek gyengébbek, a távoliak erősebbek, külön
+///      származtatott véletlensorozattal kevert sorrendben.
 ///   5. Az akadályokat a seedből származtatott, külön véletlensorozattal helyezi
 ///      el, így a bázisok helyét nem befolyásolják. Akadályonként
 ///      ObstacleCandidateCount érvényes jelölt közül a legtávolabbit választja
@@ -47,7 +50,7 @@ public sealed class WorldGenerator
     /// A generálási algoritmus verziója. Növelni kell minden olyan változtatásnál,
     /// amely ugyanabból a seedből és kérésből más világot eredményez.
     /// </summary>
-    public const int Version = 5;
+    public const int Version = 6;
 
     private const double FullCircle = 2.0 * Math.PI;
 
@@ -59,6 +62,9 @@ public sealed class WorldGenerator
 
     // A sárga védőcsapatok származtatott véletlensorozatának sorszáma.
     private const int DefenderStream = 3000;
+
+    // A sárga bázisok erősségi sorrendjét keverő véletlensorozat sorszáma.
+    private const int StrengthStream = 4000;
 
     private readonly WorldGenerationConfig _config;
 
@@ -113,7 +119,7 @@ public sealed class WorldGenerator
             if (!TryPlaceYellowBases(bounds, request.YellowBaseCount, random, positions))
                 continue;
 
-            List<BaseLayout> bases = CreateBases(playerIds, positions);
+            List<BaseLayout> bases = AssignYellowStrengths(request, CreateBases(playerIds, positions));
 
             if (!TryGenerateObstacles(request, bounds, bases, out List<TerrainFeatureLayout> obstacles))
             {
@@ -810,6 +816,38 @@ public sealed class WorldGenerator
     {
         return _config.Terrain ?? throw new InvalidOperationException(
             "A művelethez tereptárgy-konfiguráció (WorldGenerationConfig.Terrain) szükséges.");
+    }
+
+    private List<BaseLayout> AssignYellowStrengths(WorldGenerationRequest request, List<BaseLayout> bases)
+    {
+        List<Vector2> players = new List<Vector2>();
+        List<Vector2> yellow = new List<Vector2>();
+
+        foreach (BaseLayout baseLayout in bases)
+        {
+            if (baseLayout.OwnerType == BaseOwnerType.Yellow)
+                yellow.Add(baseLayout.Position);
+            else
+                players.Add(baseLayout.Position);
+        }
+
+        int[] strengths = YellowBaseStrength.Assign(
+            yellow,
+            players,
+            _config.YellowStrengthJitter,
+            new DeterministicRandom(DeterministicRandom.DeriveSeed(request.Seed, StrengthStream)));
+
+        List<BaseLayout> result = new List<BaseLayout>(bases.Count);
+        int yellowIndex = 0;
+
+        foreach (BaseLayout baseLayout in bases)
+        {
+            result.Add(baseLayout.OwnerType == BaseOwnerType.Yellow
+                ? baseLayout.WithStrength(strengths[yellowIndex++])
+                : baseLayout);
+        }
+
+        return result;
     }
 
     private static List<BaseLayout> CreateBases(

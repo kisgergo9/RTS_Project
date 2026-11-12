@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Egy generált bázis helye és kezdeti tulajdonosa.
-/// A PlayerId csak Player tulajdonos esetén értelmezett, egyébként 0
-/// (a BaseController konvenciója szerint).
+/// Egy generált bázis helye, kezdeti tulajdonosa és (sárga bázisnál)
+/// erőssége. A PlayerId csak Player tulajdonos esetén értelmezett, egyébként
+/// 0 (a BaseController konvenciója szerint). Az erősség sárga bázisnál 1–10
+/// (lásd: YellowBaseStrength), egyébként 0; a 0 sárga bázisnál azt jelenti,
+/// hogy az erősség ismeretlen (régi mentés).
 /// </summary>
 public readonly struct BaseLayout
 {
@@ -13,24 +15,38 @@ public readonly struct BaseLayout
     public Vector2 Position { get; }
     public BaseOwnerType OwnerType { get; }
     public int PlayerId { get; }
+    public int Strength { get; }
 
-    public BaseLayout(int baseId, Vector2 position, BaseOwnerType ownerType, int playerId)
+    public BaseLayout(int baseId, Vector2 position, BaseOwnerType ownerType, int playerId, int strength = 0)
     {
         if (baseId <= 0)
             throw new ArgumentOutOfRangeException(nameof(baseId),
                 "A bázisazonosítónak pozitívnak kell lennie.");
 
+        if (strength < 0 || strength > YellowBaseStrength.Max)
+            throw new ArgumentOutOfRangeException(nameof(strength),
+                $"Az erősségnek a [0; {YellowBaseStrength.Max}] tartományba kell esnie.");
+
+        if (ownerType != BaseOwnerType.Yellow && strength != 0)
+            throw new ArgumentException("Erőssége csak sárga bázisnak lehet.", nameof(strength));
+
         BaseId = baseId;
         Position = position;
         OwnerType = ownerType;
         PlayerId = ownerType == BaseOwnerType.Player ? playerId : 0;
+        Strength = strength;
+    }
+
+    public BaseLayout WithStrength(int strength)
+    {
+        return new BaseLayout(BaseId, Position, OwnerType, PlayerId, strength);
     }
 
     public override string ToString()
     {
         return OwnerType == BaseOwnerType.Player
             ? $"Base {BaseId} @ {Position} (Player {PlayerId})"
-            : $"Base {BaseId} @ {Position} ({OwnerType})";
+            : $"Base {BaseId} @ {Position} ({OwnerType}, strength {Strength})";
     }
 }
 

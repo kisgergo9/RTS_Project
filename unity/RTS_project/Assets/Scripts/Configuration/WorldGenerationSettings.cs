@@ -89,6 +89,13 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField, Min(0f)]
     private float startPositionJitter = 2f;
 
+    [Header("Yellow Bases")]
+    [Tooltip("A sárga bázisok erősségi (1–10) sorrendjét keverő zaj. 0 = szigorúan a kezdőbázisoktól " +
+             "mért távolság szerint (a közeliek a leggyengébbek), nagyobb érték = véletlenszerűbb. " +
+             "0,2 mellett a kezdőbázisokhoz legközelebbi sárga bázis erőssége legfeljebb 5.")]
+    [SerializeField, Range(0f, 1f)]
+    private float yellowStrengthJitter = 0.2f;
+
     [Header("Terrain")]
     [Tooltip("Akadálytípusok (hegy, szakadék, oázis). Ha nincs megadva akadály- és " +
              "dekorációtípus, a generátor nem helyez el tereptárgyakat.")]
@@ -229,7 +236,8 @@ public sealed class WorldGenerationSettings : ScriptableObject
             startPositionJitter,
             CreateTerrainConfig(),
             obstaclesPer10000Area,
-            CreateDefenderConfig());
+            CreateDefenderConfig(),
+            yellowStrengthJitter);
     }
 
     private YellowDefenderConfig CreateDefenderConfig()

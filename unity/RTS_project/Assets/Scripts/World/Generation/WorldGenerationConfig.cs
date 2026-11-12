@@ -35,6 +35,12 @@ public sealed class WorldGenerationConfig
     // Sárga védőcsapatok (opcionális; null esetén nincsenek)
     public YellowDefenderConfig Defenders { get; }
 
+    /// <summary>
+    /// A sárga bázisok erősségi sorrendjét keverő zaj (0 = szigorúan a
+    /// kezdőbázisoktól mért távolság szerint, lásd: YellowBaseStrength).
+    /// </summary>
+    public float YellowStrengthJitter { get; }
+
     // Világméret
     public int AbsoluteMinWorldSize { get; }
     public int WorldSizeStep { get; }
@@ -71,7 +77,8 @@ public sealed class WorldGenerationConfig
         float startPositionJitter,
         TerrainGenerationConfig terrain = null,
         float obstaclesPer10000Area = 0f,
-        YellowDefenderConfig defenders = null)
+        YellowDefenderConfig defenders = null,
+        float yellowStrengthJitter = 0.2f)
     {
         if (minPlayerCount < 1)
             throw new ArgumentOutOfRangeException(nameof(minPlayerCount),
@@ -148,6 +155,10 @@ public sealed class WorldGenerationConfig
             throw new ArgumentOutOfRangeException(nameof(startPositionJitter),
                 "A kezdőpozíciók szórása nem lehet negatív.");
 
+        if (yellowStrengthJitter < 0f || yellowStrengthJitter > 1f)
+            throw new ArgumentOutOfRangeException(nameof(yellowStrengthJitter),
+                "A sárga bázisok erősségi zajának a [0; 1] tartományba kell esnie.");
+
         MinPlayerCount = minPlayerCount;
         MaxPlayerCount = maxPlayerCount;
         MaxBaseCount = maxBaseCount;
@@ -166,6 +177,7 @@ public sealed class WorldGenerationConfig
         PlayerRingRadiusFraction = playerRingRadiusFraction;
         StartPositionJitter = startPositionJitter;
         ObstaclesPer10000Area = obstaclesPer10000Area;
+        YellowStrengthJitter = yellowStrengthJitter;
 
         if (terrain != null)
             ValidateTerrain(terrain);

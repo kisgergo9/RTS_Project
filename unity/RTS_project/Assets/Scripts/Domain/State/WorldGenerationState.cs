@@ -35,6 +35,10 @@ public struct BasePlacementState
     public float y;
     public BaseOwnerType ownerType;
     public int playerId;
+
+    // A 6-os generátorverziótól: a sárga bázis erőssége (1–10), egyébként 0.
+    // Régebbi mentésben hiányzik, ilyenkor 0.
+    public int strength;
 }
 
 [Serializable]
