@@ -1,26 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// A lobby állapota a hoston: a játékoshelyek és a generálási beállítások.
-/// Unity-független, így tesztelhető; a lobby felülete és (később) a hálózati
-/// réteg is ezt használja.
-///
-/// A beállítások mindig a WorldSizingRules érvényes tartományán belül
-/// maradnak. Játékosszám-változáskor a világméret, világméret-változáskor a
-/// sárga bázisok és az akadályok száma az ajánlott értékre áll.
-///
-/// A játékoshelyek azonosítója 1-től a játékosszámig tart; az 1-es hely a
-/// hosté. A mérkőzés csak akkor indulhat, ha minden hely foglalt.
-/// </summary>
+// A lobby állapota a hoston: a játékoshelyek és a generálási beállítások.
 public sealed class LobbyState
 {
     public const int HostPlayerId = 1;
 
-    /// <summary>
-    /// Többjátékos mérkőzéshez legalább ennyi játékos kell; az egyjátékos
-    /// teszt külön, a lobbyn kívül indul.
-    /// </summary>
+    // Többjátékos mérkőzéshez legalább ennyi játékos kell.
     public const int MinLobbyPlayerCount = 2;
 
     private readonly WorldSizingRules _rules;
@@ -61,10 +47,7 @@ public sealed class LobbyState
 
     public IReadOnlyList<LobbySlot> Slots => _slots;
 
-    /// <summary>
-    /// A játékosszám legkisebb értéke, amelyre csökkenteni lehet: a
-    /// legutolsó foglalt hely nem szűnhet meg.
-    /// </summary>
+    // A legkisebb beállítható játékosszám (foglalt hely nem szűnhet meg).
     public int MinSelectablePlayerCount
     {
         get
@@ -110,10 +93,7 @@ public sealed class LobbyState
         ApplyRecommendedWorldSize();
     }
 
-    /// <summary>
-    /// A világméret a lépésközre kerekítve, az érvényes tartományba szorítva
-    /// áll be; a sárga bázisok és az akadályok száma az ajánlottra áll.
-    /// </summary>
+    // Világméret beállítása; a sárga bázisok és akadályok száma az ajánlottra áll.
     public void SetWorldSize(int worldSize)
     {
         IntRange range = WorldSizeRange;
@@ -144,9 +124,7 @@ public sealed class LobbyState
         ApplyRecommendedWorldSize();
     }
 
-    /// <summary>
-    /// Az első szabad helyet foglalja le. Ha nincs szabad hely, false.
-    /// </summary>
+    // Az első szabad helyet foglalja le.
     public bool TryOccupyFreeSlot(string playerName, out int playerId)
     {
         if (string.IsNullOrWhiteSpace(playerName))
@@ -155,10 +133,7 @@ public sealed class LobbyState
         return TryOccupyFreeSlot(_ => playerName, out playerId);
     }
 
-    /// <summary>
-    /// Az első szabad helyet foglalja le a hely azonosítójából képzett
-    /// néven („Játékos 3”). Ha nincs szabad hely, false.
-    /// </summary>
+    // Az első szabad helyet foglalja le („Játékos 3” néven).
     public bool TryOccupyFreeSlot(out int playerId)
     {
         return TryOccupyFreeSlot(GetDefaultPlayerName, out playerId);
@@ -186,9 +161,7 @@ public sealed class LobbyState
         return false;
     }
 
-    /// <summary>
-    /// Felszabadítja a játékos helyét. A host helye nem szabadítható fel.
-    /// </summary>
+    // Felszabadítja a játékos helyét.
     public void ReleaseSlot(int playerId)
     {
         if (playerId == HostPlayerId)
@@ -247,10 +220,7 @@ public sealed class LobbyState
     }
 }
 
-/// <summary>
-/// Egy játékoshely a lobbyban. A PlayerId egyben a mérkőzésbeli
-/// játékosazonosító.
-/// </summary>
+// Egy játékoshely a lobbyban.
 public sealed class LobbySlot
 {
     public LobbySlot(int playerId)

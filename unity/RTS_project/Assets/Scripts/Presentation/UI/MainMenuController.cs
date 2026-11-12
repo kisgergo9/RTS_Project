@@ -4,13 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/// <summary>
-/// A főmenü gombjainak kezelése: Host, Join, Exit.
-///
-///   - Host: a hostSceneName jelenetet (a lobbyt) tölti be,
-///   - Join: a joinSceneName jelenetet (a csatlakozási képernyőt) tölti be,
-///   - Exit: kilép a játékból (szerkesztőben leállítja a Play módot).
-/// </summary>
+// A főmenü gombjainak kezelése: Host, Join, Exit.
 [DisallowMultipleComponent]
 public sealed class MainMenuController : MonoBehaviour
 {

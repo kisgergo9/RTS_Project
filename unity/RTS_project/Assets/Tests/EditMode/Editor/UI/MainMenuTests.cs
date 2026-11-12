@@ -91,8 +91,7 @@ public sealed class MainMenuTests
         MainMenuController controller = CreateMenu(out TMP_Text statusText);
         statusText.text = "régi szöveg";
 
-        // Szerkesztő módban a SendMessage nem futtat MonoBehaviour-üzenetet,
-        // ezért az Awake-et közvetlenül hívjuk.
+        // Szerkesztő módban az Awake-et közvetlenül kell hívni.
         typeof(MainMenuController)
             .GetMethod("Awake", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
             .Invoke(controller, null);

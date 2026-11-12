@@ -7,23 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/// <summary>
-/// A lobby felülete: játékosszám, világméret és sárga bázisok beállítása,
-/// a játékoshelyek listája, valamint a Vissza, az „1 játékos teszt” és az
-/// Indítás gomb.
-///
-/// Host: létrehozza a LobbyState-et, elindítja a hálózati hostot, és a
-/// csúszkák változását a LobbyState-nek továbbítja. Kiírja a gép IP-címét,
-/// amelyre a többiek csatlakozhatnak.
-/// Kliens: a hosttól kapott pillanatképet jeleníti meg; a beállítások nem
-/// módosíthatók, az „1 játékos teszt” és az Indítás gomb rejtett. Ha a
-/// kapcsolat megszakad, visszatér a csatlakozási képernyőre.
-///
-/// Mindkét esetben a megjelenítés a LobbySnapshot-ból történik.
-///
-/// Indítás (csak a hoston, ha minden hely foglalt): a host legenerálja a
-/// világot, és mindenkivel együtt betölti a mérkőzés jelenetét.
-/// </summary>
+// A lobby felülete: beállítások, játékoshelyek és gombok.
 [DisallowMultipleComponent]
 public sealed class MatchLobbyController : MonoBehaviour
 {
@@ -96,9 +80,7 @@ public sealed class MatchLobbyController : MonoBehaviour
     private bool _refreshing;
     private bool _isClient;
 
-    /// <summary>
-    /// A host lobbyja (a kliensen null).
-    /// </summary>
+    // A host lobbyja (a kliensen null).
     public LobbyState State { get; private set; }
 
     private void Awake()
@@ -130,11 +112,7 @@ public sealed class MatchLobbyController : MonoBehaviour
             LobbyState.GetDefaultPlayerName(LobbyState.HostPlayerId));
     }
 
-    // A hálózati host a Start-ban indul: a Netcode az üzenettípusait az első
-    // jelenet Awake hívásai után regisztrálja, így ha a lobby az első
-    // jelenet (pl. szerkesztőben közvetlenül indítva), az Awake még túl korai.
-    // Ha az előző kapcsolat leállítása még tart (Vissza, majd gyorsan újra
-    // Host), megvárja a végét.
+    // A host a Start-ban indul, mert Awake-ben a Netcode üzenettípusai még nincsenek regisztrálva.
     private IEnumerator Start()
     {
         if (State == null)
@@ -236,10 +214,7 @@ public sealed class MatchLobbyController : MonoBehaviour
         LoadScene(onePlayerTestSceneName);
     }
 
-    /// <summary>
-    /// A host legenerálja a világot (új, véletlen seeddel), majd a
-    /// klienseknek elküldi, és mindenkivel együtt betölti a mérkőzést.
-    /// </summary>
+    // A host legenerálja és elküldi a világot, majd mindenki betölti a mérkőzést.
     public void OnStartClicked()
     {
         if (State == null || !State.CanStart)
@@ -289,8 +264,7 @@ public sealed class MatchLobbyController : MonoBehaviour
             State.SetPlayerCount(Mathf.RoundToInt(value));
     }
 
-    // A világméret csúszkája lépésközönként halad: az érték a lépések száma
-    // a minimális mérettől.
+    // A világméret csúszkája lépésközönként halad.
     private void OnWorldSizeChanged(float value)
     {
         if (!_refreshing && State != null)

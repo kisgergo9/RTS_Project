@@ -101,6 +101,22 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField, Min(0f)]
     private float startPositionJitter = 2f;
 
+    [Header("Yellow Bases")]
+    [Tooltip("A sárga bázisok erősségi (1–10) sorrendjét keverő zaj. 0 = szigorúan a kezdőbázisoktól " +
+             "mért távolság szerint (a közeliek a leggyengébbek), nagyobb érték = véletlenszerűbb. " +
+             "0,2 mellett a kezdőbázisokhoz legközelebbi sárga bázis erőssége legfeljebb 5.")]
+    [SerializeField, Range(0f, 1f)]
+    private float yellowStrengthJitter = 0.2f;
+
+    [Tooltip("A leggyengébb (1-es erősségű) sárga bázis turretjeinek száma.")]
+    [SerializeField, Min(0)]
+    private int minYellowTurretCount = 2;
+
+    [Tooltip("A legerősebb (10-es erősségű) sárga bázis turretjeinek száma. Közte az erősséggel " +
+             "egyenletesen nő. A Base prefabon 12 turret van.")]
+    [SerializeField, Min(0)]
+    private int maxYellowTurretCount = 12;
+
     [Header("Terrain")]
     [Tooltip("Akadálytípusok (hegy, szakadék, oázis). Ha nincs megadva akadály- és " +
              "dekorációtípus, a generátor nem helyez el tereptárgyakat.")]
@@ -191,27 +207,32 @@ public sealed class WorldGenerationSettings : ScriptableObject
     [SerializeField]
     private DefenderUnitEntry[] defenderUnits = Array.Empty<DefenderUnitEntry>();
 
-    [Tooltip("Egy védőcsapat nehézségi keretének legkisebb értéke (bázisonként véletlen).")]
+    [Tooltip("Az 1-es erősségű (leggyengébb) sárga bázis összes védőpontja.")]
     [SerializeField, Min(1)]
-    private int minSquadDifficulty = 20;
+    private int minBaseDefenderPoints = 15;
 
-    [Tooltip("Egy védőcsapat nehézségi keretének legnagyobb értéke (bázisonként véletlen).")]
+    [Tooltip("A 10-es erősségű (legerősebb) sárga bázis összes védőpontja. Közte az erősséggel " +
+             "egyenletesen nő. A pontok véletlenszerűen oszlanak meg a csapatok között.")]
     [SerializeField, Min(1)]
-    private int maxSquadDifficulty = 40;
+    private int maxBaseDefenderPoints = 60;
 
-    [Tooltip("A sárga bázisok ekkora hányada kap védőcsapatot.")]
+    [Tooltip("Egy csapat legkisebb pontja (legalább a legolcsóbb egység ára, így nincs üres csapat).")]
+    [SerializeField, Min(1)]
+    private int minSquadPoints = 5;
+
+    [Tooltip("A sárga bázisok ekkora hányada kap védőcsapatokat.")]
     [SerializeField, Range(0f, 1f)]
     private float defendedYellowBaseFraction = 1f;
 
-    [Tooltip("A védőegységek rögzített helyei a bázis középpontjához viszonyítva, a bázis " +
-             "elülső fala előtt, a kijáratoktól jobbra.")]
+    [Tooltip("A csapatok helye (a csapat vezetőjéé) a bázis középpontjához viszonyítva: balra, " +
+             "balra lent és középen lent, a bázis kijáratait és az APC-foglalási területet szabadon hagyva. " +
+             "Egy bázisnak legfeljebb ennyi csapata van; a többi tag az alakzat szerint a vezető köré kerül.")]
     [SerializeField]
-    private Vector2[] defenderSlots =
+    private Vector2[] squadAnchors =
     {
-        new Vector2(-2.4f, -3.0f), new Vector2(-1.4f, -3.0f), new Vector2(-0.4f, -3.0f),
-        new Vector2(0.6f, -3.0f), new Vector2(1.6f, -3.0f),
-        new Vector2(-2.4f, -3.9f), new Vector2(-1.4f, -3.9f), new Vector2(-0.4f, -3.9f),
-        new Vector2(0.6f, -3.9f), new Vector2(1.6f, -3.9f)
+        new Vector2(-7.5f, 0.5f),
+        new Vector2(-7.5f, -3.5f),
+        new Vector2(-1.0f, -4.5f)
     };
 
     public IReadOnlyList<DefenderUnitEntry> DefenderUnits => defenderUnits;
@@ -243,7 +264,10 @@ public sealed class WorldGenerationSettings : ScriptableObject
             obstaclesPer10000Area,
             CreateDefenderConfig(),
             recommendedWorldSizeAtMinPlayers,
-            recommendedObstacleCountAtMinPlayers);
+            recommendedObstacleCountAtMinPlayers,
+            yellowStrengthJitter,
+            minYellowTurretCount,
+            maxYellowTurretCount);
     }
 
     private YellowDefenderConfig CreateDefenderConfig()
@@ -264,10 +288,11 @@ public sealed class WorldGenerationSettings : ScriptableObject
 
         return new YellowDefenderConfig(
             types,
-            minSquadDifficulty,
-            maxSquadDifficulty,
+            minBaseDefenderPoints,
+            maxBaseDefenderPoints,
+            minSquadPoints,
             defendedYellowBaseFraction,
-            defenderSlots);
+            squadAnchors);
     }
 
     private TerrainGenerationConfig CreateTerrainConfig()
@@ -327,6 +352,12 @@ public sealed class WorldGenerationSettings : ScriptableObject
 
         if (recommendedObstacleCountAtMinPlayers > maxObstacleCount)
             recommendedObstacleCountAtMinPlayers = maxObstacleCount;
+
+        if (maxYellowTurretCount < minYellowTurretCount)
+            maxYellowTurretCount = minYellowTurretCount;
+
+        if (maxBaseDefenderPoints < minBaseDefenderPoints)
+            maxBaseDefenderPoints = minBaseDefenderPoints;
     }
 #endif
 }

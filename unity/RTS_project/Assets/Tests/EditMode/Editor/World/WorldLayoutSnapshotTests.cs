@@ -48,6 +48,7 @@ public sealed class WorldLayoutSnapshotTests
         for (int i = 0; i < expected.Bases.Count; i++)
         {
             Assert.AreEqual(expected.Bases[i].BaseId, actual.Bases[i].BaseId);
+            Assert.AreEqual(expected.Bases[i].Strength, actual.Bases[i].Strength);
             Assert.AreEqual(expected.Bases[i].Position, actual.Bases[i].Position);
             Assert.AreEqual(expected.Bases[i].OwnerType, actual.Bases[i].OwnerType);
             Assert.AreEqual(expected.Bases[i].PlayerId, actual.Bases[i].PlayerId);
@@ -324,14 +325,14 @@ public sealed class WorldLayoutSnapshotTests
 
     /// <summary>
     /// Az üzenetformátum szerint: 5 egész fejléc, játékosok (darabszám + egészek),
-    /// bázisok (darabszám + 2+4+4+1+1 bájt), típustáblázat (darabszám + karakterláncok),
+    /// bázisok (darabszám + 2+4+4+1+1+1 bájt), típustáblázat (darabszám + karakterláncok),
     /// majd az akadályok darabszáma.
     /// </summary>
     private static int FindFirstObstacleTypeIndexOffset(WorldGenerationState state)
     {
         int offset = 5 * 4;
         offset += 4 + state.playerIds.Length * 4;
-        offset += 4 + state.bases.Length * (2 + 4 + 4 + 1 + 1);
+        offset += 4 + state.bases.Length * (2 + 4 + 4 + 1 + 1 + 1);
 
         System.Collections.Generic.List<string> table = new System.Collections.Generic.List<string>();
 

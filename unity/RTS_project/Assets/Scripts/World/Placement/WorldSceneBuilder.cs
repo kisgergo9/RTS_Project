@@ -75,7 +75,7 @@ public sealed class WorldSceneBuilder : MonoBehaviour
 
         CreateGround(layout.Bounds);
         CreateBoundary(layout.Bounds);
-        CreateBases(layout, players, localPlayerId);
+        CreateBases(layout, players, localPlayerId, terrainSettings != null ? terrainSettings.ToConfig() : null);
         CreateTerrainFeatures(layout, terrainSettings);
         ApplyCameraBounds(layout.Bounds);
 
@@ -93,7 +93,11 @@ public sealed class WorldSceneBuilder : MonoBehaviour
         }
     }
 
-    private void CreateBases(WorldLayout layout, PlayerRegistry players, int localPlayerId)
+    private void CreateBases(
+        WorldLayout layout,
+        PlayerRegistry players,
+        int localPlayerId,
+        WorldGenerationConfig config)
     {
         Transform parent = new GameObject("Bases").transform;
         parent.SetParent(_root, false);
@@ -111,7 +115,7 @@ public sealed class WorldSceneBuilder : MonoBehaviour
             DisableTestInput(baseController);
 
             if (baseLayout.OwnerType != BaseOwnerType.Player)
-                HideTurrets(baseController);
+                ShowTurrets(baseController, config != null ? config.GetYellowTurretCount(baseLayout.Strength) : 0);
 
             if (baseController.TryGetComponent(out BaseOwnerView ownerView))
                 ownerView.SetLocalPlayer(localPlayerId);
@@ -144,25 +148,43 @@ public sealed class WorldSceneBuilder : MonoBehaviour
     }
 
     /// <summary>
-    /// A világgenerálás csak a kezdőbázisokon hagyja meg a tornyokat: a többi
-    /// bázison a Base prefab Turrets csoportját (12 torony) kikapcsoljuk.
-    /// A tornyok megjelenítése (pl. elfoglaláskor 2 kezdőtorony) a bázis
-    /// feladata, amely a csoportot vagy annak egyes tornyait bekapcsolja.
-    /// A tornyok nem törlődnek, csak inaktívak.
+    /// IDEIGLENES, amíg a Base prefab nem példányosítható turretszámmal: a
+    /// sárga bázison a prefab 12 turretjéből (Turrets/Turret_1–Turret_12) az
+    /// első count darabot kapcsolja be, a többit ki. A számozás a saroktól
+    /// kifelé, felváltva tölti meg a két sort. A kezdőbázis nem változik.
+    /// Ha a prefab maga kezeli a turretszámot, ez a metódus a hívásával együtt
+    /// törölhető, és a számot a prefabnak kell átadni.
     /// </summary>
-    private static void HideTurrets(BaseController baseController)
+    private static void ShowTurrets(BaseController baseController, int count)
     {
         Transform turrets = baseController.transform.Find("Turrets");
 
-        if (turrets != null)
-            turrets.gameObject.SetActive(false);
+        if (turrets == null)
+            return;
+
+        turrets.gameObject.SetActive(count > 0);
+
+        foreach (Transform turret in turrets)
+        {
+            const string prefix = "Turret_";
+            int number = 0;
+
+            bool numbered = turret.name.StartsWith(prefix, StringComparison.Ordinal) &&
+                            int.TryParse(turret.name.Substring(prefix.Length), out number);
+
+            turret.gameObject.SetActive(numbered && number <= count);
+        }
     }
 
     /// <summary>
-    /// A sárga bázisok előtti védőegységek létrehozása a rögzített helyeken,
-    /// a bázistól kifelé (lefelé) nézve, sárga tulajdonossal. Az egységek még
-    /// nincsenek inicializálva: az azonosító kiosztása és a játékállapotba
-    /// regisztrálás a hívó (GameBootstrapper) feladata.
+    /// A sárga bázisok előtti védőcsapatok létrehozása, sárga tulajdonossal,
+    /// a bázistól kifelé (lefelé) nézve. Minden csapat egy UnitGroup: a
+    /// vezetője a csapathelyen áll, a többi tag a UnitGroup alakzata szerint
+    /// köré kerül (UnitGroupManager.CreateSingletonGroup, UnitGroup.AddMember).
+    /// A csoportosítás az egységek Start-ja előtt történik, így nem jön létre
+    /// egyedülálló csoport. Az egységek még nincsenek inicializálva: az
+    /// azonosító kiosztása és a játékállapotba regisztrálás a hívó
+    /// (GameBootstrapper) feladata.
     /// </summary>
     public IReadOnlyList<UnitGroupMember> SpawnDefenders(WorldLayout layout, WorldGenerationSettings settings)
     {
@@ -190,8 +212,21 @@ public sealed class WorldSceneBuilder : MonoBehaviour
                 prefabs[entry.id] = entry.prefab;
         }
 
+        // A UnitGroupManager Awake-je lehet, hogy még nem futott le (azonos
+        // jelenetben, a GameBootstrapper Awake-jéből hívva).
+        UnitGroupManager groups = UnitGroupManager.Instance != null
+            ? UnitGroupManager.Instance
+            : FindFirstObjectByType<UnitGroupManager>();
+
+        if (groups == null)
+            Debug.LogError("Nincs UnitGroupManager a jelenetben: a védőcsapatok nem állnak össze csapattá.", this);
+
         Transform parent = new GameObject("Defenders").transform;
         parent.SetParent(_root, false);
+
+        UnitGroup group = null;
+        int currentBase = -1;
+        int currentSquad = -1;
 
         foreach (DefenderLayout defender in layout.Defenders)
         {
@@ -199,23 +234,52 @@ public sealed class WorldSceneBuilder : MonoBehaviour
                 throw new InvalidOperationException(
                     $"Nincs prefab a védőegység-típushoz: {defender.UnitTypeId}");
 
+            bool newSquad = defender.BaseId != currentBase || defender.SquadIndex != currentSquad;
+            currentBase = defender.BaseId;
+            currentSquad = defender.SquadIndex;
+
             UnitGroupMember unit = Instantiate(
                 prefab,
                 new Vector3(defender.Position.x, defender.Position.y, prefab.transform.position.z),
                 prefab.transform.rotation,
                 parent);
 
-            unit.name = $"Defender_{defender.BaseId}_{defender.SlotIndex}_{defender.UnitTypeId}";
+            unit.name = $"Defender_{defender.BaseId}_{defender.SquadIndex}_{defender.UnitTypeId}";
             unit.SetOwner(BaseOwnerType.Yellow, 0);
 
             // A bázistól kifelé, a pálya „lefelé” iránya felé néz (0° = fel).
             if (unit.TryGetComponent(out DirectionalSpriteRenderer spriteRenderer))
                 spriteRenderer.SetAngle(180f);
 
+            if (groups != null)
+                group = newSquad ? groups.CreateSingletonGroup(unit) : JoinSquad(groups, group, unit);
+
             spawned.Add(unit);
         }
 
         return spawned;
+    }
+
+    /// <summary>
+    /// Az egységet a csapat következő szabad alakzathelyére teszi, és
+    /// felveszi a csapatba. Ha a csapat megtelt, új csapatot kezd.
+    /// </summary>
+    private static UnitGroup JoinSquad(UnitGroupManager groups, UnitGroup group, UnitGroupMember unit)
+    {
+        int slot = group != null ? group.FindNextFreeSlot() : -1;
+
+        if (slot < 0)
+            return groups.CreateSingletonGroup(unit);
+
+        Vector3 position = group.GetSlotWorldPosition(slot);
+        unit.transform.position = new Vector3(position.x, position.y, unit.transform.position.z);
+
+        if (!group.AddMember(unit, slot))
+            return group;
+
+        unit.transform.SetParent(group.transform, true);
+
+        return group;
     }
 
     private void CreateTerrainFeatures(WorldLayout layout, WorldGenerationSettings terrainSettings)

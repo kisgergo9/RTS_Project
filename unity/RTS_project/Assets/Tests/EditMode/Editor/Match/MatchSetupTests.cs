@@ -133,6 +133,10 @@ public sealed class MatchSetupTests
         WorldLayout received = WorldLayoutSnapshot.FromState(WorldLayoutSnapshot.ToState(_layout));
         Assert.AreEqual(0, received.Defenders.Count, "A pillanatkép nem viszi a védőcsapatokat.");
 
+        // A csapatok a bázisok erősségéből számolódnak, ezért annak is utaznia kell.
+        for (int i = 0; i < _layout.Bases.Count; i++)
+            Assert.AreEqual(_layout.Bases[i].Strength, received.Bases[i].Strength);
+
         WorldLayout restored = _generator.WithDefenders(received);
 
         Assert.AreEqual(_layout.Defenders.Count, restored.Defenders.Count);
@@ -141,7 +145,7 @@ public sealed class MatchSetupTests
         {
             Assert.AreEqual(_layout.Defenders[i].BaseId, restored.Defenders[i].BaseId);
             Assert.AreEqual(_layout.Defenders[i].UnitTypeId, restored.Defenders[i].UnitTypeId);
-            Assert.AreEqual(_layout.Defenders[i].SlotIndex, restored.Defenders[i].SlotIndex);
+            Assert.AreEqual(_layout.Defenders[i].SquadIndex, restored.Defenders[i].SquadIndex);
             Assert.AreEqual(_layout.Defenders[i].Position, restored.Defenders[i].Position);
         }
 

@@ -10,7 +10,7 @@ using Unity.Netcode;
 ///
 /// Tömör formátum: a tereptárgy-típusazonosítók egyszer, egy táblázatban
 /// szerepelnek, az egyes tárgyak csak a sorszámukra hivatkoznak; a kis
-/// értékkészletű mezők (változat, tulajdonostípus, bázisazonosító) 1–2 bájtosak.
+/// értékkészletű mezők (változat, tulajdonostípus, erősség, bázisazonosító) 1–2 bájtosak.
 /// A csak megjelenítést szolgáló dekorációk pozíciója 16 bites, a pályához
 /// viszonyított értékként (a legnagyobb pályán kb. 0,008 egység pontossággal),
 /// léptéke 0,01-es lépésközzel utazik; a játékmenetet befolyásoló bázisok és
@@ -105,18 +105,25 @@ public struct WorldGenerationMessage : INetworkSerializable
                 throw new InvalidOperationException(
                     $"A bázisazonosító nem fér el a világüzenetben: {placement.baseId}");
 
+            if (!serializer.IsReader && (placement.strength < 0 || placement.strength > byte.MaxValue))
+                throw new InvalidOperationException(
+                    $"A bázis erőssége nem fér el a világüzenetben: {placement.strength}");
+
             ushort baseId = (ushort)placement.baseId;
             byte ownerType = (byte)placement.ownerType;
             byte playerIndex = serializer.IsReader ? NoPlayerIndex : ToPlayerIndex(placement);
+            byte strength = (byte)placement.strength;
 
             serializer.SerializeValue(ref baseId);
             serializer.SerializeValue(ref placement.x);
             serializer.SerializeValue(ref placement.y);
             serializer.SerializeValue(ref ownerType);
             serializer.SerializeValue(ref playerIndex);
+            serializer.SerializeValue(ref strength);
 
             placement.baseId = baseId;
             placement.ownerType = (BaseOwnerType)ownerType;
+            placement.strength = strength;
 
             if (serializer.IsReader)
                 placement.playerId = FromPlayerIndex(placement.ownerType, playerIndex);

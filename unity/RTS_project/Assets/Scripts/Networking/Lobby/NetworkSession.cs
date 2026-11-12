@@ -6,15 +6,7 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 
-/// <summary>
-/// A hálózati kapcsolat indítása és leállítása (host vagy kliens).
-///
-/// A NetworkManagert első használatkor kódból hozza létre (Unity Transport,
-/// jelenetkezelés és csatlakozás-jóváhagyás bekapcsolva), így egyik
-/// jelenetnek sem kell tartalmaznia; jelenetváltáskor megmarad. A kliens a
-/// csatlakozás után automatikusan a host jelenetét (a lobbyt) tölti be.
-/// A lobby üzenetkezelését az ugyanezen a GameObjecten lévő LobbyNetwork végzi.
-/// </summary>
+// A hálózati kapcsolat indítása és leállítása (host vagy kliens).
 public static class NetworkSession
 {
     public const ushort DefaultPort = 7777;
@@ -32,10 +24,7 @@ public static class NetworkSession
     public static bool IsHost => IsRunning && Manager.IsHost;
     public static bool IsClientOnly => IsRunning && Manager.IsClient && !Manager.IsServer;
 
-    /// <summary>
-    /// A legutóbbi kapcsolatbontás oka (pl. „A lobby megtelt.”); a
-    /// csatlakozási képernyő kiírja, majd törli.
-    /// </summary>
+    // A legutóbbi kapcsolatbontás oka.
     public static string LastDisconnectReason { get; set; }
 
     public static bool StartHost(ushort port = DefaultPort)
@@ -44,8 +33,7 @@ public static class NetworkSession
 
         if (manager.IsListening)
         {
-            // Az előző kapcsolat leállítása (pl. Vissza, majd gyorsan újra
-            // Host) még folyamatban van: most nem indítható új host.
+            // Az előző kapcsolat leállítása még tart: most nem indítható új host.
             if (manager.ShutdownInProgress || !manager.IsHost)
                 return false;
 
@@ -57,8 +45,7 @@ public static class NetworkSession
         // 0.0.0.0: a host minden hálózati csatolón fogadja a kapcsolatokat.
         manager.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", port, "0.0.0.0");
 
-        // A host induláskor saját magát is jóváhagyja, ezért a
-        // jóváhagyásnak már az indítás előtt be kell állítva lennie.
+        // A jóváhagyást az indítás előtt kell beállítani (a host magát is jóváhagyja).
         manager.ConnectionApprovalCallback = manager.GetComponent<LobbyNetwork>().ApproveConnection;
 
         if (!manager.StartHost())
@@ -90,9 +77,7 @@ public static class NetworkSession
         return true;
     }
 
-    /// <summary>
-    /// A gép helyi hálózati IPv4-címei, amelyeken a kliensek elérhetik a hostot.
-    /// </summary>
+    // A gép helyi hálózati IPv4-címei, amelyeken a kliensek elérhetik a hostot.
     public static List<string> GetLocalIPv4Addresses()
     {
         List<string> addresses = new List<string>();

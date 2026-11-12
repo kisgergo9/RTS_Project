@@ -2,19 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// A lobbyból indított mérkőzés jelenetének indítója.
-///
-/// A GameBootstrappert tartalmazó GameObject a jelenetben inaktívan van
-/// mentve. Ez a komponens megvárja a mérkőzés adatait (MatchSetup.Current:
-/// a hoston a lobby állítja be, a klienseken a hosttól érkezik), átadja a
-/// host által generált világot a WorldGenerationSetup-nak, a játékosokat és
-/// a helyi játékost a GameBootstrappernek, majd bekapcsolja a GameObjectet,
-/// amely így a megszokott módon felépíti a világot. Végül a kamerát a helyi
-/// játékos kezdőbázisára állítja.
-///
-/// A kliensen a kapcsolat megszakadásakor visszatér a csatlakozási képernyőre.
-/// </summary>
+// A lobbyból indított mérkőzés jelenetének indítója.
 [DisallowMultipleComponent]
 public sealed class MatchStarter : MonoBehaviour
 {

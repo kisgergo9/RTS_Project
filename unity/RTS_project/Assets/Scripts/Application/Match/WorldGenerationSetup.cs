@@ -390,7 +390,7 @@ public sealed class WorldGenerationSetup : MonoBehaviour
             UnityEditor.Handles.DrawWireDisc(position, Vector3.forward, _previewClearRadius);
             UnityEditor.Handles.Label(position, baseLayout.OwnerType == BaseOwnerType.Player
                 ? $"P{baseLayout.PlayerId}"
-                : $"Y{baseLayout.BaseId}");
+                : $"Y{baseLayout.BaseId} ({baseLayout.Strength})");
         }
     }
 

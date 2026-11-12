@@ -1,21 +1,10 @@
 using System;
 using Unity.Netcode;
 
-/// <summary>
-/// A lobby állapotának pillanatképe, amelyet a host minden változáskor
-/// elküld a klienseknek, és amelyből a lobby felülete (a hoston is)
-/// megjelenik. A klienseken csak megjelenítésre szolgál: a lobbyt
-/// egyedül a host módosíthatja.
-///
-/// A játékoshelyek nevei a játékosazonosító sorrendjében szerepelnek
-/// (index = azonosító - 1); az üres név szabad helyet jelent.
-/// </summary>
+// A lobby pillanatképe, amelyet a host minden változáskor elküld.
 public sealed class LobbySnapshot : INetworkSerializable
 {
-    /// <summary>
-    /// A beolvasott helyszám felső korlátja, hogy egy hibás üzenet ne
-    /// okozhasson túlzott memóriafoglalást.
-    /// </summary>
+    // A beolvasott helyszám felső korlátja (hibás üzenet ellen).
     public const int MaxSlots = 64;
 
     public int LocalPlayerId;

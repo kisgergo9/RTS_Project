@@ -3,15 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/// <summary>
-/// A csatlakozási képernyő (főmenü → Join): a host IP-címének megadása,
-/// Csatlakozás és Vissza gomb.
-///
-/// Sikeres csatlakozás után a kliens automatikusan a host jelenetét (a
-/// lobbyt) tölti be. Ha a csatlakozás nem sikerül, vagy a host elutasítja
-/// (pl. megtelt a lobby), az okot a státuszsor mutatja. Ide tér vissza a
-/// kliens akkor is, ha a lobbyban megszakad a kapcsolat.
-/// </summary>
+// A csatlakozási képernyő: a host IP-címe, Csatlakozás és Vissza gomb.
 [DisallowMultipleComponent]
 public sealed class MatchJoinController : MonoBehaviour
 {
@@ -106,10 +98,7 @@ public sealed class MatchJoinController : MonoBehaviour
             Debug.LogError($"A(z) '{mainMenuSceneName}' jelenet nincs a Build Settings listájában.", this);
     }
 
-    /// <summary>
-    /// „cím” vagy „cím:port” alakú bemenet feldolgozása; port nélkül az
-    /// alapértelmezett portot használja.
-    /// </summary>
+    // „cím” vagy „cím:port” alakú bemenet feldolgozása.
     public static bool TryParseAddress(string input, out string host, out ushort port)
     {
         host = null;

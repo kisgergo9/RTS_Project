@@ -1,15 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// A lobbyból indított mérkőzés adatai: a játékosok, a helyi játékos és a
-/// host által generált világ pillanatképe.
-///
-/// A hoston a lobby, a klienseken a hosttól kapott indítóüzenet állítja be
-/// (Current) a mérkőzés jelenetének betöltése előtt; a jelenetben a
-/// MatchStarter olvassa ki. A világot a kliensek nem generálják újra, hanem
-/// a host pillanatképét építik fel, így mindenki ugyanazt a pályát látja.
-/// </summary>
+// A lobbyból indított mérkőzés adatai: játékosok, helyi játékos, világ.
 public sealed class MatchSetup
 {
     private readonly MatchPlayer[] _players;
@@ -54,18 +46,14 @@ public sealed class MatchSetup
         LocalPlayerId = localPlayerId;
     }
 
-    /// <summary>
-    /// A betöltés alatt álló mérkőzés adatai (null, ha nincs ilyen).
-    /// </summary>
+    // A betöltés alatt álló mérkőzés adatai (null, ha nincs ilyen).
     public static MatchSetup Current { get; set; }
 
     public IReadOnlyList<MatchPlayer> Players => _players;
     public int LocalPlayerId { get; }
     public WorldGenerationState World { get; }
 
-    /// <summary>
-    /// A lobby játékoshelyeiből és a generált világból készít mérkőzésadatot.
-    /// </summary>
+    // A lobby játékoshelyeiből és a generált világból készít mérkőzésadatot.
     public static MatchSetup FromLobby(LobbyState lobby, WorldLayout layout, int localPlayerId)
     {
         if (lobby == null)
@@ -88,9 +76,7 @@ public sealed class MatchSetup
     }
 }
 
-/// <summary>
-/// Egy mérkőzés résztvevője: azonosító és megjelenített név.
-/// </summary>
+// Egy mérkőzés résztvevője: azonosító és megjelenített név.
 public readonly struct MatchPlayer
 {
     public MatchPlayer(int playerId, string name)

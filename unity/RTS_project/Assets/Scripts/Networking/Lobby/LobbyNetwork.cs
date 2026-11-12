@@ -4,18 +4,7 @@ using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-/// <summary>
-/// A lobby hálózati kezelése. A NetworkSession hozza létre a NetworkManager
-/// GameObjectjén, így jelenetváltáskor is megmarad.
-///
-/// Host: a csatlakozási kérést csak akkor fogadja el, ha van nyitott lobby
-/// és szabad hely; a csatlakozott kliensnek lefoglalja az első szabad
-/// helyet, kilépéskor felszabadítja. A lobby minden változásakor minden
-/// kliensnek elküldi a pillanatképet (a saját játékosazonosítójával).
-///
-/// Kliens: fogadja a pillanatképet (LatestSnapshot), és jelzi, ha a
-/// kapcsolat megszakadt.
-/// </summary>
+// A lobby hálózati kezelése.
 [DisallowMultipleComponent]
 public sealed class LobbyNetwork : MonoBehaviour
 {
@@ -36,22 +25,15 @@ public sealed class LobbyNetwork : MonoBehaviour
     private NetworkManager _manager;
     private LobbyState _hostLobby;
 
-    /// <summary>
-    /// A kliensen a legutóbb kapott pillanatkép (a hoston null).
-    /// </summary>
+    // A kliensen a legutóbb kapott pillanatkép (a hoston null).
     public LobbySnapshot LatestSnapshot { get; private set; }
 
     public event Action SnapshotReceived;
 
-    /// <summary>
-    /// A kliensen: a kapcsolat megszakadt vagy a host elutasította. A
-    /// paraméter az ok, amelyet a felület kiírhat.
-    /// </summary>
+    // A kliensen: a kapcsolat megszakadt vagy a host elutasította.
     public event Action<string> Disconnected;
 
-    /// <summary>
-    /// A hoston: a kliens kapcsolatazonosítójához tartozó játékosazonosító.
-    /// </summary>
+    // A hoston: a kliens kapcsolatazonosítójához tartozó játékosazonosító.
     public bool TryGetPlayerId(ulong clientId, out int playerId)
     {
         if (clientId == NetworkManager.ServerClientId)
@@ -81,9 +63,7 @@ public sealed class LobbyNetwork : MonoBehaviour
             manager.ConnectionApprovalCallback = ApproveConnection;
     }
 
-    /// <summary>
-    /// Már futó hosthoz köti a lobbykezelést, ha még nincs hozzákötve.
-    /// </summary>
+    // Már futó hosthoz köti a lobbykezelést, ha még nincs hozzákötve.
     internal void EnsureStartedAsHost(NetworkManager manager)
     {
         if (_manager == manager)
@@ -109,10 +89,7 @@ public sealed class LobbyNetwork : MonoBehaviour
         _clientPlayers.Clear();
     }
 
-    /// <summary>
-    /// A host lobbyja. Amíg nincs csatolva (pl. a mérkőzés már elindult),
-    /// a host minden csatlakozási kérést elutasít.
-    /// </summary>
+    // A host lobbyja.
     public void AttachHostLobby(LobbyState lobby)
     {
         if (lobby == null)
@@ -134,12 +111,7 @@ public sealed class LobbyNetwork : MonoBehaviour
         _hostLobby = null;
     }
 
-    /// <summary>
-    /// A hoston: a mérkőzés indítása. Minden kliens megkapja az indítóüzenetet
-    /// a saját játékosazonosítójával, a lobby lezárul (újabb csatlakozást a
-    /// host elutasít), majd a host a kliensekkel együtt betölti a mérkőzés
-    /// jelenetét. A hoston a MatchSetup.Current-et a hívó állítja be.
-    /// </summary>
+    // A hoston: a mérkőzés indítása.
     public bool TryStartMatch(MatchSetup setup, string matchSceneName, out string error)
     {
         if (setup == null)
@@ -234,8 +206,7 @@ public sealed class LobbyNetwork : MonoBehaviour
 
         _clientPlayers[clientId] = playerId;
 
-        // A TryOccupyFreeSlot már küldött pillanatképet, de akkor ez a
-        // kliens még nem szerepelt a játékosai között.
+        // Az új kliens a korábbi pillanatképet még nem kapta meg.
         SendState(clientId);
     }
 
@@ -257,10 +228,7 @@ public sealed class LobbyNetwork : MonoBehaviour
         _hostLobby?.ReleaseSlot(playerId);
     }
 
-    /// <summary>
-    /// A host saját (magyar) elutasítási okai változatlanok maradnak; a
-    /// Netcode angol üzenetei helyett magyar szöveg jelenik meg.
-    /// </summary>
+    // A Netcode angol elutasítási üzenetei helyett magyar szöveg.
     public static string TranslateDisconnectReason(string reason)
     {
         if (string.IsNullOrEmpty(reason))

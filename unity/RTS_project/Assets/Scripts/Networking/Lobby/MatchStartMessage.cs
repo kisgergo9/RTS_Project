@@ -1,16 +1,10 @@
 using System;
 using Unity.Netcode;
 
-/// <summary>
-/// A host üzenete a mérkőzés indításakor: a kliens saját játékosazonosítója,
-/// a játékosok azonosítója és neve, valamint a host által generált világ
-/// (WorldGenerationMessage). Ebből a kliens a MatchSetup-ot állítja elő.
-/// </summary>
+// A host üzenete a mérkőzés indításakor: játékosok és a generált világ.
 public struct MatchStartMessage : INetworkSerializable
 {
-    /// <summary>
-    /// A beolvasott játékosszám felső korlátja (hibás üzenet ellen).
-    /// </summary>
+    // A beolvasott játékosszám felső korlátja (hibás üzenet ellen).
     public const int MaxPlayers = LobbySnapshot.MaxSlots;
 
     public int LocalPlayerId;
