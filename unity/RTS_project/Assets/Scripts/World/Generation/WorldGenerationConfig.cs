@@ -227,21 +227,21 @@ public sealed class WorldGenerationConfig
     }
 
     /// <summary>
-    /// A védőhelyeknek a bázis szabad területén belül, de a bázis tiltott
+    /// A csapathelyeknek a bázis szabad területén belül, de a bázis tiltott
     /// területén kívül kell lenniük.
     /// </summary>
     private void ValidateDefenders(YellowDefenderConfig defenders, TerrainGenerationConfig terrain)
     {
-        foreach (UnityEngine.Vector2 slot in defenders.Slots)
+        foreach (UnityEngine.Vector2 anchor in defenders.SquadAnchors)
         {
-            if (slot.magnitude > BaseClearRadius)
+            if (anchor.magnitude > BaseClearRadius)
                 throw new ArgumentException(
-                    $"A védőhely ({slot}) a bázis szabad területén kívül esik " +
+                    $"A csapathely ({anchor}) a bázis szabad területén kívül esik " +
                     $"(BaseClearRadius = {BaseClearRadius}).");
 
-            if (terrain != null && terrain.BaseFootprint.Contains(slot))
+            if (terrain != null && terrain.BaseFootprint.Contains(anchor))
                 throw new ArgumentException(
-                    $"A védőhely ({slot}) a bázis tiltott területén belül van.");
+                    $"A csapathely ({anchor}) a bázis tiltott területén belül van.");
         }
     }
 

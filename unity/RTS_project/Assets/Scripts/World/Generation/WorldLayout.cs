@@ -86,16 +86,18 @@ public readonly struct TerrainFeatureLayout
 
 /// <summary>
 /// Egy sárga bázis előtti védőegység: melyik bázist védi, milyen típusú,
-/// hányadik rögzített helyen áll, és hol (világkoordinátában).
+/// hányadik csapatba tartozik, és hol áll a csapata (a csapat vezetőjének
+/// helye, világkoordinátában). Egy csapat a játékban egy UnitGroup; a
+/// többi tag a vezető köré, az alakzat szerint kerül.
 /// </summary>
 public readonly struct DefenderLayout
 {
     public int BaseId { get; }
     public string UnitTypeId { get; }
-    public int SlotIndex { get; }
+    public int SquadIndex { get; }
     public Vector2 Position { get; }
 
-    public DefenderLayout(int baseId, string unitTypeId, int slotIndex, Vector2 position)
+    public DefenderLayout(int baseId, string unitTypeId, int squadIndex, Vector2 position)
     {
         if (baseId <= 0)
             throw new ArgumentOutOfRangeException(nameof(baseId));
@@ -103,18 +105,18 @@ public readonly struct DefenderLayout
         if (string.IsNullOrWhiteSpace(unitTypeId))
             throw new ArgumentException("A védőegység típusa nem lehet üres.", nameof(unitTypeId));
 
-        if (slotIndex < 0)
-            throw new ArgumentOutOfRangeException(nameof(slotIndex));
+        if (squadIndex < 0)
+            throw new ArgumentOutOfRangeException(nameof(squadIndex));
 
         BaseId = baseId;
         UnitTypeId = unitTypeId;
-        SlotIndex = slotIndex;
+        SquadIndex = squadIndex;
         Position = position;
     }
 
     public override string ToString()
     {
-        return $"{UnitTypeId} @ base {BaseId}, slot {SlotIndex}";
+        return $"{UnitTypeId} @ base {BaseId}, squad {SquadIndex}";
     }
 }
 

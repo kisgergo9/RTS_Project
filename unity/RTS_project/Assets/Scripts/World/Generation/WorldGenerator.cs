@@ -38,11 +38,13 @@ using UnityEngine;
 ///      (DecorationGroveFraction) ligetként a vonzó akadályok (pl. oázis) köré
 ///      kerül, a többi szétszórva. Nem kerülnek a járhatósági rácsba, és sosem
 ///      okoznak hibát: ha egy dekoráció nem fér el, kimarad.
-///   8. A sárga bázisok egy része (DefendedBaseFraction) védőcsapatot kap: egy
-///      véletlen nehézségi keretből ([MinSquadDifficulty; MaxSquadDifficulty])
-///      véletlenszerűen választott, még beleférő egységek kerülnek a rögzített
-///      védőhelyekre, amíg egy sem fér bele vagy elfogynak a helyek. Az egységek
-///      nehézségi értékeinek összege sosem lépi túl a keretet.
+///   8. A sárga bázisok egy része (DefendedBaseFraction) védőcsapatokat kap. A
+///      bázis erősségétől függő pontkeret (1-es: MinBasePoints, 10-es:
+///      MaxBasePoints) véletlenszerűen oszlik meg legfeljebb annyi csapat között,
+///      ahány csapathely van, mindegyik legalább MinSquadPoints ponttal. A
+///      csapatokba véletlenszerűen választott, még beleférő egységek kerülnek,
+///      amíg egy sem fér bele; a csapat egységeinek pontja sosem lépi túl a
+///      csapat pontját.
 /// </summary>
 public sealed class WorldGenerator
 {
@@ -749,33 +751,74 @@ public sealed class WorldGenerator
             if (random.NextDouble() >= config.DefendedBaseFraction)
                 continue;
 
-            int remaining = random.NextInt(config.MinSquadDifficulty, config.MaxSquadDifficulty + 1);
+            int basePoints = config.GetBasePoints(baseLayout.Strength);
+            int[] squadPoints = SplitPoints(basePoints, config.GetSquadCount(basePoints), config.MinSquadPoints, random);
 
-            for (int slot = 0; slot < config.Slots.Count; slot++)
+            for (int squad = 0; squad < squadPoints.Length; squad++)
             {
-                affordable.Clear();
+                int remaining = squadPoints[squad];
+                Vector2 anchor = baseLayout.Position + config.SquadAnchors[squad];
 
-                foreach (DefenderUnitType type in config.UnitTypes)
+                while (true)
                 {
-                    if (type.DifficultyCost <= remaining)
-                        affordable.Add(type);
+                    affordable.Clear();
+
+                    foreach (DefenderUnitType type in config.UnitTypes)
+                    {
+                        if (type.DifficultyCost <= remaining)
+                            affordable.Add(type);
+                    }
+
+                    if (affordable.Count == 0)
+                        break;
+
+                    DefenderUnitType chosen = affordable[random.NextInt(affordable.Count)];
+                    remaining -= chosen.DifficultyCost;
+
+                    defenders.Add(new DefenderLayout(baseLayout.BaseId, chosen.Id, squad, anchor));
                 }
-
-                if (affordable.Count == 0)
-                    break;
-
-                DefenderUnitType chosen = affordable[random.NextInt(affordable.Count)];
-                remaining -= chosen.DifficultyCost;
-
-                defenders.Add(new DefenderLayout(
-                    baseLayout.BaseId,
-                    chosen.Id,
-                    slot,
-                    baseLayout.Position + config.Slots[slot]));
             }
         }
 
         return defenders;
+    }
+
+    /// <summary>
+    /// A pontok véletlenszerű felosztása: minden csapat legalább minPerSquad
+    /// pontot kap, a maradék véletlen súlyok szerint oszlik meg. Az összeg
+    /// mindig pontosan points (ha a csapatok száma pozitív).
+    /// </summary>
+    public static int[] SplitPoints(int points, int squadCount, int minPerSquad, DeterministicRandom random)
+    {
+        int[] shares = new int[Math.Max(0, squadCount)];
+
+        if (shares.Length == 0)
+            return shares;
+
+        int extra = points - shares.Length * minPerSquad;
+        double[] weights = new double[shares.Length];
+        double total = 0.0;
+
+        for (int i = 0; i < shares.Length; i++)
+        {
+            weights[i] = random.NextDouble();
+            total += weights[i];
+        }
+
+        int assigned = 0;
+
+        for (int i = 0; i < shares.Length; i++)
+        {
+            int part = total > 0.0 ? (int)Math.Floor(extra * weights[i] / total) : extra / shares.Length;
+            shares[i] = minPerSquad + part;
+            assigned += part;
+        }
+
+        // A kerekítésből maradt pontok sorban kerülnek a csapatokhoz.
+        for (int i = 0; assigned < extra; i = (i + 1) % shares.Length, assigned++)
+            shares[i]++;
+
+        return shares;
     }
 
     private static TerrainFeatureType PickWeighted(

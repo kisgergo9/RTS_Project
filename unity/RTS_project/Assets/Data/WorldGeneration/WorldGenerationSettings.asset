@@ -80,17 +80,11 @@ MonoBehaviour:
   - id: bigtank
     prefab: {fileID: 2331125065565859095, guid: 32c9527e2bd68ef41a8dd3bc894ebede, type: 3}
     difficultyCost: 10
-  minSquadDifficulty: 20
-  maxSquadDifficulty: 40
+  minBaseDefenderPoints: 15
+  maxBaseDefenderPoints: 60
+  minSquadPoints: 5
   defendedYellowBaseFraction: 1
-  defenderSlots:
-  - {x: -2.4, y: -3}
-  - {x: -1.4, y: -3}
-  - {x: -0.4, y: -3}
-  - {x: 0.6, y: -3}
-  - {x: 1.6, y: -3}
-  - {x: -2.4, y: -3.9}
-  - {x: -1.4, y: -3.9}
-  - {x: -0.4, y: -3.9}
-  - {x: 0.6, y: -3.9}
-  - {x: 1.6, y: -3.9}
+  squadAnchors:
+  - {x: -7.5, y: 0.5}
+  - {x: -7.5, y: -3.5}
+  - {x: -1, y: -4.5}
