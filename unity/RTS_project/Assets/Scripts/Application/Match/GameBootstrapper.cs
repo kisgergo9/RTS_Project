@@ -66,6 +66,21 @@ public sealed class GameBootstrapper : MonoBehaviour
 
     private bool _initialized;
 
+    /// <summary>
+    /// Lobbyból indított mérkőzésnél a játékosok és a helyi játékos megadása.
+    /// Az inicializálás előtt kell hívni (a GameObject ekkor még inaktív);
+    /// a jelenetben beállított Players lista helyett ezek érvényesek.
+    /// </summary>
+    public void ConfigureMatch(PlayerSetup[] matchPlayers, int matchLocalPlayerId)
+    {
+        if (_initialized)
+            throw new InvalidOperationException(
+                "A GameBootstrapper már inicializálva lett.");
+
+        players = matchPlayers ?? throw new ArgumentNullException(nameof(matchPlayers));
+        localPlayerId = matchLocalPlayerId;
+    }
+
     private void Awake()
     {
         Initialize();

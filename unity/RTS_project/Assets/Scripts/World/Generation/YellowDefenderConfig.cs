@@ -33,30 +33,43 @@ public sealed class DefenderUnitType
 /// A WorldGenerationConfig opcionális része: ha nincs megadva, nem
 /// generálódnak védőcsapatok.
 ///
-/// Minden védett sárga bázis véletlen nehézségi keretet kap a
-/// [MinSquadDifficulty; MaxSquadDifficulty] tartományból; a csapat
-/// egységeinek nehézségi értékei összesen ezt nem léphetik túl. Az egységek
-/// a bázishoz viszonyított, rögzített helyekre (Slots) kerülnek.
+/// Minden védett sárga bázis az erősségétől függő pontkeretet kap: 1-es
+/// erősségnél MinBasePoints, 10-esnél MaxBasePoints, közte egyenletesen. A
+/// keret véletlenszerűen oszlik meg legfeljebb annyi csapat között, ahány
+/// csapathely (SquadAnchors) van; minden csapat legalább MinSquadPoints
+/// pontot kap. Egy csapat egységeinek pontértékei összesen nem lépik túl a
+/// csapat pontját. Egy csapat a játékban egy UnitGroup: a vezetője a
+/// csapathelyen áll, a többiek az alakzat szerint köré.
 /// </summary>
 public sealed class YellowDefenderConfig
 {
     private readonly DefenderUnitType[] _unitTypes;
-    private readonly Vector2[] _slots;
+    private readonly Vector2[] _squadAnchors;
 
     public IReadOnlyList<DefenderUnitType> UnitTypes => _unitTypes;
-    public int MinSquadDifficulty { get; }
-    public int MaxSquadDifficulty { get; }
 
     /// <summary>
-    /// A sárga bázisok ekkora hányada kap védőcsapatot. [0; 1]
+    /// Az 1-es, illetve a 10-es erősségű sárga bázis összes védőpontja.
+    /// </summary>
+    public int MinBasePoints { get; }
+    public int MaxBasePoints { get; }
+
+    /// <summary>
+    /// Egy csapat legkisebb pontja (legalább a legolcsóbb egység ára, így
+    /// nincs üres csapat).
+    /// </summary>
+    public int MinSquadPoints { get; }
+
+    /// <summary>
+    /// A sárga bázisok ekkora hányada kap védőcsapatokat. [0; 1]
     /// </summary>
     public float DefendedBaseFraction { get; }
 
     /// <summary>
-    /// A védőegységek rögzített helyei a bázis középpontjához viszonyítva.
-    /// Egy csapat legfeljebb ennyi egységből áll.
+    /// A csapatok helye (a csapat vezetőjéé) a bázis középpontjához
+    /// viszonyítva. Egy bázisnak legfeljebb ennyi csapata van.
     /// </summary>
-    public IReadOnlyList<Vector2> Slots => _slots;
+    public IReadOnlyList<Vector2> SquadAnchors => _squadAnchors;
 
     public int CheapestCost
     {
@@ -73,19 +86,20 @@ public sealed class YellowDefenderConfig
 
     public YellowDefenderConfig(
         IEnumerable<DefenderUnitType> unitTypes,
-        int minSquadDifficulty,
-        int maxSquadDifficulty,
+        int minBasePoints,
+        int maxBasePoints,
+        int minSquadPoints,
         float defendedBaseFraction,
-        IEnumerable<Vector2> slots)
+        IEnumerable<Vector2> squadAnchors)
     {
         if (unitTypes == null)
             throw new ArgumentNullException(nameof(unitTypes));
 
-        if (slots == null)
-            throw new ArgumentNullException(nameof(slots));
+        if (squadAnchors == null)
+            throw new ArgumentNullException(nameof(squadAnchors));
 
         _unitTypes = new List<DefenderUnitType>(unitTypes).ToArray();
-        _slots = new List<Vector2>(slots).ToArray();
+        _squadAnchors = new List<Vector2>(squadAnchors).ToArray();
 
         if (_unitTypes.Length == 0)
             throw new ArgumentException("Legalább egy védőegység-típus szükséges.", nameof(unitTypes));
@@ -101,28 +115,58 @@ public sealed class YellowDefenderConfig
                 throw new ArgumentException($"Duplikált védőegység-azonosító: {type.Id}", nameof(unitTypes));
         }
 
-        if (_slots.Length == 0)
-            throw new ArgumentException("Legalább egy védőhely szükséges.", nameof(slots));
+        if (_squadAnchors.Length == 0)
+            throw new ArgumentException("Legalább egy csapathely szükséges.", nameof(squadAnchors));
 
-        if (minSquadDifficulty <= 0)
-            throw new ArgumentOutOfRangeException(nameof(minSquadDifficulty),
-                "A csapat nehézségének pozitívnak kell lennie.");
+        if (minSquadPoints <= 0)
+            throw new ArgumentOutOfRangeException(nameof(minSquadPoints),
+                "A csapat pontjának pozitívnak kell lennie.");
 
-        if (maxSquadDifficulty < minSquadDifficulty)
-            throw new ArgumentOutOfRangeException(nameof(maxSquadDifficulty),
-                "A legnagyobb nehézség nem lehet kisebb a legkisebbnél.");
+        if (minBasePoints < minSquadPoints)
+            throw new ArgumentOutOfRangeException(nameof(minBasePoints),
+                "A bázis legkisebb pontja nem lehet kisebb egy csapat legkisebb pontjánál.");
+
+        if (maxBasePoints < minBasePoints)
+            throw new ArgumentOutOfRangeException(nameof(maxBasePoints),
+                "A bázis legnagyobb pontja nem lehet kisebb a legkisebbnél.");
 
         if (defendedBaseFraction < 0f || defendedBaseFraction > 1f)
             throw new ArgumentOutOfRangeException(nameof(defendedBaseFraction),
                 "A védett bázisok aránya a [0; 1] tartományba kell essen.");
 
-        MinSquadDifficulty = minSquadDifficulty;
-        MaxSquadDifficulty = maxSquadDifficulty;
+        MinBasePoints = minBasePoints;
+        MaxBasePoints = maxBasePoints;
+        MinSquadPoints = minSquadPoints;
         DefendedBaseFraction = defendedBaseFraction;
 
-        if (CheapestCost > MinSquadDifficulty)
+        if (CheapestCost > MinSquadPoints)
             throw new ArgumentException(
-                $"A legolcsóbb védőegység ({CheapestCost}) drágább a legkisebb csapatnehézségnél " +
-                $"({MinSquadDifficulty}), így lehetne üres csapat.");
+                $"A legolcsóbb védőegység ({CheapestCost}) drágább egy csapat legkisebb pontjánál " +
+                $"({MinSquadPoints}), így lehetne üres csapat.");
+    }
+
+    /// <summary>
+    /// Egy adott erősségű sárga bázis összes védőpontja: 1-es erősségnél
+    /// MinBasePoints, 10-esnél MaxBasePoints, közte egyenletesen. Ismeretlen
+    /// (0) erősségnél a legkisebb érték.
+    /// </summary>
+    public int GetBasePoints(int strength)
+    {
+        int clamped = Math.Max(YellowBaseStrength.Min, Math.Min(strength, YellowBaseStrength.Max));
+        double progress = (clamped - YellowBaseStrength.Min) /
+                          (double)(YellowBaseStrength.Max - YellowBaseStrength.Min);
+
+        return MinBasePoints + (int)Math.Round(
+            (MaxBasePoints - MinBasePoints) * progress,
+            MidpointRounding.AwayFromZero);
+    }
+
+    /// <summary>
+    /// Ennyi pontból hány csapat lesz: ahány csapathely van, de mindegyik
+    /// csapatnak legalább MinSquadPoints pont jut.
+    /// </summary>
+    public int GetSquadCount(int basePoints)
+    {
+        return Math.Min(_squadAnchors.Length, basePoints / MinSquadPoints);
     }
 }

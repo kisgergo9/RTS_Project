@@ -6,24 +6,25 @@ using UnityEngine;
 
 public sealed class YellowDefenderTests
 {
-    private static readonly Vector2[] Slots =
+    private static readonly Vector2[] Anchors =
     {
-        new Vector2(-2f, -3f), new Vector2(-1f, -3f), new Vector2(0f, -3f), new Vector2(1f, -3f),
-        new Vector2(-2f, -4f), new Vector2(-1f, -4f), new Vector2(0f, -4f), new Vector2(1f, -4f)
+        new Vector2(-7.5f, 0.5f), new Vector2(-7.5f, -3.5f), new Vector2(-1f, -4.5f)
     };
 
     private static YellowDefenderConfig Defenders(
-        int minDifficulty = 20,
-        int maxDifficulty = 40,
+        int minBasePoints = 15,
+        int maxBasePoints = 60,
+        int minSquadPoints = 5,
         float fraction = 1f,
-        IEnumerable<Vector2> slots = null)
+        IEnumerable<Vector2> anchors = null)
     {
         return new YellowDefenderConfig(
-            new[] { new DefenderUnitType("light", 5), new DefenderUnitType("heavy", 10), new DefenderUnitType("medium", 7) },
-            minDifficulty,
-            maxDifficulty,
+            new[] { new DefenderUnitType("tank", 5), new DefenderUnitType("bigtank", 10) },
+            minBasePoints,
+            maxBasePoints,
+            minSquadPoints,
             fraction,
-            slots ?? Slots);
+            anchors ?? Anchors);
     }
 
     private static WorldGenerator Generator(YellowDefenderConfig defenders)
@@ -31,11 +32,11 @@ public sealed class YellowDefenderTests
         return new WorldGenerator(WorldGenerationTestConfigs.Create(defenders: defenders));
     }
 
-    private static WorldLayout Generate(WorldGenerator generator, int players, int seed)
+    private static WorldLayout Generate(WorldGenerator generator, int players, int seed, int yellow = 20)
     {
         int size = generator.Rules.MaxWorldSize;
         WorldGenerationResult result = generator.Generate(new WorldGenerationRequest(
-            BuildPlayerIds(players), size, 20, 0, seed));
+            BuildPlayerIds(players), size, yellow, 0, seed));
 
         Assert.IsTrue(result.Success, result.ErrorMessage);
         return result.Layout;
@@ -46,33 +47,47 @@ public sealed class YellowDefenderTests
         int[] ids = new int[count];
 
         for (int i = 0; i < count; i++)
-            ids[i] = i;
+            ids[i] = i + 1;
 
         return ids;
     }
 
-    private static Dictionary<int, List<DefenderLayout>> BySquad(WorldLayout layout)
+    private static Dictionary<int, BaseLayout> BasesById(WorldLayout layout)
     {
-        Dictionary<int, List<DefenderLayout>> squads = new Dictionary<int, List<DefenderLayout>>();
+        Dictionary<int, BaseLayout> bases = new Dictionary<int, BaseLayout>();
+
+        foreach (BaseLayout baseLayout in layout.Bases)
+            bases[baseLayout.BaseId] = baseLayout;
+
+        return bases;
+    }
+
+    // Bázisonként, csapatonként csoportosítva.
+    private static Dictionary<int, SortedDictionary<int, List<DefenderLayout>>> BySquad(WorldLayout layout)
+    {
+        Dictionary<int, SortedDictionary<int, List<DefenderLayout>>> result =
+            new Dictionary<int, SortedDictionary<int, List<DefenderLayout>>>();
 
         foreach (DefenderLayout defender in layout.Defenders)
         {
-            if (!squads.TryGetValue(defender.BaseId, out List<DefenderLayout> squad))
-                squads[defender.BaseId] = squad = new List<DefenderLayout>();
+            if (!result.TryGetValue(defender.BaseId, out SortedDictionary<int, List<DefenderLayout>> squads))
+                result[defender.BaseId] = squads = new SortedDictionary<int, List<DefenderLayout>>();
+
+            if (!squads.TryGetValue(defender.SquadIndex, out List<DefenderLayout> squad))
+                squads[defender.SquadIndex] = squad = new List<DefenderLayout>();
 
             squad.Add(defender);
         }
 
-        return squads;
+        return result;
     }
 
     private static int Cost(string id)
     {
         switch (id)
         {
-            case "light": return 5;
-            case "heavy": return 10;
-            case "medium": return 7;
+            case "tank": return 5;
+            case "bigtank": return 10;
             default: throw new ArgumentException(id);
         }
     }
@@ -122,35 +137,92 @@ public sealed class YellowDefenderTests
     // Konfiguráció
 
     [Test]
+    public void BasePoints_GrowFrom15To60WithStrength()
+    {
+        YellowDefenderConfig config = Defenders();
+
+        Assert.AreEqual(15, config.GetBasePoints(1));
+        Assert.AreEqual(60, config.GetBasePoints(10));
+        Assert.AreEqual(35, config.GetBasePoints(5));
+        Assert.AreEqual(15, config.GetBasePoints(0), "Ismeretlen erősség: a legkisebb érték.");
+
+        for (int strength = 2; strength <= 10; strength++)
+            Assert.Greater(config.GetBasePoints(strength), config.GetBasePoints(strength - 1));
+    }
+
+    [Test]
+    public void SquadCount_IsAtMostThreeAndEverySquadGetsTheMinimum()
+    {
+        YellowDefenderConfig config = Defenders();
+
+        Assert.AreEqual(3, config.GetSquadCount(15));
+        Assert.AreEqual(3, config.GetSquadCount(60));
+        Assert.AreEqual(2, config.GetSquadCount(14));
+        Assert.AreEqual(1, config.GetSquadCount(5));
+    }
+
+    [Test]
     public void Config_RejectsInvalidValues()
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => Defenders(minDifficulty: 30, maxDifficulty: 20));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Defenders(minBasePoints: 30, maxBasePoints: 20));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Defenders(minBasePoints: 4, minSquadPoints: 5));
         Assert.Throws<ArgumentOutOfRangeException>(() => Defenders(fraction: 1.5f));
-        Assert.Throws<ArgumentException>(() => Defenders(slots: Array.Empty<Vector2>()));
+        Assert.Throws<ArgumentException>(() => Defenders(anchors: Array.Empty<Vector2>()));
         Assert.Throws<ArgumentException>(() => new YellowDefenderConfig(
-            new[] { new DefenderUnitType("a", 5), new DefenderUnitType("A", 6) }, 20, 40, 1f, Slots));
+            new[] { new DefenderUnitType("a", 5), new DefenderUnitType("A", 6) }, 15, 60, 5, 1f, Anchors));
     }
 
     [Test]
-    public void Config_RejectsBudgetSmallerThanCheapestUnit()
+    public void Config_RejectsSquadMinimumSmallerThanCheapestUnit()
     {
         Assert.Throws<ArgumentException>(() => new YellowDefenderConfig(
-            new[] { new DefenderUnitType("heavy", 10) }, 5, 40, 1f, Slots));
+            new[] { new DefenderUnitType("bigtank", 10) }, 15, 60, 5, 1f, Anchors));
     }
 
     [Test]
-    public void WorldConfig_RejectsSlotOutsideBaseClearArea()
+    public void WorldConfig_RejectsAnchorOutsideBaseClearArea()
     {
         Assert.Throws<ArgumentException>(() => WorldGenerationTestConfigs.Create(
-            defenders: Defenders(slots: new[] { new Vector2(0f, -20f) })));
+            defenders: Defenders(anchors: new[] { new Vector2(0f, -20f) })));
     }
 
     [Test]
-    public void WorldConfig_RejectsSlotInsideBaseFootprint()
+    public void WorldConfig_RejectsAnchorInsideBaseFootprint()
     {
         Assert.Throws<ArgumentException>(() => WorldGenerationTestConfigs.Create(
             terrain: TerrainTestConfigs.Create(),
-            defenders: Defenders(slots: new[] { Vector2.zero })));
+            defenders: Defenders(anchors: new[] { Vector2.zero })));
+    }
+
+    // Pontok felosztása
+
+    [Test]
+    public void SplitPoints_GivesEverySquadTheMinimumAndKeepsTheTotal([Values(15, 16, 37, 60)] int points)
+    {
+        for (int seed = 0; seed < 50; seed++)
+        {
+            int[] shares = WorldGenerator.SplitPoints(points, 3, 5, new DeterministicRandom(seed));
+            int sum = 0;
+
+            foreach (int share in shares)
+            {
+                Assert.GreaterOrEqual(share, 5);
+                sum += share;
+            }
+
+            Assert.AreEqual(points, sum, $"seed={seed}");
+        }
+    }
+
+    [Test]
+    public void SplitPoints_IsRandom()
+    {
+        HashSet<string> splits = new HashSet<string>();
+
+        for (int seed = 0; seed < 20; seed++)
+            splits.Add(string.Join(",", WorldGenerator.SplitPoints(60, 3, 5, new DeterministicRandom(seed))));
+
+        Assert.Greater(splits.Count, 5);
     }
 
     // Generálás
@@ -164,17 +236,24 @@ public sealed class YellowDefenderTests
     }
 
     [Test]
-    public void EveryYellowBaseGetsANonEmptySquad_WhenFractionIsOne()
+    public void EveryYellowBaseGetsThreeNonEmptySquads_WhenFractionIsOne()
     {
         WorldLayout layout = Generate(Generator(Defenders()), 3, 5);
-        Dictionary<int, List<DefenderLayout>> squads = BySquad(layout);
+        Dictionary<int, SortedDictionary<int, List<DefenderLayout>>> squads = BySquad(layout);
 
         foreach (BaseLayout baseLayout in layout.Bases)
         {
-            if (baseLayout.OwnerType == BaseOwnerType.Yellow)
-                Assert.IsTrue(squads.ContainsKey(baseLayout.BaseId), baseLayout.ToString());
-            else
+            if (baseLayout.OwnerType != BaseOwnerType.Yellow)
+            {
                 Assert.IsFalse(squads.ContainsKey(baseLayout.BaseId), $"Játékosbázisnak nincs védőcsapata: {baseLayout}");
+                continue;
+            }
+
+            Assert.IsTrue(squads.ContainsKey(baseLayout.BaseId), baseLayout.ToString());
+            CollectionAssert.AreEqual(new[] { 0, 1, 2 }, squads[baseLayout.BaseId].Keys, baseLayout.ToString());
+
+            foreach (List<DefenderLayout> squad in squads[baseLayout.BaseId].Values)
+                Assert.Greater(squad.Count, 0);
         }
     }
 
@@ -188,57 +267,78 @@ public sealed class YellowDefenderTests
     public void PartialFraction_DefendsSomeYellowBases()
     {
         WorldLayout layout = Generate(Generator(Defenders(fraction: 0.5f)), 2, 9);
-        int squads = BySquad(layout).Count;
+        int defended = BySquad(layout).Count;
 
-        Assert.Greater(squads, 0);
-        Assert.Less(squads, 20);
+        Assert.Greater(defended, 0);
+        Assert.Less(defended, 20);
     }
 
     [Test]
-    public void SquadDifficulty_StaysWithinBudgetAndIsFilled([Values(1, 2, 3, 4, 5)] int seed)
+    public void DefenderPoints_FollowBaseStrength([Values(1, 2, 3, 4, 5)] int seed)
     {
         YellowDefenderConfig config = Defenders();
         WorldLayout layout = Generate(Generator(config), 2, seed);
+        Dictionary<int, BaseLayout> bases = BasesById(layout);
 
-        foreach (KeyValuePair<int, List<DefenderLayout>> squad in BySquad(layout))
+        foreach (KeyValuePair<int, SortedDictionary<int, List<DefenderLayout>>> entry in BySquad(layout))
         {
-            int sum = 0;
+            int basePoints = config.GetBasePoints(bases[entry.Key].Strength);
+            int total = 0;
 
-            foreach (DefenderLayout defender in squad.Value)
-                sum += Cost(defender.UnitTypeId);
+            foreach (List<DefenderLayout> squad in entry.Value.Values)
+            {
+                int squadSum = 0;
 
-            Assert.LessOrEqual(sum, config.MaxSquadDifficulty, $"base {squad.Key}");
+                foreach (DefenderLayout defender in squad)
+                    squadSum += Cost(defender.UnitTypeId);
 
-            // Csak akkor áll meg, ha már egy egység sem fér bele (vagy elfogytak a helyek):
-            // a maradék kisebb a legolcsóbb egységnél.
-            if (squad.Value.Count < config.Slots.Count)
-                Assert.Greater(sum, config.MinSquadDifficulty - config.CheapestCost, $"base {squad.Key}");
+                total += squadSum;
+            }
+
+            // A keret sosem lépődik túl; csapatonként legfeljebb a legolcsóbb
+            // egységnél kisebb maradék vész el.
+            Assert.LessOrEqual(total, basePoints, $"base {entry.Key}");
+            Assert.Greater(total, basePoints - entry.Value.Count * config.CheapestCost, $"base {entry.Key}");
         }
     }
 
     [Test]
-    public void Defenders_UseFixedSlotsInFrontOfTheirBase()
+    public void StrongBases_GetMoreDefendersThanWeakOnes()
+    {
+        WorldLayout layout = Generate(Generator(Defenders()), 2, 3, yellow: 30);
+        Dictionary<int, BaseLayout> bases = BasesById(layout);
+        int weakest = int.MaxValue;
+        int strongest = 0;
+
+        foreach (KeyValuePair<int, SortedDictionary<int, List<DefenderLayout>>> entry in BySquad(layout))
+        {
+            int points = 0;
+
+            foreach (List<DefenderLayout> squad in entry.Value.Values)
+                foreach (DefenderLayout defender in squad)
+                    points += Cost(defender.UnitTypeId);
+
+            if (bases[entry.Key].Strength == 1)
+                weakest = Math.Min(weakest, points);
+
+            if (bases[entry.Key].Strength == 10)
+                strongest = Math.Max(strongest, points);
+        }
+
+        Assert.LessOrEqual(weakest, 15);
+        Assert.Greater(strongest, 45);
+    }
+
+    [Test]
+    public void SquadMembers_StandAtTheirSquadAnchor()
     {
         WorldLayout layout = Generate(Generator(Defenders()), 2, 7);
-        Dictionary<int, BaseLayout> bases = new Dictionary<int, BaseLayout>();
+        Dictionary<int, BaseLayout> bases = BasesById(layout);
 
-        foreach (BaseLayout baseLayout in layout.Bases)
-            bases[baseLayout.BaseId] = baseLayout;
-
-        foreach (KeyValuePair<int, List<DefenderLayout>> squad in BySquad(layout))
+        foreach (DefenderLayout defender in layout.Defenders)
         {
-            HashSet<int> usedSlots = new HashSet<int>();
-
-            for (int i = 0; i < squad.Value.Count; i++)
-            {
-                DefenderLayout defender = squad.Value[i];
-
-                Assert.AreEqual(i, defender.SlotIndex, "A helyek sorban töltődnek fel.");
-                Assert.IsTrue(usedSlots.Add(defender.SlotIndex));
-                Assert.AreEqual(bases[squad.Key].Position + Slots[defender.SlotIndex], defender.Position);
-            }
-
-            Assert.LessOrEqual(squad.Value.Count, Slots.Length);
+            Assert.That(defender.SquadIndex, Is.InRange(0, Anchors.Length - 1));
+            Assert.AreEqual(bases[defender.BaseId].Position + Anchors[defender.SquadIndex], defender.Position);
         }
     }
 
@@ -248,14 +348,17 @@ public sealed class YellowDefenderTests
         WorldLayout layout = Generate(Generator(Defenders()), 2, 11);
         HashSet<string> compositions = new HashSet<string>();
 
-        foreach (List<DefenderLayout> squad in BySquad(layout).Values)
+        foreach (SortedDictionary<int, List<DefenderLayout>> squads in BySquad(layout).Values)
         {
-            List<string> ids = new List<string>();
+            foreach (List<DefenderLayout> squad in squads.Values)
+            {
+                List<string> ids = new List<string>();
 
-            foreach (DefenderLayout defender in squad)
-                ids.Add(defender.UnitTypeId);
+                foreach (DefenderLayout defender in squad)
+                    ids.Add(defender.UnitTypeId);
 
-            compositions.Add(string.Join(",", ids));
+                compositions.Add(string.Join(",", ids));
+            }
         }
 
         Assert.Greater(compositions.Count, 1);
@@ -273,6 +376,7 @@ public sealed class YellowDefenderTests
         for (int i = 0; i < a.Defenders.Count; i++)
         {
             Assert.AreEqual(a.Defenders[i].UnitTypeId, b.Defenders[i].UnitTypeId);
+            Assert.AreEqual(a.Defenders[i].SquadIndex, b.Defenders[i].SquadIndex);
             Assert.AreEqual(a.Defenders[i].Position, b.Defenders[i].Position);
         }
     }
@@ -303,6 +407,12 @@ public sealed class YellowDefenderTests
             Assert.AreNotEqual(UnitType.APC, entry.prefab.Type, entry.id);
         }
 
-        Assert.IsNotNull(settings.ToConfig().Defenders);
+        YellowDefenderConfig config = settings.ToConfig().Defenders;
+
+        Assert.IsNotNull(config);
+        Assert.AreEqual(15, config.MinBasePoints);
+        Assert.AreEqual(60, config.MaxBasePoints);
+        Assert.AreEqual(5, config.MinSquadPoints);
+        Assert.AreEqual(3, config.SquadAnchors.Count);
     }
 }

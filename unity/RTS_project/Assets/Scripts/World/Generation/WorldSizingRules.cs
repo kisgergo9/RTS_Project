@@ -15,6 +15,13 @@ using System;
 /// a MaxBaseCount bázis és a MaxObstacleCount akadály ezzel a kitöltéssel
 /// elfér; kisebb világban a bázisok és az akadályok helyigénye ugyanebben
 /// az arányban osztozik a területen.
+///
+/// Ajánlott (lobby-alapértelmezett) beállítások: a világ oldalhossza a
+/// legkisebb játékosszámnál RecommendedWorldSizeAtMinPlayers, a legnagyobbnál
+/// MaxWorldSize, közte a játékosszámmal egyenletesen nő. Az ajánlott világ
+/// minden bázishelyén bázis áll (a kezdőbázisokon kívül mind sárga), az
+/// akadályok száma pedig a világmérettel egyenletesen nő
+/// RecommendedObstacleCountAtMinPlayers-től MaxObstacleCount-ig.
 /// </summary>
 public sealed class WorldSizingRules
 {
@@ -28,6 +35,7 @@ public sealed class WorldSizingRules
     public int MinPlayerCount => _config.MinPlayerCount;
     public int MaxPlayerCount => _config.MaxPlayerCount;
     public int MaxWorldSize { get; }
+    public int WorldSizeStep => _config.WorldSizeStep;
 
     public WorldSizingRules(WorldGenerationConfig config)
     {
@@ -132,6 +140,48 @@ public sealed class WorldSizingRules
         return new IntRange(min, max);
     }
 
+    // Ajánlott beállítások
+
+    public int GetRecommendedWorldSize(int playerCount)
+    {
+        ValidatePlayerCount(playerCount);
+
+        int start = GetRecommendedStartWorldSize();
+        int span = MaxPlayerCount - MinPlayerCount;
+        double progress = span == 0 ? 1.0 : (playerCount - MinPlayerCount) / (double)span;
+        int size = RoundUpToStep(start + (MaxWorldSize - start) * progress);
+
+        return Math.Max(GetMinWorldSize(playerCount), Math.Min(size, MaxWorldSize));
+    }
+
+    /// <summary>
+    /// A világba férő összes bázishely betöltése: a kezdőbázisokon kívül
+    /// minden bázis sárga.
+    /// </summary>
+    public int GetRecommendedYellowBaseCount(int playerCount, int worldSize)
+    {
+        return GetYellowBaseCountRange(playerCount, worldSize).Max;
+    }
+
+    public int GetRecommendedObstacleCount(int worldSize)
+    {
+        int start = GetRecommendedStartWorldSize();
+        double progress = MaxWorldSize == start
+            ? 1.0
+            : (worldSize - start) / (double)(MaxWorldSize - start);
+
+        progress = Math.Max(0.0, Math.Min(1.0, progress));
+
+        int count = (int)Math.Round(
+            _config.RecommendedObstacleCountAtMinPlayers +
+            (_config.MaxObstacleCount - _config.RecommendedObstacleCountAtMinPlayers) * progress,
+            MidpointRounding.AwayFromZero);
+
+        IntRange range = GetObstacleCountRange(worldSize);
+
+        return Math.Max(range.Min, Math.Min(count, range.Max));
+    }
+
     // Ellenőrzés
 
     /// <summary>
@@ -184,6 +234,14 @@ public sealed class WorldSizingRules
     }
 
     // Belső számítások
+
+    private int GetRecommendedStartWorldSize()
+    {
+        int minimum = GetMinWorldSize(MinPlayerCount);
+        int configured = RoundUpToStep(_config.RecommendedWorldSizeAtMinPlayers);
+
+        return Math.Max(minimum, Math.Min(configured, MaxWorldSize));
+    }
 
     private double GetFillableArea(int worldSize)
     {

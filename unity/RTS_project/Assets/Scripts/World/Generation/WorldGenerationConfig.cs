@@ -35,10 +35,39 @@ public sealed class WorldGenerationConfig
     // Sárga védőcsapatok (opcionális; null esetén nincsenek)
     public YellowDefenderConfig Defenders { get; }
 
+    /// <summary>
+    /// A sárga bázisok erősségi sorrendjét keverő zaj (0 = szigorúan a
+    /// kezdőbázisoktól mért távolság szerint, lásd: YellowBaseStrength).
+    /// </summary>
+    public float YellowStrengthJitter { get; }
+
+    /// <summary>
+    /// A sárga bázisok turretjeinek száma az 1-es, illetve a 10-es
+    /// erősségnél; közte az erősséggel egyenletesen nő.
+    /// </summary>
+    public int MinYellowTurretCount { get; }
+    public int MaxYellowTurretCount { get; }
+
     // Világméret
     public int AbsoluteMinWorldSize { get; }
     public int WorldSizeStep { get; }
     public float TargetFillRatio { get; }
+
+    // Ajánlott (lobby-alapértelmezett) beállítások
+
+    /// <summary>
+    /// Az ajánlott világméret a legkisebb játékosszámnál. A legnagyobb
+    /// játékosszámnál az ajánlott méret a maximális világméret, közte
+    /// egyenletesen nő. 0 = a legkisebb játékosszám minimális világmérete.
+    /// </summary>
+    public int RecommendedWorldSizeAtMinPlayers { get; }
+
+    /// <summary>
+    /// Az ajánlott akadályszám a legkisebb ajánlott világban. A maximális
+    /// világméretnél az ajánlott akadályszám MaxObstacleCount, közte a
+    /// világmérettel egyenletesen nő.
+    /// </summary>
+    public int RecommendedObstacleCountAtMinPlayers { get; }
 
     // Elhelyezés
     public int MaxPlacementAttemptsPerBase { get; }
@@ -71,7 +100,12 @@ public sealed class WorldGenerationConfig
         float startPositionJitter,
         TerrainGenerationConfig terrain = null,
         float obstaclesPer10000Area = 0f,
-        YellowDefenderConfig defenders = null)
+        YellowDefenderConfig defenders = null,
+        int recommendedWorldSizeAtMinPlayers = 0,
+        int recommendedObstacleCountAtMinPlayers = 0,
+        float yellowStrengthJitter = 0.2f,
+        int minYellowTurretCount = 2,
+        int maxYellowTurretCount = 12)
     {
         if (minPlayerCount < 1)
             throw new ArgumentOutOfRangeException(nameof(minPlayerCount),
@@ -148,6 +182,27 @@ public sealed class WorldGenerationConfig
             throw new ArgumentOutOfRangeException(nameof(startPositionJitter),
                 "A kezdőpozíciók szórása nem lehet negatív.");
 
+        if (recommendedWorldSizeAtMinPlayers < 0)
+            throw new ArgumentOutOfRangeException(nameof(recommendedWorldSizeAtMinPlayers),
+                "Az ajánlott világméret nem lehet negatív.");
+
+        if (recommendedObstacleCountAtMinPlayers < 0 ||
+            recommendedObstacleCountAtMinPlayers > maxObstacleCount)
+            throw new ArgumentOutOfRangeException(nameof(recommendedObstacleCountAtMinPlayers),
+                "Az ajánlott akadályszámnak a [0; maxObstacleCount] tartományba kell esnie.");
+
+        if (yellowStrengthJitter < 0f || yellowStrengthJitter > 1f)
+            throw new ArgumentOutOfRangeException(nameof(yellowStrengthJitter),
+                "A sárga bázisok erősségi zajának a [0; 1] tartományba kell esnie.");
+
+        if (minYellowTurretCount < 0)
+            throw new ArgumentOutOfRangeException(nameof(minYellowTurretCount),
+                "A turretek száma nem lehet negatív.");
+
+        if (maxYellowTurretCount < minYellowTurretCount)
+            throw new ArgumentOutOfRangeException(nameof(maxYellowTurretCount),
+                "A turretek legnagyobb száma nem lehet kisebb a legkisebbnél.");
+
         MinPlayerCount = minPlayerCount;
         MaxPlayerCount = maxPlayerCount;
         MaxBaseCount = maxBaseCount;
@@ -166,6 +221,11 @@ public sealed class WorldGenerationConfig
         PlayerRingRadiusFraction = playerRingRadiusFraction;
         StartPositionJitter = startPositionJitter;
         ObstaclesPer10000Area = obstaclesPer10000Area;
+        RecommendedWorldSizeAtMinPlayers = recommendedWorldSizeAtMinPlayers;
+        RecommendedObstacleCountAtMinPlayers = recommendedObstacleCountAtMinPlayers;
+        YellowStrengthJitter = yellowStrengthJitter;
+        MinYellowTurretCount = minYellowTurretCount;
+        MaxYellowTurretCount = maxYellowTurretCount;
 
         if (terrain != null)
             ValidateTerrain(terrain);
@@ -179,21 +239,38 @@ public sealed class WorldGenerationConfig
     }
 
     /// <summary>
-    /// A védőhelyeknek a bázis szabad területén belül, de a bázis tiltott
+    /// Egy adott erősségű sárga bázis turretjeinek száma: 1-es erősségnél
+    /// MinYellowTurretCount, 10-esnél MaxYellowTurretCount, közte egyenletesen
+    /// (alapértékekkel: 2, 3, 4, 5, 6, 8, 9, 10, 11, 12). Ismeretlen (0)
+    /// erősségnél a legkisebb érték.
+    /// </summary>
+    public int GetYellowTurretCount(int strength)
+    {
+        int clamped = Math.Max(YellowBaseStrength.Min, Math.Min(strength, YellowBaseStrength.Max));
+        double progress = (clamped - YellowBaseStrength.Min) /
+                          (double)(YellowBaseStrength.Max - YellowBaseStrength.Min);
+
+        return MinYellowTurretCount + (int)Math.Round(
+            (MaxYellowTurretCount - MinYellowTurretCount) * progress,
+            MidpointRounding.AwayFromZero);
+    }
+
+    /// <summary>
+    /// A csapathelyeknek a bázis szabad területén belül, de a bázis tiltott
     /// területén kívül kell lenniük.
     /// </summary>
     private void ValidateDefenders(YellowDefenderConfig defenders, TerrainGenerationConfig terrain)
     {
-        foreach (UnityEngine.Vector2 slot in defenders.Slots)
+        foreach (UnityEngine.Vector2 anchor in defenders.SquadAnchors)
         {
-            if (slot.magnitude > BaseClearRadius)
+            if (anchor.magnitude > BaseClearRadius)
                 throw new ArgumentException(
-                    $"A védőhely ({slot}) a bázis szabad területén kívül esik " +
+                    $"A csapathely ({anchor}) a bázis szabad területén kívül esik " +
                     $"(BaseClearRadius = {BaseClearRadius}).");
 
-            if (terrain != null && terrain.BaseFootprint.Contains(slot))
+            if (terrain != null && terrain.BaseFootprint.Contains(anchor))
                 throw new ArgumentException(
-                    $"A védőhely ({slot}) a bázis tiltott területén belül van.");
+                    $"A csapathely ({anchor}) a bázis tiltott területén belül van.");
         }
     }
 

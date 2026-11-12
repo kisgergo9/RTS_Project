@@ -1,0 +1,79 @@
+Lobby és mérkőzésindítás – az osztályok bemutatása
+
+CÉL ÉS SZEREP
+	A lobby a többjátékos mérkőzés előszobája (specifikáció: 3. A mérkőzés létrehozása és indítása). A host beállítja a játékoshelyek számát, a világ méretét és a sárga bázisok számát, a többiek IP-cím alapján csatlakoznak és elfoglalják a helyeket. Ha minden hely foglalt, a host elindítja a mérkőzést: legenerálja a világot, elküldi a klienseknek, és mindenki ugyanazt a pályát építi fel.
+
+	Az architektúra host-authoritative: a lobby állapotát és a világot egyedül a host határozza meg, a kliensek csak megjelenítik. A hálózati réteg nem tartalmaz saját játékszabályt: a beállítások érvényességét a WorldSizingRules, a világot a WorldGenerator adja.
+
+	Hálózat: Netcode for GameObjects 2.4 + Unity Transport, közvetlen IP-cím alapú csatlakozás (alapértelmezett port: 7777). Automatikus LAN-felderítés még nincs.
+
+A FOLYAMAT
+	1. Főmenü → Host: a MatchLobby jelenet nyílik meg. A lobby elindítja a hálózati hostot, és kiírja a gép helyi IP-címét.
+	2. Főmenü → Join: a MatchJoin jelenet nyílik meg. A játékos megadja a host címét (pl. 192.168.0.12 vagy 192.168.0.12:7777), és csatlakozik.
+	3. A host elfogadja a csatlakozást, ha van nyitott lobby és szabad hely; a kliens az első szabad helyet kapja („Játékos N”). A kliens automatikusan a host jelenetét, a lobbyt tölti be.
+	4. A host minden változáskor (játékosszám, világméret, sárga bázisok, csatlakozás, kilépés) elküldi a lobby pillanatképét minden kliensnek.
+	5. Indítás (csak a hoston, ha minden hely foglalt): a host új, véletlen seeddel legenerálja a világot, minden kliensnek elküldi az indítóüzenetet (a saját játékosazonosítójával és a kész világgal), lezárja a lobbyt, és a kliensekkel együtt betölti a Match jelenetet.
+	6. A Match jelenetben a MatchStarter átadja a világot és a játékosokat a GameBootstrappernek, amely a megszokott módon felépíti a pályát. Mindenkinél a saját bázisa zöld, a többi játékosé piros, a sárga bázisok sárgák; a kamera a saját kezdőbázisra áll.
+
+	„1 játékos teszt”: a lobbyból hálózat nélkül a világgenerálás tesztjelenete (Test_WorldGeneration) nyílik meg.
+
+AZ OSZTÁLYOK
+	LobbyState (Scripts/Application/Match):
+		A lobby állapota a hoston, Unity nélkül tesztelhető. Játékoshelyek (azonosító 1-től a játékosszámig, az 1-es a hosté), játékosszám (2–10), világméret, sárga bázis- és akadályszám. A beállítások mindig a WorldSizingRules tartományán belül maradnak: játékosszám-változáskor a világméret, világméret-változáskor a sárga bázisok és az akadályok az ajánlott értékre állnak. A játékosszám nem csökkenthető a legutolsó foglalt hely alá. A Changed esemény minden változáskor jelez. A CreateRequest a generálási kérést állítja elő (csak teljes lobbyval).
+
+	LobbySnapshot (Scripts/Networking/Lobby):
+		A lobby pillanatképe hálózati üzenetként (INetworkSerializable): a beállítások, a csúszkák tartományai, a helyek nevei és a címzett saját játékosazonosítója. A felület a hoston is ebből jelenik meg. Beolvasáskor legfeljebb 64 helyet fogad el.
+
+	NetworkSession (Scripts/Networking/Lobby):
+		Statikus belépési pont: StartHost, StartClient, Shutdown. A NetworkManagert (Unity Transport, jelenetkezelés, csatlakozás-jóváhagyás) első használatkor kódból hozza létre, így egyik jelenetnek sem kell tartalmaznia, és jelenetváltáskor megmarad. A csatlakozási kísérlet kb. 5 másodperc után sikertelennek számít. A GetLocalIPv4Addresses a gép helyi címeit adja. A LastDisconnectReason a legutóbbi kapcsolatbontás oka, amelyet a csatlakozási képernyő kiír.
+
+	LobbyNetwork (Scripts/Networking/Lobby):
+		A NetworkManager GameObjectjén lévő komponens.
+		Host: a csatlakozást csak nyitott lobbyba és szabad helyre engedi („A lobby megtelt.”, „Nincs nyitott lobby, vagy a mérkőzés már elindult.”); a csatlakozott kliensnek lefoglalja az első szabad helyet, kilépéskor felszabadítja; a lobby minden változásakor elküldi a pillanatképet (RTS.Lobby.State üzenet). A TryStartMatch elküldi az indítóüzenetet (RTS.Match.Start, tördelhető csatornán), lezárja a lobbyt, és betölti a mérkőzés jelenetét a NetworkSceneManagerrel.
+		Kliens: fogadja a pillanatképet (LatestSnapshot, SnapshotReceived) és az indítóüzenetet (MatchSetup.Current), és jelzi a kapcsolat megszakadását (Disconnected). A Netcode angol üzenetei helyett magyar okot ad („A host bezárta a lobbyt.”, „Megszakadt a kapcsolat a hosttal.”). Csak a hosttól érkező üzenetet fogad el.
+
+	MatchStartMessage (Scripts/Networking/Lobby):
+		Az indítóüzenet: a címzett játékosazonosítója, a játékosok azonosítója és neve, valamint a világ (WorldGenerationMessage). A legnagyobb világgal együtt kb. 6 KB.
+
+	MatchSetup (Scripts/Application/Match):
+		A mérkőzés adatai: játékosok, helyi játékos, a világ pillanatképe. Ellenőrzi, hogy a helyi játékos a játékosok között van, nincs duplikált azonosító, és a világ játékosai megegyeznek a mérkőzésével. A Current a betöltés alatt álló mérkőzés (a hoston a lobby, a klienseken az indítóüzenet állítja be).
+
+	MatchStarter (Scripts/Application/Match):
+		A Match jelenet indítója. A GameBootstrappert tartalmazó World GameObject a jelenetben inaktívan van mentve. A MatchStarter megvárja a MatchSetup.Current-et (legfeljebb 10 másodpercig), átadja a világot a WorldGenerationSetup-nak (UsePresetLayout), a játékosokat és a helyi játékost a GameBootstrappernek (ConfigureMatch), majd bekapcsolja a World GameObjectet. Végül a kamerát a helyi játékos kezdőbázisára állítja. A kliensen kapcsolatvesztéskor visszatér a csatlakozási képernyőre.
+
+	MatchLobbyController, MatchJoinController (Scripts/Presentation/UI):
+		A lobby és a csatlakozási képernyő felülete. A lobby a hoston szerkeszthető, a kliensen csak megjelenít (a csúszkák nem mozdíthatók, az „1 játékos teszt” és az Indítás gomb rejtett). A csatlakozási képernyő „cím” vagy „cím:port” alakú bemenetet fogad el.
+
+	Kapcsolódó változások:
+		- WorldSizingRules: ajánlott világméret, sárga bázis- és akadályszám játékosszám szerint (lásd: WorldGenerator – az osztály bemutatása.txt, AJÁNLOTT BEÁLLÍTÁSOK).
+		- WorldGenerationSetup.UsePresetLayout: a hosttól kapott világ használata generálás helyett.
+		- WorldGenerator.WithDefenders: a sárga védőcsapatok nem utaznak a hálózaton; a kliens a seedből és a bázisokból determinisztikusan, pontosan ugyanazokat számolja ki, mint a host.
+		- GameBootstrapper.ConfigureMatch (Gergő fájlja, csak hozzáadás): a lobby játékosai és a helyi játékos megadása az inicializálás előtt. Ha senki nem hívja (pl. a tesztjelenetben), a GameBootstrapper változatlanul működik.
+
+JELENETEK
+	Assets/Scenes (mind a Build Settings listájában, a .gitignore *.unity szabálya miatt kifejezetten hozzáadva):
+	- MatchLobby.unity: a lobby (MatchLobbyController).
+	- MatchJoin.unity: a csatlakozási képernyő (MatchJoinController).
+	- Match.unity: a mérkőzés. A Test_WorldGeneration másolata: a World GameObject inaktív, a Players lista üres, a MatchStarter kapcsolja be.
+	A MainMenu Host gombja a MatchLobby, a Join gombja a MatchJoin jelenetet nyitja meg. A Lobby.unity és a Game.unity (Gergő üres jelenetei) nincsenek használatban.
+
+KIPRÓBÁLÁS EGY GÉPEN
+	1. Windows build (File → Build Profiles → Windows → Build), például a projektmappán belüli Builds mappába (a .gitignore kizárja).
+	2. Az editorban: MainMenu → Play → Host.
+	3. A buildelt játékban: Join → 127.0.0.1 → Csatlakozás.
+	4. Az editorban: Indítás.
+	Két gépen ugyanez, csak a Join képernyőn a lobbyban kiírt IP-címet kell megadni (a Windows tűzfal első alkalommal rákérdezhet).
+
+TESZTEK
+	Assets/Tests/EditMode/Editor/Match:
+	- LobbyStateTests: kezdőállapot, játékosszám, világméret és sárga bázisok korlátai, ajánlott értékek, helyfoglalás és -felszabadítás, generálási kérés.
+	- LobbySnapshotTests: pillanatkép, hálózati oda-vissza alakítás, hibás üzenet elutasítása, a helylista szövege, a kapcsolatbontás okának fordítása, a cím feldolgozása.
+	- MatchSetupTests: mérkőzésadat a lobbyból, ellenőrzések, indítóüzenet oda-vissza, a védőcsapatok újraszámolása, a kapott világ használata, a Match jelenet beállítása.
+	Assets/Tests/EditMode/Editor/UI: MainMenuTests, MatchLobbyTests (a jelenetek és a Build Settings).
+	A hálózati működést két példánnyal (editor + Windows build, 127.0.0.1) próbáltuk ki: csatlakozás, a beállítások szinkronizálása, kilépés és újracsatlakozás, teli lobby, a host kilépése, a mérkőzés indítása (mindkét oldalon azonos világ, helyes zászlószínek).
+
+ISMERT KORLÁTOK ÉS KÖVETKEZŐ LÉPÉSEK
+	- A mérkőzés indítása után csak a világ szinkronizált; az egységek, parancsok és a játékállapot szinkronizálása külön feladat. A sárga védőegységeket minden gép a saját példányában hozza létre.
+	- Ha a mérkőzés közben a host kilép, a kliens visszatér a csatlakozási képernyőre; a kieső kliens kezelése (és a mentés) még nincs megoldva.
+	- Játékosnév megadása még nincs, a nevek „Játékos N” alakúak.
+	- A buildelt játékban jelenleg a BuildingView (Zsófi kódja) nem találja a „RTS/WhiteSilhouette” shadert, mert az nincs a buildben; emiatt a bázisok felépítése hibára fut. A javítás (material-hivatkozás vagy az Always Included Shaders lista) Zsófi döntése. Az editorban a hiba nem jelentkezik.
