@@ -2,29 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// A sárga bázisok erősségének (1–10) kiosztása.
-///
-/// Az erősségek egyenletesen oszlanak el: a leggyengébb bázis 1-es, a
-/// legerősebb 10-es, a többi arányosan közte (10-nél kevesebb vagy több sárga
-/// bázis esetén is). Hogy a játék elején ne legyen erős bázis közvetlenül egy
-/// játékos mellett, a sorrendet a legközelebbi kezdőbázistól mért távolság
-/// adja: a közeliek gyengébbek, a távoliak erősebbek. A sorrendet véletlen
-/// zaj keveri (Jitter: a sorrendben elfoglalt relatív hely legfeljebb ennyivel
-/// tolódhat el), így a kiosztás nem teljesen kiszámítható.
-///
-/// Garancia: 0,2-es zaj mellett a kezdőbázisokhoz legközelebbi sárga bázis
-/// erőssége legfeljebb 5.
-/// </summary>
+// A sárga bázisok erőssége (1–10): a kezdőbázisokhoz közeliek gyengébbek.
 public static class YellowBaseStrength
 {
     public const int Min = 1;
     public const int Max = 10;
 
-    /// <summary>
-    /// Az erősségek a sárga bázisok sorrendjében. A véletlenszámok sorrendje
-    /// rögzített, így ugyanabból a bemenetből mindig ugyanaz az eredmény.
-    /// </summary>
+    // Az erősségek a sárga bázisok sorrendjében.
     public static int[] Assign(
         IReadOnlyList<Vector2> yellowPositions,
         IReadOnlyList<Vector2> playerPositions,
@@ -71,10 +55,7 @@ public static class YellowBaseStrength
         return strengths;
     }
 
-    /// <summary>
-    /// A sorrend adott helyéhez tartozó erősség: az első 1-es, az utolsó
-    /// 10-es, a többi egyenletesen közte. Egyetlen sárga bázis 1-es.
-    /// </summary>
+    // A sorrend adott helyéhez tartozó erősség (első: 1, utolsó: 10).
     public static int StrengthAt(int position, int count)
     {
         if (count <= 1)
