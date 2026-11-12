@@ -121,7 +121,7 @@ public sealed class WorldGeneratorTests
 
         WorldLayout layout = GenerateOrFail(request);
 
-        Assert.AreEqual(5, WorldGenerator.Version);
+        Assert.AreEqual(6, WorldGenerator.Version);
         Assert.AreEqual(ExpectedKnownLayoutFingerprint, Fingerprint(layout));
     }
 

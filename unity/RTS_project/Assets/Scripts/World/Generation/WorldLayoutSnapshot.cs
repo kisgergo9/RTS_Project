@@ -36,7 +36,8 @@ public static class WorldLayoutSnapshot
                 x = baseLayout.Position.x,
                 y = baseLayout.Position.y,
                 ownerType = baseLayout.OwnerType,
-                playerId = baseLayout.PlayerId
+                playerId = baseLayout.PlayerId,
+                strength = baseLayout.Strength
             };
         }
 
@@ -100,7 +101,8 @@ public static class WorldLayoutSnapshot
                     $"A(z) {placement.baseId}. bázis tulajdonosa nem résztvevő játékos: " +
                     $"{placement.playerId}", nameof(state));
 
-            bases.Add(new BaseLayout(placement.baseId, position, placement.ownerType, placement.playerId));
+            bases.Add(new BaseLayout(
+                placement.baseId, position, placement.ownerType, placement.playerId, placement.strength));
         }
 
         List<TerrainFeatureLayout> obstacles = FromStates(state.obstacles, bounds, "akadály");

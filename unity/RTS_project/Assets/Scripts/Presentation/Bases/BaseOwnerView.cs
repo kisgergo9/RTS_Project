@@ -73,11 +73,10 @@ public class BaseOwnerView : MonoBehaviour
         }
     }
 
-    // Fal csak játékos tulajdonú bázison van (a kezdőbázison, illetve
-    // elfoglaláskor épül fel). Sárga és gazdátlan bázison nincs fal.
+    // Gazdátlan bázison nincs fal.
     private void ShowWall(BaseOwner owner)
     {
-        wall.SetActive(owner.Type == BaseOwnerType.Player);
+        wall.SetActive(owner.Type != BaseOwnerType.None);
     }
 
     private void ShowOwnerText(BaseOwner owner)
